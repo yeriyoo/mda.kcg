@@ -1,0 +1,153 @@
+
+@charset "utf-8";
+
+#wrap {
+    //* tool-bar */
+    #tool {
+        .toolBar {
+            position: absolute;
+            top: 5.9rem;
+            right: .9rem;
+            width: 3rem;
+            height: 41rem;
+            z-index: 95;
+        }
+
+        .control {
+            position: absolute;
+            bottom: 1.8rem;
+            right: .9rem;
+            width: 3rem;
+            height: 20rem;
+        }
+
+        .toolItem {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            &.space {
+            li {
+                margin-bottom: .5rem;
+            }
+            }
+
+            &.zoom {
+            li {
+                height: 3rem;
+
+                &.num {
+                background-color: var(--white);
+                color: var(--gray-scale1);
+                border-left: 1px solid rgba(var(--secondary6-rgb), .8);
+                border-right: 1px solid rgba(var(--secondary6-rgb), .8);
+                font-size: var(--fs-m);
+                }
+
+                button {
+                padding-bottom: 0;
+                }
+            }
+            }
+
+            li {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 3rem;
+                height: 4.2rem;
+                background-color: rgba(var(--secondary6-rgb), .8);
+
+                button {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    height: 100%;
+                    padding-bottom: .2rem;
+                    cursor: pointer;
+                    text-align: center;
+                    font-size: var(--fs-xxs);
+                    color: var(--white);
+                    background-repeat: no-repeat;
+                    background-position: top left;
+                    background-size: 3rem;
+
+                    &:hover,
+                    &.active {
+                        background-color: rgba(var(--primary1-rgb), .8);
+                    }
+
+                    &::before {
+                    content: "";
+                    flex-shrink: 0;
+                    width: 3rem;
+                    height: 3rem;
+                    }
+
+                    &.tool01 { background-image: url(../assets/images/ico_tool01.svg); }
+                    &.tool02 { background-image: url(../assets/images/ico_tool02.svg); }
+                    &.tool03 { background-image: url(../assets/images/ico_tool03.svg); }
+                    &.tool04 { background-image: url(../assets/images/ico_tool04.svg); }
+                    &.tool05 { background-image: url(../assets/images/ico_tool05.svg); }
+                    &.tool06 { background-image: url(../assets/images/ico_tool06.svg); }
+                    &.tool07 { background-image: url(../assets/images/ico_tool07.svg); }
+                    &.tool08 { background-image: url(../assets/images/ico_tool08.svg); }
+
+                    &.zoomin   { background-image: url(../assets/images/ico_plus.svg); }
+                    &.zoomout  { background-image: url(../assets/images/ico_minus.svg); }
+                    &.legend   { background-image: url(../assets/images/ico_legend.svg); }
+                    &.minimap  { background-image: url(../assets/images/ico_minimap.svg); }
+                }
+            }
+        }
+        // 범례
+        .legendWrap {
+            position: fixed;
+            right: 5rem;
+            bottom: 5rem;
+
+            .legendList {
+                display: flex;
+                flex-direction: column;
+                width: 14rem;
+                height: auto;
+                border-radius: .5rem;
+                background-color: var(--gray-scale3);
+                padding: .7rem;
+                gap: .4rem;
+
+                li {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                &.legendItem {
+                    padding: .5rem 0;
+                    border-bottom: 1px solid var(--gray-scale7);
+                }
+
+                .legendLabel {
+                    display: flex;
+                    align-items: center;
+                    gap: .2rem;
+                    font-size: var(--fs-s);
+                    font-weight: var(--fw-bold);
+
+                    img {
+                    width: 1.6rem;
+                    height: 1.6rem;
+                    }
+                }
+
+                .legendValue {
+                    font-size: var(--fs-s);
+                    font-weight: var(--fw-heavy);
+                }
+                }
+            }
+        }
+
+    }
+}

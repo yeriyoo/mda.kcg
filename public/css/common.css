@@ -1,0 +1,309 @@
+/* row-설정 */
+.row {display: flex; align-items: center;width: 100%;}
+.rowC {display: flex; flex-direction: column;}
+.rowSB {display: flex; justify-content: space-between;align-items: center; width: 100%;}
+.rowL {display: flex; align-items: center; justify-content: flex-start;}
+.rowR {display: flex; align-items: center; justify-content: flex-end;}
+
+/* =========================
+   UI - 탭스타일
+========================= */
+.tabDefault{display:flex;width:100%;}
+.tabDefault button{flex:1;box-sizing:border-box;font-size:var(--fs-ml);color:#9B9EA8;height:4.8rem;font-weight:var(--fw-bold);background-color:var(--secondary1);border:1px solid var(--secondary3);}
+.tabDefault button+button{margin-left:-1px;}
+.tabDefault button.on{color:var(--white);background-color:var(--primary1);}
+[data-tab-content][hidden] {display: none;}
+/* 탭버튼 - bordeless */
+.tabDefault.borderLess button {height: 4.2rem; border: 0; background-color: var(--tertiary1); font-weight: var(--fw-regular);}
+.tabDefault.borderLess button.on {background-color: var(--secondary2);font-weight:var(--fw-bold);}
+
+/**** 폼그룹 ****/
+.formGroup > ul{width:100%;}
+.formGroup > ul > li{display:flex;gap:.8rem;}
+.formGroup > ul li+li{margin:.8rem 0;}
+.formGroup > ul li .col{flex:1;}
+.formGroup > ul li label {display: flex; align-items: center; flex: 1 1 50%;}
+.formGroup > ul li label span {flex-shrink: 0;width: 7rem; color: var(--white);}
+.formGroup > ul li label select, .formGroup > ul li label input, 
+.formGroup > ul li label .numInput {flex: 1;}
+.formGroup > ul li label .labelRow {flex: 1; display: flex; align-items: center; gap: .5rem; color: var(--white);}
+.formGroup > ul li label .labelRow > span{flex-shrink: 0; width: initial;}
+.formGroup > ul li label .labelRow > input, .formGroup > ul li label .labelRow > .numInput {flex: 1;}
+.formGroup > ul li.fgBtn { justify-content: flex-end; padding: 1rem 0 1.5rem;}
+/* 폼그룹 label width변경 */
+.formGroup > ul.lagelW12 li label > span {flex-shrink: 0;width: 12rem; color: var(--white);}
+/* 폼그룹 아코디언 */
+.formGroup > ul > .accordion {max-height: 0; overflow: hidden;transition: max-height .3s ease;}
+.formGroup > ul > .accordion.is-open {max-height: 1000px;}
+.formGroup > ul > .accordion li {display:flex;gap:.8rem;}
+
+/* 박스그룹 */
+.schbox ul {display: flex;width: 100%;}
+.schbox ul li:first-child {flex: 1;}
+.schbox ul li:last-child {width: 9rem;}
+.schbox ul li button {margin-left: 1rem;}
+
+.boxGroup {display: flex; width: 100%;}
+
+/* UI-input */
+.schInput{height: 3.5rem; font-family: 'NanumSquare', sans-serif;font-size: var(--fs-m); color: var(--white);background-color: var(--tertiary1);padding: 0 1.2rem; border: 0;}
+.schInput::placeholder { color:rgba(var(--white-rgb),.3); }
+.dateInput {background:url(/images/ico_input_cal.svg) no-repeat center right .5rem/2.4rem; padding-right: 3rem; cursor: pointer;}
+.dateInput::placeholder { color:var(--white); }
+
+/* 버튼Wrap */
+.btnWrap {display: flex;flex-direction: row;justify-content: space-between;align-items: center; gap: 1rem; width: 100%; padding: 1rem 0;}
+.popBtnWrap {display: flex;justify-content:center;align-items: center; gap: 1rem; width: 100%; padding: 1rem 0;}
+.popBtnWrap > .btn { flex: 0 0 14rem;}
+/* =========================
+   UI - 버튼
+========================= */
+.btn { min-width: 14rem; height: 4.2rem; flex: 1; display:flex;align-items:center; justify-content:center;font-size: var(--fs-ml);font-weight: var(--fw-bold); }
+.btnM {height: 4rem !important; font-weight: var(--fw-regular);}
+.btnS { width: 100%; height: 3.2rem !important;font-size: var(--fs-m); color: var(--white); font-weight: normal;}
+.btnLine {border: .1rem solid var(--secondary4); }
+.basic {background-color: var(--primary1);}
+.semi { background-color: var(--secondary6); }
+.dark {background-color: var(--tertiary1);}
+.deep {background-color: var(--secondary1);}
+
+.btnToggle {display: inline-flex;gap: .6rem;}
+.btnToggle::after {content: '';width: 1.8rem;height: 1.8rem;background: url('/images/ico_arrow_down_s.svg') no-repeat center / contain;flex-shrink: 0;transition: transform .2s ease;}
+.btnToggle.is-open::after {transform: rotate(180deg);}
+.schBtn {width: 8rem; height: 3.5rem;display:flex;align-items:center; justify-content:center;font-size: var(--fs-ms);font-weight: var(--fw-bold); background-color: var(--primary1); color: var(--white);}
+.schBtn::before {content: "";display: inline-block; width: 1.4rem; height: 1.4rem; margin-right: 1rem;background:url('/images/ico_btnsch.svg') no-repeat center center/ 1.4rem; }
+
+/* =========================
+   리스트
+========================= */
+/* 라인리스트 */
+.lineList {display: flex;flex-direction: column;}
+.lineList > li {display: flex; align-items:center; justify-content: flex-start; border-bottom: 1px solid rgba(var(--secondary4-rgb),.3); padding:1.4rem 1rem;}
+.lineList > li.rowSB {justify-content: space-between;}
+.lineList > li .row {display: flex; align-items: center; width: auto; gap:1.5rem;}
+/* bg리스트 */
+.optionList {display: flex;flex-direction: column;gap: .6rem; width: 100%;background-color: var(--tertiary1);padding: 1rem;}
+.optionList > li {display: flex;justify-content: space-between;}
+/* hover 리스트 */
+.colList {display: flex;flex-direction: column; gap: .8rem;}
+.colList li { width: 100%;display: flex;align-items: center;justify-content: flex-start;}
+.colList > li a:hover, .colList > li a.active  {background-color: var(--secondary3); border: solid 2px var(--primary1);}
+.colList li a {width: 100%; height:auto;background-color: var(--secondary1);border: solid 2px transparent; border-radius: .6rem; padding: 1rem 1.2rem;}
+
+.colList.line li a {display: flex;align-items: center;justify-content: flex-start;height: 4rem; gap: .8rem;}
+.colList.line li a > i {margin-right: .7rem;}
+.colList.line li a > span { color: var(--white); font-weight: var(--fw-bold);}
+.colList.line li a > span:nth-of-type(4) {font-weight:normal;}
+.colList.line li a > span.legend{margin-left:auto;display:flex;align-items:center;}
+.colList.line li a > span .flagIcon{width:2.6rem;height:auto;display:block;}
+.colList.line li a > span .legendShip{width:2.4rem;height:auto;display:block;}
+
+.colList.lineSB li a {display: flex;align-items: center;justify-content: space-between;height: 4rem; gap: .8rem;}
+.colList.lineSB li a .title {font-size: var(--fs-m); font-weight: var(--fw-bold);}
+.colList.lineSB li a .meta {font-size: var(--fs-s); font-weight: var(--fw-regular); color:rgba(var(--white-rgb),.5);}
+
+/* 아코디언리스트 */
+.accordionWrap {display: flex;flex-direction: column;transition: max-height 0.3s ease;}
+.accordionWrap .acdHeader {display: flex; justify-content: space-between; align-items: center; height: 4rem; background-color: var(--secondary1); padding: 1rem; border-bottom: .1rem solid var(--secondary3);}
+.accordionWrap .acdHeader > .title {font-weight: var(--fw-bold);}
+.acdListBox {max-height: 0; overflow: hidden; transition: max-height 0.3s ease;}
+.acdListBox.open {max-height: 50rem;}
+.acdList {display: flex; flex-direction: column;}
+.acdList > li { display: flex; align-items: center; min-height: 4rem; border-bottom: .1rem solid var(--secondary4); padding: 1rem 0 1rem 1rem;}
+.acdList > li.state {gap: 2rem; }
+
+.acdList.input > li.input label {display: flex; align-items: center; flex: 1 1 50%;}
+.acdList.input > li.input label span {flex-shrink: 0;width: 9.5rem; color: var(--white);}
+.acdList.input > li.input label input {flex: 1;}
+.acdList.check > li.check {border-color: rgba(var(--secondary4-rgb),.3); } 
+
+.toggleListBtn {display: flex;align-items: center;width: 2.4rem;height: 2.4rem;background: url('/images/ico_arrow_toggle_down.svg') no-repeat center / contain;transition: transform 0.3s ease;}
+.toggleListBtn.open {transform: rotate(180deg);}
+
+
+/* .shipList {display: flex;flex-direction: column;gap: .8rem;}
+.shipList > li, .shipList > li a {width: 100%; height: 4rem; display: flex;align-items: center;justify-content: flex-start;}
+.shipList > li a:hover, .shipList > li a.active {background-color: var(--secondary3); border: solid 2px var(--primary1);}
+.shipList > li a {background-color: var(--secondary1);border: solid 2px transparent; border-radius: .6rem; padding: 1rem 1.2rem;}
+.shipList > li a > i {margin-right: .7rem;}
+.shipList > li a > span { color: var(--white); font-weight: var(--fw-bold);}
+.shipList > li a > span:nth-of-type(4) {font-weight:normal;}
+.shipList > li a > span.legend{margin-left:auto;display:flex;align-items:center;}
+.shipList > li a > span .flagIcon{width:2.6rem;height:auto;display:block;}
+.shipList > li a > span .legendShip{width:2.4rem;height:auto;display:block;}
+.shipList > li a > span + span { padding: 0 .5rem;} */
+
+/* 사이드패널 - 배정보 */
+.shipDetailList {display: flex;flex-direction: column;gap: .8rem;}
+.shipDetailList > li {width: 100%; height:auto;background-color: var(--secondary1);border: solid 2px transparent; border-radius: .6rem; padding: 1rem 1.2rem;}
+.shipDetailList > li:hover, .shipDetailList > li.active {border: solid 2px var(--primary1);}
+
+.shipDetail {display: flex;flex-direction: column; gap: .4rem;}
+.shipDetail > li {display: flex;align-items: flex-start; width: 100%;}
+.shipDetail > li.shipHeader {display:flex;align-items:center;justify-content:space-between;}
+.shipDetail > li.shipHeader > .headerL,
+.shipDetail > li.shipHeader > .headerR {display:flex;align-items:center;gap:.7rem;color:var(--white);}
+.shipDetail > li.shipHeader .name {font-size: var(--fs-ml); font-weight:var(--fw-bold);}
+.shipDetail > li.shipHeader .type {font-size: var(--fs-ml); font-weight:var(--fw-bold);color:var(--primary1);}
+.shipDetail > li.shipHeader .num {font-size: var(--fs-m); font-weight:var(--fw-bold);}
+.shipDetail > li.shipHeader .icoArrow {width:2rem;height:2rem;background:url('/images/ico_arrow_right_rnd_off.svg') no-repeat center/contain;}
+.shipDetail > li.shipHeader .icoArrow:hover {background:url('/images/ico_arrow_right_rnd_on.svg') no-repeat center/contain;}
+.shipDetail > li > span {display: flex; color: var(--white);}
+.shipDetail > li > .tit { font-size: var(--fs-ml);font-weight: var(--fw-bold);}
+.shipDetail > li > .label{min-width:9rem;flex-shrink: 0; font-weight:var(--fw-regular);}
+.shipDetail > li > .value {flex:1;font-weight:var(--fw-bold);position:relative;padding-left:1.2rem;}
+.shipDetail > li > .value::before {content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:1.3rem;background-color:var(--white);}
+
+/* ship-map */
+.shipMapContainer {position: absolute;display: flex;flex-direction: column;gap: .8rem; top: 50%; left: 50%;transform: translate(-50%, -50%);}
+.shipMap {min-width: 8rem; min-height: 3rem;}
+.shipMap a {display: flex;flex-direction: column; align-items: center; justify-content: center;width: 100%; height: 100%;font-size: var(--fs-s);color: var(--white); font-weight: var(--fw-bold); padding:.2rem .5rem;}
+.shipMap a .status {font-size: var(--fs-xxs);font-weight: var(--fw-regular);}
+.shipCaution {background-color: #750000;border: 1px solid #FF0000;}
+.shipWarning {background-color: #8B6600;border: 1px solid #FFBC02;}
+.shipDefault {background-color: #004F4F;border: 1px solid var(--primary1);}
+
+/* =========================
+   지도 - 토스트팝업
+========================= */
+.toastContainer {position: fixed; bottom: 1.5rem; right: 5rem; display: flex; flex-direction: column; gap: .7rem;}
+.toast {display: flex; justify-content: space-between; width: 56rem; height: 5rem; padding: 1rem 1rem 1rem 4.5rem;border-radius: .4rem;}
+.toastWarining {background: #8B6600 url(/images/ico_toast_warning.svg)no-repeat top 1rem left 1.4rem /2.4rem;border: 1px solid #FFBC02;}
+.toastCaution {background: #750000 url(/images/ico_toast_caution.svg)no-repeat top 1rem left 1.4rem /2.4rem;border: 1px solid #FF0000;}
+.toast .toastMsg {font-size: var(--fs-ml);color: var(--white); font-weight: var(--fw-bold); }
+.toast .toastR {display: flex; align-items: center;gap: 1rem;}
+.toast .toastR .toastAction {font-size: var(--fs-s);color: var(--white); font-weight: var(--fw-regular);text-decoration: underline;}
+.toast .toastR .toastClose {width: 2.4rem;height: 2.4rem; background: url(/images/ico_toast_close.svg)no-repeat center /contain;}
+/*  */
+.cicle {width: 1.6rem; height: 1.6rem; border-radius: 50%; }
+.default {background-color: var(--primary1);}
+.red {background-color: #FF0000;}
+.orng {background-color: #FFBC02;}
+
+/* =========================
+   지도정보 - 팝업
+========================= */
+.popupMap {display: flex;flex-direction: column;position: absolute;top: 40%; left: 70%;transform: translate(-50%, -50%); width: auto;height: auto; background-color: var(--gray-scale3); z-index: 80;}
+.popupMap > .pmHeader {display: flex;justify-content: space-between; align-items: center; height: 4rem; padding: .5rem 1rem;}
+.popupMap > .pmHeader > .rowL{ display: flex;align-items: center; gap: .5rem;}
+.popupMap > .pmHeader > .rowL > .shipType {width: 2.4rem; height: 2.4rem; background:var(--gray-scale2) url(/images/ico_ship_type_fising.svg)no-repeat center / 2.4rem;}
+.popupMap > .pmBody {display: flex; flex-direction: column; padding: .8rem 1.2rem .8rem 1.2rem}
+.popupMap > .pmFooter {display: flex; flex-direction: column;  align-items: flex-start; justify-content: center; height: 3.2rem; border-top: 1px solid var(--gray-scale5); padding: 0 1rem;font-size: var(--fs-xs); color: var(--gray-scaleB);}
+/* 선박정보팝업 */
+.popupMap.shipInfo { width: 29rem;}
+.popupMap.shipInfo > .pmHeader > .rowL > .shipName {font-size: var(--fs-ml); font-weight:var(--fw-bold);color: var(--gray-scaleD);}
+.popupMap.shipInfo > .pmHeader > .rowL > .shipNum {font-size: var(--fs-m); font-weight:var(--fw-regular);color: var(--gray-scaleB);}
+.popupMap.shipInfo > .pmHeader > .pmClose {width: 2.4rem;height: 2.4rem; background: url(/images/ico_ship_info_close.svg)no-repeat center /contain;}
+
+/* 기상관측팝업 */
+.popupMap.osbInfo { width: 22rem; left: 45%;}
+.popupMap.osbInfo > .pmHeader > .rowL > .title {font-size: var(--fs-l); font-weight:var(--fw-bold);}
+.popupMap.osbInfo > .pmHeader > .pmClose {width: 2.4rem;height: 2.4rem; background: url(/images/ico_ship_info_close.svg)no-repeat center /contain;}
+/* popup-기상관측상태 */
+.osbStatus {display: flex; flex-direction: column; gap: .6rem;}
+.osbStatus li.date {border-radius: .5rem; background-color: #61666F; padding: 1rem; font-weight: var(--fw-bold);}
+.osbStatus li {display: flex; justify-content: space-between; align-items: center; width: 100%;}
+.osbStatus li > .label { font-weight: var(--fw-bold); color: var(--secondary4);}
+.osbStatus li > .value { font-weight: var(--fw-bold);}
+
+/* popup-gallery */
+.popupMap > .pmGallery {position: relative; overflow: hidden; width: 29rem; height: 10.6rem;}
+.pmGallery .galleryView{ width: 100%; height: 100%;}
+.pmGallery .galleryView img{ width: 100%; height: 100%;object-fit: cover;}
+.pmGallery .navBtn { position: absolute; width: 3.4rem; height: 3.4rem; top: 0; bottom: 0; margin: auto 0; display: flex; align-items: center; justify-content: center;}
+.pmGallery .prev {background: url(/images/ico_arrow_left_big.svg) no-repeat center / 3.4rem; left: 0;}
+.pmGallery .next {background: url(/images/ico_arrow_right_big.svg) no-repeat center / 3.4rem; right: 0;}
+
+/* popup-Action */
+.shipAction {display: flex; align-items: center; justify-content: space-between;}
+.shipAction .detailBtn {position: relative; display: inline-flex; align-items: center; justify-content: center; width: 8rem; height: 2.8rem; background-color: var(--gray-scale6); color: var(--white); font-size: var(--fs-xs); font-weight: var(--fw-bold); padding-right: 2rem;}
+.shipAction .detailBtn::after {content: "";position: absolute; width: 2rem; height: 2rem; top: 50%; right: 0.5rem;transform: translateY(-50%);background: url("/images/ico_cate.svg") no-repeat center / contain;}
+.shipAction .favBtn {display: flex;align-items: center; justify-content: center; width: 2.8rem; height: 2.8rem; background: url(/images/ico_star.svg)no-repeat center / 2rem; background-color: var(--gray-scale5);}
+.shipAction .shipTypeIco {display: flex; align-items: center; gap: .2rem; padding: 0 1rem;}
+.shipAction .shipTypeIco li {display: flex; justify-content: center; align-items: center; width: 1.7rem; height: 1.7rem;border-radius: .2rem; background-color: var(--gray-scale5);color: var(--white); font-weight: var(--fw-heavy);font-size: var(--fs-xs);}
+
+/* popup-출,입항지 */
+.shipRoute {position:relative;width:100%;margin-top:1.5rem;}
+.routeProgress {position:relative;width:100%;height:.5rem;padding:0 .55rem;display:flex;align-items:center;}
+.routeProgress::before {content:"";position:absolute;top:50%;left:.55rem;width:1.1rem;height:1.1rem;background-color:var(--primary1);border-radius:50%;transform:translate(-50%,-50%);z-index:2;}
+.routeProgress::after {content:"";position:absolute;top:50%;right:.55rem;width:1.1rem;height:1.1rem;background-color:var(--gray-scale6);border-radius:50%;transform:translate(50%,-50%);z-index:2;}
+.routeProgress progress {width:100%;height:.5rem;background-color:var(--gray-scale5);appearance:none;-webkit-appearance:none;}
+.routeProgress progress::-webkit-progress-bar {background-color:var(--gray-scale5);}
+.routeProgress progress::-webkit-progress-value {background-color:var(--primary1);}
+.routeProgress progress::-moz-progress-bar {background-color:var(--primary1);}
+.routeShip {position:absolute;top:50%;left:calc(min(100%,0.55rem + (100% - 1.1rem)*(var(--progress)/100)));transform:translate(-50%,-50%);width:1.7rem;height:1.7rem;border-radius:50%;background-color:var(--white);border:5px solid var(--primary1);z-index:3;transition:left .3s ease;}
+.shipRoute:has(progress[value="100"]) .routeProgress::after {background-color:var(--primary1);}
+
+/* popup-선박상태 */
+.shipStatus {display:flex;flex-direction: column; margin-top:1rem;width:100%;padding:0;}
+.shipStatus li {display:flex;align-items:flex-start;width:100%;}
+.shipStatus li.port {display:flex;justify-content:space-between;align-items:flex-start;width:100%; padding: .5rem 0;}
+.shipStatus li .rowL,
+.shipStatus li .rowR {display:flex;flex-direction:column;gap: .2rem;}
+.shipStatus li .rowL {align-items:flex-start;}
+.shipStatus li .rowR {align-items:flex-end;}
+.shipStatus .portLabel {font-size: var(--fs-xs); color: var(--gray-scaleB);}
+.shipStatus .portName {font-size: var(--fs-ms); color: var(--gray-scaleB); font-weight:var(--fw-bold);}
+.shipStatus li.schedule {justify-content:space-between; background-color: var(--gray-scale2); padding: .5rem 1rem; border-top: 1px solid var(--gray-scale5);border-bottom: 1px solid var(--gray-scale5);}
+.shipStatus .depart,
+.shipStatus .arrive {font-size: var(--fs-xs); color: var(--gray-scaleD);font-weight:var(--fw-bold);padding-left: 1.7rem;}
+.shipStatus .depart {background: url(/images/ico_clock1.svg)no-repeat center left / 1.2rem;}
+.shipStatus .arrive {background: url(/images/ico_clock2.svg)no-repeat center left / 1.2rem;}
+.shipStatus .scheduleDate {font-size: var(--fs-xs); color: var(--gray-scaleB);}
+.shipStatus li.status { display: grid;grid-template-columns: 1fr 13rem 1fr;align-items: stretch;border-bottom: 1px solid var(--gray-scale5);}
+.shipStatus li.status .statusItem { display: flex; flex-direction: column; align-items: flex-start; position: relative; padding:.5rem 1rem;}
+.shipStatus li.status .statusItem:not(:last-child)::after {content: "";position: absolute;top: 50%;right: 0;width: 1px;height: 100%;background-color: var(--gray-scale5);transform: translateY(-50%);}
+.shipStatus .statusLabel {font-size: var(--fs-xs); color: var(--gray-scaleB);}
+.shipStatus .statusValue {font-size: var(--fs-ml); color: var(--gray-scaleD);}
+
+/* popup-선박신호리스트 */
+.shipSensor { display: flex; flex-direction: column;}
+.shipSensor li { display: flex; justify-content: space-between; align-items: center; width: 100%; height: 3.2rem;}
+.shipSensor li .sensorLabel {display: flex; align-items: center;font-size: var(--fs-xs); color: var(--gray-scaleB);}
+.shipSensor li .sensorValue {display: flex; align-items: center; gap: .5rem; font-size: var(--fs-ms); color: var(--gray-scaleB); font-weight:var(--fw-bold);}
+.shipSensor li .isNomal { width: .6rem; height: .6rem; border-radius: 50%; background-color: var(--primary3);}
+.shipSensor li .isOff {width: .6rem; height: .6rem; border-radius: 50%; background-color: var(--gray-scale9);}
+
+/* poppu-btn */
+.trackBtn {flex: 1; height: 3rem; background-color: var(--gray-scale6);font-size: var(--fs-xs);font-weight: var(--fw-bold); border-radius:2rem;}
+
+/* =========================
+   UI - 팝업
+========================= */
+.popupDim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.popupUtillWrap { position: absolute;top: 50%; left: 50%;transform: translate(-50%, -50%);}
+.popupUtill {display: flex; flex-direction: column; width: 52.5rem; height:auto;max-height: 80vh;overflow: hidden; background-color: var(--secondary2); border: .1rem solid var(--secondary3); padding:2.5rem 3rem;}
+.popupUtill > .puHeader {display: flex; justify-content: space-between; align-items: center; padding-bottom: 2rem;}
+.popupUtill > .puHeader > .title {font-weight: var(--fw-bold); font-size: var(--fs-xl);}
+.popupUtill > .puHeader > .puClose {width: 2.2rem;height: 2.2rem; background: url(/images/ico_pop_utill_close.svg)no-repeat center /contain;}
+.popupUtill > .puBody {flex: 1; min-height: 0; overflow-y: auto; padding-bottom: 2rem;}
+.popupUtill > .puFooter { margin-top: auto;}
+
+.popupUtill.cert {width: 46rem;}
+.puTxtBox {display: flex; align-items: center; justify-content: center; min-height: 8rem; font-size: var(--fs-ml); border-top: .1rem solid var(--secondary4); padding-top: 4rem;}
+
+/* =========================
+   테이블
+========================= */
+.required {color: var(--red-100);}
+.table {width:100%; border-top:.1rem solid var(--secondary4); border-bottom:.1rem solid var(--secondary4); text-align:left;line-height:1.6em;}
+.table caption {position: absolute;top: 0;left: 0;width: 1px;height: 1px;font-size: 1px;clip: rect(1px, 1px, 1px, 1px);opacity: 0;}
+.table tbody th,.table tbody td {border-bottom:.1rem solid var(--secondary4); word-break: break-all;line-height:1.6em; vertical-align: middle; color: var(--white);}
+.table tbody th {background-color: var(--tertiary1); font-weight: var(--fw-bold); padding:2.2rem 1rem;}
+.table tbody td {padding:.8rem 0 .8rem 1rem;}
+.table tbody td .helpTxt {color:rgba(var(--white-rgb),.3); padding-top: .5rem;}
+
+
+
+
