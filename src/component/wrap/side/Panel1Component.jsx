@@ -1,5 +1,6 @@
 import { useState } from 'react';
 export default function Panel1Component({ isOpen, onToggle }) {
+
     // 아코디언
     const [isAccordionOpen1, setIsAccordionOpen1] = useState(false); // 기존
     const [isAccordionOpen2, setIsAccordionOpen2] = useState(false); // 새 아코디언
@@ -47,27 +48,27 @@ export default function Panel1Component({ isOpen, onToggle }) {
                         <label>
                             <span>선종</span>
                             <select>
-                                <option>전체</option>
-                                <option>어선</option>
-                                <option>함정</option>
-                                <option>여객선</option>
-                                <option>카고</option>
-                                <option>탱커</option>
-                                <option>관공선</option>
-                                <option>기타</option>
-                                <option>낚시어선</option>
+                                <option value="">전체</option>
+                                <option value="">어선</option>
+                                <option value="">함정</option>
+                                <option value="">여객선</option>
+                                <option value="">카고</option>
+                                <option value="">탱커</option>
+                                <option value="">관공선</option>
+                                <option value="">기타</option>
+                                <option value="">낚시어선</option>
                             </select>
                         </label>
                         <label>
                             <span>국적</span>
                             <select>
-                                <option>전체</option>
-                                <option>한국</option>
-                                <option>미국</option>
-                                <option>중국</option>
-                                <option>일본</option>
-                                <option>북한</option>
-                                <option>기타</option>
+                                <option value="">전체</option>
+                                <option value="">한국</option>
+                                <option value="">미국</option>
+                                <option value="">중국</option>
+                                <option value="">일본</option>
+                                <option value="">북한</option>
+                                <option value="">기타</option>
                             </select>
                         </label>
                     </li>
@@ -247,70 +248,39 @@ export default function Panel1Component({ isOpen, onToggle }) {
             </div>
 
             <div className="tabBtm">
-                <ul className="shipDetailList">
-                    <li className="active">
-                        <ul className='shipDetail'>
-                            <li className='shipHeader'>
-                                <div className='headerL'>
-                                    <span className='name'>ZHELINGYU29801</span>
-                                    <span className='type'>Fishing</span>
-                                </div>
-                                <div className='headerR'>
-                                    <img src="/images/flag_kor.svg" alt="대한민국" className="flagIcon" />
-                                    <span className='num'>412</span>
-                                    <button className='icoArrow'></button>
-                                </div>
-                            </li>
-                            <li>
-                                <span className='label'>타겟 ID</span>
-                                <span className='value'>412417712</span>
-                            </li>
-                            <li>
-                                <span className='label'>주정박항</span>
-                                <span className='value'>zhelingyu29801</span>
-                            </li>
-                            <li>
-                                <span className='label'>어획할당량</span>
-                                <span className='value'>100(ton)</span>
-                            </li>
-                            <li>
-                                <span className='label'>조업수역구역</span>
-                                <span className='value'>Ⅱ, Ⅲ</span>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <ul className='shipDetail'>
-                            <li className='shipHeader'>
-                                <div className='headerL'>
-                                    <span className='name'>ZHELINGYU29801</span>
-                                    <span className='type'>Fishing</span>
-                                </div>
-                                <div className='headerR'>
-                                    <img src="/images/flag_kor.svg" alt="대한민국" className="flagIcon" />
-                                    <span className='num'>412</span>
-                                    <button className='icoArrow'></button>
-                                </div>
-                            </li>
-                            <li>
-                                <span className='label'>타겟 ID</span>
-                                <span className='value'>412417712</span>
-                            </li>
-                            <li>
-                                <span className='label'>주정박항</span>
-                                <span className='value'>zhelingyu29801</span>
-                            </li>
-                            <li>
-                                <span className='label'>어획할당량</span>
-                                <span className='value'>100(ton)</span>
-                            </li>
-                            <li>
-                                <span className='label'>조업수역구역</span>
-                                <span className='value'>Ⅱ, Ⅲ</span>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+                <div className="detailWrap">
+
+                    <ul className="detailBox">
+                        <li className="dbHeader">
+                            <div className="headerL">
+                                <span className="name">ZHELINGYU29801</span>
+                                <span className="type">Fishing</span>
+                            </div>
+                            <div className="headerR">
+                                <img src="/images/flag_kor.svg" alt="대한민국" className="flagIcon" />
+                                <span className="num">412</span>
+                                <button className="icoArrow"></button>
+                            </div>
+                        </li>
+                        <li>
+                            <span className="label">타겟 ID</span>
+                            <span className="value">412417712</span>
+                        </li>
+                        <li>
+                            <span className="label">주정박항</span>
+                            <span className="value">zhelingyu29801</span>
+                        </li>
+                        <li>
+                            <span className="label">어획할당량</span>
+                            <span className="value">100(ton)</span>
+                        </li>
+                        <li>
+                            <span className="label">조업수역구역</span>
+                            <span className="value">Ⅱ, Ⅲ</span>
+                        </li>
+                    </ul>
+                </div>
+                
             </div>
         </div>
 
@@ -324,31 +294,31 @@ export default function Panel1Component({ isOpen, onToggle }) {
                             <label>
                                 <span>제재 유형</span>
                                 <select>
-                                    <option>전체</option>
-                                    <option>고래포획 의심</option>
-                                    <option>UN 제재</option>
-                                    <option>위반행위 규제 정보</option>
-                                    <option>불법 선박</option>
-                                    <option>음주 운항 이력</option>
-                                    <option>다잡아 처분 선박</option>
-                                    <option>어획량 위반</option>
-                                    <option>조업 일지 위반</option>
-                                    <option>망목 내경 미준수</option>
-                                    <option>입출역 미통보</option>
-                                    <option>선박서류 미비치</option>
-                                    <option>어구위반</option>
-                                    <option>허가 중/표지판 위반</option>
-                                    <option>어획물 전재 위반</option>
-                                    <option>선원수첩 등 신분증명서 위반</option>
-                                    <option>정선 명령 위반</option>
-                                    <option>어구 설치 후 조업수역 이탈</option>
-                                    <option>어획물 운반선 체크포인트 제도 위반</option>
-                                    <option>포획 채취 금지 체장 위반 어획물 포획</option>
-                                    <option>조업수역 위반</option>
-                                    <option>조업 기간 위반</option>
-                                    <option>어창 용적 위반</option>
-                                    <option>어창 용적 위반</option>
-                                    <option>메모</option>
+                                    <option value="">전체</option>
+                                    <option value="">고래포획 의심</option>
+                                    <option value="">UN 제재</option>
+                                    <option value="">위반행위 규제 정보</option>
+                                    <option value="">불법 선박</option>
+                                    <option value="">음주 운항 이력</option>
+                                    <option value="">다잡아 처분 선박</option>
+                                    <option value="">어획량 위반</option>
+                                    <option value="">조업 일지 위반</option>
+                                    <option value="">망목 내경 미준수</option>
+                                    <option value="">입출역 미통보</option>
+                                    <option value="">선박서류 미비치</option>
+                                    <option value="">어구위반</option>
+                                    <option value="">허가 중/표지판 위반</option>
+                                    <option value="">어획물 전재 위반</option>
+                                    <option value="">선원수첩 등 신분증명서 위반</option>
+                                    <option value="">정선 명령 위반</option>
+                                    <option value="">어구 설치 후 조업수역 이탈</option>
+                                    <option value="">어획물 운반선 체크포인트 제도 위반</option>
+                                    <option value="">포획 채취 금지 체장 위반 어획물 포획</option>
+                                    <option value="">조업수역 위반</option>
+                                    <option value="">조업 기간 위반</option>
+                                    <option value="">어창 용적 위반</option>
+                                    <option value="">어창 용적 위반</option>
+                                    <option value="">메모</option>
                                 </select>
                             </label>
                         </li>
@@ -485,13 +455,13 @@ export default function Panel1Component({ isOpen, onToggle }) {
                             <label>
                                 <span>PMS<br/>출항항구</span>
                                 <select>
-                                    <option>전체</option>
+                                    <option value="">전체</option>
                                 </select>
                             </label>
                             <label>
                                 <span>PMS<br/>입항항구</span>
                                 <select>
-                                    <option>전체</option>
+                                    <option value="">전체</option>
                                 </select>
                             </label>
                         </li>
@@ -499,13 +469,13 @@ export default function Panel1Component({ isOpen, onToggle }) {
                             <label>
                                 <span>SIE<br/>출항항구</span>
                                 <select>
-                                    <option>전체</option>
+                                    <option value="">전체</option>
                                 </select>
                             </label>
                             <label>
                                 <span>SIE<br/>입항항구</span>
                                 <select>
-                                    <option>전체</option>
+                                    <option value="">전체</option>
                                 </select>
                             </label>
                         </li>
@@ -525,9 +495,9 @@ export default function Panel1Component({ isOpen, onToggle }) {
                             <label>
                                 <span>낚시여부</span>
                                 <select>
-                                    <option>전체</option>
-                                    <option>미선택</option>
-                                    <option>선택</option>
+                                    <option value="">전체</option>
+                                    <option value="">미선택</option>
+                                    <option value="">선택</option>
                                 </select>
                             </label>
                         </li>
@@ -565,27 +535,27 @@ export default function Panel1Component({ isOpen, onToggle }) {
                             <label>
                                 <span>선종</span>
                                 <select>
-                                    <option>전체</option>
-                                    <option>어선</option>
-                                    <option>함정</option>
-                                    <option>여객선</option>
-                                    <option>카고</option>
-                                    <option>탱커</option>
-                                    <option>관공선</option>
-                                    <option>기타</option>
-                                    <option>낚시어선</option>
+                                    <option value="">전체</option>
+                                    <option value="">어선</option>
+                                    <option value="">함정</option>
+                                    <option value="">여객선</option>
+                                    <option value="">카고</option>
+                                    <option value="">탱커</option>
+                                    <option value="">관공선</option>
+                                    <option value="">기타</option>
+                                    <option value="">낚시어선</option>
                                 </select>
                             </label>
                             <label>
                                 <span>국적</span>
                                 <select>
-                                    <option>전체</option>
-                                    <option>한국</option>
-                                    <option>미국</option>
-                                    <option>중국</option>
-                                    <option>일본</option>
-                                    <option>북한</option>
-                                    <option>기타</option>
+                                    <option value="">전체</option>
+                                    <option value="">한국</option>
+                                    <option value="">미국</option>
+                                    <option value="">중국</option>
+                                    <option value="">일본</option>
+                                    <option value="">북한</option>
+                                    <option value="">기타</option>
                                 </select>
                             </label>
                         </li>
@@ -652,13 +622,13 @@ export default function Panel1Component({ isOpen, onToggle }) {
                             <label>
                                 <span>관심사유 지정사유</span>
                                 <select>
-                                    <option>전체</option>
-                                    <option>불법조업의심</option>
-                                    <option>불법포경의심</option>
-                                    <option>MMSI 신호 임의 변경</option>
-                                    <option>제재 선박 의심</option>
-                                    <option>북한 선박 의심</option>
-                                    <option>기타</option>
+                                    <option value="">전체</option>
+                                    <option value="">불법조업의심</option>
+                                    <option value="">불법포경의심</option>
+                                    <option value="">MMSI 신호 임의 변경</option>
+                                    <option value="">제재 선박 의심</option>
+                                    <option value="">북한 선박 의심</option>
+                                    <option value="">기타</option>
                                 </select>
                             </label>
                         </li>

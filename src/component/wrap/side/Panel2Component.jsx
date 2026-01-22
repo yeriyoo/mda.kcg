@@ -1,5 +1,10 @@
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import Slider from '../../common/Slider';
+
 export default function Panel2Component({ isOpen, onToggle }) {
+    const navigate = useNavigate();
+
     // 아코디언
     const [isAccordionOpen1, setIsAccordionOpen1] = useState(false); // 기존
     const [isAccordionOpen2, setIsAccordionOpen2] = useState(false); // 새 아코디언
@@ -36,204 +41,215 @@ export default function Panel2Component({ isOpen, onToggle }) {
         {/* 탭 콘텐츠 01 */}
         <div className={`tabWrap ${activeTab === 'ship01' ? 'is-active' : ''}`}>
             <div className="tabTop">
-            <div className="title">선박 검색</div>
-
-            <div className="formGroup">
-                <ul>
-                    <li>
-                        <label>
-                            <span>선종</span>
-                            <select>
-                                <option>전체</option>
-                                <option>어선</option>
-                                <option>함정</option>
-                                <option>여객선</option>
-                                <option>카고</option>
-                                <option>탱커</option>
-                                <option>관공선</option>
-                                <option>기타</option>
-                                <option>낚시어선</option>
-                            </select>
-                        </label>
-                        <label>
-                            <span>국적</span>
-                            <select>
-                                <option>전체</option>
-                                <option>한국</option>
-                                <option>미국</option>
-                                <option>중국</option>
-                                <option>일본</option>
-                                <option>북한</option>
-                                <option>기타</option>
-                            </select>
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <span>타겟ID</span>
-                            <input type="text" placeholder="타겟ID" />
-                        </label>
-                        <label>
-                            <span>선박명</span>
-                            <input type="text" placeholder="선박명" />
-                        </label>
-                    </li>
-                    {/* 아코디언 1 */}
-                    <div className={`accordion ${isAccordionOpen1 ? 'is-open' : ''}`}>
+                <div className="title">위성영상 관리</div>
+                
+                <div className="formGroup">
+                    <ul>
                         <li>
                             <label>
-                                <span>위험물</span>
-                                <input type="text" placeholder="타겟ID" />
-                            </label>
-                            <label className="checkbox">
-                                <input type="checkbox" />
-                                <span className="w70">MMSI / 호출부호 변경이력</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <span>승선원수</span>
-                                <div className="labelRow">
-                                    <div className="numInput">
-                                        <input type="number" placeholder="최소" min="" max="" />
-                                        <div className="spin">
-                                            <button type="button" className="spinUp"><span className="blind">증가</span></button>
-                                            <button type="button" className="spinDown"><span className="blind">감소</span></button>
-                                        </div>
-                                    </div>
+                                <span>영상 촬영일</span>
+                                <div class="labelRow">
+                                    <input class="dateInput" placeholder="연도-월-일" type="text" />
                                     <span>-</span>
-                                    
-                                    <div className="numInput">
-                                        <input type="number" placeholder="최대" min="" max="" />
-                                        <div className="spin">
-                                            <button type="button" className="spinUp"><span className="blind">증가</span></button>
-                                            <button type="button" className="spinDown"><span className="blind">감소</span></button>
-                                        </div>
-                                    </div>
+                                    <input class="dateInput" placeholder="연도-월-일" type="text" />
                                 </div>
+                            </label>
+                        </li>
+
+                        {/* 아코디언 1 */}
+                        <div className={`accordion pt8 ${isAccordionOpen1 ? 'is-open' : ''}`}>
+                        <li>
+                            <label>
+                                <span>영상 종류</span>
+                                <select>
+                                    <option value="">전체</option>
+                                    <option value="">VIRS</option>
+                                    <option value="">ICEYE_SAR</option>
+                                    <option value="">광학</option>
+                                    <option value="">예약</option>
+                                    <option value="">RF</option>
+                                </select>
+                            </label>
+                            <label>
+                                <span>영상 출처</span>
+                                <select>
+                                    <option value="">전체</option>
+                                    <option value="">국내/자동</option>
+                                    <option value="">국내/수동</option>
+                                    <option value="">국외/수동</option>
+                                    <option value="">기타</option>
+                                </select>
                             </label>
                         </li>
                         <li>
                             <label>
-                                <span>너비(m)</span>
-                                <div className="numInput">
-                                    <input type="number" placeholder="최소" min="" max="" />
-                                    <div className="spin">
-                                        <button type="button" className="spinUp"><span className="blind">증가</span></button>
-                                        <button type="button" className="spinDown"><span className="blind">감소</span></button>
-                                    </div>
-                                </div>
+                                <span>위성 궤도</span>
+                                <select>
+                                    <option value="">전체</option>
+                                    <option value="">저궤도</option>
+                                    <option value="">중궤도</option>
+                                    <option value="">정지궤도</option>
+                                    <option value="">기타</option>
+                                </select>
+                            </label>
+                            <label>
+                                <span>주기</span>
+                                <select>
+                                    <option value="">전체</option>
+                                    <option value="">0</option>
+                                    <option value="">10</option>
+                                    <option value="">30</option>
+                                    <option value="">60</option>
+                                </select>
                             </label>
                         </li>
+                        </div>
+                        {/* 여기까지 아코디언1 */}
+                        <li>
+                            <label>
+                                <span>위성영상명</span>
+                                <input type="text" placeholder="위성영상명" />
+                            </label>
+                        </li>
+                        <li>
+                            <button
+                            type="button"
+                            className={`btn btnS semi btnToggle ${isAccordionOpen1 ? 'is-open' : ''}`}
+                            aria-expanded={isAccordionOpen1}
+                            onClick={toggleAccordion1}
+                            >
+                            상세검색 
+                            {isAccordionOpen1 ? ' 닫기' : ' 열기'}
+                            </button>
+                        </li>
+                        <li className="fgBtn rowSB">
+                            <>
+                                <div className="row gap10">
+                                    <span>투명도</span>
+                                    <div>
+                                    <Slider label="투명도 조절" />
+                                    </div>
+                                </div>
+                                <div className="row gap10">
+                                    <span>밝기</span>
+                                    <div>
+                                    <Slider label="밝기 조절" />
+                                    </div>
+                                </div>
+                            </>
+                            <button type="button" className="schBtn">검색</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div className="tabBtm noSc">
+            
+                <div className="tabBtmInner">
+                    {/* 스크롤영역 */}
+                    <div className="tabBtmCnt">
+                        <div className="detailWrap">
+                            {/* 위성정보 박스 */}
+                            <ul className="detailBox stretch">
+                                <li className="dbHeader">
+                                    <div className="headerL">
+                                        <span className="name">업로드 테스트</span>
+                                        <span className="type">2025-09-25 16:09:00</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <ul className="dbList">
+                                        <li>
+                                            <span className="label">위성명</span>
+                                            <span className="value">VIRS</span>
+                                        </li>
+                                        <li>
+                                            <span className="label">위성영상파일</span>
+                                            <span className="value">mda:fae19b9b-e99e-4794- a305-bce6d537ac36_remark_ resized_2022_0102_1709_npp_DNB_750</span>
+                                        </li>
+                                        <li>
+                                            <span className="label">위성명</span>
+                                            <span className="value">VIRS</span>
+                                        </li>
+                                        <li>
+                                            <span className="label">영상 출처</span>
+                                            <span className="value">VIRS</span>
+                                        </li>
+                                    </ul>
+                                    <div className="btnArea">
+                                        <button type="button" className="btnEdit"></button>
+                                        <button type="button" className="btnDel"></button>
+                                        <button type="button" className="btnMap"></button>
+                                    </div>
+                                </li>
+                            </ul>
+
+
+                            {/* 위성정보 박스 */}
+                            <ul className="detailBox stretch">
+                                <li className="dbHeader">
+                                    <div className="headerL">
+                                        <span className="name">업로드 테스트</span>
+                                        <span className="type">2025-09-25 16:09:00</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <ul className="dbList">
+                                        <li>
+                                            <span className="label">위성명</span>
+                                            <span className="value">VIRS</span>
+                                        </li>
+                                        <li>
+                                            <span className="label">위성영상파일</span>
+                                            <span className="value">mda:fae19b9b-e99e-4794- a305-bce6d537ac36_remark_ resized_2022_0102_1709_npp_DNB_750</span>
+                                        </li>
+                                        <li>
+                                            <span className="label">위성명</span>
+                                            <span className="value">VIRS</span>
+                                        </li>
+                                        <li>
+                                            <span className="label">영상 출처</span>
+                                            <span className="value">VIRS</span>
+                                        </li>
+                                    </ul>
+                                    <div className="btnArea">
+                                        <button type="button" className="btnEdit"></button>
+                                        <button type="button" className="btnDel"></button>
+                                        <button type="button" className="btnMap"></button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    {/* 여기까지 아코디언1 */}
-                    <li>
-                        <button
-                        type="button"
-                        className={`btn btnS semi btnToggle ${isAccordionOpen1 ? 'is-open' : ''}`}
-                        aria-expanded={isAccordionOpen1}
-                        onClick={toggleAccordion1}
-                        >
-                        상세검색 
-                        {isAccordionOpen1 ? ' 닫기' : ' 열기'}
-                        </button>
-                    </li>
-                    <li className="fgBtn">
-                        <button type="button" className="schBtn">검색</button>
-                    </li>
-                </ul>
-            </div>
-
-            {/* <div className="schbox mtb24">
-                <ul>
-                <li>
-                    <input type="text" className="schInput" placeholder="대표검도" />
-                </li>
-                <li>
-                    <button type="button" className="schBtn">검색</button>
-                </li>
-                </ul>
-            </div> */}
-            </div>
-
-            <div className="tabBtm">
-            <ul className="colList line">
-                <li>
-                <a href="#!" className="active">
-                    <i className="cicle default"></i>
-                    <span>0001</span>
-                    <span>1511함A-05</span>
-                    <span>
-                    <img src="/images/flag_kor.svg" alt="대한민국" className="flagIcon" />
-                    </span>
-                    <span>(AIS)</span>
-                    <span className="legend">
-                    <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
-                    </span>
-                </a>
-                </li>
-                <li>
-                <a href="#!" className="">
-                    <i className="cicle default"></i>
-                    <span>0001</span>
-                    <span>1511함A-05</span>
-                    <span>
-                    <img src="/images/flag_kor.svg" alt="대한민국" className="flagIcon" />
-                    </span>
-                    <span>(AIS)</span>
-                    <span className="legend">
-                    <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
-                    </span>
-                </a>
-                </li>
-                <li>
-                <a href="#!" className="">
-                    <i className="cicle red"></i>
-                    <span>0001</span>
-                    <span>1511함A-05</span>
-                    <span>
-                    <img src="/images/flag_kor.svg" alt="대한민국" className="flagIcon" />
-                    </span>
-                    <span>(AIS)</span>
-                    <span className="legend">
-                    <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
-                    </span>
-                </a>
-                </li>
-                <li>
-                <a href="#!" className="">
-                    <i className="cicle orng"></i>
-                    <span>0001</span>
-                    <span>1511함A-05</span>
-                    <span>
-                    <img src="/images/flag_kor.svg" alt="대한민국" className="flagIcon" />
-                    </span>
-                    <span>(AIS)</span>
-                    <span className="legend">
-                    <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
-                    </span>
-                </a>
-                </li>
-            </ul>
+                    {/* 하단버튼 영역 */}
+                    <div class="btnBox rowSB">
+                        <button type="button" class="btn btnLine">위성영상 폴더 업로드</button>
+                        <button type="button" class="btn btnLine" onClick={() => navigate("/panel2/satellite/add")}>위성영상 등록</button>
+                    </div>
+                </div>
             </div>
         </div>
 
         {/* 탭 콘텐츠 02 */}
         <div className={`tabWrap ${activeTab === 'ship02' ? 'is-active' : ''}`}>
             <div className="tabTop">
-                <div className="title">허가선박</div>
+                <div className="title">위성사업자 관리</div>
                 <div className="formGroup">
                     <ul>
                         <li>
                             <label>
-                                <span>타겟 ID</span>
-                                <input type="text" placeholder="타겟 ID" />
+                                <span>사업자 분류</span>
+                                <select>
+                                    <option value="">전체</option>
+                                    <option value="">국가</option>
+                                    <option value="">연구기관</option>
+                                    <option value="">민간사업자</option>
+                                    <option value="">기타</option>
+                                </select>
                             </label>
-                        </li>
-                        <li>
                             <label>
-                                <span>선박명</span>
-                                <input type="text" placeholder="선박명" />
+                                <span>사업자명</span>
+                                <input type="text" placeholder="사업자명" />
                             </label>
                         </li>
                         <li className="fgBtn">
@@ -243,116 +259,74 @@ export default function Panel2Component({ isOpen, onToggle }) {
                 </div>
             </div>
 
-            <div className="tabBtm">
-                <ul className="shipDetailList">
-                    <li className="active">
-                        <ul className='shipDetail'>
-                            <li className='shipHeader'>
-                                <div className='headerL'>
-                                    <span className='name'>ZHELINGYU29801</span>
-                                    <span className='type'>Fishing</span>
-                                </div>
-                                <div className='headerR'>
-                                    <img src="/images/flag_kor.svg" alt="대한민국" className="flagIcon" />
-                                    <span className='num'>412</span>
-                                    <button className='icoArrow'></button>
-                                </div>
-                            </li>
-                            <li>
-                                <span className='label'>타겟 ID</span>
-                                <span className='value'>412417712</span>
-                            </li>
-                            <li>
-                                <span className='label'>주정박항</span>
-                                <span className='value'>zhelingyu29801</span>
-                            </li>
-                            <li>
-                                <span className='label'>어획할당량</span>
-                                <span className='value'>100(ton)</span>
-                            </li>
-                            <li>
-                                <span className='label'>조업수역구역</span>
-                                <span className='value'>Ⅱ, Ⅲ</span>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <ul className='shipDetail'>
-                            <li className='shipHeader'>
-                                <div className='headerL'>
-                                    <span className='name'>ZHELINGYU29801</span>
-                                    <span className='type'>Fishing</span>
-                                </div>
-                                <div className='headerR'>
-                                    <img src="/images/flag_kor.svg" alt="대한민국" className="flagIcon" />
-                                    <span className='num'>412</span>
-                                    <button className='icoArrow'></button>
-                                </div>
-                            </li>
-                            <li>
-                                <span className='label'>타겟 ID</span>
-                                <span className='value'>412417712</span>
-                            </li>
-                            <li>
-                                <span className='label'>주정박항</span>
-                                <span className='value'>zhelingyu29801</span>
-                            </li>
-                            <li>
-                                <span className='label'>어획할당량</span>
-                                <span className='value'>100(ton)</span>
-                            </li>
-                            <li>
-                                <span className='label'>조업수역구역</span>
-                                <span className='value'>Ⅱ, Ⅲ</span>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+            <div className="tabBtm noSc">
+            
+                <div className="tabBtmInner">
+                    {/* 스크롤영역 */}
+                    <div className="tabBtmCnt">
+                        <div className="detailWrap">
+                            {/* 위성정보 박스 */}
+                            <ul className="detailBox">
+                                <li className="dbHeader">
+                                    <div className="headerL">
+                                        <span className="name">Test 01</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span className="label">사업자 분류</span>
+                                    <span className="value">국가</span>
+                                </li>
+                                <li>
+                                    <span className="label">국가</span>
+                                    <span className="value">대한민국</span>
+                                </li>
+                                <li>
+                                    <span className="label">소재지</span>
+                                    <span className="value">test</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    {/* 하단버튼 영역 */}
+                    <div class="btnBox">
+                        <button type="button" class="btn btnLine">등록</button>
+                    </div>
+                </div>
             </div>
         </div>
 
         {/* 탭 콘텐츠 03 */}
         <div className={`tabWrap ${activeTab === 'ship03' ? 'is-active' : ''}`}>
             <div className="tabTop">
-                <div className="title">제재단속</div>
+                <div className="title">위성 관리</div>
                 <div className="formGroup">
                     <ul>
                         <li>
                             <label>
-                                <span>제재 유형</span>
+                                <span>사업자 분류</span>
                                 <select>
-                                    <option>전체</option>
-                                    <option>고래포획 의심</option>
-                                    <option>UN 제재</option>
-                                    <option>위반행위 규제 정보</option>
-                                    <option>불법 선박</option>
-                                    <option>음주 운항 이력</option>
-                                    <option>다잡아 처분 선박</option>
-                                    <option>어획량 위반</option>
-                                    <option>조업 일지 위반</option>
-                                    <option>망목 내경 미준수</option>
-                                    <option>입출역 미통보</option>
-                                    <option>선박서류 미비치</option>
-                                    <option>어구위반</option>
-                                    <option>허가 중/표지판 위반</option>
-                                    <option>어획물 전재 위반</option>
-                                    <option>선원수첩 등 신분증명서 위반</option>
-                                    <option>정선 명령 위반</option>
-                                    <option>어구 설치 후 조업수역 이탈</option>
-                                    <option>어획물 운반선 체크포인트 제도 위반</option>
-                                    <option>포획 채취 금지 체장 위반 어획물 포획</option>
-                                    <option>조업수역 위반</option>
-                                    <option>조업 기간 위반</option>
-                                    <option>어창 용적 위반</option>
-                                    <option>어창 용적 위반</option>
-                                    <option>메모</option>
+                                    <option value="">전체</option>
+                                    <option value="">국가</option>
+                                    <option value="">연구기관</option>
+                                    <option value="">민간사업자</option>
+                                    <option value="">기타</option>
+                                </select>
+                            </label>
+                            <label>
+                                <span>센서 타입</span>
+                                <select>
+                                    <option value="">전체</option>
+                                    <option value="">광학</option>
+                                    <option value="">SAR</option>
+                                    <option value="">RF</option>
+                                    <option value="">기타</option>
                                 </select>
                             </label>
                         </li>
                         <li>
                             <label>
-                                <span>선박명</span>
-                                <input type="text" placeholder="선박명" />
+                                <span>위성명</span>
+                                <input type="text" placeholder="위성명" />
                             </label>
                         </li>
                         <li className="fgBtn">
@@ -362,355 +336,62 @@ export default function Panel2Component({ isOpen, onToggle }) {
                 </div>
             </div>
 
-            <div className="tabBtm">
-            <ul className="colList line">
-                <li>
-                <a href="#!" className="active">
-                    <i className="cicle default"></i>
-                    <span>0001</span>
-                    <span>1511함A-05</span>
-                    <span>
-                    <img src="/images/flag_kor.svg" alt="대한민국" className="flagIcon" />
-                    </span>
-                    <span>(AIS)</span>
-                    <span className="legend">
-                    <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
-                    </span>
-                </a>
-                </li>
-                <li>
-                <a href="#!" className="">
-                    <i className="cicle default"></i>
-                    <span>0001</span>
-                    <span>1511함A-05</span>
-                    <span>
-                    <img src="/images/flag_kor.svg" alt="대한민국" className="flagIcon" />
-                    </span>
-                    <span>(AIS)</span>
-                    <span className="legend">
-                    <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
-                    </span>
-                </a>
-                </li>
-            </ul>
-            </div>
-        </div>
-        {/* 탭 콘텐츠 04 */}
-        <div className={`tabWrap ${activeTab === 'ship04' ? 'is-active' : ''}`}>
-            <div className="tabTop">
-                <div className="title">침몰선박</div>
-                <div className="formGroup">
-                    <ul>
-                        <li>
-                            <label>
-                                <span>선박명</span>
-                                <input type="text" placeholder="선박명" />
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <span>사고기간</span>
-                                <div className='labelRow'>
-                                <input type="text" className="dateInput" placeholder="연도-월-일" />
-                                 <span>-</span>
-                                 <input type="text"className="dateInput" placeholder="연도-월-일" /></div>
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <span>사고내용</span>
-                                <input type="text" placeholder="사고내용" />
-                            </label>
-                        </li>
-                        <li className="fgBtn">
-                            <button type="button" className="schBtn">검색</button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <div className="tabBtm noSc">
+            
+                <div className="tabBtmInner">
+                    {/* 스크롤영역 */}
+                    <div className="tabBtmCnt">
+                        <div className="detailWrap">
+                            {/* 위성정보 박스 */}
+                            <ul className="detailBox">
+                                <li>
+                                    <span className="label">사업자명</span>
+                                    <span className="value">국토지리정보원</span>
+                                </li>
+                                <li>
+                                    <span className="label">위성명</span>
+                                    <span className="value">국가</span>
+                                </li>
+                                <li>
+                                    <span className="label">센서 타입</span>
+                                    <span className="value">test</span>
+                                </li>
+                                <li>
+                                    <span className="label">촬영 해상도</span>
+                                    <span className="value"></span>
+                                </li>
+                            </ul>
+                            
+                            {/* 위성정보 박스 */}
+                            <ul className="detailBox">
+                                <li>
+                                    <span className="label">사업자명</span>
+                                    <span className="value">국토지리정보원</span>
+                                </li>
+                                <li>
+                                    <span className="label">위성명</span>
+                                    <span className="value">국가</span>
+                                </li>
+                                <li>
+                                    <span className="label">센서 타입</span>
+                                    <span className="value">test</span>
+                                </li>
+                                <li>
+                                    <span className="label">촬영 해상도</span>
+                                    <span className="value"></span>
+                                </li>
+                            </ul>
 
-            <div className="tabBtm">
-            <ul className="colList line">
-                <li>
-                <a href="#!" className="active">
-                    <i className="cicle default"></i>
-                    <span>0001</span>
-                    <span>1511함A-05</span>
-                    <span>
-                    <img src="/images/flag_kor.svg" alt="대한민국" className="flagIcon" />
-                    </span>
-                    <span>(AIS)</span>
-                    <span className="legend">
-                    <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
-                    </span>
-                </a>
-                </li>
-                <li>
-                <a href="#!" className="">
-                    <i className="cicle default"></i>
-                    <span>0001</span>
-                    <span>1511함A-05</span>
-                    <span>
-                    <img src="/images/flag_kor.svg" alt="대한민국" className="flagIcon" />
-                    </span>
-                    <span>(AIS)</span>
-                    <span className="legend">
-                    <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
-                    </span>
-                </a>
-                </li>
-            </ul>
-            </div>
-        </div>
-        {/* 탭 콘텐츠 05 */}
-        <div className={`tabWrap ${activeTab === 'ship05' ? 'is-active' : ''}`}>
-            <div className="tabTop">
-                <div className="title">선박입출항</div>
-                <div className="formGroup">
-                    <ul>
-                        <li>
-                            <label>
-                                <span>출항일시</span>
-                                <input type="text" className="dateInput" placeholder="연도-월-일 - -:-" />
-                            </label>
-                            <label>
-                                <span>~ 입항일시</span>
-                                <input type="text" className="dateInput" placeholder="연도-월-일 - -:-" />
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <span>PMS<br/>출항항구</span>
-                                <select>
-                                    <option>전체</option>
-                                </select>
-                            </label>
-                            <label>
-                                <span>PMS<br/>입항항구</span>
-                                <select>
-                                    <option>전체</option>
-                                </select>
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <span>SIE<br/>출항항구</span>
-                                <select>
-                                    <option>전체</option>
-                                </select>
-                            </label>
-                            <label>
-                                <span>SIE<br/>입항항구</span>
-                                <select>
-                                    <option>전체</option>
-                                </select>
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <span>타겟ID</span>
-                                <input type="text" placeholder="타겟ID" />
-                            </label>
-                            <label>
-                                <span>선박명</span>
-                                <input type="text" placeholder="선박명" />
-                            </label>
-                        </li>
-                        {/* 여기부터 아코디언 */}
-                        <div className={`accordion ${isAccordionOpen2 ? 'is-open' : ''}`}>
-                        <li>
-                            <label>
-                                <span>낚시여부</span>
-                                <select>
-                                    <option>전체</option>
-                                    <option>미선택</option>
-                                    <option>선택</option>
-                                </select>
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <span>최대<br/>적재톤수</span>
-                                <input type="text" placeholder="0" />
-                            </label>
-                            <label>
-                                <span>최소<br/>적재톤수</span>
-                                <input type="text" placeholder="0" />
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <span>최대<br/>승선원</span>
-                                <input type="text" placeholder="0" />
-                            </label>
-                            <label>
-                                <span>최소<br/>승선원</span>
-                                <input type="text" placeholder="0" />
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <span>최대<br/>승객수</span>
-                                <input type="text" placeholder="0" />
-                            </label>
-                            <label>
-                                <span>최소<br/>승객수</span>
-                                <input type="text" placeholder="0" />
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <span>선종</span>
-                                <select>
-                                    <option>전체</option>
-                                    <option>어선</option>
-                                    <option>함정</option>
-                                    <option>여객선</option>
-                                    <option>카고</option>
-                                    <option>탱커</option>
-                                    <option>관공선</option>
-                                    <option>기타</option>
-                                    <option>낚시어선</option>
-                                </select>
-                            </label>
-                            <label>
-                                <span>국적</span>
-                                <select>
-                                    <option>전체</option>
-                                    <option>한국</option>
-                                    <option>미국</option>
-                                    <option>중국</option>
-                                    <option>일본</option>
-                                    <option>북한</option>
-                                    <option>기타</option>
-                                </select>
-                            </label>
-                        </li>
                         </div>
-                        {/* 여기까지 아코디언 */}
-                        <li>
-                            <button
-                            type="button"
-                            className={`btn btnS semi btnToggle ${isAccordionOpen2 ? 'is-open' : ''}`}
-                            aria-expanded={isAccordionOpen2}
-                            onClick={toggleAccordion2}
-                            >
-                            상세검색 
-                            {isAccordionOpen2 ? ' 닫기' : ' 열기'}
-                            </button>
-                        </li>
-                        <li className="fgBtn">
-                            <button type="button" className="schBtn">검색</button>
-                        </li>
-                    </ul>
+                    </div>
+                    {/* 하단버튼 영역 */}
+                    <div class="btnBox">
+                        <button type="button" class="btn btnLine">등록</button>
+                    </div>
                 </div>
             </div>
-
-            <div className="tabBtm">
-            <ul className="colList line">
-                <li>
-                <a href="#!" className="active">
-                    <i className="cicle default"></i>
-                    <span>0001</span>
-                    <span>1511함A-05</span>
-                    <span>
-                    <img src="/images/flag_kor.svg" alt="대한민국" className="flagIcon" />
-                    </span>
-                    <span>(AIS)</span>
-                    <span className="legend">
-                    <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
-                    </span>
-                </a>
-                </li>
-                <li>
-                <a href="#!" className="">
-                    <i className="cicle default"></i>
-                    <span>0001</span>
-                    <span>1511함A-05</span>
-                    <span>
-                    <img src="/images/flag_kor.svg" alt="대한민국" className="flagIcon" />
-                    </span>
-                    <span>(AIS)</span>
-                    <span className="legend">
-                    <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
-                    </span>
-                </a>
-                </li>
-            </ul>
-            </div>
         </div>
-        {/* 탭 콘텐츠 06 */}
-        <div className={`tabWrap ${activeTab === 'ship06' ? 'is-active' : ''}`}>
-            <div className="tabTop">
-                <div className="title">관심선박</div>
-                <div className="formGroup">
-                    <ul className="lagelW12">
-                        <li>
-                            <label>
-                                <span>관심사유 지정사유</span>
-                                <select>
-                                    <option>전체</option>
-                                    <option>불법조업의심</option>
-                                    <option>불법포경의심</option>
-                                    <option>MMSI 신호 임의 변경</option>
-                                    <option>제재 선박 의심</option>
-                                    <option>북한 선박 의심</option>
-                                    <option>기타</option>
-                                </select>
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <span>타겟 ID</span>
-                                <input type="text" placeholder="타겟 ID" />
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <span>선박명</span>
-                                <input type="text" placeholder="선박명" />
-                            </label>
-                        </li>
-                        <li className="fgBtn">
-                            <button type="button" className="schBtn">검색</button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div className="tabBtm">
-            <ul className="colList line">
-                <li>
-                <a href="#!" className="active">
-                    <i className="cicle default"></i>
-                    <span>0001</span>
-                    <span>1511함A-05</span>
-                    <span>
-                    <img src="/images/flag_kor.svg" alt="대한민국" className="flagIcon" />
-                    </span>
-                    <span>(AIS)</span>
-                    <span className="legend">
-                    <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
-                    </span>
-                </a>
-                </li>
-                <li>
-                <a href="#!" className="">
-                    <i className="cicle default"></i>
-                    <span>0001</span>
-                    <span>1511함A-05</span>
-                    <span>
-                    <img src="/images/flag_kor.svg" alt="대한민국" className="flagIcon" />
-                    </span>
-                    <span>(AIS)</span>
-                    <span className="legend">
-                    <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
-                    </span>
-                </a>
-                </li>
-            </ul>
-            </div>
-        </div>
+        
         {/* 사이드패널 토글버튼 */}
         <button
             type="button"

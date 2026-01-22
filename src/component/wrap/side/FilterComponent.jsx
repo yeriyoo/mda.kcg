@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Slider from '../../common/Slider';
 
 export default function FilterComponent({ isOpen, onToggle }) {
+
     // 투명도
     const [opacity, setOpacity] = useState(70);
 
@@ -320,7 +321,7 @@ export default function FilterComponent({ isOpen, onToggle }) {
                         </li>
                     </ul>
                     <div className='btnBox'>
-                        <button type="button" className="btn btnLine">레이어 등록</button>
+                        <button type="button" className="btn btnLine w15r">레이어 등록</button>
                     </div>
                 </div>
             </div>

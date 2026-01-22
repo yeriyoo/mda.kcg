@@ -1,5 +1,6 @@
 import { useState } from 'react';
 export default function Panel3Component({ isOpen, onToggle }) {
+    
     // 탭이동
     const [activeTab, setActiveTab] = useState('weather01');
 

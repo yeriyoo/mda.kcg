@@ -306,6 +306,7 @@
                 .title {
                     font-size: var(--fs-ml);
                     color: var(--white);
+                    font-weight: var(--fw-bold);
                     padding: 1.7rem 0;
                 }
                 // 기상패널 범례
@@ -354,16 +355,26 @@
                 padding: 3rem 2rem;
 
                 &.noLine {
+                    overflow-y: visible;
                     border-top: 0;
                     padding: 0 2rem;
+                }
+
+                &.noSc {
+                    overflow-y: visible;
+                    padding-bottom: 0;
                 }
                 .tabBtmInner {
                     display: flex;
                     flex-direction: column;
-                    min-height: 100%;
+                    height: 100%;
+                    min-height: 0;
 
                     .tabBtmCnt {
                     flex: 1 1 auto;
+                    min-height: 0   ;
+                    overflow-y: auto;
+                    padding-bottom: 2rem;
                     }
 
                     .btnBox {
@@ -371,11 +382,16 @@
                     margin-top: auto; 
                     display: flex;
                     justify-content: flex-end;
+                    gap: 1rem;
                     padding: 2rem 0;
+
+                    &.rowSB {
+                        justify-content: space-between;
+                    }
 
                         button {
                             flex: initial;
-                            width: 15rem;
+                            min-width: 12rem;
                         }
                     }
                 }

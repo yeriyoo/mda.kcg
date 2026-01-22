@@ -50,8 +50,8 @@ export default function Signal2Component() {
                         <div className={`acdListBox ${accordionOpen.signal1 ? 'open' : ''}`}>
                             <ul className="acdList input">
                                 <li className="state">
-                                    <label className="radio radioL"> <input type="radio" name="state1" aria-label="사용" /> <span>사용</span></label>
-                                    <label className="radio radioL"> <input type="radio" name="state1" aria-label="미사용" /> <span>미사용</span></label>
+                                    <label className="radio radioL"> <input type="radio" name="state1" /> <span>사용</span></label>
+                                    <label className="radio radioL"> <input type="radio" name="state1" /> <span>미사용</span></label>
                                 </li>
                                 <li className="input">
                                     <label>
@@ -92,8 +92,8 @@ export default function Signal2Component() {
                         <div className={`acdListBox ${accordionOpen.signal2 ? 'open' : ''}`}>
                             <ul className="acdList check">
                                 <li className="state">
-                                    <label className="radio radioL"> <input type="radio" name="state2" aria-label="사용" /> <span>사용</span></label>
-                                    <label className="radio radioL"> <input type="radio" name="state2" aria-label="미사용" /> <span>미사용</span></label>
+                                    <label className="radio radioL"> <input type="radio" name="state2" /> <span>사용</span></label>
+                                    <label className="radio radioL"> <input type="radio" name="state2" /> <span>미사용</span></label>
                                 </li>
                                 <li className="check">
                                     <label class="checkbox checkL"><input type="checkbox" /><span>특정 어업수역 I</span></label>
@@ -128,8 +128,8 @@ export default function Signal2Component() {
                         <div className={`acdListBox ${accordionOpen.signal3 ? 'open' : ''}`}>
                             <ul className="acdList">
                                 <li className="state">
-                                    <label className="radio radioL"> <input type="radio" name="state3" aria-label="사용" /> <span>사용</span></label>
-                                    <label className="radio radioL"> <input type="radio" name="state3" aria-label="미사용" /> <span>미사용</span></label>
+                                    <label className="radio radioL"> <input type="radio" name="state3" /> <span>사용</span></label>
+                                    <label className="radio radioL"> <input type="radio" name="state3" /> <span>미사용</span></label>
                                 </li>
                             </ul>
                         </div>

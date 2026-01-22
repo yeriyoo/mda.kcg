@@ -195,6 +195,8 @@ select:focus::-ms-value {background:none; color:#333;}
 .p30{ padding:30px !important;}
 .pt0 {padding-top:0px !important;}
 .pt5 {padding-top:5px !important;}
+.pt7 {padding-top:7px !important;}
+.pt8 {padding-top:8px !important;}
 .pt10 {padding-top:10px !important;}
 .pt15 {padding-top:15px !important;}
 .pt20 {padding-top:20px !important;} 
@@ -238,9 +240,17 @@ select:focus::-ms-value {background:none; color:#333;}
 .w90 {width:90% !important;}
 .w100 {width:100% !important;}
 .w333333 {width:33.3333% !important;} .w666666 {width:66.6666% !important}
+.w4r {width: 4rem !important;}
+.w5r {width: 5rem !important;}
 .w9r {width: 9rem !important;}
 .w10r {width: 10rem !important;}
+.w11r {width: 11rem !important;}
+.w12r {width: 12rem !important;}
 .w13r {width: 13rem !important;}
+.w14r {width: 14rem !important;}
+.w15r {width: 15rem !important;}
+.w46r {width: 46rem !important;} /* ui-popup small */
+.w61r {width: 61rem !important;} /* ui-popup big */
 
 /* flex */
 .flx0 {flex: 0 1 auto;}
@@ -256,15 +266,12 @@ select:focus::-ms-value {background:none; color:#333;}
 textarea {
 	width: 100%; 
 	font-family: 'NanumSquare', sans-serif;
+	background-color: var(--secondary2);
+	border: 1px solid var(--secondary4);
 	font-size: var(--fs-m); 
-	color: var(--c-gray-800);
-	border: 1px solid var(--c-gray-200); 
-	padding: 1.2rem; 
-	border-radius: 1rem !important;
-}
-textarea:focus {
-	outline: none; 
-	border: 1px solid var(--cobalt-blue);
+	color: var(--white);
+	font-weight: var(--fw-regular);
+	padding: 1rem 1.2rem;
 }
 
 select{
@@ -278,6 +285,7 @@ select{
 	font-family: 'NanumSquare', sans-serif;
 	font-size: var(--fs-m); 
 	color: var(--white);
+	font-weight: var(--fw-regular);
 	padding: 1rem 1.2rem;
 	text-overflow: ellipsis;white-space: nowrap; max-width: 100%; overflow: hidden;
 }
@@ -299,6 +307,7 @@ input{
 	border: 1px solid var(--secondary4);
 	font-size: var(--fs-m); 
 	color: var(--white);
+	font-weight: var(--fw-regular);
 	padding: 0 1.2rem; 
 }
 input::placeholder { color:rgba(var(--white-rgb),.3); }

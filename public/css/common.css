@@ -1,7 +1,7 @@
 /* row-설정 */
-.row {display: flex; align-items: center;width: 100%;}
+.row {display: flex; align-items: center;}
 .rowC {display: flex; flex-direction: column;}
-.rowSB {display: flex; justify-content: space-between;align-items: center; width: 100%;}
+.rowSB {display: flex; justify-content: space-between;align-items: center;}
 .rowL {display: flex; align-items: center; justify-content: flex-start;}
 .rowR {display: flex; align-items: center; justify-content: flex-end;}
 
@@ -19,23 +19,25 @@
 
 /**** 폼그룹 ****/
 .formGroup > ul{width:100%;}
-.formGroup > ul > li{display:flex;gap:.8rem;}
-.formGroup > ul li+li{margin:.8rem 0;}
+.formGroup > ul li{display:flex;gap:1rem;}
+.formGroup > ul li+li{margin:.7rem 0;}
 .formGroup > ul li .col{flex:1;}
 .formGroup > ul li label {display: flex; align-items: center; flex: 1 1 50%;}
-.formGroup > ul li label span {flex-shrink: 0;width: 7rem; color: var(--white);}
+.formGroup > ul li label span {flex-shrink: 0;width: 7.5rem; color: var(--white);}
 .formGroup > ul li label select, .formGroup > ul li label input, 
 .formGroup > ul li label .numInput {flex: 1;}
 .formGroup > ul li label .labelRow {flex: 1; display: flex; align-items: center; gap: .5rem; color: var(--white);}
-.formGroup > ul li label .labelRow > span{flex-shrink: 0; width: initial;}
+.formGroup > ul li label .labelRow > span{flex-shrink: 0; width: 2rem; text-align: center; }
 .formGroup > ul li label .labelRow > input, .formGroup > ul li label .labelRow > .numInput {flex: 1;}
 .formGroup > ul li.fgBtn { justify-content: flex-end; padding: 1rem 0 1.5rem;}
+.formGroup > ul li.fgBtn.rowSB  { justify-content: space-between;}
+.formGroup > ul li.fgBtn.rowSB .infoTxt {color: var(--secondary4);}
 /* 폼그룹 label width변경 */
 .formGroup > ul.lagelW12 li label > span {flex-shrink: 0;width: 12rem; color: var(--white);}
 /* 폼그룹 아코디언 */
-.formGroup > ul > .accordion {max-height: 0; overflow: hidden;transition: max-height .3s ease;}
-.formGroup > ul > .accordion.is-open {max-height: 1000px;}
-.formGroup > ul > .accordion li {display:flex;gap:.8rem;}
+.formGroup > ul .accordion {max-height: 0; overflow: hidden;transition: max-height .3s ease;}
+.formGroup > ul .accordion.is-open {max-height: 1000px;}
+.formGroup > ul .accordion li {display:flex;gap:1rem;}
 
 /* 박스그룹 */
 .schbox ul {display: flex;width: 100%;}
@@ -58,7 +60,7 @@
 /* =========================
    UI - 버튼
 ========================= */
-.btn { min-width: 14rem; height: 4.2rem; flex: 1; display:flex;align-items:center; justify-content:center;font-size: var(--fs-ml);font-weight: var(--fw-bold); }
+.btn { min-width: 14rem; height: 4.2rem; flex: 1; display:flex;align-items:center; justify-content:center;font-size: var(--fs-ml);font-weight: var(--fw-bold); padding:1rem 2rem;}
 .btnM {height: 4rem !important; font-weight: var(--fw-regular);}
 .btnS { width: 100%; height: 3.2rem !important;font-size: var(--fs-m); color: var(--white); font-weight: normal;}
 .btnLine {border: .1rem solid var(--secondary4); }
@@ -93,7 +95,7 @@
 .colList.line li a {display: flex;align-items: center;justify-content: flex-start;height: 4rem; gap: .8rem;}
 .colList.line li a > i {margin-right: .7rem;}
 .colList.line li a > span { color: var(--white); font-weight: var(--fw-bold);}
-.colList.line li a > span:nth-of-type(4) {font-weight:normal;}
+.colList.line li a > span:nth-of-type(4) {font-weight:var(--fw-regular);}
 .colList.line li a > span.legend{margin-left:auto;display:flex;align-items:center;}
 .colList.line li a > span .flagIcon{width:2.6rem;height:auto;display:block;}
 .colList.line li a > span .legendShip{width:2.4rem;height:auto;display:block;}
@@ -120,40 +122,45 @@
 .toggleListBtn {display: flex;align-items: center;width: 2.4rem;height: 2.4rem;background: url('/images/ico_arrow_toggle_down.svg') no-repeat center / contain;transition: transform 0.3s ease;}
 .toggleListBtn.open {transform: rotate(180deg);}
 
+/* 사이드패널 - 상세정보 박스 */
+.detailWrap {display: flex;flex-direction: column;gap: .8rem;}
 
-/* .shipList {display: flex;flex-direction: column;gap: .8rem;}
-.shipList > li, .shipList > li a {width: 100%; height: 4rem; display: flex;align-items: center;justify-content: flex-start;}
-.shipList > li a:hover, .shipList > li a.active {background-color: var(--secondary3); border: solid 2px var(--primary1);}
-.shipList > li a {background-color: var(--secondary1);border: solid 2px transparent; border-radius: .6rem; padding: 1rem 1.2rem;}
-.shipList > li a > i {margin-right: .7rem;}
-.shipList > li a > span { color: var(--white); font-weight: var(--fw-bold);}
-.shipList > li a > span:nth-of-type(4) {font-weight:normal;}
-.shipList > li a > span.legend{margin-left:auto;display:flex;align-items:center;}
-.shipList > li a > span .flagIcon{width:2.6rem;height:auto;display:block;}
-.shipList > li a > span .legendShip{width:2.4rem;height:auto;display:block;}
-.shipList > li a > span + span { padding: 0 .5rem;} */
+.detailBox {display: flex;flex-direction: column; gap: .4rem;background-color: var(--secondary1);border: solid 2px transparent; border-radius: .6rem; padding: 1rem 1.2rem;}
+.detailBox > li {display: flex;align-items: flex-start;}
+.detailBox > li.dbHeader {display:flex;align-items:center;justify-content:space-between;}
+.detailBox > li.dbHeader > .headerL,
+.detailBox > li.dbHeader > .headerR {display:flex;align-items:center;gap:.7rem;color:var(--white);}
+.detailBox > li.dbHeader .name {font-size: var(--fs-ml); font-weight:var(--fw-bold);}
+.detailBox > li.dbHeader .type {font-size: var(--fs-ml); font-weight:var(--fw-bold);color:var(--primary1);}
+.detailBox > li.dbHeader .num {font-size: var(--fs-m); font-weight:var(--fw-bold);}
+.detailBox > li.dbHeader .icoArrow {width:2rem;height:2rem;background:url('/images/ico_arrow_right_rnd_off.svg') no-repeat center/contain; margin-left: .5rem;}
+.detailBox:has(.icoArrow:hover) {border: solid 2px var(--primary1);}
+.detailBox > li.dbHeader .icoArrow:hover {background:url('/images/ico_arrow_right_rnd_on.svg') no-repeat center/contain;}
+.detailBox > li > span {display: flex; color: var(--white); min-height: 2.1rem;}
+.detailBox > li > .tit { font-size: var(--fs-ml);font-weight: var(--fw-bold);}
+.detailBox > li > .label{min-width:9rem;flex-shrink: 0; font-weight:var(--fw-regular);}
+.detailBox > li > .value {flex:1; font-weight:var(--fw-bold);position:relative;padding-left:1.2rem;}
+.detailBox > li > .value::before {content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:1.3rem;background-color:var(--white);}
+/* .detailBox > li > .value:empty::before {top: 0.3em;transform: none;} */
 
-/* 사이드패널 - 배정보 */
-.shipDetailList {display: flex;flex-direction: column;gap: .8rem;}
-.shipDetailList > li {width: 100%; height:auto;background-color: var(--secondary1);border: solid 2px transparent; border-radius: .6rem; padding: 1rem 1.2rem;}
-.shipDetailList > li:hover, .shipDetailList > li.active {border: solid 2px var(--primary1);}
+.detailBox.stretch > li {align-items: stretch;}
 
-.shipDetail {display: flex;flex-direction: column; gap: .4rem;}
-.shipDetail > li {display: flex;align-items: flex-start; width: 100%;}
-.shipDetail > li.shipHeader {display:flex;align-items:center;justify-content:space-between;}
-.shipDetail > li.shipHeader > .headerL,
-.shipDetail > li.shipHeader > .headerR {display:flex;align-items:center;gap:.7rem;color:var(--white);}
-.shipDetail > li.shipHeader .name {font-size: var(--fs-ml); font-weight:var(--fw-bold);}
-.shipDetail > li.shipHeader .type {font-size: var(--fs-ml); font-weight:var(--fw-bold);color:var(--primary1);}
-.shipDetail > li.shipHeader .num {font-size: var(--fs-m); font-weight:var(--fw-bold);}
-.shipDetail > li.shipHeader .icoArrow {width:2rem;height:2rem;background:url('/images/ico_arrow_right_rnd_off.svg') no-repeat center/contain;}
-.shipDetail > li.shipHeader .icoArrow:hover {background:url('/images/ico_arrow_right_rnd_on.svg') no-repeat center/contain;}
-.shipDetail > li > span {display: flex; color: var(--white);}
-.shipDetail > li > .tit { font-size: var(--fs-ml);font-weight: var(--fw-bold);}
-.shipDetail > li > .label{min-width:9rem;flex-shrink: 0; font-weight:var(--fw-regular);}
-.shipDetail > li > .value {flex:1;font-weight:var(--fw-bold);position:relative;padding-left:1.2rem;}
-.shipDetail > li > .value::before {content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:1.3rem;background-color:var(--white);}
+.detailBox .dbList {flex: 1; display: flex;flex-direction: column; min-width: 0;width: auto;}
+.detailBox .dbList > li {display: grid; grid-template-columns: 9rem 1fr; align-items: start; width: 100%;}
+.detailBox .dbList > li > span {display: block !important; color: var(--white); min-height: 2.1rem;}
+.detailBox .dbList > li > .label{min-width:9rem;flex-shrink: 0; font-weight:var(--fw-regular);}
+.detailBox .dbList > li > .value {font-weight:var(--fw-bold);position:relative; min-width: 0; white-space: normal; word-break: break-all;overflow-wrap: anywhere; padding-left:1.2rem;}
+.detailBox .dbList > li > .value::before {content:'';position:absolute;left:0;top: 0.3em;width:1px;height:1.3rem;background-color:var(--white);}
 
+.detailBox .btnArea {display: flex; align-items: center; justify-content:flex-end; width: 13rem; gap: .8rem;transform: translateY(-1rem);}
+.detailBox .btnArea .btnEdit {width: 2.8rem; height: 2.8rem; background: url(../images/ico_btn_edit.svg) no-repeat center / contain;}
+.detailBox .btnArea .btnDel {width: 2.8rem; height: 2.8rem; background: url(../images/ico_btn_del.svg) no-repeat center / contain;}
+.detailBox .btnArea .btnMap {width: 2.8rem; height: 2.8rem; background: url(../images/ico_btn_map.svg) no-repeat center / contain;}
+.detailBox .btnArea .btnEdit:hover {background-image: url(../images/ico_btn_edit_on.svg);}
+.detailBox .btnArea .btnDel:hover {background-image: url(../images/ico_btn_del_on.svg);}
+.detailBox .btnArea .btnMap:hover {background-image: url(../images/ico_btn_map_on.svg);}
+
+.detailBox:has(.btnArea .btnEdit:hover), .detailBox:has(.btnArea .btnDel:hover), .detailBox:has(.btnArea .btnMap:hover) {border-color: var(--primary1);}
 /* ship-map */
 .shipMapContainer {position: absolute;display: flex;flex-direction: column;gap: .8rem; top: 50%; left: 50%;transform: translate(-50%, -50%);}
 .shipMap {min-width: 8rem; min-height: 3rem;}
@@ -282,7 +289,7 @@
   align-items: center;
   z-index: 999;
 }
-.popupUtillWrap { position: absolute;top: 50%; left: 50%;transform: translate(-50%, -50%);}
+.popupUtillWrap { position: absolute;top: 50%; left: 50%;transform: translate(-50%, -50%);z-index :85;}
 .popupUtill {display: flex; flex-direction: column; width: 52.5rem; height:auto;max-height: 80vh;overflow: hidden; background-color: var(--secondary2); border: .1rem solid var(--secondary3); padding:2.5rem 3rem;}
 .popupUtill > .puHeader {display: flex; justify-content: space-between; align-items: center; padding-bottom: 2rem;}
 .popupUtill > .puHeader > .title {font-weight: var(--fw-bold); font-size: var(--fs-xl);}
@@ -297,13 +304,29 @@
    테이블
 ========================= */
 .required {color: var(--red-100);}
-.table {width:100%; border-top:.1rem solid var(--secondary4); border-bottom:.1rem solid var(--secondary4); text-align:left;line-height:1.6em;}
+.table {table-layout: fixed; width:100%; border-top:.1rem solid var(--secondary4); border-bottom:.1rem solid var(--secondary4); text-align:left;line-height:1.6em;}
 .table caption {position: absolute;top: 0;left: 0;width: 1px;height: 1px;font-size: 1px;clip: rect(1px, 1px, 1px, 1px);opacity: 0;}
 .table tbody th,.table tbody td {border-bottom:.1rem solid var(--secondary4); word-break: break-all;line-height:1.6em; vertical-align: middle; color: var(--white);}
-.table tbody th {background-color: var(--tertiary1); font-weight: var(--fw-bold); padding:2.2rem 1rem;}
-.table tbody td {padding:.8rem 0 .8rem 1rem;}
+.table tbody th {background-color: var(--tertiary1); font-weight: var(--fw-bold); height: 5rem; padding:0 1rem;}
+.table tbody td {padding:.5rem 0 .5rem 1rem;}
 .table tbody td .helpTxt {color:rgba(var(--white-rgb),.3); padding-top: .5rem;}
+.table tbody td .row {display: flex; align-items: center; gap: 1.4rem;}
+.table tbody td .row.flex1 {gap: 1rem;}
+.table tbody td .row.flex1 > * {flex: 1 1 0; min-width: 0;}
+.table tbody td .row label.checkbox span {font-weight: var(--fw-regular);}
+.table tbody td:has(+ th) {padding-right: 1rem;}
+
+.colorBox {display: block; width: 2.8rem; height: 2.8rem; border-radius: .6rem;}
 
 
+/* =========================
+   각 섹션별 UI
+========================= */
+/* 분석 */
+.drawBtn {flex: 1; display:flex;flex-direction: column; gap: 1rem; align-items:center; justify-content:center;font-size: var(--fs-ml);font-weight: var(--fw-default); padding:1rem 2rem; width: 22.8rem; height: 10rem;border: .1rem solid var(--secondary4);}
+.drawBtn i {width: 4rem; height: 4rem;}
+.drawBtn .rect {background: url(../images/ico_draw_rect.svg) no-repeat center / contain;}
+.drawBtn .polygon {background: url(../images/ico_draw_polygon.svg) no-repeat center / contain;}
 
-
+.drawBtn.sm {flex-direction: row; height: 4.2rem; font-size: var(--fs-ms); font-weight: var(--fw-bold); }
+.drawBtn.sm i {width: 1.6rem; height: 1.6rem;}
