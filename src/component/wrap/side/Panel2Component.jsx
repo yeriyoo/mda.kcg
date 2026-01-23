@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Slider from '../../common/Slider';
 
 export default function Panel2Component({ isOpen, onToggle }) {
@@ -178,7 +178,7 @@ export default function Panel2Component({ isOpen, onToggle }) {
                                     </ul>
                                     <div className="btnArea">
                                         <button type="button" className="btnEdit"></button>
-                                        <button type="button" className="btnDel"></button>
+                                        <button type="button" className="btnDel"  onClick={() => navigate("/panel2/satellite/delete")}></button>
                                         <button type="button" className="btnMap"></button>
                                     </div>
                                 </li>
@@ -289,7 +289,13 @@ export default function Panel2Component({ isOpen, onToggle }) {
                     </div>
                     {/* 하단버튼 영역 */}
                     <div class="btnBox">
-                        <button type="button" class="btn btnLine">등록</button>
+                        <button 
+                        type="button" 
+                        class="btn btnLine" 
+                        onClick={() => navigate("/panel2/satellite/provider")}
+                        >
+                        등록
+                        </button>
                     </div>
                 </div>
             </div>
@@ -386,7 +392,13 @@ export default function Panel2Component({ isOpen, onToggle }) {
                     </div>
                     {/* 하단버튼 영역 */}
                     <div class="btnBox">
-                        <button type="button" class="btn btnLine">등록</button>
+                        <button 
+                        type="button" 
+                        class="btn btnLine" 
+                        onClick={() => navigate("/panel2/satellite/manage")}
+                        >
+                        등록
+                        </button>
                     </div>
                 </div>
             </div>

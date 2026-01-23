@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 export default function Panel4Component({ isOpen, onToggle }) {
+    const navigate = useNavigate();
 
     // 아코디언
     const [isAccordionOpen1, setIsAccordionOpen1] = useState(false); // 기존
@@ -60,17 +62,21 @@ export default function Panel4Component({ isOpen, onToggle }) {
                         <span>데이터가 없습니다.</span>
                         {/* <ul className="colList lineSB">
                             <li>
-                            <a href="#!" className="">
+                            <Link to="/" className="">
                                 <span className="title">1. 폭풍주의: 남해</span>
                                 <span className="meta">시작일시 00:00:00 / 발효일시 00:00:00</span>
-                            </a>
+                            </Link>
                             </li>
                         </ul> */}
 
                     </div>
                     {/* 하단고정버튼 */}
                     <div className="btnBox">
-                        <button type="button" class="btn btnLine">등록</button>
+                        <button 
+                        type="button" 
+                        class="btn btnLine"
+                        onClick={() => navigate("/panel4/analysis/area")}
+                        >등록</button>
                     </div>
                 </div>
             </div>
@@ -99,7 +105,10 @@ export default function Panel4Component({ isOpen, onToggle }) {
                             </label>
                         </li>
                         <li className="fgBtn">
-                            <button type="button" className="schBtn">검색</button>
+                            <button 
+                            type="button" 
+                            className="schBtn"
+                            >검색</button>
                         </li>
                     </ul>
                 </div>
@@ -113,7 +122,11 @@ export default function Panel4Component({ isOpen, onToggle }) {
                     </div>
                     {/* 하단고정버튼 */}
                     <div className="btnBox">
-                        <button type="button" class="btn btnLine">등록</button>
+                        <button 
+                        type="button" 
+                        class="btn btnLine"
+                        onClick={() => navigate("/panel4/analysis/register")}
+                        >등록</button>
                     </div>
                 </div>
             </div>
@@ -373,7 +386,12 @@ export default function Panel4Component({ isOpen, onToggle }) {
                         </li>
                         <li className="fgBtn rowSB">
                             <span className="infoTxt">통화량 조회에 최대 30초 소요될 수 있습니다.</span>
-                            <button type="button" className="schBtn">검색</button>
+                            <button 
+                            type="button" 
+                            className="schBtn"
+                            >
+                            검색
+                            </button>
                         </li>
                     </ul>
                 </div>

@@ -10,8 +10,7 @@ import Panel5Component from "./side/Panel5Component"; // 타임라인
 import Panel6Component from "./side/Panel6Component"; // AI모드
 import Panel7Component from "./side/Panel7Component"; // 리플레이
 import Panel8Component from "./side/Panel8Component"; // 항적조회
-import FilterComponent from "./side/FilterComponent"; // 필터
-import LayerComponent from "./side/LayerComponent"; // 레이어
+import DisplayComponent from "./side/DisplayComponent"; // 필터
 
 export default function SideComponent() {
     const navigate = useNavigate();
@@ -39,8 +38,8 @@ export default function SideComponent() {
         case 'panel6': return 'gnb6';
         case 'panel7': return 'gnb7';
         case 'panel8': return 'gnb8';
-        case 'filter': return 'side1';
-        case 'layer': return 'side2';
+        case 'filter': return 'filter';
+        case 'layer': return 'layer';
         default: return 'gnb1';
         }
     };
@@ -49,7 +48,7 @@ export default function SideComponent() {
 
     /* =========================
         네비 클릭 → 라우트 이동
-        ❗ 패널은 닫지 않음
+        패널은 닫지 않음
     ========================= */
     const handleChangePanel = (key) => {
         // 메뉴 클릭 시 무조건 패널 열기
@@ -64,8 +63,8 @@ export default function SideComponent() {
         case 'gnb6': navigate('/panel6'); break;
         case 'gnb7': navigate('/panel7'); break;
         case 'gnb8': navigate('/panel8'); break;
-        case 'side1': navigate('/filter'); break;
-        case 'side2': navigate('/layer'); break;
+        case 'filter': navigate('/filter'); break;
+        case 'layer': navigate('/layer'); break;
         default: navigate('/panel1'); break;
         }
     };
@@ -87,19 +86,19 @@ export default function SideComponent() {
 
         <div className="sidePanelContent">
             <Routes>
-            {/* 초기 진입 시 Panel1 */}
-            <Route index element={<Navigate to="/panel1" replace />} />
+                {/* 초기 진입 시 Panel1 */}
+                <Route index element={<Navigate to="/panel1" replace />} />
 
-            <Route path="/panel1/*" element={<Panel1Component {...panelProps} />} />
-            <Route path="/panel2/*" element={<Panel2Component {...panelProps} />} />
-            <Route path="/panel3/*" element={<Panel3Component {...panelProps} />} />
-            <Route path="/panel4/*" element={<Panel4Component {...panelProps} />} />
-            <Route path="/panel5/*" element={<Panel5Component {...panelProps} />} />
-            <Route path="/panel6/*" element={<Panel6Component {...panelProps} />} />
-            <Route path="/panel7/*" element={<Panel7Component {...panelProps} />} />
-            <Route path="/panel8/*" element={<Panel8Component {...panelProps} />} />
-            <Route path="/filter/*" element={<FilterComponent {...panelProps} />} />
-            <Route path="/layer/*" element={<LayerComponent {...panelProps} />} />
+                <Route path="panel1/*" element={<Panel1Component {...panelProps} />} />
+                <Route path="panel2/*" element={<Panel2Component {...panelProps} />} />
+                <Route path="panel3/*" element={<Panel3Component {...panelProps} />} />
+                <Route path="panel4/*" element={<Panel4Component {...panelProps} />} />
+                <Route path="panel5/*" element={<Panel5Component {...panelProps} />} />
+                <Route path="panel6/*" element={<Panel6Component {...panelProps} />} />
+                <Route path="panel7/*" element={<Panel7Component {...panelProps} />} />
+                <Route path="panel8/*" element={<Panel8Component {...panelProps} />} />
+                <Route path="filter/*" element={<DisplayComponent {...panelProps} />} />
+                <Route path="layer/*" element={<DisplayComponent {...panelProps} />} />
             </Routes>
         </div>
         </section>

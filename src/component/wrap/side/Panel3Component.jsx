@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 export default function Panel3Component({ isOpen, onToggle }) {
     
     // 탭이동
@@ -56,22 +57,22 @@ export default function Panel3Component({ isOpen, onToggle }) {
             <div className="tabBtm">
                 <ul className="colList lineSB">
                     <li>
-                    <a href="#!" className="">
+                    <Link to="/" className="">
                         <span className="title">1. 폭풍주의: 남해</span>
                         <span className="meta">시작일시 00:00:00 / 발효일시 00:00:00</span>
-                    </a>
+                    </Link>
                     </li>
                     <li>
-                    <a href="#!" className="">
+                    <Link to="/" className="">
                         <span className="title">2. 폭풍주의: 서해</span>
                         <span className="meta">시작일시 00:00:00 / 발효일시 00:00:00</span>
-                    </a>
+                    </Link>
                     </li>
                     <li>
-                    <a href="#!" className="">
+                    <Link to="/" className="">
                         <span className="title">3. 폭풍주의: 동해</span>
                         <span className="meta">시작일시 00:00:00 / 발효일시 00:00:00</span>
-                    </a>
+                    </Link>
                     </li>
                 </ul>
             </div>
@@ -107,22 +108,22 @@ export default function Panel3Component({ isOpen, onToggle }) {
             <div className="tabBtm">
                 <ul className="colList lineSB">
                     <li>
-                    <a href="#!" className="">
+                    <Link to="/" className="">
                         <span className="title">1. 폭풍주의: 남해</span>
                         <span className="meta">시작일시 00:00:00 / 발효일시 00:00:00</span>
-                    </a>
+                    </Link>
                     </li>
                     <li>
-                    <a href="#!" className="">
+                    <Link to="/" className="">
                         <span className="title">2. 폭풍주의: 서해</span>
                         <span className="meta">시작일시 00:00:00 / 발효일시 00:00:00</span>
-                    </a>
+                    </Link>
                     </li>
                     <li>
-                    <a href="#!" className="">
+                    <Link to="/" className="">
                         <span className="title">3. 폭풍주의: 동해</span>
                         <span className="meta">시작일시 00:00:00 / 발효일시 00:00:00</span>
-                    </a>
+                    </Link>
                     </li>
                 </ul>
             </div>

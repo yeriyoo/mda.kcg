@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 export default function Analysis1Component() {
+    const navigate = useNavigate();
+
     // 팝업
     const [isOpen, setIsOpen] = useState(true); // 처음 열림
     const closePopup = () => setIsOpen(false);
@@ -24,8 +27,21 @@ export default function Analysis1Component() {
 
                 <div className="puBody p0">
                     <div className="rowSB gap10">
-                        <button type="button" className="drawBtn"><i className="rect"></i>사각형 그리기</button>
-                        <button type="button" className="drawBtn"><i className="polygon"></i>다각형 그리기</button>
+                        <button type="button" 
+                        className="drawBtn"
+                        onClick={() => navigate("/panel4/analysis/result")}
+                        >
+                        <i className="rect"></i>
+                        사각형 그리기
+                        </button>
+                        
+                        <button type="button" 
+                        className="drawBtn"
+                        onClick={() => navigate("/panel4/analysis/result")}
+                        >
+                        <i className="polygon"></i>
+                        다각형 그리기
+                        </button>
                     </div>
                 </div>
 

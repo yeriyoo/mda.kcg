@@ -152,6 +152,41 @@ select:focus::-ms-value {background:none; color:#333;}
 .htFit {height:calc(100% - 60px) !important}
 .scrollY {overflow-y: auto;}
 
+/* row-설정 */
+.row {display: flex; align-items: center;}
+.rowC {display: flex; flex-direction: column;}
+.rowSB {display: flex; justify-content: space-between;align-items: center;}
+.rowSB.flx1 > * {flex:1}
+.rowL {display: flex; align-items: center; justify-content: flex-start;}
+.rowR {display: flex; align-items: center; justify-content: flex-end;}
+
+/* flex-설정 */
+.noFlex {flex: none !important;}
+.flx{display:flex !important;}
+.fL {display:flex !important; justify-content:flex-start !important;}
+.fR {display:flex !important; justify-content:flex-end !important;}
+.fC {display:flex !important; justify-content:center !important;}
+.fSB {display:flex !important; justify-content:space-between !important;}
+.fAt {display:flex !important; align-items:flex-start !important;}
+.fAb {display:flex !important; align-items:flex-end !important;}
+.fAc {display:flex !important; align-items:center !important;}
+.flxCol{flex-direction: column !important;}
+.flxWrap {flex-wrap: wrap !important;}
+.nowrap {flex-wrap: nowrap !important;}
+.flx0 {flex: 0 1 auto;}
+.flx1 {flex: 1;}
+
+/* gap */
+.gap5{gap:0.5rem !important;}
+.gap10{gap:1rem !important;}
+.gap12{gap:1.2rem !important;}
+.gap15{gap:1.5rem !important;}
+.gap20{gap:2rem !important;}
+
+/* title */
+.tit14 {font-size:var(--fs-m); line-height: 1.2; font-weight: var(--fw-bold);}
+.tit12 {font-size:var(--fs-s); line-height: 1.2; font-weight: var(--fw-bold);}
+
 /*======================== package */
 /*margin 제어*/
 .m0 {margin:0 !important;}
@@ -251,16 +286,6 @@ select:focus::-ms-value {background:none; color:#333;}
 .w15r {width: 15rem !important;}
 .w46r {width: 46rem !important;} /* ui-popup small */
 .w61r {width: 61rem !important;} /* ui-popup big */
-
-/* flex */
-.flx0 {flex: 0 1 auto;}
-.flx1 {flex: 1;}
-/* gap */
-.gap5{gap:0.5rem !important;}
-.gap10{gap:1rem !important;}
-.gap12{gap:1.2rem !important;}
-.gap15{gap:1.5rem !important;}
-.gap20{gap:2rem !important;}
 
 /* input  */
 textarea {

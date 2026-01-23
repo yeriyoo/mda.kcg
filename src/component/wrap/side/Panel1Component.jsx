@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 export default function Panel1Component({ isOpen, onToggle }) {
 
     // 아코디언
@@ -163,7 +164,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
             <div className="tabBtm">
             <ul className="colList line">
                 <li>
-                <a href="#!" className="active">
+                <Link to="/" className="active">
                     <i className="cicle default"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -174,10 +175,10 @@ export default function Panel1Component({ isOpen, onToggle }) {
                     <span className="legend">
                     <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
                     </span>
-                </a>
+                </Link>
                 </li>
                 <li>
-                <a href="#!" className="">
+                <Link to="/" className="">
                     <i className="cicle default"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -188,10 +189,10 @@ export default function Panel1Component({ isOpen, onToggle }) {
                     <span className="legend">
                     <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
                     </span>
-                </a>
+                </Link>
                 </li>
                 <li>
-                <a href="#!" className="">
+                <Link to="/" className="">
                     <i className="cicle red"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -202,10 +203,10 @@ export default function Panel1Component({ isOpen, onToggle }) {
                     <span className="legend">
                     <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
                     </span>
-                </a>
+                </Link>
                 </li>
                 <li>
-                <a href="#!" className="">
+                <Link to="/" className="">
                     <i className="cicle orng"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -216,7 +217,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
                     <span className="legend">
                     <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
                     </span>
-                </a>
+                </Link>
                 </li>
             </ul>
             </div>
@@ -338,7 +339,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
             <div className="tabBtm">
             <ul className="colList line">
                 <li>
-                <a href="#!" className="active">
+                <Link to="/" className="active">
                     <i className="cicle default"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -349,10 +350,10 @@ export default function Panel1Component({ isOpen, onToggle }) {
                     <span className="legend">
                     <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
                     </span>
-                </a>
+                </Link>
                 </li>
                 <li>
-                <a href="#!" className="">
+                <Link to="/" className="">
                     <i className="cicle default"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -363,7 +364,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
                     <span className="legend">
                     <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
                     </span>
-                </a>
+                </Link>
                 </li>
             </ul>
             </div>
@@ -405,7 +406,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
             <div className="tabBtm">
             <ul className="colList line">
                 <li>
-                <a href="#!" className="active">
+                <Link to="/" className="active">
                     <i className="cicle default"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -416,10 +417,10 @@ export default function Panel1Component({ isOpen, onToggle }) {
                     <span className="legend">
                     <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
                     </span>
-                </a>
+                </Link>
                 </li>
                 <li>
-                <a href="#!" className="">
+                <Link to="/" className="">
                     <i className="cicle default"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -430,7 +431,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
                     <span className="legend">
                     <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
                     </span>
-                </a>
+                </Link>
                 </li>
             </ul>
             </div>
@@ -582,7 +583,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
             <div className="tabBtm">
             <ul className="colList line">
                 <li>
-                <a href="#!" className="active">
+                <Link to="/" className="active">
                     <i className="cicle default"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -593,10 +594,10 @@ export default function Panel1Component({ isOpen, onToggle }) {
                     <span className="legend">
                     <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
                     </span>
-                </a>
+                </Link>
                 </li>
                 <li>
-                <a href="#!" className="">
+                <Link to="/" className="">
                     <i className="cicle default"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -607,7 +608,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
                     <span className="legend">
                     <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
                     </span>
-                </a>
+                </Link>
                 </li>
             </ul>
             </div>
@@ -654,7 +655,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
             <div className="tabBtm">
             <ul className="colList line">
                 <li>
-                <a href="#!" className="active">
+                <Link to="/" className="active">
                     <i className="cicle default"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -665,10 +666,10 @@ export default function Panel1Component({ isOpen, onToggle }) {
                     <span className="legend">
                     <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
                     </span>
-                </a>
+                </Link>
                 </li>
                 <li>
-                <a href="#!" className="">
+                <Link to="/" className="">
                     <i className="cicle default"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -679,7 +680,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
                     <span className="legend">
                     <img src="/images/legend_ship_pink.svg" alt="선박" className="legendShip" />
                     </span>
-                </a>
+                </Link>
                 </li>
             </ul>
             </div>

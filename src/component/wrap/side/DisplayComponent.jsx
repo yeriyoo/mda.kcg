@@ -1,7 +1,10 @@
 import { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import Slider from '../../common/Slider';
 
-export default function LayerComponent({ isOpen, onToggle }) {
+export default function DisplayComponent({ isOpen, onToggle }) {
+    const navigate = useNavigate();
+
     // 투명도
     const [opacity, setOpacity] = useState(70);
 
@@ -320,7 +323,11 @@ export default function LayerComponent({ isOpen, onToggle }) {
                         </li>
                     </ul>
                     <div className='btnBox'>
-                        <button type="button" className="btn btnLine">레이어 등록</button>
+                        <button 
+                        type="button" 
+                        className="btn btnLine w15r"
+                        onClick={() => navigate("/display/layer/register")}
+                        >레이어 등록</button>
                     </div>
                 </div>
             </div>

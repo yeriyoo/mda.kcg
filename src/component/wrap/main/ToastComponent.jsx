@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 export default function ToastComponent() {  
     return(
@@ -6,24 +7,24 @@ export default function ToastComponent() {
             {/* 지도상 배표식 */}
             <div className="shipMapContainer">
                 <div className="shipMap shipCaution">
-                    <a href="!#">
+                    <Link to="/">
                         1511함A-05
                         <span className="status">12.5 kts | 45°</span>
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="shipMap shipWarning">
-                    <a href="!#">
+                    <Link to="/">
                         1511함A-05
                         <span className="status">12.5 kts | 45°</span>
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="shipMap shipDefault">
-                    <a href="!#">
+                    <Link to="/">
                         1511함A-05
                         <span className="status">12.5 kts | 45°</span>
-                    </a>
+                    </Link>
                 </div>
             </div>
 
