@@ -22,10 +22,13 @@ export default function Analysis3Component() {
                 />
                 </div>
 
-                <div className="puBody">
+                <div className="puBody noSc">
+
                     <div className="analyRow">
+                        {/* 지도캡쳐/테이블 영역 */}
                         <div className="reg">
                             <div className="mapCapture"></div>
+                            <button type="button" className="btn btnMS basic icoCapture">지도캡쳐</button>
                             <table className="table">
                                 <caption>관심 해역 분석 등록 - 제목, 상세 내역, 공유 여부,공유 그룹 에 대한 내용을 등록하는 표입니다.</caption>
                                 <colgroup>
@@ -64,6 +67,7 @@ export default function Analysis3Component() {
                                 </tbody>
                             </table>
                         </div>
+                        {/* 관심영역 체크박스 목록 -스크롤됨 */}
                         <div className="list" >
                             <div className="tit14">관심영역 목록</div>
                             <ul className="lineList rowSB">
@@ -81,6 +85,97 @@ export default function Analysis3Component() {
                                     </label>
                                     <button type="button" className="btnMap"></button>
                                 </li>
+                                <li>
+                                    <label className="checkbox checkL">
+                                        <input type="checkbox" />
+                                        <span>테스트 01</span>
+                                    </label>
+                                    <button type="button" className="btnMap"></button>
+                                </li>
+                                <li>
+                                    <label className="checkbox checkL">
+                                        <input type="checkbox" />
+                                        <span>테스트 01</span>
+                                    </label>
+                                    <button type="button" className="btnMap"></button>
+                                </li>
+                                <li>
+                                    <label className="checkbox checkL">
+                                        <input type="checkbox" />
+                                        <span>테스트 01</span>
+                                    </label>
+                                    <button type="button" className="btnMap"></button>
+                                </li>
+                                <li>
+                                    <label className="checkbox checkL">
+                                        <input type="checkbox" />
+                                        <span>테스트 01</span>
+                                    </label>
+                                    <button type="button" className="btnMap"></button>
+                                </li>
+                                <li>
+                                    <label className="checkbox checkL">
+                                        <input type="checkbox" />
+                                        <span>테스트 01</span>
+                                    </label>
+                                    <button type="button" className="btnMap"></button>
+                                </li>
+                                <li>
+                                    <label className="checkbox checkL">
+                                        <input type="checkbox" />
+                                        <span>테스트 01</span>
+                                    </label>
+                                    <button type="button" className="btnMap"></button>
+                                </li>
+                                <li>
+                                    <label className="checkbox checkL">
+                                        <input type="checkbox" />
+                                        <span>테스트 01</span>
+                                    </label>
+                                    <button type="button" className="btnMap"></button>
+                                </li>
+                                <li>
+                                    <label className="checkbox checkL">
+                                        <input type="checkbox" />
+                                        <span>테스트 01</span>
+                                    </label>
+                                    <button type="button" className="btnMap"></button>
+                                </li>
+                                <li>
+                                    <label className="checkbox checkL">
+                                        <input type="checkbox" />
+                                        <span>테스트 01</span>
+                                    </label>
+                                    <button type="button" className="btnMap"></button>
+                                </li>
+                                <li>
+                                    <label className="checkbox checkL">
+                                        <input type="checkbox" />
+                                        <span>테스트 01</span>
+                                    </label>
+                                    <button type="button" className="btnMap"></button>
+                                </li>
+                                <li>
+                                    <label className="checkbox checkL">
+                                        <input type="checkbox" />
+                                        <span>테스트 01</span>
+                                    </label>
+                                    <button type="button" className="btnMap"></button>
+                                </li>
+                                <li>
+                                    <label className="checkbox checkL">
+                                        <input type="checkbox" />
+                                        <span>테스트 01</span>
+                                    </label>
+                                    <button type="button" className="btnMap"></button>
+                                </li>
+                                <li>
+                                    <label className="checkbox checkL">
+                                        <input type="checkbox" />
+                                        <span>테스트 01</span>
+                                    </label>
+                                    <button type="button" className="btnMap"></button>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -88,8 +183,9 @@ export default function Analysis3Component() {
 
                 <div className="puFooter">
                 <div className="popBtnWrap">
-                    <button className="btn basic">저장</button>
-                    <button
+                    <button type="button" className="btn basic">저장</button>
+                    <button 
+                    type="button"
                     className="btn dark"
                     onClick={closePopup}
                     >

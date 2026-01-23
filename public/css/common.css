@@ -8,6 +8,7 @@
 ========================= */
 .btn { min-width: 14rem; height: 4.2rem; flex: 1; display:flex;align-items:center; justify-content:center;font-size: var(--fs-ml);font-weight: var(--fw-bold); padding:1rem 2rem;}
 .btnM {height: 4rem !important; font-weight: var(--fw-regular);}
+.btnMS {height: 3.5rem !important; font-size: var(--fs-ms);}
 .btnS { width: 100%; height: 3.2rem !important;font-size: var(--fs-m); color: var(--white); font-weight: normal;}
 .btnLine {border: .1rem solid var(--secondary4); }
 .basic {background-color: var(--primary1);}
@@ -21,7 +22,7 @@
 .schBtn {width: 8rem; height: 3.5rem;display:flex;align-items:center; justify-content:center;font-size: var(--fs-ms);font-weight: var(--fw-bold); background-color: var(--primary1); color: var(--white);}
 .schBtn::before {content: "";display: inline-block; width: 1.4rem; height: 1.4rem; margin-right: 1rem;background:url('/images/ico_btnsch.svg') no-repeat center center/ 1.4rem; }
 
-
+.icoCapture::before {content: "";display: inline-block; width: 1.8rem; height: 1.8rem; margin-right: 1rem;background:url('../images/ico_capture.svg') no-repeat center center/ 1.8rem;}
 .btnMap {width: 2.8rem; height: 2.8rem; background: url(../images/ico_btn_map.svg) no-repeat center / contain;}
 .btnMap:hover {background-image: url(../images/ico_btn_map_on.svg);}
 
@@ -82,8 +83,9 @@
 .lineList > li.rowSB {justify-content: space-between;}
 .lineList > li .row {display: flex; align-items: center; width: auto; gap:1.5rem;}
 /* 라인리스트- rowSB */
-.lineList.rowSB li {justify-content: space-between; padding: 1.4rem 0; width: 100%;}
-.lineList.rowSB li button {width: 2.4rem; height: 2.4rem;}
+.lineList.rowSB li {display: flex; justify-content: space-between; padding-left: 0; width: 100%;}
+.lineList.rowSB li label {display: flex; flex: 1; min-width: 0;}
+.lineList.rowSB li button {width: 2.4rem; height: 2.4rem; margin-left: .5rem;}
 
 /* bg리스트 */
 .optionList {display: flex;flex-direction: column;gap: .6rem; width: 100%;background-color: var(--tertiary1);padding: 1rem;}
@@ -125,35 +127,49 @@
 .toggleListBtn {display: flex;align-items: center;width: 2.4rem;height: 2.4rem;background: url('/images/ico_arrow_toggle_down.svg') no-repeat center / contain;transition: transform 0.3s ease;}
 .toggleListBtn.open {transform: rotate(180deg);}
 
-/* 사이드패널 - 상세정보 박스 */
+/* =========================
+   사이드 패널 - 상세정보 박스
+========================= */
 .detailWrap {display: flex;flex-direction: column;gap: .8rem;}
 
 .detailBox {display: flex;flex-direction: column; gap: .4rem;background-color: var(--secondary1);border: solid 2px transparent; border-radius: .6rem; padding: 1rem 1.2rem;}
 .detailBox > li {display: flex;align-items: flex-start;}
-.detailBox > li.dbHeader {display:flex;align-items:center;justify-content:space-between;}
-.detailBox > li.dbHeader > .headerL,
-.detailBox > li.dbHeader > .headerR {display:flex;align-items:center;gap:.7rem;color:var(--white);}
-.detailBox > li.dbHeader .name {font-size: var(--fs-ml); font-weight:var(--fw-bold);}
-.detailBox > li.dbHeader .type {font-size: var(--fs-ml); font-weight:var(--fw-bold);color:var(--primary1);}
-.detailBox > li.dbHeader .num {font-size: var(--fs-m); font-weight:var(--fw-bold);}
-.detailBox > li.dbHeader .icoArrow {width:2rem;height:2rem;background:url('/images/ico_arrow_right_rnd_off.svg') no-repeat center/contain; margin-left: .5rem;}
+.detailBox > .dbHeader {display:flex;align-items:center;justify-content:space-between;}
+.detailBox > .dbHeader > .headerL,
+.detailBox > .dbHeader > .headerR {display:flex;align-items:center;gap:.7rem;color:var(--white);}
+.detailBox > .dbHeader .name {font-size: var(--fs-ml); font-weight:var(--fw-bold);}
+.detailBox > .dbHeader .type {font-size: var(--fs-ml); font-weight:var(--fw-bold);color:var(--primary1);}
+.detailBox > .dbHeader .num {font-size: var(--fs-m); font-weight:var(--fw-bold);}
+.detailBox > .dbHeader .icoArrow {width:2rem;height:2rem;background:url('/images/ico_arrow_right_rnd_off.svg') no-repeat center/contain; margin-left: .5rem;}
 .detailBox:has(.icoArrow:hover) {border: solid 2px var(--primary1);}
 .detailBox > li.dbHeader .icoArrow:hover {background:url('/images/ico_arrow_right_rnd_on.svg') no-repeat center/contain;}
 .detailBox > li > span {display: flex; color: var(--white); min-height: 2.1rem;}
 .detailBox > li > .tit { font-size: var(--fs-ml);font-weight: var(--fw-bold);}
 .detailBox > li > .label{min-width:9rem;flex-shrink: 0; font-weight:var(--fw-regular);}
 .detailBox > li > .value {flex:1; font-weight:var(--fw-bold);position:relative;padding-left:1.2rem;}
-.detailBox > li > .value::before {content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:1.3rem;background-color:var(--white);}
+.detailBox > li > .value::before {content:'';position:absolute;left:0;top: 0.3em;width:1px;height:1.3rem;background-color:var(--white);}
 /* .detailBox > li > .value:empty::before {top: 0.3em;transform: none;} */
 
 .detailBox.stretch > li {align-items: stretch;}
+/* 헤더 항목2개 */
+.detailBox > .dbHeader > .headerL.item2 { width: 47.2rem;}
+.detailBox > .dbHeader > .headerL.item2 .name { max-width: calc(100% - 17rem); white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.detailBox > .dbHeader > .headerL.item2 .type { white-space: nowrap;}
+/* 헤더 항목1개 */
+.detailBox > .dbHeader> .headerL.item1 { width: 47.2rem;}
+.detailBox > .dbHeader > .headerL.item1 .name { max-width: 100%; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.detailBox > .dbHeader> .headerL.item1 .type { white-space: nowrap;}
 
 .detailBox .dbList {flex: 1; display: flex;flex-direction: column; min-width: 0;width: auto;}
 .detailBox .dbList > li {display: grid; grid-template-columns: 9rem 1fr; align-items: start; width: 100%;}
-.detailBox .dbList > li > span {display: block !important; color: var(--white); min-height: 2.1rem;}
+.detailBox .dbList > li > span {display: block; color: var(--white); min-height: 2.1rem;}
 .detailBox .dbList > li > .label{min-width:9rem;flex-shrink: 0; font-weight:var(--fw-regular);}
-.detailBox .dbList > li > .value {font-weight:var(--fw-bold);position:relative; min-width: 0; white-space: normal; word-break: break-all;overflow-wrap: anywhere; padding-left:1.2rem;}
+.detailBox .dbList > li > .value {display: flex;align-items: center; gap: .5rem; font-weight:var(--fw-bold);position:relative; min-width: 0; white-space: normal; word-break: break-all;overflow-wrap: anywhere; padding-left:1.2rem;}
 .detailBox .dbList > li > .value::before {content:'';position:absolute;left:0;top: 0.3em;width:1px;height:1.3rem;background-color:var(--white);}
+.dbList > li > .value.noLine::before {content: none; /* 라인 없음 */}
+
+/* 한줄에 4항목*/
+.detailBox  .dbList.twoCol > li {display: grid;grid-template-columns: 9rem 1fr 9rem 1fr;align-items: start;width: 100%;}
 
 .btnArea {display: flex; align-items: center; justify-content:flex-end; width: 13rem; gap: .8rem;transform: translateY(-1rem);}
 .btnArea .btnEdit {width: 2.8rem; height: 2.8rem; background: url(../images/ico_btn_edit.svg) no-repeat center / contain;}
@@ -295,7 +311,11 @@
 .popupUtillWrap { position: absolute;top: 50%; left: 50%;transform: translate(-50%, -50%);z-index :85;}
 .popupUtill {display: flex; flex-direction: column; width: 52.5rem; height:auto;max-height: 80vh;overflow: hidden; background-color: var(--secondary2); border: .1rem solid var(--secondary3); padding:2.5rem 3rem;}
 .popupUtill > .puHeader {display: flex; justify-content: space-between; align-items: center; padding-bottom: 2rem;}
+.popupUtill > .puHeader > .headerL {display: flex;align-items: flex-end; gap: .5rem;}
+.popupUtill > .puHeader > .headerL > .title,
 .popupUtill > .puHeader > .title {font-weight: var(--fw-bold); font-size: var(--fs-xl);}
+.popupUtill > .puHeader > .headerL > .subTxt,
+.popupUtill > .puHeader > .subTxt {font-weight: var(--fw-regular); font-size: var(--fs-s); color: var(--secondary4); padding-bottom: .3rem;}
 .popupUtill > .puHeader > .puClose {width: 2.2rem;height: 2.2rem; background: url(/images/ico_pop_utill_close.svg)no-repeat center /contain;}
 .popupUtill > .puBody {flex: 1; min-height: 0; overflow-y: auto; padding-bottom: 1rem;}
 .popupUtill > .puFooter { margin-top: auto; padding-top: 1rem;}
@@ -319,8 +339,14 @@
 .table tbody td .row label.checkbox span {font-weight: var(--fw-regular);}
 .table tbody td:has(+ th) {padding-right: 1rem;}
 
-.colorBox {display: block; width: 2.8rem; height: 2.8rem; border-radius: .6rem;}
+.table.dataView {border-bottom: 0;}
+.table.dataView tbody th, .table.dataView tbody td {height: 2.6rem; border-color: var(--tertiary1);font-size: var(--fs-s); font-weight: var(--fw-regular);}
+.table.dataView tbody th {background-color: var(--secondary1); padding: .5rem; }
+.table.dataView tbody td {text-align: right; padding:.5rem;}
 
+/* title */
+.tit14 {font-size:var(--fs-m); line-height: 1.2; font-weight: var(--fw-bold);}
+.tit12 {font-size:var(--fs-s); line-height: 1.2; font-weight: var(--fw-bold);}
 
 /* =========================
    각 섹션별 UI
@@ -330,11 +356,18 @@
 .drawBtn i {width: 4rem; height: 4rem;}
 .drawBtn .rect {background: url(../images/ico_draw_rect.svg) no-repeat center / contain;}
 .drawBtn .polygon {background: url(../images/ico_draw_polygon.svg) no-repeat center / contain;}
-
 .drawBtn.sm {flex-direction: row; height: 4.2rem; font-size: var(--fs-ms); font-weight: var(--fw-bold); }
 .drawBtn.sm i {width: 1.6rem; height: 1.6rem;}
 
-.analyRow {display: flex; justify-content: space-between; align-items: flex-start; gap: 1.5rem; width: 100%; height: 100%;}
-.analyRow > .reg {flex: 1; flex-direction: column; gap: 1rem;}
-.analyRow > .list {flex: 1;}
+.colorBox {display: block; width: 2.8rem; height: 2.8rem; border-radius: .6rem;}
+
+.analyRow {display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 2rem; width: 100%; height: 100%;}
+.analyRow > .reg  {display: flex; flex-direction: column; row-gap: 1rem;}
+.analyRow > .list {display: flex; flex-direction: column; row-gap: 1rem;height: 46.3rem; min-height: 0; overflow-y: auto; }
+.analyRow > .list .checkL span{}
 .mapCapture {width: 32rem; height: 18rem; background: var(--secondary1) url(../images/ico_img_capture.svg) no-repeat center / 7rem auto;}
+
+.trenchRow {display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem;}
+.trenchRow > .list {display: flex; flex-direction: column; align-items: flex-start; flex: 1; row-gap: .4rem;}
+
+.arrowDirect {width: 1.2rem; height: 1.2rem;}

@@ -95,7 +95,7 @@ img {border:0; vertical-align:top;}
 *,
 :after,
 :before {-webkit-box-sizing: border-box;box-sizing: border-box;-ms-flex-negative: 0;flex-shrink: 0;}
-:root {-webkit-tap-highlight-color: transparent;-webkit-text-size-adjust: 100%;-moz-text-size-adjust: 100%;-ms-text-size-adjust: 100%;text-size-adjust: 100%;cursor: default;line-height: 1.5;overflow-wrap: break-word;-moz-tab-size: 4;-o-tab-size: 4;tab-size: 4}
+:root {-webkit-tap-highlight-color: transparent;-webkit-text-size-adjust: 100%;-moz-text-size-adjust: 100%;-ms-text-size-adjust: 100%;text-size-adjust: 100%;cursor: default;line-height: 1.4;overflow-wrap: break-word;-moz-tab-size: 4;-o-tab-size: 4;tab-size: 4}
 html,
 body {height: 100%; overflow-y: hidden;}
 img,
@@ -151,6 +151,7 @@ select:focus::-ms-value {background:none; color:#333;}
 .shadow {box-shadow: 0 2px 4px rgba(0,0,0,0.2);}
 .htFit {height:calc(100% - 60px) !important}
 .scrollY {overflow-y: auto;}
+.noSc {overflow-y: hidden;}
 
 /* row-설정 */
 .row {display: flex; align-items: center;}
@@ -182,10 +183,6 @@ select:focus::-ms-value {background:none; color:#333;}
 .gap12{gap:1.2rem !important;}
 .gap15{gap:1.5rem !important;}
 .gap20{gap:2rem !important;}
-
-/* title */
-.tit14 {font-size:var(--fs-m); line-height: 1.2; font-weight: var(--fw-bold);}
-.tit12 {font-size:var(--fs-s); line-height: 1.2; font-weight: var(--fw-bold);}
 
 /*======================== package */
 /*margin 제어*/
@@ -402,14 +399,15 @@ input[type="checkbox"] {
 input:disabled {pointer-events: none;}
 
 /* checkBox */
-.checkbox {display:flex;align-items:center;position:relative;cursor:pointer;}
+.checkbox {display:flex;align-items:center;position:relative;cursor:pointer; min-width: 0; gap: .5rem;}
 .checkbox input + span::after {content:"";position:absolute;top:50%;right:0;transform:translateY(-50%);width:3.2rem;height:3.2rem;background:url('/images/ico_check_off.svg') no-repeat center/contain;}
 .checkbox input:checked + span::after {content:"";position:absolute;top:50%;right:0;transform:translateY(-50%);background:url('/images/ico_check_on2.svg') no-repeat center/contain;}
 .checkbox:focus-within input:focus-visible + span::after {outline: 2px solid var(--white);outline-offset: 2px;border-radius: .4rem;}
 
-.checkL {gap: .6rem;}
+.checkL {flex: 1 1 auto; gap: .6rem;}
 .checkL span {padding-left: 3.6rem;font-weight: var(--fw-bold);}
 .checkL input + span::after {left: 0; right: auto; width: 2.4rem; height: 2.4rem; background-size: 2.4rem;}
+.checkL span { flex: 1;min-width: 0;word-break: break-word;overflow-wrap: break-word;white-space: normal;}
 
 /* radio - 초기화 */
 input[type="radio"] {
@@ -434,9 +432,10 @@ input[type="radio"] {
 .radio input:checked + span::after {content:"";position:absolute;top:50%;right:0;transform:translateY(-50%);background:url('/images/ico_radio_on.svg') no-repeat center/contain;}
 .radio:focus-within input:focus-visible + span::after {outline: 2px solid var(--white);outline-offset: 2px;border-radius: .4rem;}
 /* radio - 라디오버튼 왼쪽 */
-.radioL {flex-direction: row-reverse;}
+.radioL {flex: 1 1 auto; flex-direction: row-reverse;}
 .radioL input + span::after {right: auto;left: 0; }
 .radioL input + span { padding-left: 3rem; }
+.radioL span { flex: 1;min-width: 0;word-break: break-word;overflow-wrap: break-word;white-space: normal;}
 
 /* numInput */
 .numInput input[type="number"]::-webkit-inner-spin-button,

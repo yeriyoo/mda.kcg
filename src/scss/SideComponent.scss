@@ -178,6 +178,7 @@
             display: flex;
             flex-direction: column;
             background-color: var(--secondary2);
+            border-right: .1rem solid var(--secondary3);
             z-index: 99;
             transform: translateX(0);
             transition: transform .3s ease;
@@ -272,6 +273,7 @@
                             .switchList {
                             display: flex;
                             flex-direction: column;
+                            flex: 1 1 auto;
                             width: 100%;
                             background-color: var(--tertiary1);
                             padding: 1rem;
@@ -279,9 +281,14 @@
                             li {
                                 display: flex;
                                 justify-content: space-between;
-                                height: 2.4rem;
+                                padding: .1rem 0;
 
                                 span {
+                                    flex: 1;
+                                    min-width: 0;
+                                    word-break: break-word;
+                                    overflow-wrap: break-word;
+                                    white-space: normal;
                                 }
                             }
                             }
@@ -308,6 +315,13 @@
                     color: var(--white);
                     font-weight: var(--fw-bold);
                     padding: 1.7rem 0;
+
+                    .prevBtn {
+                        width: 2rem;
+                        height: 2rem;
+                        background: url(../assets/images/ico_tit_prev.svg) no-repeat center /contain;
+                        margin-right: .5rem;
+                    }
                 }
                 // 기상패널 범례
                 .legend {

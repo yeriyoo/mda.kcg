@@ -152,7 +152,7 @@ export default function Panel2Component({ isOpen, onToggle }) {
                             {/* 위성정보 박스 */}
                             <ul className="detailBox stretch">
                                 <li className="dbHeader">
-                                    <div className="headerL">
+                                    <div className="headerL item2">
                                         <span className="name">업로드 테스트</span>
                                         <span className="type">2025-09-25 16:09:00</span>
                                     </div>
@@ -188,7 +188,7 @@ export default function Panel2Component({ isOpen, onToggle }) {
                             {/* 위성정보 박스 */}
                             <ul className="detailBox stretch">
                                 <li className="dbHeader">
-                                    <div className="headerL">
+                                    <div className="headerL item2">
                                         <span className="name">업로드 테스트</span>
                                         <span className="type">2025-09-25 16:09:00</span>
                                     </div>
@@ -268,7 +268,7 @@ export default function Panel2Component({ isOpen, onToggle }) {
                             {/* 위성정보 박스 */}
                             <ul className="detailBox">
                                 <li className="dbHeader">
-                                    <div className="headerL">
+                                    <div className="headerL item1">
                                         <span className="name">Test 01</span>
                                     </div>
                                 </li>

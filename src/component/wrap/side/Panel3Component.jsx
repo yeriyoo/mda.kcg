@@ -228,7 +228,7 @@ export default function Panel3Component({ isOpen, onToggle }) {
                     <li>
                         <label className="checkbox checkL">
                             <input type="checkbox" />
-                            <span>양양공항(RKNY)</span>
+                            <span>양양공항(RKNY) </span>
                         </label>
                     </li>
                     <li>

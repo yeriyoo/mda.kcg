@@ -1,7 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-export default function Panel1Component({ isOpen, onToggle }) {
+import Panel1DetailComponent from './Panel1DetailComponent';
 
+export default function Panel1Component({ isOpen, onToggle }) {
+    // 내부 뷰 상태
+    const [view, setView] = useState('list'); // list | detail
+    
     // 아코디언
     const [isAccordionOpen1, setIsAccordionOpen1] = useState(false); // 기존
     const [isAccordionOpen2, setIsAccordionOpen2] = useState(false); // 새 아코디언
@@ -22,6 +26,18 @@ export default function Panel1Component({ isOpen, onToggle }) {
     ];
     return (
         <aside className={`slidePanel ${!isOpen ? 'is-closed' : ''}`}>
+
+        {/* 👉 상세 화면일 때 */}
+        {view === 'detail' ? (
+        <Panel1DetailComponent
+            isOpen={isOpen}
+            onToggle={onToggle}
+            onBack={() => setView('list')}
+        />
+        ) : (
+        <>
+        {/* ===== 목록 화면 ===== */}
+
         {/* 탭 버튼 */}
         <div className="tabBox">
             <div className="tabDefault">
@@ -250,7 +266,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
 
             <div className="tabBtm">
                 <div className="detailWrap">
-
+                    {/* 선박정보 박스 */}
                     <ul className="detailBox">
                         <li className="dbHeader">
                             <div className="headerL">
@@ -260,7 +276,12 @@ export default function Panel1Component({ isOpen, onToggle }) {
                             <div className="headerR">
                                 <img src="/images/flag_kor.svg" alt="대한민국" className="flagIcon" />
                                 <span className="num">412</span>
-                                <button className="icoArrow"></button>
+                                <button
+                                    type="button"
+                                    className="icoArrow"
+                                    aria-label="상세보기"
+                                    onClick={() => setView('detail')}
+                                ></button>
                             </div>
                         </li>
                         <li>
@@ -696,6 +717,11 @@ export default function Panel1Component({ isOpen, onToggle }) {
             {isOpen ? '패널 접기' : '패널 열기'}
             </span>
         </button>
+
+        {/* 여기까지 전체목록 페이지  */}
+        </>
+        )}
+
         </aside>
     );
 }

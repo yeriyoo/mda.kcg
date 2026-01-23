@@ -398,6 +398,105 @@ export default function Panel4Component({ isOpen, onToggle }) {
             </div>
 
             <div className="tabBtm">
+                <div className="detailWrap">
+                    {/* 정보 박스 */}
+                    <ul className="detailBox stretch">
+                        <li className="dbHeader">
+                            <div className="headerL item2">
+                                <span className="name">대해구 1</span>
+                                <span className="type">[131.5 ㅣ 42.5]</span>
+                            </div>
+                        </li>
+                        <li>
+                            <ul className="dbList twoCol">
+                                <li>
+                                    <span className="label">전체 통화량</span>
+                                    <span className="value">0척</span>
+                                    <span className="label"></span>
+                                    <span className="value noLine"></span>
+                                </li>
+                                <li>
+                                    <span className="label">유의 파고</span>
+                                    <span className="value">0.9(m)</span>
+                                    <span className="label">파향</span>
+                                    <span className="value">
+                                        <img src="/images/ico_dir_arrow.svg" alt="파향" className="arrowDirect"
+                                        style={{ transform: 'rotate(6deg)' }}
+                                        />6(°C)
+                                    </span>
+                                </li>
+                                <li>
+                                    <span className="label">파주기</span>
+                                    <span className="value">4.0(s)</span>
+                                    <span className="label">풍속</span>
+                                    <span className="value">10.2(m/s)</span>
+                                </li>
+                                <li>
+                                    <span className="label">풍향</span>
+                                    <span className="value">
+                                        <img src="/images/ico_dir_arrow.svg" alt="풍향" className="arrowDirect"
+                                        style={{ transform: 'rotate(10deg)' }}
+                                        />10(°)
+                                    </span>
+                                    <span className="label"></span>
+                                    <span className="value noLine"></span>
+                                </li>
+                            </ul>
+                            <div className="btnArea w4r">
+                                <button type="button" className="btnMap"></button>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    {/* 정보 박스 */}
+                    <ul className="detailBox stretch">
+                        <li className="dbHeader">
+                            <div className="headerL item2">
+                                <span className="name">대해구 1</span>
+                                <span className="type">[131.5 ㅣ 42.5]</span>
+                            </div>
+                        </li>
+                        <li>
+                            <ul className="dbList twoCol">
+                                <li>
+                                    <span className="label">전체 통화량</span>
+                                    <span className="value">0척</span>
+                                    <span className="label"></span>
+                                    <span className="value noLine"></span>
+                                </li>
+                                <li>
+                                    <span className="label">유의 파고</span>
+                                    <span className="value">0.9(m)</span>
+                                    <span className="label">파향</span>
+                                    <span className="value">
+                                        <img src="/images/ico_dir_arrow.svg" alt="파향" className="arrowDirect"
+                                        style={{ transform: 'rotate(6deg)' }}
+                                        />6(°C)
+                                    </span>
+                                </li>
+                                <li>
+                                    <span className="label">파주기</span>
+                                    <span className="value">4.0(s)</span>
+                                    <span className="label">풍속</span>
+                                    <span className="value">10.2(m/s)</span>
+                                </li>
+                                <li>
+                                    <span className="label">풍향</span>
+                                    <span className="value">
+                                        <img src="/images/ico_dir_arrow.svg" alt="풍향" className="arrowDirect"
+                                        style={{ transform: 'rotate(10deg)' }}
+                                        />10(°)
+                                    </span>
+                                    <span className="label"></span>
+                                    <span className="value noLine"></span>
+                                </li>
+                            </ul>
+                            <div className="btnArea w4r">
+                                <button type="button" className="btnMap"></button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 
