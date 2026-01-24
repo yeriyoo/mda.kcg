@@ -178,7 +178,7 @@ export default function Panel2Component({ isOpen, onToggle }) {
                                     </ul>
                                     <div className="btnArea">
                                         <button type="button" className="btnEdit"></button>
-                                        <button type="button" className="btnDel"  onClick={() => navigate("/panel2/satellite/delete")}></button>
+                                        <button type="button" className="btnDel"  onClick={() => navigate("/satellite/delete")}></button>
                                         <button type="button" className="btnMap"></button>
                                     </div>
                                 </li>
@@ -224,7 +224,7 @@ export default function Panel2Component({ isOpen, onToggle }) {
                     {/* 하단버튼 영역 */}
                     <div class="btnBox rowSB">
                         <button type="button" class="btn btnLine">위성영상 폴더 업로드</button>
-                        <button type="button" class="btn btnLine" onClick={() => navigate("/panel2/satellite/add")}>위성영상 등록</button>
+                        <button type="button" class="btn btnLine" onClick={() => navigate("/satellite/add")}>위성영상 등록</button>
                     </div>
                 </div>
             </div>
@@ -292,7 +292,7 @@ export default function Panel2Component({ isOpen, onToggle }) {
                         <button 
                         type="button" 
                         class="btn btnLine" 
-                        onClick={() => navigate("/panel2/satellite/provider")}
+                        onClick={() => navigate("/satellite/provider")}
                         >
                         등록
                         </button>
@@ -395,7 +395,7 @@ export default function Panel2Component({ isOpen, onToggle }) {
                         <button 
                         type="button" 
                         class="btn btnLine" 
-                        onClick={() => navigate("/panel2/satellite/manage")}
+                        onClick={() => navigate("/satellite/manage")}
                         >
                         등록
                         </button>

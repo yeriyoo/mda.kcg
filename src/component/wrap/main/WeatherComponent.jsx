@@ -1,15 +1,24 @@
+import { useNavigate } from "react-router-dom";
+
 export default function WeatherComponent() {  
+    const navigate = useNavigate();
+
     return(
         <section id="WeatherComponent">
 
-            {/* 지도위 팝업 */}
             <div className="popupMap osbInfo">
                 {/* header */}
                 <div className="pmHeader">
                     <div className="rowL">
                         <span className="title">해양관측소</span>
                     </div>
-                    <button type="button" className="pmClose" aria-label="닫기"></button>
+                    
+                    <button
+                        type="button"
+                        className="pmClose"
+                        aria-label="닫기"
+                        onClick={() => navigate("/main")}
+                    />
                 </div>
                 {/* body */}
                 <div className="pmBody">

@@ -1,16 +1,14 @@
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 export default function Analysis2Component() {
-    // 팝업
-    const [isOpen, setIsOpen] = useState(true); // 처음 열림
-    const closePopup = () => setIsOpen(false);
+    const navigate = useNavigate();
 
     return (
-        <section id="Analysis2Component">
+    <section id="Analysis2Component">
 
         {/* 위성 영상 등록 팝업 */}
-        {isOpen && (
-            <div className="popupUtillWrap">
+        <div className="popupUtillWrap">
             <div className="popupUtill w61r">
                 <div className="puHeader">
                 <span className="title">관심 해역 설정</span>
@@ -18,7 +16,7 @@ export default function Analysis2Component() {
                     type="button"
                     className="puClose"
                     aria-label="닫기"
-                    onClick={closePopup}
+                    onClick={() => navigate("/main")}
                 />
                 </div>
 
@@ -113,20 +111,19 @@ export default function Analysis2Component() {
                 </div>
 
                 <div className="puFooter">
-                <div className="popBtnWrap">
-                    <button className="btn basic">저장</button>
-                    <button
-                    className="btn dark"
-                    onClick={closePopup}
-                    >
-                    취소
-                    </button>
-                </div>
+                    <div className="popBtnWrap">
+                        <button type="button" className="btn basic">저장</button>
+                        <button
+                        type="button"
+                        className="btn dark"
+                        onClick={() => navigate("/main")}
+                        >
+                        취소
+                        </button>
+                    </div>
                 </div>
             </div>
-            </div>
-        )}
-
-        </section>
+        </div>
+    </section>
   );
 }

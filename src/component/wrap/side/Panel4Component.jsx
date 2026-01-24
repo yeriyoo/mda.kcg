@@ -75,7 +75,7 @@ export default function Panel4Component({ isOpen, onToggle }) {
                         <button 
                         type="button" 
                         class="btn btnLine"
-                        onClick={() => navigate("/panel4/analysis/area")}
+                        onClick={() => navigate("/analysis/area")}
                         >등록</button>
                     </div>
                 </div>
@@ -125,7 +125,7 @@ export default function Panel4Component({ isOpen, onToggle }) {
                         <button 
                         type="button" 
                         class="btn btnLine"
-                        onClick={() => navigate("/panel4/analysis/register")}
+                        onClick={() => navigate("/analysis/register")}
                         >등록</button>
                     </div>
                 </div>

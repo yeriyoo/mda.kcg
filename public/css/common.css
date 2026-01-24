@@ -224,7 +224,7 @@
 /* 기상관측팝업 */
 .popupMap.osbInfo { width: 22rem; left: 45%;}
 .popupMap.osbInfo > .pmHeader > .rowL > .title {font-size: var(--fs-l); font-weight:var(--fw-bold);}
-.popupMap.osbInfo > .pmHeader > .pmClose {width: 2.4rem;height: 2.4rem; background: url(/images/ico_ship_info_close.svg)no-repeat center /contain;}
+.popupMap.osbInfo > .pmHeader > .pmClose {width: 2.6rem;height: 2.6rem; background: url(../images/ico_box_close.svg)no-repeat center /contain;}
 /* popup-기상관측상태 */
 .osbStatus {display: flex; flex-direction: column; gap: .6rem;}
 .osbStatus li.date {border-radius: .5rem; background-color: #61666F; padding: 1rem; font-weight: var(--fw-bold);}
@@ -239,6 +239,7 @@
 .pmGallery .navBtn { position: absolute; width: 3.4rem; height: 3.4rem; top: 0; bottom: 0; margin: auto 0; display: flex; align-items: center; justify-content: center;}
 .pmGallery .prev {background: url(/images/ico_arrow_left_big.svg) no-repeat center / 3.4rem; left: 0;}
 .pmGallery .next {background: url(/images/ico_arrow_right_big.svg) no-repeat center / 3.4rem; right: 0;}
+.pmGallery .navBtn.disabled {opacity: 0.5;cursor: default;pointer-events: none;}
 
 /* popup-Action */
 .shipAction {display: flex; align-items: center; justify-content: space-between;}
@@ -327,9 +328,9 @@
    테이블
 ========================= */
 .required {color: var(--red-100);}
-.table {table-layout: fixed; width:100%; border-top:.1rem solid var(--secondary4); border-bottom:.1rem solid var(--secondary4); text-align:left;line-height:1.6em;}
+.table {table-layout: fixed; width:100%; text-align:left;line-height:1.6em;border-collapse: collapse;}
 .table caption {position: absolute;top: 0;left: 0;width: 1px;height: 1px;font-size: 1px;clip: rect(1px, 1px, 1px, 1px);opacity: 0;}
-.table tbody th,.table tbody td {border-bottom:.1rem solid var(--secondary4); word-break: break-all;line-height:1.6em; vertical-align: middle; color: var(--white);}
+.table tbody th,.table tbody td {border-bottom:.1rem solid var(--secondary4);border-top: .1rem solid var(--secondary4); word-break: break-all;line-height:1.6em; vertical-align: middle; color: var(--white);}
 .table tbody th {background-color: var(--tertiary1); font-weight: var(--fw-bold); height: 5rem; padding:0 1rem;}
 .table tbody td {padding:.5rem 0 .5rem 1rem;}
 .table tbody td .helpTxt {color:rgba(var(--white-rgb),.3); padding-top: .5rem;}

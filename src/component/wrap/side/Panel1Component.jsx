@@ -180,7 +180,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
             <div className="tabBtm">
             <ul className="colList line">
                 <li>
-                <Link to="/" className="active">
+                <Link to="/ship" className="active">
                     <i className="cicle default"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -194,7 +194,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
                 </Link>
                 </li>
                 <li>
-                <Link to="/" className="">
+                <Link to="/ship" className="">
                     <i className="cicle default"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -208,7 +208,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
                 </Link>
                 </li>
                 <li>
-                <Link to="/" className="">
+                <Link to="/ship" className="">
                     <i className="cicle red"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -222,7 +222,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
                 </Link>
                 </li>
                 <li>
-                <Link to="/" className="">
+                <Link to="/ship" className="">
                     <i className="cicle orng"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -360,7 +360,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
             <div className="tabBtm">
             <ul className="colList line">
                 <li>
-                <Link to="/" className="active">
+                <Link to="/ship" className="active">
                     <i className="cicle default"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -374,7 +374,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
                 </Link>
                 </li>
                 <li>
-                <Link to="/" className="">
+                <Link to="/ship" className="">
                     <i className="cicle default"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -427,7 +427,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
             <div className="tabBtm">
             <ul className="colList line">
                 <li>
-                <Link to="/" className="active">
+                <Link to="/ship" className="active">
                     <i className="cicle default"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -441,7 +441,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
                 </Link>
                 </li>
                 <li>
-                <Link to="/" className="">
+                <Link to="/ship" className="">
                     <i className="cicle default"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -604,7 +604,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
             <div className="tabBtm">
             <ul className="colList line">
                 <li>
-                <Link to="/" className="active">
+                <Link to="/ship" className="active">
                     <i className="cicle default"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -618,7 +618,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
                 </Link>
                 </li>
                 <li>
-                <Link to="/" className="">
+                <Link to="/ship" className="">
                     <i className="cicle default"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -676,7 +676,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
             <div className="tabBtm">
             <ul className="colList line">
                 <li>
-                <Link to="/" className="active">
+                <Link to="/ship" className="active">
                     <i className="cicle default"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>
@@ -690,7 +690,7 @@ export default function Panel1Component({ isOpen, onToggle }) {
                 </Link>
                 </li>
                 <li>
-                <Link to="/" className="">
+                <Link to="/ship" className="">
                     <i className="cicle default"></i>
                     <span>0001</span>
                     <span>1511함A-05</span>

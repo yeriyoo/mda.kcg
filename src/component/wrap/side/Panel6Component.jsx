@@ -55,8 +55,8 @@ export default function Panel6Component({ isOpen, onToggle }) {
 
         <div className="panelFooter">
             <div className="btnWrap">
-                <button className="btn deep">전체 해제</button>
-                <button className="btn basic">설정 저장</button>
+                <button type="button" className="btn deep">전체 해제</button>
+                <button type="button" className="btn basic">설정 저장</button>
             </div>
         </div>
         

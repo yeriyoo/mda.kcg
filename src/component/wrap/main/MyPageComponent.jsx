@@ -1,158 +1,208 @@
-import { useState } from 'react';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function MyPageComponent() {
-    // 팝업
-    const [isOpen, setIsOpen] = useState(true); // 처음 열림
-    const closePopup = () => setIsOpen(false);
+    const navigate = useNavigate();
 
-    // 비밀번호 변경 팝업
-    const [isPwPopupOpen, setIsPwPopupOpen] = useState(false);
-    const openPwPopup = () => setIsPwPopupOpen(true);
-    const closePwPopup = () => setIsPwPopupOpen(false);
-
-    // 공인인증서 삭제 팝업
-    const [isCertDeleteOpen, setIsCertDeleteOpen] = useState(false);
-    const openCertDeletePopup = () => setIsCertDeleteOpen(true);
-    const closeCertDeletePopup = () => setIsCertDeleteOpen(false);
+    // 서브 팝업 상태
+    // null | "password" | "cert"
+    const [subPopup, setSubPopup] = useState(null);
 
     return (
         <section id="MyPageComponent">
 
-        {/* 내정보조회 팝업 */}
-        {isOpen && (
+            {/* 내 정보 조회 */}
             <div className="popupUtillWrap">
-            <div className="popupUtill">
-                <div className="puHeader">
-                <span className="title">내 정보 조회</span>
-                <button
-                    type="button"
-                    className="puClose"
-                    aria-label="닫기"
-                    onClick={closePopup}
-                />
-                </div>
-
-                <div className="puBody">
-                    <table className="table">
-                        <caption>내 정보 조회 - 아이디, 비밀번호, 이름, 이메일, 직급, 상세소속, 공인인증서 삭제 에 대한 내용을 나타내는 표입니다.</caption>
-                        <colgroup>
-                            <col style={{ width: '30%' }} />
-                            <col style={{ width: '' }} />
-                        </colgroup>
-                        <tbody>
-                            <tr>
-                                <th scope="row">아이디</th>
-                                <td>admin222</td>
-                            </tr>
-                            <tr scope="row">
-                                <th>비밀번호</th>
-                                <td><button className="btn btnM deep flx0" onClick={openPwPopup}>비밀번호 변경</button></td>
-                            </tr>
-                            <tr scope="row">
-                                <th>이름</th>
-                                <td>ADMIN</td>
-                            </tr>
-                            <tr scope="row">
-                                <th>이메일</th>
-                                <td>123@korea.kr</td>
-                            </tr>
-                            <tr scope="row">
-                                <th>직급</th>
-                                <td>경감</td>
-                            </tr>
-                            <tr scope="row">
-                                <th>상세소속</th>
-                                <td></td>
-                            </tr>
-                            <tr scope="row">
-                                <th>공인인증서 삭제</th>
-                                <td><button className="btn btnM deep flx0" onClick={openCertDeletePopup}>공인인증서 삭제</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div className="puFooter">
-                    <div className="popBtnWrap">
-                        <button className="btn basic">저장</button>
-                        <button className="btn dark">초기화</button>
-                    </div>
-                </div>
-            </div>
-            </div>
-        )}
-
-        {/* 비밀번호 변경 팝업 */}
-        {isPwPopupOpen && (
-            <div className="popupDim">
                 <div className="popupUtill">
                     <div className="puHeader">
-                    <span className="title">비밀번호 수정</span>
-                    <button
-                        type="button"
-                        className="puClose"
-                        aria-label="닫기"
-                        onClick={closePwPopup}
-                    />
+                        <span className="title">내 정보 조회</span>
+                        <button
+                            type="button"
+                            className="puClose"
+                            aria-label="닫기"
+                            onClick={() => navigate("/main")}
+                        />
                     </div>
+
                     <div className="puBody">
                         <table className="table">
-                            <caption>비밀번호 수정 - 현재 비밀번호, 새 비밀번호, 새 비밀번호 확인 에 대한 내용을 나타내는 표입니다.</caption>
+                            <caption>
+                                내 정보 조회 - 아이디, 비밀번호, 이름, 이메일, 직급, 상세소속, 공인인증서 삭제
+                            </caption>
                             <colgroup>
-                                <col style={{ width: '30%' }} />
-                                <col style={{ width: '' }} />
+                                <col style={{ width: "30%" }} />
+                                <col />
                             </colgroup>
                             <tbody>
                                 <tr>
-                                    <th scope="row">현재 비밀번호</th>
-                                    <td><input type="text" placeholder="" aria-label="현재 비밀번호" /></td>
+                                    <th scope="row">아이디</th>
+                                    <td>admin222</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">새 비밀번호</th>
-                                    <td><input type="password" placeholder="" aria-label="새 비밀번호" /></td>
+                                    <th scope="row">비밀번호</th>
+                                    <td>
+                                        <button
+                                            type="button"
+                                            className="btn btnM deep flx0"
+                                            onClick={() => setSubPopup("password")}
+                                        >
+                                            비밀번호 변경
+                                        </button>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">새 비밀번호 확인</th>
-                                    <td><input type="password" placeholder="" aria-label="새 비밀번호 확인" /></td>
+                                    <th scope="row">이름</th>
+                                    <td>ADMIN</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">이메일</th>
+                                    <td>123@korea.kr</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">직급</th>
+                                    <td>경감</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">상세소속</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">공인인증서 삭제</th>
+                                    <td>
+                                        <button
+                                            type="button"
+                                            className="btn btnM deep flx0"
+                                            onClick={() => setSubPopup("cert")}
+                                        >
+                                            공인인증서 삭제
+                                        </button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <div className="puFooter">
-                        <div className="popBtnWrap">
-                            <button className="btn basic" onClick={closePwPopup}>수정</button>
-                            <button className="btn dark" onClick={closePwPopup}>취소</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        )}
 
-        {/* 공인인증서 삭제 팝업 */}
-        {isCertDeleteOpen && (
-            <div className="popupDim">
-                <div className="popupUtill cert">
-                    <div className="puHeader">
-                    <span className="title">공인인증서 삭제</span>
-                    <button
-                        type="button"
-                        className="puClose"
-                        aria-label="닫기"
-                        onClick={closeCertDeletePopup}
-                    />
-                    </div>
-                    <div className="puBody">
-                        <div className="puTxtBox">공인인증서를 삭제 하시겠습니까?</div>
-                    </div>
                     <div className="puFooter">
                         <div className="popBtnWrap">
-                            <button className="btn basic" onClick={closeCertDeletePopup}>삭제</button>
-                            <button className="btn dark" onClick={closeCertDeletePopup}>취소</button>
+                            <button type="button" className="btn basic">저장</button>
+                            <button type="button" className="btn dark">초기화</button>
                         </div>
                     </div>
                 </div>
             </div>
-        )}
+
+            {/* 딤 + 서브 팝업  */}
+            {subPopup && (
+                <div className="popupDim">
+
+                    {/* 비밀번호 변경 */}
+                    {subPopup === "password" && (
+                        <div className="popupUtill">
+                            <div className="puHeader">
+                                <span className="title">비밀번호 수정</span>
+                                <button
+                                    type="button"
+                                    className="puClose"
+                                    aria-label="닫기"
+                                    onClick={() => setSubPopup(null)}
+                                />
+                            </div>
+
+                            <div className="puBody">
+                                <table className="table">
+                                    <caption>
+                                        비밀번호 수정 - 현재 비밀번호, 새 비밀번호, 새 비밀번호 확인
+                                    </caption>
+                                    <colgroup>
+                                        <col style={{ width: "30%" }} />
+                                        <col />
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">현재 비밀번호</th>
+                                            <td>
+                                                <input type="password" aria-label="현재 비밀번호" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">새 비밀번호</th>
+                                            <td>
+                                                <input type="password" aria-label="새 비밀번호" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">새 비밀번호 확인</th>
+                                            <td>
+                                                <input type="password" aria-label="새 비밀번호 확인" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div className="puFooter">
+                                <div className="popBtnWrap">
+                                    <button
+                                        type="button"
+                                        className="btn basic"
+                                        onClick={() => setSubPopup(null)}
+                                    >
+                                        수정
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className="btn dark"
+                                        onClick={() => setSubPopup(null)}
+                                    >
+                                        취소
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* 공인인증서 삭제 */}
+                    {subPopup === "cert" && (
+                        <div className="popupUtill cert">
+                            <div className="puHeader">
+                                <span className="title">공인인증서 삭제</span>
+                                <button
+                                    type="button"
+                                    className="puClose"
+                                    aria-label="닫기"
+                                    onClick={() => setSubPopup(null)}
+                                />
+                            </div>
+
+                            <div className="puBody">
+                                <div className="puTxtBox">
+                                    공인인증서를 삭제 하시겠습니까?
+                                </div>
+                            </div>
+
+                            <div className="puFooter">
+                                <div className="popBtnWrap">
+                                    <button
+                                        type="button"
+                                        className="btn basic"
+                                        onClick={() => setSubPopup(null)}
+                                    >
+                                        삭제
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className="btn dark"
+                                        onClick={() => setSubPopup(null)}
+                                    >
+                                        취소
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                </div>
+            )}
         </section>
-  );
+    );
 }

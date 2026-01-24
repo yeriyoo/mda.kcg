@@ -326,7 +326,7 @@ export default function DisplayComponent({ isOpen, onToggle }) {
                         <button 
                         type="button" 
                         className="btn btnLine w15r"
-                        onClick={() => navigate("/display/layer/register")}
+                        onClick={() => navigate("/layer/register")}
                         >레이어 등록</button>
                     </div>
                 </div>

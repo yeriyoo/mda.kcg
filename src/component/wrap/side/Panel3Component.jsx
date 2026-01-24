@@ -57,19 +57,19 @@ export default function Panel3Component({ isOpen, onToggle }) {
             <div className="tabBtm">
                 <ul className="colList lineSB">
                     <li>
-                    <Link to="/" className="">
+                    <Link to="/weather" className="">
                         <span className="title">1. 폭풍주의: 남해</span>
                         <span className="meta">시작일시 00:00:00 / 발효일시 00:00:00</span>
                     </Link>
                     </li>
                     <li>
-                    <Link to="/" className="">
+                    <Link to="/weather" className="">
                         <span className="title">2. 폭풍주의: 서해</span>
                         <span className="meta">시작일시 00:00:00 / 발효일시 00:00:00</span>
                     </Link>
                     </li>
                     <li>
-                    <Link to="/" className="">
+                    <Link to="/weather" className="">
                         <span className="title">3. 폭풍주의: 동해</span>
                         <span className="meta">시작일시 00:00:00 / 발효일시 00:00:00</span>
                     </Link>
@@ -108,19 +108,19 @@ export default function Panel3Component({ isOpen, onToggle }) {
             <div className="tabBtm">
                 <ul className="colList lineSB">
                     <li>
-                    <Link to="/" className="">
+                    <Link to="/weather" className="">
                         <span className="title">1. 폭풍주의: 남해</span>
                         <span className="meta">시작일시 00:00:00 / 발효일시 00:00:00</span>
                     </Link>
                     </li>
                     <li>
-                    <Link to="/" className="">
+                    <Link to="/weather" className="">
                         <span className="title">2. 폭풍주의: 서해</span>
                         <span className="meta">시작일시 00:00:00 / 발효일시 00:00:00</span>
                     </Link>
                     </li>
                     <li>
-                    <Link to="/" className="">
+                    <Link to="/weather" className="">
                         <span className="title">3. 폭풍주의: 동해</span>
                         <span className="meta">시작일시 00:00:00 / 발효일시 00:00:00</span>
                     </Link>
