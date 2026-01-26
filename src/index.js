@@ -8,6 +8,9 @@ import './scss/SideComponent.scss';
 import './scss/MainComponent.scss';
 import './scss/ToolComponent.scss';
 
+import './assets/css/base.css';
+import './assets/css/common.css';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>

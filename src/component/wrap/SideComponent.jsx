@@ -45,13 +45,12 @@ export default function SideComponent() {
       break;
 
     case "filter":  // 필터
-      setActivePanel("filter");
-      setDisplayTab("filter");
-      break;
-
     case "layer":   // 레이어
-      setActivePanel("layer");
-      setDisplayTab("layer");
+      setActivePanel(key);
+      setDisplayTab(key);
+
+      // 항적조회/리플레이에서 넘어올 경우 메인 초기화
+      navigate("/main"); 
       break;
 
     default:

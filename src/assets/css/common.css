@@ -1,0 +1,417 @@
+
+/* 버튼Wrap */
+.btnWrap {display: flex;flex-direction: row;justify-content: space-between;align-items: center; gap: 1rem; width: 100%; padding: 1rem 0;}
+.popBtnWrap {display: flex;justify-content:center;align-items: center; gap: 1rem; width: 100%; padding: 1rem 0;}
+.popBtnWrap > .btn { flex: 0 0 14rem;}
+/* =========================
+   UI - 버튼
+========================= */
+.btn { min-width: 14rem; height: 4.2rem; flex: 1; display:flex;align-items:center; justify-content:center;font-size: var(--fs-ml);font-weight: var(--fw-bold); padding:1rem 2rem;}
+.btnM {height: 4rem !important; font-weight: var(--fw-regular);}
+.btnMS {height: 3.5rem !important; font-size: var(--fs-ms);}
+.btnS { width: 100%; height: 3.2rem !important;font-size: var(--fs-m); color: var(--white); font-weight: normal;}
+.btnLine {border: .1rem solid var(--secondary4); }
+.basic {background-color: var(--primary1);}
+.semi { background-color: var(--secondary6); }
+.dark {background-color: var(--tertiary1);}
+.deep {background-color: var(--secondary1);}
+
+.btnToggle {display: inline-flex;gap: .6rem;}
+.btnToggle::after {content: '';width: 1.8rem;height: 1.8rem;background: url('../images/ico_arrow_down_s.svg') no-repeat center / contain;flex-shrink: 0;transition: transform .2s ease;}
+.btnToggle.is-open::after {transform: rotate(180deg);}
+.schBtn {width: 8rem; height: 3.5rem;display:flex;align-items:center; justify-content:center;font-size: var(--fs-ms);font-weight: var(--fw-bold); background-color: var(--primary1); color: var(--white);}
+.schBtn::before {content: "";display: inline-block; width: 1.4rem; height: 1.4rem; margin-right: 1rem;background:url('../images/ico_btnsch.svg') no-repeat center center/ 1.4rem; }
+
+.trackRndBtn {width: 8rem; height: 3rem;border-radius: .5rem; display:flex;align-items:center; justify-content:center;font-weight: var(--fw-bold); background-color: var(--secondary2); color: #A2AABD; padding: 0 1rem;}
+
+.playBtn {width: 3rem; height: 3rem;border-radius: .8rem;border: .1rem solid var(--secondary4); background: url(../images/ico_btn_play.svg)no-repeat center / contain;}
+.captureBtn {width: 3rem; height: 3rem;border-radius: .8rem;border: .1rem solid var(--secondary4); background: url(../images/ico_camera.svg)no-repeat center / contain;}
+.stopBtn {width: 3rem; height: 3rem;border-radius: .8rem;border: .1rem solid var(--secondary4); background: url(../images/ico_stop.svg)no-repeat center / contain;}
+
+
+.schRndBtn {width: 8rem; height: 3rem;border-radius: .5rem; display:flex;align-items:center; justify-content:space-between;font-weight: var(--fw-heavy); background-color: var(--primary1); color: var(--white); padding: 0 1rem;}
+.schRndBtn::after {content: "";display: inline-block; width: 1.6rem; height: 1.6rem; background:url('../images/ico_sch_bold.svg') no-repeat center center/ 1.6rem; }
+
+.icoCapture::before {content: "";display: inline-block; width: 1.8rem; height: 1.8rem; margin-right: 1rem;background:url('../images/ico_capture.svg') no-repeat center center/ 1.8rem;}
+.btnMap {width: 2.8rem; height: 2.8rem; background: url(../images/ico_btn_map.svg) no-repeat center / contain;}
+.btnMap:hover {background-image: url(../images/ico_btn_map_on.svg);}
+
+/* =========================
+   UI - form
+========================= */
+.controlInput {height: 3rem; border-radius: .5rem; font-weight: var(--fw-bold); border-color: #7E9796; background-color:transparent;}
+.controlSelect {height: 3rem; border-radius: .5rem; font-weight: var(--fw-bold); border-color: #7E9796; 
+background:transparent url('../images/ico_control_select.svg')no-repeat right .5rem center / 1.6rem; padding: 0 1.2rem;}
+
+/* =========================
+   UI - 탭스타일
+========================= */
+.tabDefault{display:flex;width:100%;}
+.tabDefault button{flex:1;box-sizing:border-box;font-size:var(--fs-ml);color:#9B9EA8;height:4.8rem;font-weight:var(--fw-bold);background-color:var(--secondary1);border:1px solid var(--secondary3);}
+.tabDefault button+button{margin-left:-1px;}
+.tabDefault button.on{color:var(--white);background-color:var(--primary1);}
+[data-tab-content][hidden] {display: none;}
+/* 탭버튼 - bordeless */
+.tabDefault.borderLess button {height: 4.2rem; border: 0; background-color: var(--tertiary1); font-weight: var(--fw-regular);}
+.tabDefault.borderLess button.on {background-color: var(--secondary2);font-weight:var(--fw-bold);}
+
+/**** 폼그룹 ****/
+.formGroup > ul{width:100%;}
+.formGroup > ul li{display:flex;gap:1rem;}
+.formGroup > ul li+li{margin:.7rem 0;}
+.formGroup > ul li .col{flex:1;}
+.formGroup > ul li label {display: flex; align-items: center; flex: 1 1 50%;}
+.formGroup > ul li label span {flex-shrink: 0;width: 7.5rem; color: var(--white);}
+.formGroup > ul li label select, .formGroup > ul li label input, 
+.formGroup > ul li label .numInput {flex: 1;}
+.formGroup > ul li label .labelRow {flex: 1; display: flex; align-items: center; gap: .5rem; color: var(--white);}
+.formGroup > ul li label .labelRow > span{flex-shrink: 0; width: 2rem; text-align: center; }
+.formGroup > ul li label .labelRow > input, .formGroup > ul li label .labelRow > .numInput {flex: 1;}
+.formGroup > ul li.fgBtn { justify-content: flex-end; padding: 1rem 0 1.5rem;}
+.formGroup > ul li.fgBtn.rowSB  { justify-content: space-between;}
+.formGroup > ul li.fgBtn.rowSB .infoTxt {color: var(--secondary4);}
+/* 폼그룹 label width변경 */
+.formGroup > ul.lagelW12 li label > span {flex-shrink: 0;width: 12rem; color: var(--white);}
+/* 폼그룹 아코디언 */
+.formGroup > ul .accordion {max-height: 0; overflow: hidden;transition: max-height .3s ease;}
+.formGroup > ul .accordion.is-open {max-height: 1000px;}
+.formGroup > ul .accordion li {display:flex;gap:1rem;}
+
+/* 박스그룹 */
+.schbox ul {display: flex;width: 100%;}
+.schbox ul li:first-child {flex: 1;}
+.schbox ul li:last-child {width: 9rem;}
+.schbox ul li button {margin-left: 1rem;}
+
+.boxGroup {display: flex; width: 100%;}
+
+/* UI-input */
+.schInput{height: 3.5rem; font-family: 'NanumSquare', sans-serif;font-size: var(--fs-m); color: var(--white);background-color: var(--tertiary1);padding: 0 1.2rem; border: 0;}
+.schInput::placeholder { color:rgba(var(--white-rgb),.3); }
+.dateInput {background:url(../images/ico_input_cal.svg) no-repeat center right .5rem/2.4rem; padding-right: 3rem; cursor: pointer;}
+.dateInput::placeholder { color:var(--white); }
+
+/* =========================
+   리스트
+========================= */
+/* 라인리스트 */
+.lineList {display: flex;flex-direction: column;}
+.lineList > li {display: flex; align-items:center; justify-content: flex-start; border-bottom: 1px solid rgba(var(--secondary4-rgb),.3); padding:1.4rem 1rem;}
+.lineList > li.rowSB {justify-content: space-between;}
+.lineList > li .row {display: flex; align-items: center; width: auto; gap:1.5rem;}
+/* 라인리스트- rowSB */
+.lineList.rowSB li {display: flex; justify-content: space-between; padding-left: 0; width: 100%;}
+.lineList.rowSB li label {display: flex; flex: 1; min-width: 0;}
+.lineList.rowSB li button {width: 2.4rem; height: 2.4rem; margin-left: .5rem;}
+
+/* bg리스트 */
+.optionList {display: flex;flex-direction: column;gap: .6rem; width: 100%;background-color: var(--tertiary1);padding: 1rem;}
+.optionList > li {display: flex;justify-content: space-between;}
+
+/* hover 리스트 */
+.colList {display: flex;flex-direction: column; gap: .8rem;}
+.colList li { width: 100%;display: flex;align-items: center;justify-content: flex-start;}
+.colList > li a:hover, .colList > li a.active  {background-color: var(--secondary3); border: solid 2px var(--primary1);}
+.colList li a {width: 100%; height:auto;background-color: var(--secondary1);border: solid 2px transparent; border-radius: .6rem; padding: 1rem 1.2rem;}
+/* hover 리스트 - 라인 */
+.colList.line li a {display: flex;align-items: center;justify-content: flex-start;height: 4rem; gap: .8rem;}
+.colList.line li a > i {margin-right: .7rem;}
+.colList.line li a > span { color: var(--white); font-weight: var(--fw-bold);}
+.colList.line li a > span:nth-of-type(4) {font-weight:var(--fw-regular);}
+.colList.line li a > span.legend{margin-left:auto;display:flex;align-items:center;}
+.colList.line li a > span .flagIcon{width:2.6rem;height:auto;display:block;}
+.colList.line li a > span .legendShip{width:2.4rem;height:auto;display:block;}
+
+.colList.lineSB li a {display: flex;align-items: center;justify-content: space-between;height: 4rem; gap: .8rem;}
+.colList.lineSB li a .title {font-size: var(--fs-m); font-weight: var(--fw-bold);}
+.colList.lineSB li a .meta {font-size: var(--fs-s); font-weight: var(--fw-regular); color:rgba(var(--white-rgb),.5);}
+
+/* 아코디언리스트 */
+.accordionWrap {display: flex;flex-direction: column;transition: max-height 0.3s ease;}
+.accordionWrap .acdHeader {display: flex; justify-content: space-between; align-items: center; height: 4rem; background-color: var(--secondary1); padding: 1rem; border-bottom: .1rem solid var(--secondary3);}
+.accordionWrap .acdHeader > .title {font-weight: var(--fw-bold);}
+.acdListBox {max-height: 0; overflow: hidden; transition: max-height 0.3s ease;}
+.acdListBox.open {max-height: 50rem;}
+.acdList {display: flex; flex-direction: column;}
+.acdList > li { display: flex; align-items: center; min-height: 4rem; border-bottom: .1rem solid var(--secondary4); padding: 1rem 0 1rem 1rem;}
+.acdList > li.state {gap: 2rem; }
+
+.acdList.input > li.input label {display: flex; align-items: center; flex: 1 1 50%;}
+.acdList.input > li.input label span {flex-shrink: 0;width: 9.5rem; color: var(--white);}
+.acdList.input > li.input label input {flex: 1;}
+.acdList.check > li.check {border-color: rgba(var(--secondary4-rgb),.3); } 
+
+.toggleListBtn {display: flex;align-items: center;width: 2.4rem;height: 2.4rem;background: url('../images/ico_arrow_toggle_down.svg') no-repeat center / contain;transition: transform 0.3s ease;}
+.toggleListBtn.open {transform: rotate(180deg);}
+
+/* =========================
+   사이드 패널 - 상세정보 박스
+========================= */
+.detailWrap {display: flex;flex-direction: column;gap: .8rem;}
+
+.detailBox {display: flex;flex-direction: column; gap: .4rem;background-color: var(--secondary1);border: solid 2px transparent; border-radius: .6rem; padding: 1rem 1.2rem;}
+.detailBox > li {display: flex;align-items: flex-start;}
+.detailBox > .dbHeader {display:flex;align-items:center;justify-content:space-between;}
+.detailBox > .dbHeader > .headerL,
+.detailBox > .dbHeader > .headerR {display:flex;align-items:center;gap:.7rem;color:var(--white);}
+.detailBox > .dbHeader .name {font-size: var(--fs-ml); font-weight:var(--fw-bold);}
+.detailBox > .dbHeader .type {font-size: var(--fs-ml); font-weight:var(--fw-bold);color:var(--primary1);}
+.detailBox > .dbHeader .num {font-size: var(--fs-m); font-weight:var(--fw-bold);}
+.detailBox > .dbHeader .icoArrow {width:2rem;height:2rem;background:url('../images/ico_arrow_right_rnd_off.svg') no-repeat center/contain; margin-left: .5rem;}
+.detailBox:has(.icoArrow:hover) {border: solid 2px var(--primary1);}
+.detailBox > li.dbHeader .icoArrow:hover {background:url('../images/ico_arrow_right_rnd_on.svg') no-repeat center/contain;}
+.detailBox > li > span {display: flex; color: var(--white); min-height: 2.1rem;}
+.detailBox > li > .tit { font-size: var(--fs-ml);font-weight: var(--fw-bold);}
+.detailBox > li > .label{min-width:9rem;flex-shrink: 0; font-weight:var(--fw-regular);}
+.detailBox > li > .value {flex:1; font-weight:var(--fw-bold);position:relative;padding-left:1.2rem;}
+.detailBox > li > .value::before {content:'';position:absolute;left:0;top: 0.3em;width:1px;height:1.3rem;background-color:var(--white);}
+/* .detailBox > li > .value:empty::before {top: 0.3em;transform: none;} */
+
+.detailBox.stretch > li {align-items: stretch;}
+/* 헤더 항목2개 */
+.detailBox > .dbHeader > .headerL.item2 { width: 47.2rem;}
+.detailBox > .dbHeader > .headerL.item2 .name { max-width: calc(100% - 17rem); white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.detailBox > .dbHeader > .headerL.item2 .type { white-space: nowrap;}
+/* 헤더 항목1개 */
+.detailBox > .dbHeader> .headerL.item1 { width: 47.2rem;}
+.detailBox > .dbHeader > .headerL.item1 .name { max-width: 100%; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.detailBox > .dbHeader> .headerL.item1 .type { white-space: nowrap;}
+
+.detailBox .dbList {flex: 1; display: flex;flex-direction: column; min-width: 0;width: auto;}
+.detailBox .dbList > li {display: grid; grid-template-columns: 9rem 1fr; align-items: start; width: 100%;}
+.detailBox .dbList > li > span {display: block; color: var(--white); min-height: 2.1rem;}
+.detailBox .dbList > li > .label{min-width:9rem;flex-shrink: 0; font-weight:var(--fw-regular);}
+.detailBox .dbList > li > .value {display: flex;align-items: center; gap: .5rem; font-weight:var(--fw-bold);position:relative; min-width: 0; white-space: normal; word-break: break-all;overflow-wrap: anywhere; padding-left:1.2rem;}
+.detailBox .dbList > li > .value::before {content:'';position:absolute;left:0;top: 0.3em;width:1px;height:1.3rem;background-color:var(--white);}
+.dbList > li > .value.noLine::before {content: none; /* 라인 없음 */}
+
+/* 한줄에 4항목*/
+.detailBox  .dbList.twoCol > li {display: grid;grid-template-columns: 9rem 1fr 9rem 1fr;align-items: start;width: 100%;}
+
+.btnArea {display: flex; align-items: center; justify-content:flex-end; width: 13rem; gap: .8rem;transform: translateY(-1rem);}
+.btnArea .btnEdit {width: 2.8rem; height: 2.8rem; background: url(../images/ico_btn_edit.svg) no-repeat center / contain;}
+.btnArea .btnDel {width: 2.8rem; height: 2.8rem; background: url(../images/ico_btn_del.svg) no-repeat center / contain;}
+.btnArea .btnMap {width: 2.8rem; height: 2.8rem; background: url(../images/ico_btn_map.svg) no-repeat center / contain;}
+.btnArea .btnEdit:hover {background-image: url(../images/ico_btn_edit_on.svg);}
+.btnArea .btnDel:hover {background-image: url(../images/ico_btn_del_on.svg);}
+.btnArea .btnMap:hover {background-image: url(../images/ico_btn_map_on.svg);}
+
+.detailBox:has(.btnArea .btnEdit:hover), .detailBox:has(.btnArea .btnDel:hover), .detailBox:has(.btnArea .btnMap:hover) {border-color: var(--primary1);}
+/* ship-map */
+.shipMapContainer {position: absolute;display: flex;flex-direction: column;gap: .8rem; top: 50%; left: 50%;transform: translate(-50%, -50%);}
+.shipMap {min-width: 8rem; min-height: 3rem;}
+.shipMap a {display: flex;flex-direction: column; align-items: center; justify-content: center;width: 100%; height: 100%;font-size: var(--fs-s);color: var(--white); font-weight: var(--fw-bold); padding:.2rem .5rem;}
+.shipMap a .status {font-size: var(--fs-xxs);font-weight: var(--fw-regular);}
+.shipCaution {background-color: #750000;border: 1px solid #FF0000;}
+.shipWarning {background-color: #8B6600;border: 1px solid #FFBC02;}
+.shipDefault {background-color: #004F4F;border: 1px solid var(--primary1);}
+
+/* =========================
+   지도 - 토스트팝업
+========================= */
+.toastContainer {position: fixed; bottom: 1.5rem; right: 5rem; display: flex; flex-direction: column; gap: .7rem;}
+.toast {display: flex; justify-content: space-between; width: 56rem; height: 5rem; padding: 1rem 1rem 1rem 4.5rem;border-radius: .4rem;}
+.toastWarining {background: #8B6600 url(../images/ico_toast_warning.svg)no-repeat top 1rem left 1.4rem /2.4rem;border: 1px solid #FFBC02;}
+.toastCaution {background: #750000 url(../images/ico_toast_caution.svg)no-repeat top 1rem left 1.4rem /2.4rem;border: 1px solid #FF0000;}
+.toast .toastMsg {font-size: var(--fs-ml);color: var(--white); font-weight: var(--fw-bold); }
+.toast .toastR {display: flex; align-items: center;gap: 1rem;}
+.toast .toastR .toastAction {font-size: var(--fs-s);color: var(--white); font-weight: var(--fw-regular);text-decoration: underline;}
+.toast .toastR .toastClose {width: 2.4rem;height: 2.4rem; background: url(../images/ico_toast_close.svg)no-repeat center /contain;}
+/*  */
+.cicle {width: 1.6rem; height: 1.6rem; border-radius: 50%; }
+.default {background-color: var(--primary1);}
+.red {background-color: #FF0000;}
+.orng {background-color: #FFBC02;}
+
+/* =========================
+   지도정보 - 팝업
+========================= */
+.popupMap {display: flex;flex-direction: column;position: absolute;top: 40%; left: 70%;transform: translate(-50%, -50%); width: auto;height: auto; background-color: var(--gray-scale3); z-index: 80;}
+.popupMap > .pmHeader {display: flex;justify-content: space-between; align-items: center; height: 4rem; padding: .5rem 1rem;}
+.popupMap > .pmHeader > .rowL{ display: flex;align-items: center; gap: .5rem;}
+.popupMap > .pmHeader > .rowL > .shipType {width: 2.4rem; height: 2.4rem; background:var(--gray-scale2) url(../images/ico_ship_type_fising.svg)no-repeat center / 2.4rem;}
+.popupMap > .pmBody {display: flex; flex-direction: column; padding: .8rem 1.2rem .8rem 1.2rem}
+.popupMap > .pmFooter {display: flex; flex-direction: column;  align-items: flex-start; justify-content: center; height: 3.2rem; border-top: 1px solid var(--gray-scale5); padding: 0 1rem;font-size: var(--fs-xs); color: var(--gray-scaleB);}
+/* 선박정보팝업 */
+.popupMap.shipInfo { width: 29rem;}
+.popupMap.shipInfo > .pmHeader > .rowL > .shipName {font-size: var(--fs-ml); font-weight:var(--fw-bold);color: var(--gray-scaleD);}
+.popupMap.shipInfo > .pmHeader > .rowL > .shipNum {font-size: var(--fs-m); font-weight:var(--fw-regular);color: var(--gray-scaleB);}
+.popupMap.shipInfo > .pmHeader > .pmClose {width: 2.4rem;height: 2.4rem; background: url(../images/ico_ship_info_close.svg)no-repeat center /contain;}
+
+/* 기상관측팝업 */
+.popupMap.osbInfo { width: 22rem; left: 45%;}
+.popupMap.osbInfo > .pmHeader > .rowL > .title {font-size: var(--fs-l); font-weight:var(--fw-bold);}
+.popupMap.osbInfo > .pmHeader > .pmClose {width: 2.6rem;height: 2.6rem; background: url(../images/ico_box_close.svg)no-repeat center /contain;}
+/* popup-기상관측상태 */
+.osbStatus {display: flex; flex-direction: column; gap: .6rem;}
+.osbStatus li.date {border-radius: .5rem; background-color: #61666F; padding: 1rem; font-weight: var(--fw-bold);}
+.osbStatus li {display: flex; justify-content: space-between; align-items: center; width: 100%;}
+.osbStatus li > .label { font-weight: var(--fw-bold); color: var(--secondary4);}
+.osbStatus li > .value { font-weight: var(--fw-bold);}
+
+/* popup-gallery */
+.popupMap > .pmGallery {position: relative; overflow: hidden; width: 29rem; height: 10.6rem;}
+.pmGallery .galleryView{ width: 100%; height: 100%;}
+.pmGallery .galleryView img{ width: 100%; height: 100%;object-fit: cover;}
+.pmGallery .navBtn { position: absolute; width: 3.4rem; height: 3.4rem; top: 0; bottom: 0; margin: auto 0; display: flex; align-items: center; justify-content: center;}
+.pmGallery .prev {background: url(../images/ico_arrow_left_big.svg) no-repeat center / 3.4rem; left: 0;}
+.pmGallery .next {background: url(../images/ico_arrow_right_big.svg) no-repeat center / 3.4rem; right: 0;}
+.pmGallery .navBtn.disabled {opacity: 0.5;cursor: default;pointer-events: none;}
+
+/* popup-Action */
+.shipAction {display: flex; align-items: center; justify-content: space-between;}
+.shipAction .detailBtn {position: relative; display: inline-flex; align-items: center; justify-content: center; width: 8rem; height: 2.8rem; background-color: var(--gray-scale6); color: var(--white); font-size: var(--fs-xs); font-weight: var(--fw-bold); padding-right: 2rem;}
+.shipAction .detailBtn::after {content: "";position: absolute; width: 2rem; height: 2rem; top: 50%; right: 0.5rem;transform: translateY(-50%);background: url(../images/ico_cate.svg) no-repeat center / contain;}
+.shipAction .favBtn {display: flex;align-items: center; justify-content: center; width: 2.8rem; height: 2.8rem; background: url(../images/ico_star.svg)no-repeat center / 2rem; background-color: var(--gray-scale5);}
+.shipAction .shipTypeIco {display: flex; align-items: center; gap: .2rem; padding: 0 1rem;}
+.shipAction .shipTypeIco li {display: flex; justify-content: center; align-items: center; width: 1.7rem; height: 1.7rem;border-radius: .2rem; background-color: var(--gray-scale5);color: var(--white); font-weight: var(--fw-heavy);font-size: var(--fs-xs);}
+
+/* popup-출,입항지 */
+.shipRoute {position:relative;width:100%;margin-top:1.5rem;}
+.routeProgress {position:relative;width:100%;height:.5rem;padding:0 .55rem;display:flex;align-items:center;}
+.routeProgress::before {content:"";position:absolute;top:50%;left:.55rem;width:1.1rem;height:1.1rem;background-color:var(--primary1);border-radius:50%;transform:translate(-50%,-50%);z-index:2;}
+.routeProgress::after {content:"";position:absolute;top:50%;right:.55rem;width:1.1rem;height:1.1rem;background-color:var(--gray-scale6);border-radius:50%;transform:translate(50%,-50%);z-index:2;}
+.routeProgress progress {width:100%;height:.5rem;background-color:var(--gray-scale5);appearance:none;-webkit-appearance:none;}
+.routeProgress progress::-webkit-progress-bar {background-color:var(--gray-scale5);}
+.routeProgress progress::-webkit-progress-value {background-color:var(--primary1);}
+.routeProgress progress::-moz-progress-bar {background-color:var(--primary1);}
+.routeShip {position:absolute;top:50%;left:calc(min(100%,0.55rem + (100% - 1.1rem)*(var(--progress)/100)));transform:translate(-50%,-50%);width:1.7rem;height:1.7rem;border-radius:50%;background-color:var(--white);border:5px solid var(--primary1);z-index:3;transition:left .3s ease;}
+.shipRoute:has(progress[value="100"]) .routeProgress::after {background-color:var(--primary1);}
+
+/* popup-선박상태 */
+.shipStatus {display:flex;flex-direction: column; margin-top:1rem;width:100%;padding:0;}
+.shipStatus li {display:flex;align-items:flex-start;width:100%;}
+.shipStatus li.port {display:flex;justify-content:space-between;align-items:flex-start;width:100%; padding: .5rem 0;}
+.shipStatus li .rowL,
+.shipStatus li .rowR {display:flex;flex-direction:column;gap: .2rem;}
+.shipStatus li .rowL {align-items:flex-start;}
+.shipStatus li .rowR {align-items:flex-end;}
+.shipStatus .portLabel {font-size: var(--fs-xs); color: var(--gray-scaleB);}
+.shipStatus .portName {font-size: var(--fs-ms); color: var(--gray-scaleB); font-weight:var(--fw-bold);}
+.shipStatus li.schedule {justify-content:space-between; background-color: var(--gray-scale2); padding: .5rem 1rem; border-top: 1px solid var(--gray-scale5);border-bottom: 1px solid var(--gray-scale5);}
+.shipStatus .depart,
+.shipStatus .arrive {font-size: var(--fs-xs); color: var(--gray-scaleD);font-weight:var(--fw-bold);padding-left: 1.7rem;}
+.shipStatus .depart {background: url(../images/ico_clock1.svg)no-repeat center left / 1.2rem;}
+.shipStatus .arrive {background: url(../images/ico_clock2.svg)no-repeat center left / 1.2rem;}
+.shipStatus .scheduleDate {font-size: var(--fs-xs); color: var(--gray-scaleB);}
+.shipStatus li.status { display: grid;grid-template-columns: 1fr 13rem 1fr;align-items: stretch;border-bottom: 1px solid var(--gray-scale5);}
+.shipStatus li.status .statusItem { display: flex; flex-direction: column; align-items: flex-start; position: relative; padding:.5rem 1rem;}
+.shipStatus li.status .statusItem:not(:last-child)::after {content: "";position: absolute;top: 50%;right: 0;width: 1px;height: 100%;background-color: var(--gray-scale5);transform: translateY(-50%);}
+.shipStatus .statusLabel {font-size: var(--fs-xs); color: var(--gray-scaleB);}
+.shipStatus .statusValue {font-size: var(--fs-ml); color: var(--gray-scaleD);}
+
+/* popup-선박신호리스트 */
+.shipSensor { display: flex; flex-direction: column;}
+.shipSensor li { display: flex; justify-content: space-between; align-items: center; width: 100%; height: 3.2rem;}
+.shipSensor li .sensorLabel {display: flex; align-items: center;font-size: var(--fs-xs); color: var(--gray-scaleB);}
+.shipSensor li .sensorValue {display: flex; align-items: center; gap: .5rem; font-size: var(--fs-ms); color: var(--gray-scaleB); font-weight:var(--fw-bold);}
+.shipSensor li .isNomal { width: .6rem; height: .6rem; border-radius: 50%; background-color: var(--primary3);}
+.shipSensor li .isOff {width: .6rem; height: .6rem; border-radius: 50%; background-color: var(--gray-scale9);}
+
+/* poppu-btn */
+.trackBtn {flex: 1; height: 3rem; background-color: var(--gray-scale6);font-size: var(--fs-xs);font-weight: var(--fw-bold); border-radius:2rem;}
+
+/* =========================
+   UI - 팝업
+========================= */
+.popupDim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.popupUtillWrap { position: absolute;top: 50%; left: 50%;transform: translate(-50%, -50%);z-index :85;}
+.popupUtill {display: flex; flex-direction: column; width: 52.5rem; height:auto;max-height: 80vh;overflow: hidden; background-color: var(--secondary2); border: .1rem solid var(--secondary3); padding:2.5rem 3rem;}
+.popupUtill > .puHeader {display: flex; justify-content: space-between; align-items: center; padding-bottom: 2rem;}
+.popupUtill > .puHeader > .headerL {display: flex;align-items: flex-end; gap: .5rem;}
+.popupUtill > .puHeader > .headerL > .title,
+.popupUtill > .puHeader > .title {font-weight: var(--fw-bold); font-size: var(--fs-xl);}
+.popupUtill > .puHeader > .headerL > .subTxt,
+.popupUtill > .puHeader > .subTxt {font-weight: var(--fw-regular); font-size: var(--fs-s); color: var(--secondary4); padding-bottom: .3rem;}
+.popupUtill > .puHeader > .puClose {width: 2.2rem;height: 2.2rem; background: url(../images/ico_pop_utill_close.svg)no-repeat center /contain;}
+.popupUtill > .puBody {flex: 1; min-height: 0; overflow-y: auto; padding-bottom: 1rem;}
+.popupUtill > .puFooter { margin-top: auto; padding-top: 1rem;}
+
+.popupUtill.cert {width: 46rem;}
+.puTxtBox {display: flex; align-items: center; justify-content: center; min-height: 8rem; font-size: var(--fs-ml); border-top: .1rem solid var(--secondary4); padding-top: 4rem;}
+
+/* =========================
+   테이블
+========================= */
+.required {color: var(--red-100);}
+.table {table-layout: fixed; width:100%; text-align:left;line-height:1.6em;border-collapse: collapse;}
+.table caption {position: absolute;top: 0;left: 0;width: 1px;height: 1px;font-size: 1px;clip: rect(1px, 1px, 1px, 1px);opacity: 0;}
+.table tbody th,.table tbody td {border-bottom:.1rem solid var(--secondary4);border-top: .1rem solid var(--secondary4); word-break: break-all;line-height:1.6em; vertical-align: middle; color: var(--white);}
+.table tbody th {background-color: var(--tertiary1); font-weight: var(--fw-bold); height: 5rem; padding:0 1rem;}
+.table tbody td {padding:.5rem 0 .5rem 1rem;}
+.table tbody td .helpTxt {color:rgba(var(--white-rgb),.3); padding-top: .5rem;}
+.table tbody td .row {display: flex; align-items: center; gap: 1.4rem;}
+.table tbody td .row.flex1 {gap: 1rem;}
+.table tbody td .row.flex1 > * {flex: 1 1 0; min-width: 0;}
+.table tbody td .row label.checkbox span {font-weight: var(--fw-regular);}
+.table tbody td:has(+ th) {padding-right: 1rem;}
+
+.table.dataView {border-bottom: 0;}
+.table.dataView tbody th, .table.dataView tbody td {height: 2.6rem; border-color: var(--tertiary1);font-size: var(--fs-s); font-weight: var(--fw-regular);}
+.table.dataView tbody th {background-color: var(--secondary1); padding: .5rem; }
+.table.dataView tbody td {text-align: right; padding:.5rem;}
+
+/* title */
+.tit14 {font-size:var(--fs-m); line-height: 1.2; font-weight: var(--fw-bold);}
+.tit12 {font-size:var(--fs-s); line-height: 1.2; font-weight: var(--fw-bold);}
+
+/* =========================
+   각 섹션별 UI
+========================= */
+/* 분석 */
+.drawBtn {flex: 1; display:flex;flex-direction: column; gap: 1rem; align-items:center; justify-content:center;font-size: var(--fs-ml);font-weight: var(--fw-default); padding:1rem 2rem; width: 22.8rem; height: 10rem;border: .1rem solid var(--secondary4);}
+.drawBtn i {width: 4rem; height: 4rem;}
+.drawBtn .rect {background: url(../images/ico_draw_rect.svg) no-repeat center / contain;}
+.drawBtn .polygon {background: url(../images/ico_draw_polygon.svg) no-repeat center / contain;}
+.drawBtn.sm {flex-direction: row; height: 4.2rem; font-size: var(--fs-ms); font-weight: var(--fw-bold); }
+.drawBtn.sm i {width: 1.6rem; height: 1.6rem;}
+
+.colorBox {display: block; width: 2.8rem; height: 2.8rem; border-radius: .6rem;}
+
+.analyRow {display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 2rem; width: 100%; height: 100%;}
+.analyRow > .reg  {display: flex; flex-direction: column; row-gap: 1rem;}
+.analyRow > .list {display: flex; flex-direction: column; row-gap: 1rem;height: 46.3rem; min-height: 0; overflow-y: auto; }
+.analyRow > .list .checkL span{}
+.mapCapture {width: 32rem; height: 18rem; background: var(--secondary1) url(../images/ico_img_capture.svg) no-repeat center / 7rem auto;}
+
+.trenchRow {display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem;}
+.trenchRow > .list {display: flex; flex-direction: column; align-items: flex-start; flex: 1; row-gap: .4rem;}
+
+.arrowDirect {width: 1.2rem; height: 1.2rem;}
+
+/* 항적조회 */
+.trackWrap { position: fixed; bottom: 5rem;left: 50%;transform: translateX(-50%); width: 82.2rem; height: 8rem; padding-top: 2.4rem;}
+.barCloseBtn {position: absolute; top: 0; right: 0;width: 2.4rem; height: 2.4rem; background: var(--tertiary1) url('../images/ico_bar_close.svg')no-repeat center / contain;border-radius: 50%;}
+.trackControlBar {display: flex; align-items: center; gap: 1rem; width: 80rem; height: 5.4rem; background-color: var(--tertiary1);border-bottom-left-radius: 2.8rem;border-bottom-right-radius: 2.8rem; padding-left:2.3rem; padding-right: 3.3rem;}
+.trackControlBar label {display: flex; align-items: center; gap: .5rem;}
+.trackControlBar label span {display: flex; width: 6rem; color: #9FD1FF;}
+.trackControlBar label:first-child {padding-right: 3rem;}
+.trackControlBar label:last-child {padding-right: 1rem;}
+.trackControlBar .schRndBtn { margin-left: auto;}
+
+/* 리플레이 */
+.replayWrap { position: fixed; bottom: 5rem;left: 50%;transform: translateX(-50%); width: 78rem; height: 12.6rem; padding-top: 2.4rem;}
+.barCloseBtn {position: absolute; top: 0; right: 0;width: 2.4rem; height: 2.4rem; background: var(--tertiary1) url('../images/ico_bar_close.svg')no-repeat center / contain;border-radius: 50%;}
+.replayControlBar {display: flex; flex-direction: column; align-items: center; width: 76rem; height: 10rem; background-color: var(--tertiary1);border-bottom-left-radius: 2.8rem;border-bottom-right-radius: 2.8rem; padding: 0 1rem;}
+.replayControlBar .control {display: flex;align-items: center; width: 100%; height: 5.2rem; border-bottom: .1rem solid var(--secondary2); padding: 1rem;}
+.replayControlBar .control .ctrL {display: flex;align-items: center;gap: .7rem; width: 14rem;}
+.replayControlBar .control .ctrR {display: flex;align-items: center;gap: .7rem; margin-left: auto; }
+.replayControlBar .control .playProgress {display: flex;flex-direction: column; gap: .6rem; width: 50rem; padding-top: .3rem;}
+.replayControlBar .control .playProgress .timeLabel {font-size: var(--fs-s);}
+.replayControlBar .option {display: flex; align-items: center; width: 100%; padding: .9rem 2.3rem;}
+.replayControlBar .option label {display: flex; align-items: center; gap: .5rem;}
+.replayControlBar .option label span {display: flex; width: 6rem; }
+.replayControlBar .option label:first-child {padding-right: 3rem;}
+.replayControlBar .option label:last-child {padding-right: 1rem;}
+.replayControlBar .option .schRndBtn { margin-left: auto;}
