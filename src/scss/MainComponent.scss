@@ -7,6 +7,8 @@
         width: 100%;
         height: calc(100% - 4.4rem);
         position: relative;
+        overscroll-behavior: none;
+        overflow: hidden;
 
         //* top-bar */
         .topBar {

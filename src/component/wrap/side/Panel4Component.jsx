@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export default function Panel4Component({ isOpen, onToggle }) {
     const navigate = useNavigate();
 
@@ -443,7 +443,11 @@ export default function Panel4Component({ isOpen, onToggle }) {
                                 </li>
                             </ul>
                             <div className="btnArea w4r">
-                                <button type="button" className="btnMap"></button>
+                                <button
+                                    type="button" 
+                                    class="btnMap"
+                                    onClick={() => navigate("/analysis/trench")}
+                                ></button>
                             </div>
                         </li>
                     </ul>
