@@ -19,6 +19,8 @@ import LayerComponent from "../component/wrap/main/LayerComponent";
 import SignalComponent from "../component/wrap/main/Signal1Component";
 import Signal2Component from "../component/wrap/main/Signal2Component";
 import MyPageComponent from "../component/wrap/main/MyPageComponent";
+import TrackComponent from "../component/wrap/main/TrackComponent";
+import ReplayComponent from "../component/wrap/main/ReplayComponent";
 
 export default function AppRouter() {
   return (
@@ -54,6 +56,12 @@ export default function AppRouter() {
             <Route path="register" element={<Analysis3Component />} />
             <Route path="trench" element={<Analysis4Component />} />
           </Route>
+
+          {/* 리플레이 */}
+          <Route path="replay" element={<ReplayComponent />} />
+
+          {/* 항적조회 */}
+          <Route path="track" element={<TrackComponent />} />
 
           {/* 레이어 */}
           <Route path="layer/register" element={<LayerComponent />} />

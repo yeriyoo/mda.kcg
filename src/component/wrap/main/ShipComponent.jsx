@@ -42,7 +42,7 @@ export default function ShipComponent() {
                     type="button"
                     className="pmClose"
                     aria-label="닫기"
-                    onClick={() => navigate("/")}
+                    onClick={() => navigate("/main")}
                 />
             </div>
 

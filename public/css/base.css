@@ -261,6 +261,7 @@ sup, sub {font-size:10px;}
 .w333333 {width:33.3333% !important;} .w666666 {width:66.6666% !important}
 .w4r {width: 4rem !important;}
 .w5r {width: 5rem !important;}
+.w8r {width: 8rem !important;}
 .w9r {width: 9rem !important;}
 .w10r {width: 10rem !important;}
 .w11r {width: 11rem !important;}
@@ -268,6 +269,7 @@ sup, sub {font-size:10px;}
 .w13r {width: 13rem !important;}
 .w14r {width: 14rem !important;}
 .w15r {width: 15rem !important;}
+.w16r {width: 16rem !important;}
 .w46r {width: 46rem !important;} /* ui-popup small */
 .w61r {width: 61rem !important;} /* ui-popup big */
 
@@ -301,7 +303,6 @@ select{
 	color: var(--white);
 	font-weight: var(--fw-regular);
 	padding: 1rem 1.2rem;
-	text-overflow: ellipsis;white-space: nowrap; max-width: 100%; overflow: hidden;
 }
 
 /* select ie 초기화 */
@@ -520,7 +521,34 @@ input[type="radio"] {
 /* =========================
    슬라이더 -range
 ========================= */
-/* 래퍼 */
+/* 초기화 */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+/* Chrome / Safari */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+input[type="range"] ::-moz-range-thumb {
+  background: transparent;
+  border: none;
+}
+/* Firefox 트랙 기본색 제거 */
+input[type="range"] ::-moz-range-track {
+  background: transparent;
+  border: none;
+}
+
+
+/* 투명도,밝기 range */
 .rangeWrap {
   width: 15rem;
 }
@@ -559,7 +587,6 @@ input[type="radio"] {
   background: var(--primary2);
   border-radius: 1rem;
 }
-
 /* Thumb - Chrome / Edge / Safari */
 .rangeWrap input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -598,6 +625,25 @@ input[type="radio"] {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* 리플레이 Range 재생상태 */
+.playRange {
+  width: 100%;
+  height: 1rem;
+  border-radius: .2rem;
+  pointer-events: auto; 
+}
+/* Chrome / Safari */
+.playRange::-webkit-slider-thumb {
+   width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+}
+.playRange::-moz-range-thumb {
+   width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
 }
 
 

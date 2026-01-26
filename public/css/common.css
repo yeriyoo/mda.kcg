@@ -22,9 +22,26 @@
 .schBtn {width: 8rem; height: 3.5rem;display:flex;align-items:center; justify-content:center;font-size: var(--fs-ms);font-weight: var(--fw-bold); background-color: var(--primary1); color: var(--white);}
 .schBtn::before {content: "";display: inline-block; width: 1.4rem; height: 1.4rem; margin-right: 1rem;background:url('/images/ico_btnsch.svg') no-repeat center center/ 1.4rem; }
 
+.trackRndBtn {width: 8rem; height: 3rem;border-radius: .5rem; display:flex;align-items:center; justify-content:center;font-weight: var(--fw-bold); background-color: var(--secondary2); color: #A2AABD; padding: 0 1rem;}
+
+.playBtn {width: 3rem; height: 3rem;border-radius: .8rem;border: .1rem solid var(--secondary4); background: url(../images/ico_btn_play.svg)no-repeat center / contain;}
+.captureBtn {width: 3rem; height: 3rem;border-radius: .8rem;border: .1rem solid var(--secondary4); background: url(../images/ico_camera.svg)no-repeat center / contain;}
+.stopBtn {width: 3rem; height: 3rem;border-radius: .8rem;border: .1rem solid var(--secondary4); background: url(../images/ico_stop.svg)no-repeat center / contain;}
+
+
+.schRndBtn {width: 8rem; height: 3rem;border-radius: .5rem; display:flex;align-items:center; justify-content:space-between;font-weight: var(--fw-heavy); background-color: var(--primary1); color: var(--white); padding: 0 1rem;}
+.schRndBtn::after {content: "";display: inline-block; width: 1.6rem; height: 1.6rem; background:url('/images/ico_sch_bold.svg') no-repeat center center/ 1.6rem; }
+
 .icoCapture::before {content: "";display: inline-block; width: 1.8rem; height: 1.8rem; margin-right: 1rem;background:url('../images/ico_capture.svg') no-repeat center center/ 1.8rem;}
 .btnMap {width: 2.8rem; height: 2.8rem; background: url(../images/ico_btn_map.svg) no-repeat center / contain;}
 .btnMap:hover {background-image: url(../images/ico_btn_map_on.svg);}
+
+/* =========================
+   UI - form
+========================= */
+.controlInput {height: 3rem; border-radius: .5rem; font-weight: var(--fw-bold); border-color: #7E9796; background-color:transparent;}
+.controlSelect {height: 3rem; border-radius: .5rem; font-weight: var(--fw-bold); border-color: #7E9796; 
+background:transparent url('/images/ico_control_select.svg')no-repeat right .5rem center / 1.6rem; padding: 0 1.2rem;}
 
 /* =========================
    UI - 탭스타일
@@ -372,3 +389,29 @@
 .trenchRow > .list {display: flex; flex-direction: column; align-items: flex-start; flex: 1; row-gap: .4rem;}
 
 .arrowDirect {width: 1.2rem; height: 1.2rem;}
+
+/* 항적조회 */
+.trackWrap { position: fixed; bottom: 5rem;left: 50%;transform: translateX(-50%); width: 82.2rem; height: 8rem; padding-top: 2.4rem;}
+.barCloseBtn {position: absolute; top: 0; right: 0;width: 2.4rem; height: 2.4rem; background: var(--tertiary1) url('../images/ico_bar_close.svg')no-repeat center / contain;border-radius: 50%;}
+.trackControlBar {display: flex; align-items: center; gap: 1rem; width: 80rem; height: 5.4rem; background-color: var(--tertiary1);border-bottom-left-radius: 2.8rem;border-bottom-right-radius: 2.8rem; padding-left:2.3rem; padding-right: 3.3rem;}
+.trackControlBar label {display: flex; align-items: center; gap: .5rem;}
+.trackControlBar label span {display: flex; width: 6rem; color: #9FD1FF;}
+.trackControlBar label:first-child {padding-right: 3rem;}
+.trackControlBar label:last-child {padding-right: 1rem;}
+.trackControlBar .schRndBtn { margin-left: auto;}
+
+/* 리플레이 */
+.replayWrap { position: fixed; bottom: 5rem;left: 50%;transform: translateX(-50%); width: 78rem; height: 12.6rem; padding-top: 2.4rem;}
+.barCloseBtn {position: absolute; top: 0; right: 0;width: 2.4rem; height: 2.4rem; background: var(--tertiary1) url('../images/ico_bar_close.svg')no-repeat center / contain;border-radius: 50%;}
+.replayControlBar {display: flex; flex-direction: column; align-items: center; width: 76rem; height: 10rem; background-color: var(--tertiary1);border-bottom-left-radius: 2.8rem;border-bottom-right-radius: 2.8rem; padding: 0 1rem;}
+.replayControlBar .control {display: flex;align-items: center; width: 100%; height: 5.2rem; border-bottom: .1rem solid var(--secondary2); padding: 1rem;}
+.replayControlBar .control .ctrL {display: flex;align-items: center;gap: .7rem; width: 14rem;}
+.replayControlBar .control .ctrR {display: flex;align-items: center;gap: .7rem; margin-left: auto; }
+.replayControlBar .control .playProgress {display: flex;flex-direction: column; gap: .6rem; width: 50rem; padding-top: .3rem;}
+.replayControlBar .control .playProgress .timeLabel {font-size: var(--fs-s);}
+.replayControlBar .option {display: flex; align-items: center; width: 100%; padding: .9rem 2.3rem;}
+.replayControlBar .option label {display: flex; align-items: center; gap: .5rem;}
+.replayControlBar .option label span {display: flex; width: 6rem; }
+.replayControlBar .option label:first-child {padding-right: 3rem;}
+.replayControlBar .option label:last-child {padding-right: 1rem;}
+.replayControlBar .option .schRndBtn { margin-left: auto;}

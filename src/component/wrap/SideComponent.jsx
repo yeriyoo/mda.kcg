@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import NavComponent from "./side/NavComponent";
 import Panel1Component from "./side/Panel1Component";
@@ -13,23 +13,52 @@ import Panel8Component from "./side/Panel8Component";
 import DisplayComponent from "./side/DisplayComponent";
 
 export default function SideComponent() {
-  /* =========================
-    현재 열린 패널
-  ========================= */
+  const navigate = useNavigate();
+  //const location = useLocation();
+
+  // 현재열린패널
   const [activePanel, setActivePanel] = useState("gnb1");
 
-  /* =========================
-    패널 열림 상태
-  ========================= */
+  // 패널열린상태
   const [isPanelOpen, setIsPanelOpen] = useState(true);
   const handleTogglePanel = () => setIsPanelOpen(prev => !prev);
 
+  // Display 탭상태
+  const [displayTab, setDisplayTab] = useState("filter");
+
   /* =========================
-    Nav 클릭 → 패널만 변경
+    Nav 클릭 → 패널 + 라우팅
   ========================= */
   const handleChangePanel = (key) => {
     setIsPanelOpen(true);
-    setActivePanel(key); // navigate 없음
+    //setActivePanel(key); // navigate 없음
+
+    switch (key) {
+    case "gnb8":  //항적조회
+      setActivePanel("gnb8");
+      navigate("/track");
+      break;
+
+    case "gnb7":  // 리플레이
+      setActivePanel("gnb7");
+      navigate("/replay");
+      break;
+
+    case "filter":  // 필터
+      setActivePanel("filter");
+      setDisplayTab("filter");
+      break;
+
+    case "layer":   // 레이어
+      setActivePanel("layer");
+      setDisplayTab("layer");
+      break;
+
+    default:
+      setActivePanel(key);
+      navigate("/main"); 
+      break;
+    }
   };
 
   /* =========================
@@ -57,7 +86,8 @@ export default function SideComponent() {
         {activePanel === "gnb7" && <Panel7Component {...panelProps} />}
         {activePanel === "gnb8" && <Panel8Component {...panelProps} />}
         {(activePanel === "filter" || activePanel === "layer") && (
-          <DisplayComponent {...panelProps} />
+          <DisplayComponent {...panelProps} 
+          activeTab={displayTab}/>
         )}
       </div>
     </section>

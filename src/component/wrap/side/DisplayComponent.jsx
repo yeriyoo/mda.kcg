@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Slider from '../../common/Slider';
 
-export default function DisplayComponent({ isOpen, onToggle }) {
+export default function DisplayComponent({ isOpen, onToggle, activeTab: externalTab }) {
     const navigate = useNavigate();
 
     // 투명도
@@ -21,6 +21,12 @@ export default function DisplayComponent({ isOpen, onToggle }) {
 
     // 탭이동
     const [activeTab, setActiveTab] = useState('filter');
+    
+    useEffect(() => {
+    if (externalTab) {
+        setActiveTab(externalTab);
+    }
+    }, [externalTab]);
 
     const tabs = [
         { id: 'filter', label: '필터' },
