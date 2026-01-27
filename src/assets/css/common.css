@@ -276,7 +276,7 @@ background:transparent url('../images/ico_control_select.svg')no-repeat right .5
 .routeProgress progress::-webkit-progress-value {background-color:var(--primary1);}
 .routeProgress progress::-moz-progress-bar {background-color:var(--primary1);}
 .routeShip {position:absolute;top:50%;
-left: calc(0.55rem + (100% - 1.1rem) * var(--progress));transform:translate(-50%,-50%);width:1.7rem;height:1.7rem;border-radius:50%;background-color:var(--white);border:5px solid var(--primary1);z-index:3;transition:left .3s ease;}
+left: calc(0.55rem + (100% - 1.1rem) * var(--progress, 0));transform:translate(-50%,-50%);width:1.7rem;height:1.7rem;border-radius:50%;background-color:var(--white);border:5px solid var(--primary1);z-index:3;transition:left .3s ease;}
 .shipRoute:has(progress[value="100"]) .routeProgress::after {background-color:var(--primary1);}
 
 /* popup-선박상태 */
