@@ -6,6 +6,8 @@ export default function ShipComponent() {
 
     //progress bar value 선언
     const [value, setValue] = useState(60);
+    // CSS용 비율값 (0 ~ 1)
+    const progressRatio = value / 100;
 
     // 갤러리 이미지
     const images = [
@@ -93,7 +95,7 @@ export default function ShipComponent() {
                 <div className="shipRoute">
                     <div
                         className="routeProgress"
-                        style={{ "--progress": value }}
+                        style={{ "--progress": progressRatio }}
                     >
                         <progress max="100" value={value}>{value}%</progress>
                         <span className="routeShip"></span>
