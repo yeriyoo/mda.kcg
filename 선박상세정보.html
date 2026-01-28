@@ -1,0 +1,319 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-police.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-police.png">
+        <link rel="shortcut icon" href="img/favicon-police.ico">
+
+        <link rel="stylesheet" href="common.css">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+        <title>해양환경 위기대응 통합지원시스템 플랫폼</title>
+        <script src="common.js" defer></script>
+    </head>
+    <body>
+        <!-- Topbar -->
+  <header class="topbar">
+    <div class="topbar__left">
+      <div class="logoBox"><img src="img/shiptype-icon.svg" alt="선박타입"></div>
+      <div class="logoBox"><img src="img/flag-info-icon.svg" alt="선박타입"></div>
+      <div class="titleLine">
+        <span class="shipName">HD HYUNDAI MIPO</span>
+        <span class="shipMeta">8445</span>
+      </div>
+    </div>
+
+    <div class="topbar__right">
+      <button class="topBtn">세계 선박 항적 조회<img src="img/search-icon.svg" alt="세계 선박 항적 조회"></button>
+      <button class="topBtn">항적조회<img src="img/search-icon.svg" alt="항적조회"></button>
+      <button class="topBtn">항적예측<img src="img/search-icon.svg" alt="항적예측"></button>
+      <button class="topBtn">신호정보<img src="img/search-icon.svg" alt="신호정보"></button>
+      <button class="topBtn-01">메모등록<img src="img/memo-icon.svg" alt="메모등록"></button>
+      <button class="topBtn-01">선박공유<img src="img/share-chip-icon.svg" alt="선박공유"></button>
+      <button class="topBtn-01">다운로드<img src="img/download-icon.svg" alt="다운로드"></button>
+    </div>
+  </header>
+
+  <!-- Tabs -->
+  <nav class="tabs">
+    <button class="tab is-active" data-tab="basic">기본정보</button>
+    <button class="tab" data-tab="port">Port-MIS</button>
+    <button class="tab" data-tab="world">세계선박 정보</button>
+    <div class="tabs__meta">데이터 수신시간: <b id="rxTime">2025-11-04 15:49:43</b></div>
+  </nav>
+
+  <main class="wrap">
+    <section class="grid4">
+      <!-- ===== LEFT ===== -->
+      <article class="card">
+        <div class="card__head">
+          <div class="card__title">선박 위치 및 항해 데이터</div>
+        </div>
+        <div class="card__body">
+          <div class="photo" aria-label="선박 사진">
+            <img src="img/ship-info-img.png" alt="선박 이미지">
+            <div class="photoNav">
+              <button type="button" id="prevPhoto" aria-label="이전">‹</button>
+              <button type="button" id="nextPhoto" aria-label="다음">›</button>
+            </div>
+            <div class="photoDots" id="photoDots" aria-hidden="true"></div>
+          </div>
+
+          <div class="photoActions">
+            <button class="ghostBtn">사진 추가<img src="img/adding-photo-icon.svg" alt="사진추가"></button>
+            <button class="ghostBtn">관심선박 추가<img src="img/favorite-icon.svg" alt="사진추가"></button>
+          </div>
+
+          <div class="progressWrap">
+            <div class="progressBar" aria-label="항해 진행도">
+              <div class="progressFill" id="progFill" style="width:48%"></div>
+              <span class="progressKnob" id="progKnob" style="left:48%"></span>
+            </div>
+
+            <div class="portsRow">
+              <div class="port">
+                <div class="lbl">출항지</div>
+                <div class="val" id="fromPort">서귀포해양경찰서</div>
+              </div>
+              <div class="port is-right">
+                <div class="lbl">입항지</div>
+                <div class="val" id="toPort">하태도</div>
+              </div>
+            </div>
+
+            <div class="twoTime">
+              <div class="ship-popup__schedItem">
+                    <div class="ship-popup__schedHead">
+                    <img src="img/ship-info-01.svg" alt="출항일시" class="ship-popup__schedIcon" >
+                    <span class="ship-popup__schedTitle">출항일시</span>
+                    </div>
+                    <div class="ship-popup__schedTime" id="popupDepTime">-</div>
+                </div>
+
+                <div class="ship-popup__schedItem ship-popup__schedItem--right">
+                    <div class="ship-popup__schedHead">
+                    <img src="img/ship-info-01.svg" alt="입항일시" class="ship-popup__schedIcon" >
+                    <span class="ship-popup__schedTitle">입항예정일시</span>
+                    </div>
+                    <div class="ship-popup__schedTime" id="popupArrTime">-</div>
+                </div>
+            </div>
+
+            <div class="ship-popup__summary-01">
+              <div class="ship-popup__sumItem">
+                  <div class="ship-popup__sumLabel">선박상태</div>
+                  <div class="ship-popup__sumValue" id="popupStatus">항해</div>
+              </div>
+
+              <div class="ship-popup__sumItem">
+                  <div class="ship-popup__sumLabel">침로/속력</div>
+                  <div class="ship-popup__sumValue" id="popupSpeedCourse">125.3˚9.9kn</div>
+              </div>
+
+              <div class="ship-popup__sumItem">
+                  <div class="ship-popup__sumLabel">현 위치(위경도 순)</div>
+                  <div class="ship-popup__sumValue" id="popupDraft">37.0/125.2</div>
+              </div>
+              </div>
+          </div>
+
+          <div class="leftTable" role="table" aria-label="기본 항해 정보">
+            <div class="row" role="row">
+              <div class="th" role="columnheader">예상 도착시간</div>
+              <div class="td" role="cell">2024-11-23 08:33(UTC+9)</div>
+            </div>
+            <div class="row" role="row">
+              <div class="th" role="columnheader">전장/전폭/흘수(m)</div>
+              <div class="td" role="cell">179(width) / 28(height)</div>
+            </div>
+            <div class="row" role="row">
+              <div class="th" role="columnheader">소유자</div>
+              <div class="td" role="cell">-</div>
+            </div>
+            <div class="row" role="row">
+              <div class="th" role="columnheader">마지막 신호시간</div>
+              <div class="td" role="cell">1분전</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== MIDDLE ===== -->
+      <article class="card">
+        <div class="card__head">
+          <div class="card__title">선박 세부사항</div>
+          <div class="signalPills" aria-label="신호 그룹">
+            <span class="sig">A</span><span class="sig">V</span><span class="sig">E</span><span class="sig">T</span><span class="sig">D</span><span class="sig">R</span>
+          </div>
+        </div>
+        <div class="card__body">
+          <table class="kv" aria-label="선박 세부 테이블">
+            <tr><th>DATA Source</th><td>AVETDR</td></tr>
+            <tr><th>신호별 ID</th><td>352001218</td></tr>
+            <tr><th>선명</th><td>XIN LONG YUN89</td></tr>
+            <tr><th>국적</th><td>파나마</td></tr>
+            <tr><th>IMO</th><td>9667320</td></tr>
+            <tr><th>MMSI</th><td>352001218</td></tr>
+            <tr><th>호출 부호</th><td>3E3976</td></tr>
+            <tr><th>AIS class</th><td>복합선박, 재건설박 자동 표기</td></tr>
+            <tr><th>vessel type</th><td>화물선</td></tr>
+          </table>
+
+          <div class="scoreBoard">
+            <div class="scoreTitle">SHIP SCORE BOARD</div>
+            <div class="scores">
+              <div class="badgeCircle b-red">
+                <div class="num">NA</div>
+                <div class="cap">위험지수</div>
+              </div>
+              <div class="badgeCircle b-amber">
+                <div class="num">5</div>
+                <div class="cap">MMSI번호</div>
+              </div>
+              <div class="badgeCircle b-blue">
+                <div class="num">10</div>
+                <div class="cap">선번번호</div>
+              </div>
+              <div class="badgeCircle b-gray">
+                <div class="num">6</div>
+                <div class="cap">입출항/위험물</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px; font-weight:900;">운항정보</div>
+          <div class="miniToolbar">
+            <button class="excelBtn" type="button">Excel</button>
+          </div>
+          <table class="listTable" aria-label="운항정보 목록">
+            <thead>
+              <tr>
+                <th style="width:50px;">No.</th>
+                <th>일시</th>
+                <th>상태</th>
+                <th>내용</th>
+                <th>위도/경도</th>
+                <th>속도/항로</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>2024-10-..</td><td>항해</td><td>START</td><td>37.5/130.5</td><td>10kn/200.4°</td></tr>
+              <tr><td>2</td><td>2024-10-..</td><td>정박</td><td>-</td><td>37.5/130.5</td><td>0kn/0°</td></tr>
+              <tr><td>3</td><td>2024-10-..</td><td>항해</td><td>START</td><td>37.5/130.5</td><td>10kn/200.4°</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- ===== RIGHT ===== -->
+      <article class="card">
+        <div class="card__head">
+          <div class="card__title">지도 위치 및 날씨</div>
+        </div>
+        <div class="card__body">
+          <div class="mapBox" aria-label="지도">
+            <img src="https://images.unsplash.com/photo-1526779259212-756e4f3a5c97?q=80&w=1200&auto=format&fit=crop" alt="지도 이미지(더미)">
+            <div class="mapZoom" aria-hidden="true">
+              <button type="button">+</button>
+              <button type="button">−</button>
+            </div>
+          </div>
+
+          <div class="weatherRow">
+            <div class="wxTitle">
+              <span>전남서부남해앞바다</span>
+              <span style="color:#6b778c;font-size:12px;">11월 20일 (일)</span>
+            </div>
+            <div class="wxCards">
+              <div class="wxCard">
+                <div class="k">기온(°C)</div>
+                <div class="v">28.1</div>
+              </div>
+              <div class="wxCard">
+                <div class="k">풍향/풍속(m/s)</div>
+                <div class="v">남-남서 / 0.5</div>
+              </div>
+              <div class="wxCard">
+                <div class="k">파고(m)</div>
+                <div class="v">0.8~1.2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card__head">
+          <div class="card__title">특이사항</div>
+        </div>
+        <div class="card__body" style="padding:0;">
+          <table class="listTable" aria-label="특이사항 테이블" style="border-top:0;">
+            <thead>
+              <tr>
+                <th>내용</th>
+                <th style="width:120px;">날짜</th>
+                <th style="width:80px;">작성자</th>
+              </tr>
+            </thead>
+          </table>
+          <div class="empty">데이터가 없습니다.</div>
+        </div>
+      </article>
+
+       <article class="card" style="grid-column: 4 / span 1;">
+        <div class="card__head">
+          <div class="card__title">최근 포트 호출</div>
+          <span class="headLink">더보기 ›</span>
+        </div>
+        <div class="card__body">
+          <div class="miniToolbar">
+            <button class="excelBtn" type="button">Excel</button>
+          </div>
+          <table class="listTable" aria-label="최근 포트 호출">
+            <thead>
+              <tr>
+                <th style="width:50px;">No.</th>
+                <th>출항지</th>
+                <th>출항시간</th>
+                <th>입항예정지</th>
+                <th>입항시간</th>
+                <th>송신인원</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>KRPUS</td><td>2024-10-...</td><td>SGSIN</td><td>2024-10-...</td><td>0</td></tr>
+              <tr><td>2</td><td>KRPUS</td><td>2024-10-...</td><td>SGSIN</td><td>2024-10-...</td><td>0</td></tr>
+              <tr><td>3</td><td>KRPUS</td><td>2024-10-...</td><td>SGSIN</td><td>2024-10-...</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+    </section>
+
+
+
+    <!-- 하단 전체폭 특이사항(원하면 이걸로 통합) -->
+    <section class="card full" style="display:none;">
+      <div class="card__head">
+        <div class="card__title">특이사항</div>
+      </div>
+      <div class="card__body" style="padding:0;">
+        <table class="listTable" aria-label="특이사항 테이블" style="border-top:0;">
+          <thead>
+            <tr>
+              <th>내용</th>
+              <th style="width:120px;">날짜</th>
+              <th style="width:80px;">작성자</th>
+            </tr>
+          </thead>
+        </table>
+        <div class="empty">데이터가 없습니다.</div>
+      </div>
+    </section>
+  </main>
+
+    </body>
+</html>

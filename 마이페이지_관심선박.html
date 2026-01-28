@@ -1,0 +1,742 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-police.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-police.png">
+        <link rel="shortcut icon" href="img/favicon-police.ico">
+
+        <link rel="stylesheet" href="common.css">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+        <title>해양환경 위기대응 통합지원시스템 플랫폼</title>
+        <script src="common.js" defer></script>
+    </head>
+    <body>
+      <div class="background-image">
+
+    <!-- 상단 중앙 검색 -->
+    <div class="map-search" role="search" aria-label="선박 위치 검색">
+    <input class="map-search__input" type="search" placeholder="선박 위치 검색" />
+    <button class="map-search__btn" type="button" aria-label="검색">
+        <span class="material-symbols-outlined">search</span>
+    </button>
+    </div>
+
+    <!-- 우측 상단 시간/연장 -->
+    <div class="map-topTime" aria-label="시간 표시">
+        <div class="map-topTime__clock">
+            <span class="material-symbols-outlined map-topTime__ico" aria-hidden="true">schedule</span>
+            <span class="map-topTime__time" id="topClock">03:22:00</span>
+            <button class="map-topTime__extend" type="button">연장</button>
+        </div>
+    </div>
+
+
+    <!-- 하단 중앙 좌표/시간 바 -->
+    <div class="map-hud" aria-label="지도 좌표 표시">
+    <div class="map-hud__pill">
+
+        <span class="map-hud__item">
+        <img src="img/location.svg" alt="" class="map-hud__icon">
+        <span class="map-hud__label">경도</span>
+        <span class="map-hud__value" id="hudLon">129° 38′ 31.071″ E</span>
+        </span>
+
+        <span class="map-hud__divider" aria-hidden="true"></span>
+
+        <span class="map-hud__item">
+        <img src="img/location.svg" alt="" class="map-hud__icon">
+        <span class="map-hud__label">위도</span>
+        <span class="map-hud__value" id="hudLat">35° 21′ 24.580″ N</span>
+        </span>
+
+        <span class="map-hud__divider" aria-hidden="true"></span>
+
+        <span class="map-hud__item">
+        <span class="map-hud__label">KST</span>
+        <span class="map-hud__value" id="hudTime">2024-07-01(월) 12:00:00</span>
+        </span>
+
+        <button class="map-hud__gear" id="btnHudSetting" type="button" aria-label="설정">
+        <span class="material-symbols-outlined">settings</span>
+        </button>
+    </div>
+    </div>
+
+ 
+    <!-- ▣ 사이드바 -->
+    <div class="side-bar">
+        <ul class="menu-top">
+            <li><a><span><img src="img/menu_01.svg" alt="라이브맵"></span></a></li>
+            <li><a><span><img src="img/menu_02.svg" alt="선박DB"></span></a></li>
+            <li><a><span><img src="img/menu_03.svg" alt="해경자산"></span></a></li>
+            <li><a><span><img src="img/menu_04.svg" alt="분석검색"></span></a></li>
+            <li><a><span><img src="img/menu_05.svg" alt="분석맵"></span></a></li>
+                <a><span><img src="img/menu_07.svg" alt="데이터 필터"></span></a>
+            </li>
+            <li><a><span><img src="img/menu_08.svg" alt="세계선박 DB"></span></a></li>
+            <li><a><span><img src="img/menu_06.svg" alt="조건분석"></span></a></li>
+        </ul>
+
+        <ul class="menu-bottom">
+            <li><a><span><img src="img/slideicon_01.svg" alt="뷰파인더"></span></a></li>
+            <li><a><span><img src="img/slideicon_02.svg" alt="설정"></span></a></li>
+            <li>
+                <a class="menu-mypage" href="javascript:void(0)">
+                    <span><img src="img/slideicon_03.svg" alt="마이페이지"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 왼쪽 패널 전체 -->
+    <div class="left-panel-wrap" id="leftPanelWrap">
+
+        <div class="left-panel_mypage" id="leftPanelMyPage">
+            <div class="mypage-header">
+            <div class="mypage-title">
+                <strong>GC</strong>
+            </div>
+
+            <button class="mypage-logout" type="button" aria-label="로그아웃"><img src="img/logout.svg" alt="로그아웃"></button>
+            </div>
+
+            <div class="mypage-section is-open">
+            <button class="mypage-section-head" type="button">
+                <span>테마 설정</span>
+                <span class="chev"></span>
+            </button>
+
+            <div class="mypage-section-body">
+                <button class="mypage-save" type="button">저장</button>
+
+                <div class="mypage-radio-list">
+                <label class="mypage-radio">
+                    <span>표준</span>
+                    <input type="radio" name="theme" value="standard">
+                    <span class="radio-ui"></span>
+                </label>
+
+                <label class="mypage-radio">
+                    <span>심플</span>
+                    <input type="radio" name="theme" value="simple">
+                    <span class="radio-ui"></span>
+                </label>
+
+                <label class="mypage-radio">
+                    <span>다크</span>
+                    <input type="radio" name="theme" value="dark" checked>
+                    <span class="radio-ui"></span>
+                </label>
+                </div>
+            </div>
+            </div>
+
+            <div class="mypage-section radius-section is-open">
+            <button class="mypage-section-head" type="button">
+                <span>주변 반경 설정</span>
+                <span class="chev"></span>
+            </button>
+
+            <div class="mypage-section-body">
+                <div class="radius-row">
+                <input class="radius-input" type="number" value="5" min="0" />
+                <span class="radius-unit">miles</span>
+                </div>
+            </div>
+            </div>
+
+            <button class="mypage-row" type="button">
+            <span>메뉴 설정</span><span class="row-arrow"></span>
+            </button>
+
+            <button class="mypage-row" id="btnMyDashboard" type="button">
+            <span>나의 대시보드</span><span class="row-arrow"></span>
+            </button>
+
+            <button class="mypage-row" id="btnShareAlarm" type="button">
+            <span>분석/공유/알람</span><span class="row-arrow"></span>
+            </button>
+
+            <button class="mypage-row" type="button">
+            <span>나의 사용자 그룹</span><span class="row-arrow"></span>
+            </button>
+
+        </div>
+
+        <button class="panel-collapseBtn" id="mypageCollapseBtn" type="button" aria-label="패널 접기/펼치기">
+            <img src="img/panel-collapseBtn.svg" alt="접힘펼침버튼">
+        </button>
+
+        </div>
+
+
+
+        <!-- 오른쪽 퀵메뉴 -->
+        <div class="quick-menu">
+            <div class="quick-menu-top">
+                <button class="q-btn" data-tooltip="알람"><img src="img/quick_001.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="관심선박"><img src="img/quick_002.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="미니맵"><img src="img/quick_003.svg" alt=""></button>
+            </div>
+
+            <div class="gap-space"></div>
+            <button class="q-btn mid-toggle">
+                <span class="material-symbols-outlined">keyboard_arrow_up</span>
+            </button>
+
+            <div class="quick-menu-middle">
+                <button class="q-btn active" data-tooltip="기상"><img src="img/quick_004.svg" alt=""></button>
+                <button class="q-btn active" data-tooltip="다운로드"><img src="img/quick_005.svg" alt=""></button>
+            </div>
+            
+            <div class="gap-space"></div>
+            <div class="quick-menu-bottom">
+                <button class="q-btn" data-tooltip="선박통합"><img src="img/quick_006.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="선박표시"><img src="img/quick_007.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="해경자산"><img src="img/quick_008.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="구역설정"><img src="img/quick_009.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="거리"><img src="img/quick_010.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="면적"><img src="img/quick_011.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="거리환"><img src="img/quick_012.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="캡처"><img src="img/quick_013.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="초기화"><img src="img/quick_014.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="AI"><img src="img/quick_015.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="업로드"><img src="img/quick_016.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="선박추적"><img src="img/quick_017.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="필터결과"><img src="img/quick_018.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="녹화"><img src="img/quick_019.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="항공영상"><img src="img/quick_020.svg" alt=""></button>
+            </div>
+        </div>
+
+        <div class="quick-menu-end">
+            <button class="q-btn"><img src="img/quick_021.svg" alt=""></button>
+            <button class="q-btn"><img src="img/quick_022.svg" alt=""></button>
+            <button class="q-btn"><img src="img/quick_023.svg" alt=""></button>
+        </div>
+        <div class="gap-space"></div>
+        <div class="quick-menu-end-02">
+            <button class="q-btn" id="btnLegend" type="button" aria-label="범례" aria-expanded="false">
+                <img src="img/quick_024.svg" alt="">
+            </button>
+        </div>
+
+      </div>
+     <div id="tooltip-layer"></div>
+
+      <!-- ✅ 나의 대시보드 패널 -->
+    <div class="dashboard-panel" id="dashboardPanel" aria-hidden="true">
+        <div class="dashboard-wrap">
+
+            <div class="dashboard-head">
+            <div class="dashboard-title">관심선박/영역정보</div>
+            <button class="dashboard-close" id="dashboardClose" type="button" aria-label="닫기"><img src="img/modal-close.svg" alt="모달닫기버튼"></button>
+            </div>
+
+            <div class="dashboard-body">
+
+            <div class="dash-left">
+
+                <div class="dash-top">
+                <div class="dash-userbox">
+                    <div class="dash-userlist">
+                    <div class="dash-li">
+                        <img src="img/db_01.svg" alt="나의 관심선박">
+                        <span>나의 관심선박</span>
+                        <b>163</b>
+                    </div>
+                    <div class="dash-li">
+                        <img src="img/db_01.svg" alt="관심선박 그룹">
+                        <span>관심선박 그룹</span>
+                        <b>56</b>
+                    </div>
+                    <div class="dash-li">
+                        <img src="img/db_01.svg" alt="국가안보">
+                        <span>국가안보</span>
+                        <b>657</b>
+                    </div>
+                    <div class="dash-li">
+                        <img src="img/db_01.svg" alt="규제">
+                        <span>규제</span>
+                        <b>124</b>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="dash-card dash-card--a">
+                    <div class="dash-card-t">
+                        <img src="img/db_02.svg" alt="관심영역">
+                        관심영역
+                    </div>
+                    <div class="dash-card-n">100</div>
+                </div>
+                <div class="dash-card dash-card--b">
+                    <div class="dash-card-t">
+                        <img src="img/db_03.svg" alt="공유">
+                        공유
+                    </div>
+                    <div class="dash-card-n">10</div>
+                </div>
+                <div class="dash-card dash-card--c">
+                    <div class="dash-card-t">
+                        <img src="img/db_04.svg" alt="알림">
+                        알림
+                    </div>
+                    <div class="dash-card-n">8</div>
+                </div>
+                </div>
+
+                <div class="dash-tabs-row">
+                <div class="dash-tabs">
+                    <button class="dash-tab is-active" type="button">나의 관심선박</button>
+                    <button class="dash-tab" type="button">중앙 관심선박</button>
+                </div>
+
+                <div class="dash-update">
+                    <button class="dash-btn" type="button">업데이트</button>
+                    <span class="dash-update-txt">최종 업데이트 : 2024-08-01 12:00:00</span>
+                    <button class="dash-btn" id="btnDashSetting" type="button">설정</button>
+                </div>
+                </div>
+
+                <div class="dash-list-head">
+                <div class="dash-list-title">
+                    선박 그룹 001 
+                    <img src="img/db_dropdown.svg" alt="선박그룹 001">
+                </div>
+                </div>
+
+            <div class="dash-list">
+                <div class="dash-item">
+
+                    <div class="dash-item-left">
+                        <div class="dash-ship-name">TIANLONG1987654</div>
+                        <div class="dash-ship-sub">412330220 | Cargo</div>
+                    </div>
+
+                    <div class="voy-row">
+                        <span class="voy-status">운항중</span>
+
+                        <div class="voy-main">
+                            <div class="voy-top">
+                            <div class="voy-port">
+                                <b>LANSHAN</b><span class="voy-code">CNLSN</span>
+                            </div>
+
+                            <span class="voy-arrow">›</span>
+
+                            <div class="voy-port voy-port--right">
+                                <span class="voy-code">CNBAY</span><b>BAYUQUAN</b>
+                            </div>
+                            </div>
+
+                            <div class="voy-bar">
+                            <div class="voy-track">
+                                <div class="voy-fill" style="width:45%"></div>
+                                <div class="voy-knob" style="left:45%"></div>
+                            </div>
+                            </div>
+
+                            <div class="voy-bottom">
+                            <div class="voy-time">
+                                <span class="voy-tag">ATD</span>
+                                <span class="voy-dt">2024-07-01 12:00</span>
+                            </div>
+
+                            <div class="voy-time voy-time--right">
+                                <span class="voy-dt">2024-07-01 12:00</span>
+                                <span class="voy-tag">ETA</span>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dash-item-left">
+                        <div class="dash-ship-name">TIANLONG1987654</div>
+                        <div class="dash-ship-sub">412330220 | Cargo</div>
+                    </div>
+
+                    <div class="voy-row">
+                        <span class="voy-status">운항중</span>
+
+                        <div class="voy-main">
+                            <div class="voy-top">
+                            <div class="voy-port">
+                                <b>LANSHAN</b><span class="voy-code">CNLSN</span>
+                            </div>
+
+                            <span class="voy-arrow">›</span>
+
+                            <div class="voy-port voy-port--right">
+                                <span class="voy-code">CNBAY</span><b>BAYUQUAN</b>
+                            </div>
+                            </div>
+
+                            <div class="voy-bar">
+                            <div class="voy-track">
+                                <div class="voy-fill" style="width:45%"></div>
+                                <div class="voy-knob" style="left:45%"></div>
+                            </div>
+                            </div>
+
+                            <div class="voy-bottom">
+                            <div class="voy-time">
+                                <span class="voy-tag">ATD</span>
+                                <span class="voy-dt">2024-07-01 12:00</span>
+                            </div>
+
+                            <div class="voy-time voy-time--right">
+                                <span class="voy-dt">2024-07-01 12:00</span>
+                                <span class="voy-tag">ETA</span>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dash-item-left">
+                        <div class="dash-ship-name">TIANLONG1987654</div>
+                        <div class="dash-ship-sub">412330220 | Cargo</div>
+                    </div>
+
+                    <div class="voy-row">
+                        <span class="voy-status">운항중</span>
+
+                        <div class="voy-main">
+                            <div class="voy-top">
+                            <div class="voy-port">
+                                <b>LANSHAN</b><span class="voy-code">CNLSN</span>
+                            </div>
+
+                            <span class="voy-arrow">›</span>
+
+                            <div class="voy-port voy-port--right">
+                                <span class="voy-code">CNBAY</span><b>BAYUQUAN</b>
+                            </div>
+                            </div>
+
+                            <div class="voy-bar">
+                            <div class="voy-track">
+                                <div class="voy-fill" style="width:45%"></div>
+                                <div class="voy-knob" style="left:45%"></div>
+                            </div>
+                            </div>
+
+                            <div class="voy-bottom">
+                            <div class="voy-time">
+                                <span class="voy-tag">ATD</span>
+                                <span class="voy-dt">2024-07-01 12:00</span>
+                            </div>
+
+                            <div class="voy-time voy-time--right">
+                                <span class="voy-dt">2024-07-01 12:00</span>
+                                <span class="voy-tag">ETA</span>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dash-item-left">
+                        <div class="dash-ship-name">TIANLONG1987654</div>
+                        <div class="dash-ship-sub">412330220 | Cargo</div>
+                    </div>
+
+                    <div class="voy-row">
+                        <span class="voy-status">운항중</span>
+
+                        <div class="voy-main">
+                            <div class="voy-top">
+                            <div class="voy-port">
+                                <b>LANSHAN</b><span class="voy-code">CNLSN</span>
+                            </div>
+
+                            <span class="voy-arrow">›</span>
+
+                            <div class="voy-port voy-port--right">
+                                <span class="voy-code">CNBAY</span><b>BAYUQUAN</b>
+                            </div>
+                            </div>
+
+                            <div class="voy-bar">
+                            <div class="voy-track">
+                                <div class="voy-fill" style="width:45%"></div>
+                                <div class="voy-knob" style="left:45%"></div>
+                            </div>
+                            </div>
+
+                            <div class="voy-bottom">
+                            <div class="voy-time">
+                                <span class="voy-tag">ATD</span>
+                                <span class="voy-dt">2024-07-01 12:00</span>
+                            </div>
+
+                            <div class="voy-time voy-time--right">
+                                <span class="voy-dt">2024-07-01 12:00</span>
+                                <span class="voy-tag">ETA</span>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dash-item-left">
+                        <div class="dash-ship-name">TIANLONG1987654</div>
+                        <div class="dash-ship-sub">412330220 | Cargo</div>
+                    </div>
+
+                    <div class="voy-row">
+                        <span class="voy-status">운항중</span>
+
+                        <div class="voy-main">
+                            <div class="voy-top">
+                            <div class="voy-port">
+                                <b>LANSHAN</b><span class="voy-code">CNLSN</span>
+                            </div>
+
+                            <span class="voy-arrow">›</span>
+
+                            <div class="voy-port voy-port--right">
+                                <span class="voy-code">CNBAY</span><b>BAYUQUAN</b>
+                            </div>
+                            </div>
+
+                            <div class="voy-bar">
+                            <div class="voy-track">
+                                <div class="voy-fill" style="width:45%"></div>
+                                <div class="voy-knob" style="left:45%"></div>
+                            </div>
+                            </div>
+
+                            <div class="voy-bottom">
+                            <div class="voy-time">
+                                <span class="voy-tag">ATD</span>
+                                <span class="voy-dt">2024-07-01 12:00</span>
+                            </div>
+
+                            <div class="voy-time voy-time--right">
+                                <span class="voy-dt">2024-07-01 12:00</span>
+                                <span class="voy-tag">ETA</span>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="dash-pagination">
+                <div class="modal-pagination" aria-label="페이지네이션">
+                    <button class="page-btn" type="button" aria-label="첫 페이지">&laquo;</button>
+                    <button class="page-btn" type="button" aria-label="이전 페이지">&lsaquo;</button>
+
+                    <button class="page-num is-active" type="button" aria-current="page">1</button>
+                    <button class="page-num" type="button">2</button>
+                    <button class="page-num" type="button">3</button>
+                    <button class="page-num" type="button">4</button>
+                    <button class="page-num" type="button">5</button>
+
+                    <button class="page-btn" type="button" aria-label="다음 페이지">&rsaquo;</button>
+                    <button class="page-btn" type="button" aria-label="마지막 페이지">&raquo;</button>
+                </div>
+            </div>
+            
+            </div>
+
+            <!-- 우측 영역 -->
+                <div class="dash-right">
+                    <div class="dash-section-head">
+                        <div class="dash-section-title">관심영역</div>
+
+                        <div class="dash-right-top">
+                            <button class="dash-btn" type="button">업데이트</button>
+                            <span class="dash-update-txt">최종 업데이트 : 2024-08-01 12:00:00</span>
+                            <button class="dash-btn" type="button">단축키 설정</button>
+                        </div>
+                    </div>
+
+                    <div class="dash-table">
+                        <div class="dash-thead">
+                            <span>관심영역</span><span>전체 선박 수</span><span>관심선박</span><span>북한선박</span>
+                            <span>관공선(중국)</span><span>관공선(일본)</span><span>제재선박</span><span>설정</span>
+                        </div>
+
+                        <div class="dash-trow">
+                            <span>관심영역1</span><span>200</span><span>50</span><span>-</span><span>-</span><span>-</span><span>-</span>
+                            <button class="dash-mini-btn" type="button">설정</button>
+                        </div>
+
+                        <div class="dash-trow">
+                            <span>관심영역2</span><span>200</span><span>50</span><span>-</span><span>-</span><span>-</span><span>-</span>
+                            <button class="dash-mini-btn" type="button">설정</button>
+                        </div>
+
+                        <div class="dash-trow">
+                            <span>관심영역3</span><span>200</span><span>50</span><span>-</span><span>-</span><span>-</span><span>-</span>
+                            <button class="dash-mini-btn" type="button">설정</button>
+                        </div>
+
+                        <div class="dash-trow">
+                            <span>관심영역4</span><span>200</span><span>50</span><span>-</span><span>-</span><span>-</span><span>-</span>
+                            <button class="dash-mini-btn" type="button">설정</button>
+                        </div>
+
+                        <div class="dash-trow">
+                            <span>관심영역5</span><span>200</span><span>50</span><span>-</span><span>-</span><span>-</span><span>-</span>
+                            <button class="dash-mini-btn" type="button">설정</button>
+                        </div>
+                    </div>
+
+                    <div class="dash-section-head">
+                        <div class="dash-section-title_02">국가안보/규제</div>
+                    </div>
+                    <div class="dash-right-empty"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- ✅ 관심선박 그룹 모달 -->
+        <div class="modal-overlay" id="shipGroupOverlay" aria-hidden="true">
+            <div class="modal_1140" role="dialog" aria-modal="true" aria-label="관심선박 그룹">
+                <div class="modal-head">
+                <div class="modal-title">관심선박 그룹</div>
+                <button class="modal-close" id="shipGroupClose" type="button" aria-label="닫기">
+                    <img src="img/modal-close.svg" alt="모달닫기버튼">
+                </button>
+                </div>
+
+                <div class="modal-body">
+
+                <div class="shipgroup-search">
+                    <div class="shipgroup-select">
+                    <span>선박명</span>
+                    <img src="img/db_dropdown.svg" alt="">
+                    </div>
+
+                    <input class="shipgroup-input" type="text" placeholder="선박명을 입력하세요." />
+
+                    <button class="modal-search-btn" type="button">
+                        검색
+                        <img src="img/search-icon-02.svg" alt="검색버튼">
+                    </button>
+                </div>
+
+                <div class="shipgroup-toprow">
+                    <div class="shipgroup-total">총 선박: 200척</div>
+
+                    <div class="shipgroup-btns">
+                    <button class="dash-btn" type="button">수정</button>
+                    <button class="dash-btn" type="button">삭제</button>
+                    <button class="dash-btn" type="button">그룹 공유</button>
+                    <button class="dash-btn" type="button">그룹 추가</button>
+                    </div>
+                </div>
+
+                <div class="shipgroup-table">
+                    <div class="shipgroup-thead">
+                    <label class="alarm-check">
+                        <input type="checkbox">
+                        <span class="check-ui"></span>
+                    </label>
+                    <span>번호</span>
+                    <span>그룹 이름</span>
+                    <span>내용</span>
+                    <span>선박 관리</span>
+                    </div>
+
+                    <div class="shipgroup-trow">
+                        <label class="alarm-check">
+                            <input type="checkbox">
+                            <span class="check-ui"></span>
+                        </label>
+                        <span>1</span>
+                        <span>관심선박 그룹 001</span>
+                        <span>최근 기항지가 중국 선박 그룹</span>
+                        <button class="shipgroup-manage-btn" type="button">관리</button>
+                    </div>
+
+                    <div class="shipgroup-trow">
+                        <label class="alarm-check">
+                            <input type="checkbox" checked>
+                            <span class="check-ui"></span>
+                        </label>
+                        <span>2</span>
+                        <span>관심선박 그룹 002</span>
+                        <span>최근 기항지가 북한 선박 그룹</span>
+                        <button class="shipgroup-manage-btn" type="button">관리</button>
+                    </div>
+
+                    <div class="shipgroup-trow">
+                        <label class="alarm-check">
+                            <input type="checkbox">
+                            <span class="check-ui"></span>
+                        </label>
+                        <span>3</span>
+                        <span>관심선박 그룹 003</span>
+                        <span>최근 기항지가 중국 선박 그룹</span>
+                        <button class="shipgroup-manage-btn" type="button">관리</button>
+                    </div>
+
+                    <div class="shipgroup-trow">
+                        <label class="alarm-check">
+                            <input type="checkbox">
+                            <span class="check-ui"></span>
+                        </label>
+                        <span>4</span>
+                        <span>관심선박 그룹 004</span>
+                        <span>최근 기항지가 중국 선박 그룹</span>
+                        <button class="shipgroup-manage-btn" type="button">관리</button>
+                    </div>
+
+                    <div class="shipgroup-trow">
+                        <label class="alarm-check">
+                            <input type="checkbox">
+                            <span class="check-ui"></span>
+                        </label>
+                        <span>5</span>
+                        <span>관심선박 그룹 005</span>
+                        <span>최근 기항지가 중국 선박 그룹</span>
+                        <button class="shipgroup-manage-btn" type="button">관리</button>
+                    </div>
+                </div>
+
+                <div class="modal-pagination" aria-label="페이지네이션">
+                    <button class="page-btn" type="button" aria-label="첫 페이지">&laquo;</button>
+                    <button class="page-btn" type="button" aria-label="이전 페이지">&lsaquo;</button>
+
+                    <button class="page-num is-active" type="button" aria-current="page">1</button>
+                    <button class="page-num" type="button">2</button>
+                    <button class="page-num" type="button">3</button>
+                    <button class="page-num" type="button">4</button>
+                    <button class="page-num" type="button">5</button>
+
+                    <button class="page-btn" type="button" aria-label="다음 페이지">&rsaquo;</button>
+                    <button class="page-btn" type="button" aria-label="마지막 페이지">&raquo;</button>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="modal-ok" type="button" id="shipGroupOk">확인</button>
+                </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="legend-panel" id="legendPanel" aria-hidden="true">
+        <ul class="legend-list">
+            <li class="legend-item"><img src="img/legend_01.svg" alt=""><span>어선</span><b>23255</b></li>
+            <li class="legend-item"><img src="img/legend_02.svg" alt=""><span>여객선</span><b>914</b></li>
+            <li class="legend-item"><img src="img/legend_03.svg" alt=""><span>화물선</span><b>12025</b></li>
+            <li class="legend-item"><img src="img/legend_04.svg" alt=""><span>유조선</span><b>3364</b></li>
+            <li class="legend-item"><img src="img/legend_05.svg" alt=""><span>관공선</span><b>497</b></li>
+            <li class="legend-item"><img src="img/legend_06.svg" alt=""><span>경비 함정</span><b>483</b></li>
+            <li class="legend-item"><img src="img/legend_07.svg" alt=""><span>어망/부이</span><b>1351</b></li>
+            <li class="legend-item"><img src="img/legend_08.svg" alt=""><span>기타</span><b>8087</b></li>
+        </ul>
+        </div>
+    </body>
+</html>

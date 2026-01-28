@@ -1,0 +1,667 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-police.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-police.png">
+        <link rel="shortcut icon" href="img/favicon-police.ico">
+
+        <link rel="stylesheet" href="common.css">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+        <title>해양환경 위기대응 통합지원시스템 플랫폼</title>
+        <script src="common.js" defer></script>
+    </head>
+    <body>
+      <div class="background-image">
+
+    <!-- 상단 중앙 검색 -->
+    <div class="map-search" role="search" aria-label="선박 위치 검색">
+    <input class="map-search__input" type="search" placeholder="선박 위치 검색" />
+    <button class="map-search__btn" type="button" aria-label="검색">
+        <span class="material-symbols-outlined">search</span>
+    </button>
+    </div>
+
+    <!-- 우측 상단 시간/연장 -->
+    <div class="map-topTime" aria-label="시간 표시">
+        <div class="map-topTime__clock">
+            <span class="material-symbols-outlined map-topTime__ico" aria-hidden="true">schedule</span>
+            <span class="map-topTime__time" id="topClock">03:22:00</span>
+            <button class="map-topTime__extend" type="button">연장</button>
+        </div>
+    </div>
+
+
+    <!-- 하단 중앙 좌표/시간 바 -->
+    <div class="map-hud" aria-label="지도 좌표 표시">
+    <div class="map-hud__pill">
+
+        <span class="map-hud__item">
+        <img src="img/location.svg" alt="" class="map-hud__icon">
+        <span class="map-hud__label">경도</span>
+        <span class="map-hud__value" id="hudLon">129° 38′ 31.071″ E</span>
+        </span>
+
+        <span class="map-hud__divider" aria-hidden="true"></span>
+
+        <span class="map-hud__item">
+        <img src="img/location.svg" alt="" class="map-hud__icon">
+        <span class="map-hud__label">위도</span>
+        <span class="map-hud__value" id="hudLat">35° 21′ 24.580″ N</span>
+        </span>
+
+        <span class="map-hud__divider" aria-hidden="true"></span>
+
+        <span class="map-hud__item">
+        <span class="map-hud__label">KST</span>
+        <span class="map-hud__value" id="hudTime">2024-07-01(월) 12:00:00</span>
+        </span>
+
+        <button class="map-hud__gear" type="button" aria-label="설정">
+        <span class="material-symbols-outlined">settings</span>
+        </button>
+    </div>
+    </div>
+
+ 
+    <!-- ▣ 사이드바 -->
+    <div class="side-bar">
+        <ul class="menu-top">
+            <li><a><span><img src="img/menu_01.svg" alt="라이브맵"></span></a></li>
+            <li><a><span><img src="img/menu_02.svg" alt="선박DB"></span></a></li>
+            <li><a><span><img src="img/menu_03.svg" alt="해경자산"></span></a></li>
+            <li><a><span><img src="img/menu_04.svg" alt="분석검색"></span></a></li>
+            <li><a><span><img src="img/menu_05.svg" alt="분석맵"></span></a></li>
+            <li class="menu-divider">
+                <a><span><img src="img/menu_07.svg" alt="데이터 필터"></span></a>
+            </li>
+            <li><a><span><img src="img/menu_08.svg" alt="세계선박 DB"></span></a></li>
+            <li><a><span><img src="img/menu_06.svg" alt="조건분석"></span></a></li>
+        </ul>
+
+        <ul class="menu-bottom">
+            <li><a><span><img src="img/slideicon_01.svg" alt="뷰파인더"></span></a></li>
+            <li><a><span><img src="img/slideicon_02.svg" alt="설정"></span></a></li>
+            <li><a><span><img src="img/slideicon_03.svg" alt="마이페이지"></span></a></li>
+        </ul>
+    </div>
+
+
+
+        <!-- 왼쪽 패널 전체 -->
+        <div class="left-panel-wrap">
+        <div class="left-panel" id="leftPanel">
+            <div class="left-panel__inner">
+            <!-- 탭 버튼 영역 -->
+            <div class="panel-tabs">
+                <button class="tab-button active" data-tab="filter">필터</button>
+                <button class="tab-button" data-tab="layer">레이어</button>
+            </div>
+
+            <!-- 패널 내용 -->
+            <div class="panel-content">
+                <div class="tab-panel active" id="filter">
+
+                    <!-- 선종/기종 -->
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <span>선종/기종</span>
+
+                            <label class="all-toggle">
+                                <input type="checkbox" class="all-switch" checked>
+                                <span class="switch-slider"></span>
+                            </label>
+                           
+                            <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+
+                        <div class="accordion-body">
+                            <label><span>어선</span><input type="checkbox" checked></label>
+                            <label><span>여객선</span><input type="checkbox" checked></label>
+                            <label><span>화물선</span><input type="checkbox" checked></label>
+                            <label><span>유조선</span><input type="checkbox" checked></label>
+                            <label><span>관공선</span><input type="checkbox" checked></label>
+                            <label><span>함정</span><input type="checkbox" checked></label>
+                            <label><span>항공기</span><input type="checkbox" checked></label>
+                            <label><span>기타</span><input type="checkbox" checked></label>
+                        </div>
+                    </div>
+
+                    <!-- 국적 -->
+                    <div class="accordion">
+                       <div class="accordion-header">
+                            <span>국적</span>
+
+                            <label class="all-toggle">
+                                <input type="checkbox" class="all-switch" checked>
+                                <span class="switch-slider"></span>
+                            </label>
+                            <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+
+                        <div class="accordion-body">
+                            <label><span>한국</span><input type="checkbox"></label>
+                            <label><span>중국</span><input type="checkbox" checked></label>
+                            <label><span>일본</span><input type="checkbox" checked></label>
+                            <label><span>북한</span><input type="checkbox" checked></label>
+                            <label><span>기타</span><input type="checkbox" checked></label>
+                        </div>
+                    </div>
+
+                    <!-- 신호 -->
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <span>신호</span>
+
+                            <label class="all-toggle">
+                                <input type="checkbox" class="all-switch" checked>
+                                <span class="switch-slider"></span>
+                            </label>
+                            <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+
+                        <div class="accordion-body">
+                            <label><span>AIS</span><input type="checkbox" checked></label>
+                            <label><span>V-PASS</span><input type="checkbox" checked></label>
+                            <label><span>E-NAV</span><input type="checkbox" checked></label>
+                            <label><span>VTS_AIS</span><input type="checkbox" checked></label>
+                            <label><span>D_MF_HF</span><input type="checkbox" checked></label>
+                            <label><span>VTS_RADAR</span><input type="checkbox" checked></label>
+                            <label><span>S&P AIS(국내)</span><input type="checkbox" checked></label>
+                            <label><span>S&P AIS(세계)</span><input type="checkbox" checked></label>
+                        </div>
+                    </div>
+
+                    <!-- AI 모드 -->
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <span>AI모드</span>
+
+                            <label class="all-toggle">
+                                <input type="checkbox" class="all-switch">
+                                <span class="switch-slider"></span>
+                            </label>
+                            <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+
+                     <div class="accordion-body">
+                            <label><span>MMSI 변조</span><input type="checkbox" checked></label>
+                            <label><span>중국 허가선박</span><input type="checkbox" checked></label>
+                            <label><span>관공선</span><input type="checkbox" checked></label>
+                            <label><span>비정상 접촉</span><input type="checkbox" checked></label>
+                            <label><span>비허가 선박</span><input type="checkbox" checked></label>
+                            <label><span>북한선박</span><input type="checkbox" checked></label>
+                        </div>
+                    </div>    
+
+                    <div class="panel-section-01">
+                        <label class="favorite-ship">
+                            <span>조난신호</span>
+                            <input type="checkbox" checked>
+                        </label>
+                    </div>
+
+                    <div class="panel-section-01">
+                        <label class="favorite-ship">
+                            <span>다크시그널</span>
+                            <input type="checkbox" checked>
+                        </label>
+                    </div>
+
+                    <div class="panel-section-01">
+                        <label class="favorite-ship">
+                            <span>위험물</span>
+                            <input type="checkbox" checked>
+                        </label>
+                    </div>
+
+                    <div class="panel-section">
+                        <label class="favorite-ship-01">
+                            <img src="img/fvship_icon.svg" alt="관심선박 아이콘" class="favorite-icon">
+                            <span>관심선박</span>
+                            <input type="checkbox" checked>
+                        </label>
+                    </div>
+
+                    <!-- 저장 버튼 -->
+                    <button class="save-button">저장</button>
+                </div>
+
+                
+                <!-- 레이어 탭 패널 -->
+                <div class="tab-panel" id="layer">
+
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <span>조업자제해역</span>
+
+                            <label class="all-toggle">
+                                <input type="checkbox" class="all-switch">
+                                <span class="switch-slider"></span>
+                            </label>
+                            <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+                     <div class="accordion-body">
+                            <label><span>대화퇴 조업자제해역</span><input type="checkbox" checked></label>
+                            <label><span>서해 조업자제해역</span><input type="checkbox" checked></label>
+                            <label><span>어업금지구역(조업금지구역)</span><input type="checkbox" checked></label>
+                        </div>
+                    </div>   
+
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <span>해경 관할</span>
+
+                            <label class="all-toggle">
+                                <input type="checkbox" class="all-switch">
+                                <span class="switch-slider"></span>
+                            </label>
+                            <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+                     <div class="accordion-body">
+                            <label><span>대화퇴 조업자제해역</span><input type="checkbox" checked></label>
+                            <label><span>서해 조업자제해역</span><input type="checkbox" checked></label>
+                            <label><span>어업금지구역(조업금지구역)</span><input type="checkbox" checked></label>
+                        </div>
+                    </div>   
+
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <span>중국</span>
+
+                            <label class="all-toggle">
+                                <input type="checkbox" class="all-switch">
+                                <span class="switch-slider"></span>
+                            </label>
+                            <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+                     <div class="accordion-body">
+                            <label><span>대화퇴 조업자제해역</span><input type="checkbox" checked></label>
+                            <label><span>서해 조업자제해역</span><input type="checkbox" checked></label>
+                            <label><span>어업금지구역(조업금지구역)</span><input type="checkbox" checked></label>
+                        </div>
+                    </div> 
+
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <span>북한</span>
+
+                            <label class="all-toggle">
+                                <input type="checkbox" class="all-switch">
+                                <span class="switch-slider"></span>
+                            </label>
+                            <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+                     <div class="accordion-body">
+                            <label><span>대화퇴 조업자제해역</span><input type="checkbox" checked></label>
+                            <label><span>서해 조업자제해역</span><input type="checkbox" checked></label>
+                            <label><span>어업금지구역(조업금지구역)</span><input type="checkbox" checked></label>
+                        </div>
+                    </div> 
+
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <span>일본</span>
+
+                            <label class="all-toggle">
+                                <input type="checkbox" class="all-switch">
+                                <span class="switch-slider"></span>
+                            </label>
+                            <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+                     <div class="accordion-body">
+                            <label><span>대화퇴 조업자제해역</span><input type="checkbox" checked></label>
+                            <label><span>서해 조업자제해역</span><input type="checkbox" checked></label>
+                            <label><span>어업금지구역(조업금지구역)</span><input type="checkbox" checked></label>
+                        </div>
+                    </div> 
+
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <span>해구도</span>
+
+                            <label class="all-toggle">
+                                <input type="checkbox" class="all-switch">
+                                <span class="switch-slider"></span>
+                            </label>
+                            <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+                     <div class="accordion-body">
+                            <label><span>대화퇴 조업자제해역</span><input type="checkbox" checked></label>
+                            <label><span>서해 조업자제해역</span><input type="checkbox" checked></label>
+                            <label><span>어업금지구역(조업금지구역)</span><input type="checkbox" checked></label>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <span>기타</span>
+
+                            <label class="all-toggle">
+                                <input type="checkbox" class="all-switch">
+                                <span class="switch-slider"></span>
+                            </label>
+                            <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+                     <div class="accordion-body">
+                            <label><span>대화퇴 조업자제해역</span><input type="checkbox" checked></label>
+                            <label><span>서해 조업자제해역</span><input type="checkbox" checked></label>
+                            <label><span>어업금지구역(조업금지구역)</span><input type="checkbox" checked></label>
+                        </div>
+                    </div>
+                
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <span>해경서소</span>
+
+                            <label class="all-toggle">
+                                <input type="checkbox" class="all-switch">
+                                <span class="switch-slider"></span>
+                            </label>
+                            <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+                     <div class="accordion-body">
+                            <label><span>대화퇴 조업자제해역</span><input type="checkbox" checked></label>
+                            <label><span>서해 조업자제해역</span><input type="checkbox" checked></label>
+                            <label><span>어업금지구역(조업금지구역)</span><input type="checkbox" checked></label>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <span>해저케이블</span>
+
+                            <label class="all-toggle">
+                                <input type="checkbox" class="all-switch">
+                                <span class="switch-slider"></span>
+                            </label>
+                            <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+                     <div class="accordion-body">
+                            <label><span>대화퇴 조업자제해역</span><input type="checkbox" checked></label>
+                            <label><span>서해 조업자제해역</span><input type="checkbox" checked></label>
+                            <label><span>어업금지구역(조업금지구역)</span><input type="checkbox" checked></label>
+                        </div>
+                    </div>
+                
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <span>풍력단지</span>
+
+                            <label class="all-toggle">
+                                <input type="checkbox" class="all-switch">
+                                <span class="switch-slider"></span>
+                            </label>
+                            <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+                     <div class="accordion-body">
+                            <label><span>대화퇴 조업자제해역</span><input type="checkbox" checked></label>
+                            <label><span>서해 조업자제해역</span><input type="checkbox" checked></label>
+                            <label><span>어업금지구역(조업금지구역)</span><input type="checkbox" checked></label>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <span>포트</span>
+
+                            <label class="all-toggle">
+                                <input type="checkbox" class="all-switch">
+                                <span class="switch-slider"></span>
+                            </label>
+                            <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+                     <div class="accordion-body">
+                            <label><span>대화퇴 조업자제해역</span><input type="checkbox" checked></label>
+                            <label><span>서해 조업자제해역</span><input type="checkbox" checked></label>
+                            <label><span>어업금지구역(조업금지구역)</span><input type="checkbox" checked></label>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <span>관심영역</span>
+
+                            <label class="all-toggle">
+                                <input type="checkbox" class="all-switch">
+                                <span class="switch-slider"></span>
+                            </label>
+                            <span class="arrow material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+                     <div class="accordion-body">
+                            <label><span>관심영역 01</span><input type="checkbox" checked></label>
+                            <label><span>관심영역 02</span><input type="checkbox" checked></label>
+                            <label><span>관심영역 03</span><input type="checkbox" checked></label>
+                            <label><span>관심영역 04</span><input type="checkbox" checked></label>
+                        </div>
+                    </div> 
+
+                <!-- 레이어, 관심영역 -->
+                <div class="layer-label">레이어</div>
+                <div class="layer-btn-group">
+                    <button class="layer-btn">등록</button>
+                    <button class="layer-btn">수정</button>
+                    <button class="layer-btn">삭제</button>
+                </div>
+
+                <div class="layer-label-01">관심영역</div>
+                <div class="layer-btn-group">
+                    <button class="layer-btn">등록</button>
+                    <button class="layer-btn">수정</button>
+                    <button class="layer-btn">삭제</button>
+                </div>
+
+
+                </div>
+            </div>  
+          </div>
+          </div>
+
+            <!-- 패널 접기/펼치기 버튼 -->
+            <button class="panel-collapseBtn" type="button" aria-label="패널 접기/펼치기">
+                <img src="img/panel-collapseBtn.svg" alt="접힘펼침버튼">
+            </button>
+        </div>
+
+
+        <!-- 선박 마커 레이어 -->
+            <div class="ship-layer" id="shipLayer">
+            <!-- 예시: 선박 1개 -->
+            <button
+                type="button"
+                class="ship-marker"
+                aria-label="선박 상세보기"
+                data-name="근영호"
+                data-mmsi="13450135"
+                data-org="서귀포해양경찰서"
+                data-time="2024-11-23 11:23:00"
+                data-speed="4.2 kn"
+                data-course="13.3°"
+                data-wave="1.1 m"
+                data-img="img/ship-img.jpg"
+                >
+                <img class="ship-marker__img" src="img/ship-select.png" alt="선박상세정보">
+            </button>
+            </div>
+
+            <!-- 상세정보 팝업 -->
+            <div class="ship-popup" id="shipPopup" aria-hidden="true">
+                <div class="ship-popup__header">
+                    <div class="ship-popup__title">
+                    <div class="ship-popup__nameWrap">
+                        <span class="ship-popup__badges" aria-hidden="true">
+                            <img src="img/ship-type.svg" alt="" class="ship-popup__badge">
+                            <img src="img/flag.svg" alt="" class="ship-popup__badge">
+                        </span>
+
+                        <span class="ship-popup__name" id="popupName">-</span>
+                        <span class="ship-popup__meta" id="popupMmsi">-</span>
+                    </div>
+
+                    </div>
+                    <button type="button" class="ship-popup__close" id="popupClose" aria-label="닫기">✕</button>
+                </div>
+
+                <div class="ship-popup__body">
+                    <div class="ship-popup__imgWrap">
+                    <img id="popupImg" src="" alt="선박 이미지" />
+                    </div>
+
+                    <div class="ship-popup__toolbar">
+                    <!-- 왼쪽: 상세정보 -->
+                    <button type="button" class="ship-popup__detailBtn">
+                        상세정보
+                        <span aria-hidden="true">
+                            <img src="img/ship-info.svg" alt="상세정보" class="ship-info-icon" >
+                        </span>
+                    </button>
+
+                    <!-- 가운데: AVETDR -->
+                    <div class="ship-popup__signalGroup" role="group" aria-label="신호">
+                        <button type="button" class="ship-popup__sigBtn">A</button>
+                        <button type="button" class="ship-popup__sigBtn">V</button>
+                        <button type="button" class="ship-popup__sigBtn">E</button>
+                        <button type="button" class="ship-popup__sigBtn">T</button>
+                        <button type="button" class="ship-popup__sigBtn">D</button>
+                        <button type="button" class="ship-popup__sigBtn">R</button>
+                    </div>
+
+                    <!-- 오른쪽: 즐겨찾기 -->
+                    <button type="button" class="ship-popup__favBtn" aria-label="즐겨찾기">
+                        ★
+                    </button>
+                    </div>
+
+                    <!-- ✅ 프로그래스 바 + 출/입항지 (툴바 바로 아래) -->
+                    <div class="ship-popup__progress">
+                    <div class="ship-popup__progressBar" aria-label="항해 진행도">
+                        <div class="ship-popup__track" aria-hidden="true">
+                        <!-- 진행된 구간 -->
+                        <div class="ship-popup__fill" style="width:55%"></div>
+                        </div>
+
+                        <span class="ship-popup__knob" style="left:55%" aria-hidden="true"></span>
+                        <span class="ship-popup__dot ship-popup__dot--end" aria-hidden="true"></span>
+                    </div>
+
+                    <div class="ship-popup__ports">
+                        <div class="ship-popup__port ship-popup__port--from">
+                        <div class="ship-popup__portLabel">출항지</div>
+                        <div class="ship-popup__portValue" id="popupFrom">서귀포해양경찰서</div>
+                        </div>
+
+                        <div class="ship-popup__port ship-popup__port--to">
+                        <div class="ship-popup__portLabel">입항지</div>
+                        <div class="ship-popup__portValue" id="popupTo">하태도</div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- ✅ 출항/입항 일시 박스 -->
+                    <div class="ship-popup__schedule">
+                    <div class="ship-popup__schedItem">
+                        <div class="ship-popup__schedHead">
+                        <img src="img/ship-info-01.svg" alt="출항일시" class="ship-popup__schedIcon" >
+                        <span class="ship-popup__schedTitle">출항일시</span>
+                        </div>
+                        <div class="ship-popup__schedTime" id="popupDepTime">-</div>
+                    </div>
+
+                    <div class="ship-popup__schedItem ship-popup__schedItem--right">
+                        <div class="ship-popup__schedHead">
+                        <img src="img/ship-info-01.svg" alt="입항일시" class="ship-popup__schedIcon" >
+                        <span class="ship-popup__schedTitle">입항일시</span>
+                        </div>
+                        <div class="ship-popup__schedTime" id="popupArrTime">-</div>
+                    </div>
+                    </div>
+
+                    <!-- ✅ 3칸 요약 정보 -->
+                    <div class="ship-popup__summary">
+                    <div class="ship-popup__sumItem">
+                        <div class="ship-popup__sumLabel">선박상태</div>
+                        <div class="ship-popup__sumValue" id="popupStatus">-</div>
+                    </div>
+
+                    <div class="ship-popup__sumItem">
+                        <div class="ship-popup__sumLabel">속도/항로</div>
+                        <div class="ship-popup__sumValue" id="popupSpeedCourse">-</div>
+                    </div>
+
+                    <div class="ship-popup__sumItem">
+                        <div class="ship-popup__sumLabel">흘수</div>
+                        <div class="ship-popup__sumValue" id="popupDraft">-</div>
+                    </div>
+                    </div>
+
+
+                    <div class="ship-popup__actions">
+                    <button type="button" class="ship-popup__btn">항적조회</button>
+                    <button type="button" class="ship-popup__btn">항로예측</button>
+                    </div>
+
+                    <!-- ✅ 데이터 수신시간 -->
+                    <div class="ship-popup__received">
+                        데이터 수신시간 :
+                        <span id="popupReceived">2024-11-23 11:23:00</span>
+                    </div>
+                </div>
+            </div>
+
+
+        <!-- 오른쪽 퀵메뉴 -->
+        <div class="quick-menu">
+            <div class="quick-menu-top">
+                <button class="q-btn" data-tooltip="알람"><img src="img/quick_001.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="관심선박"><img src="img/quick_002.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="미니맵"><img src="img/quick_003.svg" alt=""></button>
+            </div>
+
+            <div class="gap-space"></div>
+            <button class="q-btn mid-toggle">
+                <span class="material-symbols-outlined">keyboard_arrow_up</span>
+            </button>
+
+            <div class="quick-menu-middle">
+                <button class="q-btn active" data-tooltip="기상"><img src="img/quick_004.svg" alt=""></button>
+                <button class="q-btn active" data-tooltip="다운로드"><img src="img/quick_005.svg" alt=""></button>
+            </div>
+            
+            <div class="gap-space"></div>
+            <div class="quick-menu-bottom">
+                <button class="q-btn" data-tooltip="선박통합"><img src="img/quick_006.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="선박표시"><img src="img/quick_007.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="해경자산"><img src="img/quick_008.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="구역설정"><img src="img/quick_009.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="거리"><img src="img/quick_010.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="면적"><img src="img/quick_011.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="거리환"><img src="img/quick_012.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="캡처"><img src="img/quick_013.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="초기화"><img src="img/quick_014.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="AI"><img src="img/quick_015.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="업로드"><img src="img/quick_016.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="선박추적"><img src="img/quick_017.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="필터결과"><img src="img/quick_018.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="녹화"><img src="img/quick_019.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="항공영상"><img src="img/quick_020.svg" alt=""></button>
+            </div>
+        </div>
+
+        <div class="quick-menu-end">
+            <button class="q-btn"><img src="img/quick_021.svg" alt=""></button>
+            <button class="q-btn"><img src="img/quick_022.svg" alt=""></button>
+            <button class="q-btn"><img src="img/quick_023.svg" alt=""></button>
+        </div>
+        <div class="gap-space"></div>
+        <div class="quick-menu-end-02">
+            <button class="q-btn"><img src="img/quick_024.svg" alt=""></button>
+        </div>
+
+      </div>
+     <div id="tooltip-layer"></div>
+    </body>
+</html>

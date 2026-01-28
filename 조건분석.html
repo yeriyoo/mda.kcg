@@ -1,0 +1,617 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-police.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-police.png">
+        <link rel="shortcut icon" href="img/favicon-police.ico">
+
+        <link rel="stylesheet" href="common.css">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+        <title>해양환경 위기대응 통합지원시스템 플랫폼</title>
+        <script src="common.js" defer></script>
+    </head>
+    <body>
+
+    <!-- ▣ 사이드바 -->
+    <div class="side-bar">
+        <ul class="menu-top">
+            <li><a><span><img src="img/menu_01.svg" alt="라이브맵"></span></a></li>
+            <li><a><span><img src="img/menu_02.svg" alt="선박DB"></span></a></li>
+            <li><a><span><img src="img/menu_03.svg" alt="해경자산"></span></a></li>
+            <li><a><span><img src="img/menu_04.svg" alt="분석검색"></span></a></li>
+            <li><a><span><img src="img/menu_05.svg" alt="분석맵"></span></a></li>
+            <li><a><span><img src="img/menu_07.svg" alt="세계선박 데이터 필터"></span></a></li>
+            <li><a><span><img src="img/menu_08.svg" alt="세계선박 DB"></span></a></li>
+            <li>
+                <a id="menuConditionAnalysis" href="javascript:void(0)">
+                <span><img src="img/menu_06.svg" alt="조건분석"></span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="menu-bottom">
+            <li><a><span><img src="img/slideicon_01.svg" alt="뷰파인더"></span></a></li>
+            <li><a><span><img src="img/slideicon_02.svg" alt="설정"></span></a></li>
+            <li><a><span><img src="img/slideicon_03.svg" alt="마이페이지"></span></a></li>
+        </ul>
+    </div>
+        
+    
+    <!-- 조건분석 화면 -->
+    <section id="viewConditionAnalysis" class="appView">
+    <div class="caPage">
+
+        <!-- 상단: 제목 + 우측 컨트롤 -->
+        <div class="caHeader-02">
+        <h2 class="caTitle">조건분석</h2>
+
+        <div class="caHeaderRight">
+            <div class="caCount">1건 / 총 1건</div>
+
+            <select class="caSelect">
+            <option>5개씩</option>
+            <option>10개씩</option>
+            <option>20개씩</option>
+            </select>
+
+            <button class="caBtn-02">복사 생성</button>
+            <button class="caBtn-02">삭제</button>
+            <button class="caBtn caBtn--primary">
+            <span class="material-symbols-outlined" style="font-size:18px;">add_circle</span>
+            추가
+            </button>
+        </div>
+        </div>
+
+        <div class="caCard">
+        <table class="caTable">
+            <thead>
+            <tr>
+                <th style="width:44px;"></th>
+                <th style="width:60px;">번호</th>
+                <th style="width:180px;">분석 이름</th>
+                <th>분석 조건</th>
+                <th style="width:260px;">기간</th>
+                <th style="width:100px;">실행 주기</th>
+                <th style="width:80px;">상태</th>
+                <th style="width:160px;">최종 실행시간</th>
+                <th style="width:80px;">선박 수</th>
+                <th style="width:80px;">실행 횟수</th>
+                <th style="width:100px;">알림 설정</th>
+                <th style="width:90px;">상세 보기</th>
+                <th style="width:90px;">공유하기</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>
+                    <label class="alarm-check caCheck">
+                        <input type="checkbox">
+                        <span class="check-ui"></span>
+                    </label>
+                </td>
+
+                <td>1</td>
+                <td>분석이름 001</td>
+                <td class="caEllipsis">국적 : KOR, USA 길이 : 20m, 폭: 50..</td>
+                <td>2025-09-22 14:00 ~ 2025-09-31 15:00</td>
+                <td>7일</td>
+                <td>활성</td>
+                <td>2025-09-25 15:00</td>
+                <td>50</td>
+                <td>5</td>
+                <td>활성</td>
+                <td><button class="caMiniBtn">보기</button></td>
+                <td><button class="caMiniBtn js-caShareOpen" type="button">공유</button></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label class="alarm-check caCheck">
+                        <input type="checkbox">
+                        <span class="check-ui"></span>
+                    </label>
+                </td>
+
+                <td>2</td>
+                <td>분석이름 002</td>
+                <td class="caEllipsis">국적 : KOR, USA 길이 : 20m, 폭: 50..</td>
+                <td>2025-09-22 14:00 ~ 2025-09-31 15:00</td>
+                <td>7일</td>
+                <td>활성</td>
+                <td>2025-09-25 15:00</td>
+                <td>50</td>
+                <td>5</td>
+                <td>비활성</td>
+                <td><button class="caMiniBtn">보기</button></td>
+                <td><button class="caMiniBtn js-caShareOpen" type="button">공유</button></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label class="alarm-check caCheck">
+                        <input type="checkbox">
+                        <span class="check-ui"></span>
+                    </label>
+                </td>
+
+                <td>3</td>
+                <td>분석이름 003</td>
+                <td class="caEllipsis">국적 : KOR, USA 길이 : 20m, 폭: 50..</td>
+                <td>2025-09-22 14:00 ~ 2025-09-31 15:00</td>
+                <td>7일</td>
+                <td>활성</td>
+                <td>2025-09-25 15:00</td>
+                <td>50</td>
+                <td>5</td>
+                <td>비활성</td>
+                <td><button class="caMiniBtn">보기</button></td>
+                <td><button class="caMiniBtn js-caShareOpen" type="button">공유</button></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="caPager">
+            <button class="caPageBtn caNav">«</button>
+            <button class="caPageBtn caNav">‹</button>
+            <button class="caPageBtn is-active">1</button>
+            <button class="caPageBtn">2</button>
+            <button class="caPageBtn">3</button>
+            <button class="caPageBtn">4</button>
+            <button class="caPageBtn">5</button>
+            <button class="caPageBtn caNav">›</button>
+            <button class="caPageBtn caNav">»</button>
+        </div>
+        </div>
+
+        <div class="caHeader">
+            <h2 class="caTitle">조건분석 결과 / 분석이름 001</h2>
+        </div>
+
+        <div class="caCard">
+
+        <div class="caSubRow">
+            <div class="caSubTabs">
+                <button class="caSubTab is-active" type="button">리스트</button>
+                <button class="caSubTab" type="button">지도</button>
+            </div>
+
+            <div class="caHeaderRight">
+                <div class="caCount">5건 / 총 50건</div>
+
+                <select class="caSelect">
+                <option>5개씩</option>
+                <option>10개씩</option>
+                <option>20개씩</option>
+                </select>
+
+                <button class="caBtn">관심 선박 저장</button>
+                <button class="caBtn">자세히 보기 &gt;</button>
+            </div>
+        </div>
+
+        <table class="caTable caTable--result">
+            <thead>
+            <tr>
+                <th style="width:60px;">번호</th>
+                <th style="width:150px;">분석 시간</th>
+                <th style="width:140px;">선명</th>
+                <th style="width:150px;">선종</th>
+                <th style="width:100px;">국적</th>
+                <th style="width:110px;">IMO</th>
+                <th style="width:110px;">MMSI</th>
+                <th style="width:110px;">호출부호</th>
+                <th style="width:140px;">최종 확인 시간</th>
+                <th>최근 기항지</th>
+                <th style="width:130px;">위도</th>
+                <th style="width:130px;">경도</th>
+                <th style="width:120px;">목적지</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>2025-09-22 14:00</td>
+                <td>RYOFU MARU</td>
+                <td>Research Survey</td>
+                <td>JAPAN</td>
+                <td>9978793</td>
+                <td>431208000</td>
+                <td>7KPB</td>
+                <td>33 mins ago</td>
+                <td class="caEllipsis">Niigata-Higashi — 24 Oct 2025</td>
+                <td>33°28'54.00"N,</td>
+                <td>129°23'42.00"E</td>
+                <td>SAGAMI BAY</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>2025-09-22 14:00</td>
+                <td>RYOFU MARU</td>
+                <td>Research Survey</td>
+                <td>JAPAN</td>
+                <td>9978793</td>
+                <td>431208000</td>
+                <td>7KPB</td>
+                <td>33 mins ago</td>
+                <td class="caEllipsis">Niigata-Higashi — 24 Oct 2025</td>
+                <td>33°28'54.00"N,</td>
+                <td>129°23'42.00"E</td>
+                <td>SAGAMI BAY</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>2025-09-22 14:00</td>
+                <td>RYOFU MARU</td>
+                <td>Research Survey</td>
+                <td>JAPAN</td>
+                <td>9978793</td>
+                <td>431208000</td>
+                <td>7KPB</td>
+                <td>33 mins ago</td>
+                <td class="caEllipsis">Niigata-Higashi — 24 Oct 2025</td>
+                <td>33°28'54.00"N,</td>
+                <td>129°23'42.00"E</td>
+                <td>SAGAMI BAY</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>2025-09-22 14:00</td>
+                <td>RYOFU MARU</td>
+                <td>Research Survey</td>
+                <td>JAPAN</td>
+                <td>9978793</td>
+                <td>431208000</td>
+                <td>7KPB</td>
+                <td>33 mins ago</td>
+                <td class="caEllipsis">Niigata-Higashi — 24 Oct 2025</td>
+                <td>33°28'54.00"N,</td>
+                <td>129°23'42.00"E</td>
+                <td>SAGAMI BAY</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>2025-09-22 14:00</td>
+                <td>RYOFU MARU</td>
+                <td>Research Survey</td>
+                <td>JAPAN</td>
+                <td>9978793</td>
+                <td>431208000</td>
+                <td>7KPB</td>
+                <td>33 mins ago</td>
+                <td class="caEllipsis">Niigata-Higashi — 24 Oct 2025</td>
+                <td>33°28'54.00"N,</td>
+                <td>129°23'42.00"E</td>
+                <td>SAGAMI BAY</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="caPager">
+            <button class="caPageBtn caNav">«</button>
+            <button class="caPageBtn caNav">‹</button>
+            <button class="caPageBtn is-active">1</button>
+            <button class="caPageBtn">2</button>
+            <button class="caPageBtn">3</button>
+            <button class="caPageBtn">4</button>
+            <button class="caPageBtn">5</button>
+            <button class="caPageBtn caNav">›</button>
+            <button class="caPageBtn caNav">»</button>
+        </div>
+        </div>
+    </div>
+ </section>
+
+    <div id="caDetailModal" class="caModal" hidden aria-hidden="true">
+    <div class="caModal__backdrop" data-close="1"></div>
+
+    <div class="caModal__dialog" role="dialog" aria-modal="true" aria-labelledby="caDetailTitle">
+
+        <div class="caModal__head">
+        <div class="caModal__kicker">조건분석 상세</div>
+        <button class="caModal__close" type="button" aria-label="닫기" data-close="1">
+            <img src="img/close-btn.svg" alt="모달닫기">
+        </button>
+        <div class="caModal__titleRow">
+            <h3 id="caDetailTitle" class="caModal__title">분석이름 001</h3>
+
+            <div class="caModal__headRight">
+            <button class="caBtn caBtn--ghost" type="button">분석조건 모두 지우기</button>
+            <button class="caBtn-02 caBtn--primary" type="button">수정</button>
+            </div>
+        </div>
+        </div>
+
+        <div class="caModal__body">
+        <!-- 상단 설정 라인 -->
+        <div class="caDetailBar">
+            <div class="caField caField--label">
+            <span class="caField__label">분석 기간</span>
+            <div class="caField__range">
+                <label class="caInputIcon">
+                <input type="text" placeholder="0000-00-00 00:00">
+                <span class="caCal"><img src="img/calendar.svg" alt="달력"></span>
+                </label>
+                <span class="caTilde">~</span>
+                <label class="caInputIcon">
+                <input type="text" placeholder="0000-00-00 00:00">
+                <span class="caCal"><img src="img/calendar.svg" alt="달력"></span>
+                </label>
+            </div>
+            </div>
+
+            <div class="caField">
+            <span class="caField__label">실행 주기</span>
+            <div class="caInline">
+                <span class="caInline__txt">주기</span>
+                <input class="caMiniInput" type="text" />
+                <input class="caMiniInput" type="text" />
+            </div>
+            </div>
+
+            <div class="caField">
+            <span class="caField__label">상태</span>
+            <div class="caInline">
+                <label class="caRadio"><input type="radio" name="caState" checked><span>활성</span></label>
+                <label class="caRadio"><input type="radio" name="caState"><span>비활성</span></label>
+            </div>
+            </div>
+
+            <div class="caField">
+            <span class="caField__label">알림 설정</span>
+            <label class="caSwitch">
+                <input type="checkbox">
+                <span class="caSwitch__ui"></span>
+            </label>
+            </div>
+        </div>
+
+        <!-- 조건 칩들 -->
+        <div class="caChips">
+            <button class="caChip" type="button">식별 &gt; 기국 &gt; 국가 01 <span class="x">×</span></button>
+            <button class="caChip" type="button">식별 &gt; 기국 &gt; 국가 02 <span class="x">×</span></button>
+            <button class="caChip" type="button">식별 &gt; 선명 &gt; 선명이름 &gt; 일치 <span class="x">×</span></button>
+            <button class="caChip" type="button">식별 &gt; MMSI &gt; MMSI명 &gt; 시작 <span class="x">×</span></button>
+            <button class="caChip" type="button">식별 &gt; 선종 &gt; Ownership &amp; Registration &gt; 제외 <span class="x">×</span></button>
+        </div>
+
+        <hr class="caHr">
+
+        <!-- 실행 목록 -->
+        <div class="caExecHead">
+            <h4 class="caSectionTitle">실행 목록</h4>
+            <div class="caExecRight">
+            <select class="caSelect">
+                <option>5개씩</option><option>10개씩</option><option>20개씩</option>
+            </select>
+            <div class="caCount">5건 / 총 5건</div>
+            </div>
+        </div>
+
+        <div class="caCard caCard--flat">
+            <table class="caTable caTable--detail">
+            <thead>
+                <tr>
+                <th style="width:30px;">번호</th>
+                <th style="width:120px;">식별</th>
+                <th style="width:100px;">특성</th>
+                <th style="width:100px;">특성</th>
+                <th style="width:100px;">특성</th>
+                <th style="width:120px;">비정상 정보</th>
+                <th style="width:110px;">움직임</th>
+                <th style="width:110px;">위치</th>
+                <th style="width:110px;">이력</th>
+                <th style="width:120px;">외부 데이터</th>
+                <th style="width:150px;">실행시간</th>
+                <th style="width:80px;">실행 상태</th>
+                <th style="width:40px;">선박 수</th>
+                <th style="width:90px;">결과보기</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>1</td>
+                <td>국적: KOR, USA</td>
+                <td>길이: 20m</td>
+                <td>폭: 5000m 이상</td>
+                <td>총톤수: 12G...</td>
+                <td>잘못된 MMSI</td>
+                <td>항해상태: 정박중</td>
+                <td>영해: EEZ항해</td>
+                <td>항구: KOR</td>
+                <td>위험등급: AIS RISK</td>
+                <td>2025-09-22 14:00</td>
+                <td>실행중</td>
+                <td>15</td>
+                <td><button class="caMiniBtn" type="button">보기</button></td>
+                </tr>
+
+                <tr>
+                <td>2</td>
+                <td>국적: KOR, USA</td>
+                <td>길이: 20m</td>
+                <td>폭: 5000m 이상</td>
+                <td>총톤수: 12G...</td>
+                <td>잘못된 MMSI</td>
+                <td>항해상태: 정박중</td>
+                <td>영해: EEZ항해</td>
+                <td>항구: KOR</td>
+                <td>위험등급: AIS RISK</td>
+                <td>2025-09-22 14:00</td>
+                <td>완료</td>
+                <td>15</td>
+                <td><button class="caMiniBtn" type="button">보기</button></td>
+                </tr>
+
+                <tr>
+                <td>3</td>
+                <td>국적: KOR, USA</td>
+                <td>길이: 20m</td>
+                <td>폭: 5000m 이상</td>
+                <td>총톤수: 12G...</td>
+                <td>잘못된 MMSI</td>
+                <td>항해상태: 정박중</td>
+                <td>영해: EEZ항해</td>
+                <td>항구: KOR</td>
+                <td>위험등급: AIS RISK</td>
+                <td>2025-09-22 14:00</td>
+                <td>실행중</td>
+                <td>15</td>
+                <td><button class="caMiniBtn" type="button">보기</button></td>
+                </tr>
+
+                <tr>
+                <td>4</td>
+                <td>국적: KOR, USA</td>
+                <td>길이: 20m</td>
+                <td>폭: 5000m 이상</td>
+                <td>총톤수: 12G...</td>
+                <td>잘못된 MMSI</td>
+                <td>항해상태: 정박중</td>
+                <td>영해: EEZ항해</td>
+                <td>항구: KOR</td>
+                <td>위험등급: AIS RISK</td>
+                <td>2025-09-22 14:00</td>
+                <td>실행중</td>
+                <td>15</td>
+                <td><button class="caMiniBtn" type="button">보기</button></td>
+                </tr>
+
+                <tr>
+                <td>5</td>
+                <td>국적: KOR, USA</td>
+                <td>길이: 20m</td>
+                <td>폭: 5000m 이상</td>
+                <td>총톤수: 12G...</td>
+                <td>잘못된 MMSI</td>
+                <td>항해상태: 정박중</td>
+                <td>영해: EEZ항해</td>
+                <td>항구: KOR</td>
+                <td>위험등급: AIS RISK</td>
+                <td>2025-09-22 14:00</td>
+                <td>실행중</td>
+                <td>15</td>
+                <td><button class="caMiniBtn" type="button">보기</button></td>
+                </tr>
+
+            </tbody>
+            </table>
+
+            <div class="caPager">
+            <button class="caPageBtn caNav">«</button>
+            <button class="caPageBtn caNav">‹</button>
+            <button class="caPageBtn is-active">1</button>
+            <button class="caPageBtn">2</button>
+            <button class="caPageBtn">3</button>
+            <button class="caPageBtn caNav">›</button>
+            <button class="caPageBtn caNav">»</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+    <!-- ✅ 공유하기 팝업(모달) -->
+    <div id="caShareModal" class="caModal" hidden aria-hidden="true">
+    <div class="caModal__backdrop" data-close="1"></div>
+
+    <div class="caModal__dialog caShareDialog" role="dialog" aria-modal="true" aria-labelledby="caShareTitle">
+        <div class="caModal__head caShareHead">
+        <h3 id="caShareTitle" class="caShareTitle">공유하기</h3>
+
+        <button class="caModal__close caShareClose" type="button" aria-label="닫기" data-close="1">
+            <img src="img/close-btn.svg" alt="닫기">
+        </button>
+        </div>
+
+        <div class="caShareBody">
+        <div class="caShareGrid">
+            <!-- 공유 받는 이 -->
+            <div class="caShareLabel">공유 받는 이</div>
+            <div class="caShareField caShareField--inline">
+            <input class="caShareInput" type="text" id="shareReceiver" placeholder="" />
+            <button class="caShareFindBtn" type="button">
+                찾기
+                <img src="img/search-icon-02.svg" alt="" class="caShareFindIcon">
+            </button>
+            </div>
+
+            <!-- 공유 이름 -->
+            <div class="caShareLabel">공유 이름</div>
+            <div class="caShareField">
+            <input class="caShareInput" type="text" id="shareName"
+                    value="{보낸사람 이름}_{분석이름}_{yyyy-mm-dd}" />
+            </div>
+
+            <!-- 공유 내용 -->
+            <div class="caShareLabel">공유 내용</div>
+            <div class="caShareField">
+            <textarea class="caShareTextarea" id="shareContent" rows="6"></textarea>
+            </div>
+
+            <!-- 공유 내역 -->
+            <div class="caShareLabel">공유 내역</div>
+            <div class="caShareField">
+            <div class="caShareText" id="shareSummary">선박 50척</div>
+            </div>
+
+            <!-- 알람 설정 -->
+            <div class="caShareLabel">알람 설정</div>
+            <div class="caShareField">
+            <label class="caSwitch">
+                <input type="checkbox" id="shareAlarm">
+                <span class="caSwitch__ui"></span>
+            </label>
+            </div>
+        </div>
+
+        <div class="caShareFooter">
+            <button class="caShareAction caShareAction--primary" type="button" id="btnShareOk">공유</button>
+            <button class="caShareAction" type="button" data-close="1">취소</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    </body>
+</html>
