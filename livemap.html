@@ -71,14 +71,16 @@
     <!-- ▣ 사이드바 -->
     <div class="side-bar">
         <ul class="menu-top">
-            <li><a><span><img src="img/menu_01.svg" alt="라이브맵"></span></a></li>
+            <li>
+                <a class="menu-live-map" href="javascript:void(0)">
+                <span><img src="img/menu_01.svg" alt="라이브맵"></span>
+                </a>
+            </li>
             <li><a><span><img src="img/menu_02.svg" alt="선박DB"></span></a></li>
             <li><a><span><img src="img/menu_03.svg" alt="해경자산"></span></a></li>
             <li><a><span><img src="img/menu_04.svg" alt="분석검색"></span></a></li>
             <li><a><span><img src="img/menu_05.svg" alt="분석맵"></span></a></li>
-            <li class="menu-divider">
-                <a><span><img src="img/menu_07.svg" alt="데이터 필터"></span></a>
-            </li>
+            <li><a><span><img src="img/menu_07.svg" alt="데이터 필터"></span></a></li>
             <li><a><span><img src="img/menu_08.svg" alt="세계선박 DB"></span></a></li>
             <li><a><span><img src="img/menu_06.svg" alt="조건분석"></span></a></li>
         </ul>
@@ -171,8 +173,7 @@
                             <label><span>VTS_AIS</span><input type="checkbox" checked></label>
                             <label><span>D_MF_HF</span><input type="checkbox" checked></label>
                             <label><span>VTS_RADAR</span><input type="checkbox" checked></label>
-                            <label><span>S&P AIS(국내)</span><input type="checkbox" checked></label>
-                            <label><span>S&P AIS(세계)</span><input type="checkbox" checked></label>
+                            <label><span>세계선박AIS (예정)</span><input type="checkbox" checked></label>
                         </div>
                     </div>
 
@@ -462,155 +463,10 @@
           </div>
 
             <!-- 패널 접기/펼치기 버튼 -->
-            <button class="panel-collapseBtn" type="button" aria-label="패널 접기/펼치기">
+            <button class="panel-collapseBtn" id="mypageCollapseBtn" type="button" aria-label="패널 접기/펼치기">
                 <img src="img/panel-collapseBtn.svg" alt="접힘펼침버튼">
             </button>
         </div>
-
-
-        <!-- 선박 마커 레이어 -->
-            <div class="ship-layer" id="shipLayer">
-            <!-- 예시: 선박 1개 -->
-            <button
-                type="button"
-                class="ship-marker"
-                aria-label="선박 상세보기"
-                data-name="근영호"
-                data-mmsi="13450135"
-                data-org="서귀포해양경찰서"
-                data-time="2024-11-23 11:23:00"
-                data-speed="4.2 kn"
-                data-course="13.3°"
-                data-wave="1.1 m"
-                data-img="img/ship-img.jpg"
-                >
-                <img class="ship-marker__img" src="img/ship-select.png" alt="선박상세정보">
-            </button>
-            </div>
-
-            <!-- 상세정보 팝업 -->
-            <div class="ship-popup" id="shipPopup" aria-hidden="true">
-                <div class="ship-popup__header">
-                    <div class="ship-popup__title">
-                    <div class="ship-popup__nameWrap">
-                        <span class="ship-popup__badges" aria-hidden="true">
-                            <img src="img/ship-type.svg" alt="" class="ship-popup__badge">
-                            <img src="img/flag.svg" alt="" class="ship-popup__badge">
-                        </span>
-
-                        <span class="ship-popup__name" id="popupName">-</span>
-                        <span class="ship-popup__meta" id="popupMmsi">-</span>
-                    </div>
-
-                    </div>
-                    <button type="button" class="ship-popup__close" id="popupClose" aria-label="닫기">✕</button>
-                </div>
-
-                <div class="ship-popup__body">
-                    <div class="ship-popup__imgWrap">
-                    <img id="popupImg" src="" alt="선박 이미지" />
-                    </div>
-
-                    <div class="ship-popup__toolbar">
-                    <!-- 왼쪽: 상세정보 -->
-                    <button type="button" class="ship-popup__detailBtn">
-                        상세정보
-                        <span aria-hidden="true">
-                            <img src="img/ship-info.svg" alt="상세정보" class="ship-info-icon" >
-                        </span>
-                    </button>
-
-                    <!-- 가운데: AVETDR -->
-                    <div class="ship-popup__signalGroup" role="group" aria-label="신호">
-                        <button type="button" class="ship-popup__sigBtn">A</button>
-                        <button type="button" class="ship-popup__sigBtn">V</button>
-                        <button type="button" class="ship-popup__sigBtn">E</button>
-                        <button type="button" class="ship-popup__sigBtn">T</button>
-                        <button type="button" class="ship-popup__sigBtn">D</button>
-                        <button type="button" class="ship-popup__sigBtn">R</button>
-                    </div>
-
-                    <!-- 오른쪽: 즐겨찾기 -->
-                    <button type="button" class="ship-popup__favBtn" aria-label="즐겨찾기">
-                        ★
-                    </button>
-                    </div>
-
-                    <!-- ✅ 프로그래스 바 + 출/입항지 (툴바 바로 아래) -->
-                    <div class="ship-popup__progress">
-                    <div class="ship-popup__progressBar" aria-label="항해 진행도">
-                        <div class="ship-popup__track" aria-hidden="true">
-                        <!-- 진행된 구간 -->
-                        <div class="ship-popup__fill" style="width:55%"></div>
-                        </div>
-
-                        <span class="ship-popup__knob" style="left:55%" aria-hidden="true"></span>
-                        <span class="ship-popup__dot ship-popup__dot--end" aria-hidden="true"></span>
-                    </div>
-
-                    <div class="ship-popup__ports">
-                        <div class="ship-popup__port ship-popup__port--from">
-                        <div class="ship-popup__portLabel">출항지</div>
-                        <div class="ship-popup__portValue" id="popupFrom">서귀포해양경찰서</div>
-                        </div>
-
-                        <div class="ship-popup__port ship-popup__port--to">
-                        <div class="ship-popup__portLabel">입항지</div>
-                        <div class="ship-popup__portValue" id="popupTo">하태도</div>
-                        </div>
-                    </div>
-                    </div>
-
-                    <!-- ✅ 출항/입항 일시 박스 -->
-                    <div class="ship-popup__schedule">
-                    <div class="ship-popup__schedItem">
-                        <div class="ship-popup__schedHead">
-                        <img src="img/ship-info-01.svg" alt="출항일시" class="ship-popup__schedIcon" >
-                        <span class="ship-popup__schedTitle">출항일시</span>
-                        </div>
-                        <div class="ship-popup__schedTime" id="popupDepTime">-</div>
-                    </div>
-
-                    <div class="ship-popup__schedItem ship-popup__schedItem--right">
-                        <div class="ship-popup__schedHead">
-                        <img src="img/ship-info-01.svg" alt="입항일시" class="ship-popup__schedIcon" >
-                        <span class="ship-popup__schedTitle">입항일시</span>
-                        </div>
-                        <div class="ship-popup__schedTime" id="popupArrTime">-</div>
-                    </div>
-                    </div>
-
-                    <!-- ✅ 3칸 요약 정보 -->
-                    <div class="ship-popup__summary">
-                    <div class="ship-popup__sumItem">
-                        <div class="ship-popup__sumLabel">선박상태</div>
-                        <div class="ship-popup__sumValue" id="popupStatus">-</div>
-                    </div>
-
-                    <div class="ship-popup__sumItem">
-                        <div class="ship-popup__sumLabel">속도/항로</div>
-                        <div class="ship-popup__sumValue" id="popupSpeedCourse">-</div>
-                    </div>
-
-                    <div class="ship-popup__sumItem">
-                        <div class="ship-popup__sumLabel">흘수</div>
-                        <div class="ship-popup__sumValue" id="popupDraft">-</div>
-                    </div>
-                    </div>
-
-
-                    <div class="ship-popup__actions">
-                    <button type="button" class="ship-popup__btn">항적조회</button>
-                    <button type="button" class="ship-popup__btn">항로예측</button>
-                    </div>
-
-                    <!-- ✅ 데이터 수신시간 -->
-                    <div class="ship-popup__received">
-                        데이터 수신시간 :
-                        <span id="popupReceived">2024-11-23 11:23:00</span>
-                    </div>
-                </div>
-            </div>
 
 
         <!-- 오른쪽 퀵메뉴 -->
@@ -658,10 +514,23 @@
         </div>
         <div class="gap-space"></div>
         <div class="quick-menu-end-02">
-            <button class="q-btn"><img src="img/quick_024.svg" alt=""></button>
+            <button class="q-btn" id="btnLegend" type="button" aria-label="범례" aria-expanded="false"><img src="img/quick_024.svg" alt=""></button>
         </div>
 
       </div>
      <div id="tooltip-layer"></div>
+
+     <div class="legend-panel is-open" id="legendPanel" aria-hidden="false">
+    <ul class="legend-list">
+        <li class="legend-item"><img src="img/legend_01.svg" alt=""><span>어선</span><b>23255</b></li>
+        <li class="legend-item"><img src="img/legend_02.svg" alt=""><span>여객선</span><b>914</b></li>
+        <li class="legend-item"><img src="img/legend_03.svg" alt=""><span>화물선</span><b>12025</b></li>
+        <li class="legend-item"><img src="img/legend_04.svg" alt=""><span>유조선</span><b>3364</b></li>
+        <li class="legend-item"><img src="img/legend_05.svg" alt=""><span>관공선</span><b>497</b></li>
+        <li class="legend-item"><img src="img/legend_06.svg" alt=""><span>경비 함정</span><b>483</b></li>
+        <li class="legend-item"><img src="img/legend_07.svg" alt=""><span>어망/부이</span><b>1351</b></li>
+        <li class="legend-item"><img src="img/legend_08.svg" alt=""><span>기타</span><b>8087</b></li>
+    </ul>
+    </div>
     </body>
 </html>

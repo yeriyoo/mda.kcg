@@ -32,7 +32,6 @@ body {
     z-index: 0; 
 }
 
-/* 상단 검색바 */
 .map-search{
   position: absolute;
   top: 12px;
@@ -52,7 +51,6 @@ body {
   box-sizing: border-box;
 }
 
-/* 우측 상단 시간 + 연장 */
 .map-topTime{
   position: absolute;
   top: 10px;
@@ -586,12 +584,17 @@ body {
   left: 0;
   height: 100vh;
   z-index: 5000;
-  display: none;
-}
-
-.left-panel-wrap.is-open {
   display: block;
 }
+
+#leftPanel{
+  display: block;
+}
+
+#leftPanel.is-collapsed{
+  display: none;   
+}
+
 
 .left-panel{
   position: absolute;
@@ -1172,12 +1175,14 @@ margin: 0;
   padding: 4px 12px;
   z-index: 9999;
 
-  display:none
+  display:block;
 }
 
-.legend-panel.is-open{
-  display: block;
+/* 닫힘 상태만 제어 */
+#legendPanel:not(.is-open) {
+  display: none;
 }
+
 
 .legend-list{
   list-style: none;
@@ -4230,6 +4235,7 @@ body.is-modal-open{
 }
 
 .caTable tbody td {
+  height: 28px;
   font-size: 14px;
   color: #000;
   padding: 10px 8px;
@@ -5082,575 +5088,73 @@ body.is-modal-open{
   transition: transform .12s ease;
 }
 
+/* 인덱스 */
+/* =========================
+   페이지 인덱스 (리스트)
+========================= */
 
-/* ===== 선박 상세정보 ===== */
-    .topbar{
-      height:54px;
-      background:#262B44;
-      color:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:0 14px;
-      border-bottom:1px solid rgba(255,255,255,0.08);
-    }
-    .topbar__left{
-      display:flex; align-items:center; gap:10px;
-      min-width: 260px;
-    }
-    .logoBox{
-      width:26px;height:26px;border-radius:4px;
-      background:rgba(255,255,255,.18);
-      display:flex;align-items:center;justify-content:center;
-      font-weight:900;font-size:13px;
-    }
-    .titleLine{
-      display:flex; align-items:center; gap:10px;
-      white-space:nowrap;
-      font-weight:800;
-    }
-    .titleLine .shipName{font-size:16px}
-    .titleLine .shipMeta{font-weight:600; opacity:.85}
+.page-index {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+  color: #000000;
+}
 
-    .topbar__right{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
+.page-index__title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
 
-    .topBtn{
-      height:30px;
-      padding:0 10px;
-      border-radius:999px;
-      border:none;
-      background:#3B4B9A;
-      color:#fff;
-      font-size:12px;
-      display:flex;
-      align-items:center;
-      gap:6px;
-      cursor:pointer;
-      white-space:nowrap;
-    }
+/* 테이블 기본 */
+.page-index__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
 
-    .topBtn-01{
-      height:30px;
-      padding:0 10px;
-      border-radius:999px;
-      border:none;
-      background:#505B8D;
-      color:#fff;
-      font-size:12px;
-      display:flex;
-      align-items:center;
-      gap:6px;
-      cursor:pointer;
-      white-space:nowrap;
-    }
+/* 헤더 */
+.page-index__table thead th {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 2px solid #444;
+  color: #fff;
+  font-weight: 600;
+}
 
-    .topBtn__ico{
-      width:16px;height:16px;border-radius:50%;
-      border:2px solid rgba(255,255,255,.7);
-      display:inline-block;
-      position:relative;
-    }
+/* 바디 */
+.page-index__table tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #333;
+  vertical-align: top;
+}
 
-    .topBtn__ico:after{
-      content:"";
-      position:absolute; inset:3px;
-      border-top:2px solid rgba(255,255,255,.7);
-      transform:rotate(45deg);
-      opacity:.0;
-    }
+/* 메뉴명 */
+.page-index__table tbody td:first-child {
+  width: 140px;
+  font-weight: 600;
+  color: #000000;
+}
 
-    .tabs{
-      display:flex;
-      align-items:flex-end;
-      gap:2px;
-      padding:0 14px 0 0;
-      background:#fff;
-    }
+/* 설명 */
+.page-index__table tbody td:nth-child(2) {
+  color: #000000;
+  font-size: 13px;
+}
 
-    .tab{
-      height: 35px;
-      padding:0 14px;
-      border:0;
-      background:#DDDDDD;
-      cursor:pointer;
-      color: #666666;
-    }
+/* 링크 */
+.page-index__table a {
+  color: #2494D3;
+  text-decoration: underline;
+  word-break: break-all;
+}
 
-    .tab.is-active{
-      color: #ffffff;
-      background-color: #213079;
-    }
+.page-index__table a:hover {
+  color: #a9c0ff;
+}
 
-    .tabs__meta{
-      margin-left:auto;
-      padding-bottom:8px;
-      color:var(--muted);
-      font-size:12px;
-      white-space:nowrap;
-    }
+/* 행 hover (선택사항) */
+.page-index__table tbody tr:hover {
+  background: rgba(255,255,255,0.04);
+}
 
-
-    /* ===== Layout ===== */
-    .wrap{
-      padding:0 14px 18px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-
-    .grid4{
-      display:grid;
-      grid-template-columns: 1.15fr 1fr 1fr 1.15fr;
-      gap:12px;
-      align-items:start;
-    }
-
-    .card{
-      height: 922px;
-      background:var(--card);
-      border:1px solid var(--line);
-      overflow:hidden;
-      padding: 0 12px;
-      border-right: 1px solid #DDDDDD;
-    }
-
-    .card__head{
-      width: 470px;
-      padding:24px 12px 24px 0;
-      margin-left: 10px;
-      margin-right: 20px;
-      border-bottom:1px solid #000;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      background:#fff;
-      gap:10px;
-    }
-
-    .card__title{
-      font-weight:900;
-      font-size:18px;
-    }
-
-    .card__body {
-      padding:10px 12px
-    }
-
-    .photo{
-      width:100%;
-      height:220px;
-      overflow:hidden;
-      position:relative;
-      background:#eef2ff;
-      border: none;
-    }
-
-    .photo img{
-      width:100%; 
-      height:100%;
-      object-fit:cover; 
-      display:block;
-    }
-    .photoNav{
-      position:absolute; 
-      inset:0;
-      display:flex; 
-      align-items:center; 
-      justify-content:space-between;
-      padding:0 6px;
-      pointer-events:none;
-    }
-    .photoNav button{
-      pointer-events:auto;
-      width:30px;
-      height:30px;
-      border-radius:50%;
-      border:0;
-      background:rgba(0,0,0,.25);
-      color:#fff;
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:18px;
-    }
-    .photoDots{
-      position:absolute; 
-      left:50%; 
-      bottom:8px; 
-      transform:translateX(-50%);
-      display:flex; 
-      gap:6px;
-    }
-    .dot{
-      width:6px;
-      height:6px;
-      border-radius:50%;
-      background:rgba(255,255,255,.5);
-      border:1px solid rgba(0,0,0,.1);
-    }
-    
-    .dot.is-on {
-      background:#fff
-    }
-
-    .photoActions{
-      margin-top:8px;
-      display:flex;
-      gap:8px;
-    }
-    .ghostBtn{
-      flex:1;
-      height:34px;
-      border-radius:999px;
-      border:1px solid #c7d3ff;
-      background:#f5f8ff;
-      color:#2b4aa0;
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      font-size:14px;
-    }
-
-    .ghostBtn .ico{
-      width:14px;
-      height:14px;
-      border-radius:3px;
-      background:#2b4aa0;
-      opacity:.2;
-    }
-
-    .progressWrap{
-      margin-top:10px;
-      padding:10px 0 2px;
-    }
-
-    .progressBar{
-      position:relative;
-      height:10px;
-      background:#e8eaef;
-      border-radius:999px;
-      overflow:visible;
-    }
-
-    .progressFill{
-      position:absolute;
-      left:0;
-      top:0;
-      bottom:0;
-      width:48%;
-      background:#4c5fc3;
-      border-radius:999px;
-    }
-
-    .progressKnob{
-      position:absolute;
-      top:50%;
-      transform:translate(-50%,-50%);
-      width:16px;
-      height:16px;
-      border-radius:50%;
-      background:#CBD4FF;
-      border:6px solid #213079;
-    }
-
-    .progressDot{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      width:18px;
-      height:18px;
-      border-radius:50%;
-      background:#4c5fc3;
-    }
-
-    .progressDot.is-end{
-      right:0;
-      background:#d3d6de;
-    }
-
-    .portsRow{
-      margin-top:10px;
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-    }
-    .port{
-      width:50%;
-    }
-    .port .lbl{
-      font-size:12px;
-      color: #666666;
-      margin-bottom:4px;
-    }
-
-    .port.is-right {
-      text-align:right
-    }
-
-    .twoTime{
-      margin-top:10px;
-      border:1px solid var(--line);
-      background:#f3f7ff;
-      border-radius:6px;
-      overflow:hidden;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-    }
-    .timeCell{
-      padding:10px 12px;
-      border-right:1px solid var(--line);
-    }
-    .timeCell:last-child{border-right:0}
-    .timeTop{
-      display:flex; align-items:center; justify-content:space-between;
-      font-weight:900;
-      color:#1e2f73;
-    }
-    .timeVal{
-      margin-top:6px;
-      font-size:20px;
-      color:#667085;
-      letter-spacing:-0.2px;
-    }
-
-    .summary3{
-      margin-top:10px;
-      border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
-      display:grid;
-      grid-template-columns: 1fr 2.6fr 1fr; 
-    }
-    .sumCell{
-      padding:10px 12px;
-      border-right:1px solid var(--line);
-    }
-    .sumCell:last-child{border-right:0}
-    .sumLbl{
-      color:#7a8191;
-      font-weight:800;
-      font-size:14px;
-    }
-    .sumVal{
-      margin-top:6px;
-      font-size:28px;
-      font-weight:900;
-      letter-spacing:-0.4px;
-    }
-    .sumVal.small{font-size:24px}
-
-    .leftTable{
-      overflow:hidden;
-    }
-
-    .row{
-      display:grid;
-      grid-template-columns: 120px 1fr;
-      border-bottom:1px solid #DDDDDD;
-      background:#fff;
-    }
-
-    .row:last-child {
-      border-bottom:0
-    }
-
-    .th{
-      padding:10px 12px;
-      color:#667085;
-      font-weight: 700;
-      background:#f8f9fc;
-      border-right:1px solid var(--line);
-      font-size: 14px;
-    }
-
-    .td{
-      padding:10px 12px;
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    /* ===== Middle: Details + Score + Table ===== */
-    .kv{
-      width:100%;
-      border-collapse:collapse;
-      font-size:12px;
-    }
-    .kv th, .kv td{
-      border-bottom:1px solid var(--line);
-      padding:8px 10px;
-      text-align:left;
-      vertical-align:middle;
-    }
-    .kv th{
-      width:110px;
-      color:#667085;
-      font-weight:900;
-      background:#f8f9fc;
-      border-right:1px solid var(--line);
-    }
-    .kv tr:last-child th, .kv tr:last-child td{border-bottom:0}
-
-    .signalPills{
-      display:flex;
-      gap:4px;
-      flex-wrap:wrap;
-    }
-
-    .sig{
-      height:18px; min-width:18px;
-      padding:0 6px;
-      border-radius:4px;
-      background:#4c5fc3;
-      color:#fff;
-      font-weight:900;
-      font-size:11px;
-      display:inline-flex; align-items:center; justify-content:center;
-    }
-
-    .scoreBoard{
-      margin-top:10px;
-      border-top:1px solid var(--line);
-      padding-top:10px;
-    }
-    .scoreTitle{
-      font-weight:900;
-      margin-bottom:8px;
-      letter-spacing:-0.2px;
-    }
-    .scores{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:flex-start;
-    }
-    .badgeCircle{
-      width:60px;height:60px;border-radius:50%;
-      border:6px solid #e6e8ef;
-      display:flex; flex-direction:column;
-      align-items:center; justify-content:center;
-      background:#fff;
-      box-shadow:0 6px 12px rgba(16,24,40,0.06);
-    }
-    .badgeCircle .num{
-      font-size:18px; font-weight:1000;
-    }
-    .badgeCircle .cap{
-      font-size:10px; color:#6b778c; font-weight:900;
-      margin-top:2px;
-      text-align:center;
-    }
-    .b-red{border-color:#f04438}
-    .b-amber{border-color:#f79009}
-    .b-blue{border-color:#3a66ff}
-    .b-gray{border-color:#475467}
-
-    .miniToolbar{
-      display:flex; justify-content:flex-end;
-      margin:8px 0 6px;
-    }
-    .excelBtn{
-      height:26px;
-      padding:0 10px;
-      border:1px solid #bcd0ff;
-      background:#f3f7ff;
-      color:#2b4aa0;
-      border-radius:4px;
-      font-weight:900;
-      font-size:12px;
-      cursor:pointer;
-    }
-
-    .listTable{
-      width:100%;
-      border-collapse:collapse;
-      font-size:12px;
-    }
-    .listTable th, .listTable td{
-      border-top:1px solid var(--line);
-      padding:8px 10px;
-      text-align:left;
-      white-space:nowrap;
-    }
-    .listTable th{
-      color:#667085;
-      font-weight:900;
-      background:#f8f9fc;
-      border-top:1px solid var(--line);
-    }
-
-    /* ===== Right: Map + Weather + Port calls ===== */
-    .mapBox{
-      height:230px;
-      border-radius:6px;
-      overflow:hidden;
-      border:1px solid rgba(0,0,0,0.06);
-      background:#eaf2ff;
-      position:relative;
-    }
-    .mapBox img{width:100%;height:100%;object-fit:cover;display:block}
-    .mapZoom{
-      position:absolute;
-      right:10px; bottom:10px;
-      display:flex; flex-direction:column;
-      gap:6px;
-    }
-    .mapZoom button{
-      width:28px;height:28px;border-radius:4px;
-      border:1px solid rgba(0,0,0,.12);
-      background:#fff;
-      cursor:pointer;
-      font-weight:900;
-    }
-
-    .weatherRow{
-      margin-top:10px;
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:8px;
-    }
-    .wxTitle{
-      font-weight:900;
-      display:flex; align-items:center; justify-content:space-between;
-      color:#1f2a44;
-    }
-    .wxCards{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:8px;
-    }
-    .wxCard{
-      border:1px solid var(--line);
-      border-radius:6px;
-      padding:8px 10px;
-      background:#fff;
-    }
-    .wxCard .k{font-size:11px;color:#6b778c;font-weight:900}
-    .wxCard .v{margin-top:4px;font-weight:1000}
-
-    .headLink{
-      color:#2b4aa0;
-      font-weight:900;
-      font-size:12px;
-      cursor:pointer;
-      user-select:none;
-    }
-
-    /* ===== Bottom: Notes ===== */
-    .full{
-      width:100%;
-    }
-    .empty{
-      padding:14px 12px;
-      color:#6b778c;
-      font-weight:800;
-      font-size:12px;
-      text-align:center;
-    }

@@ -263,32 +263,28 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", () => closePopup());
 });
 
+//라이브맵//
 document.addEventListener("DOMContentLoaded", () => {
   const liveMapBtn = document.querySelector(".menu-live-map");
   const wrap = document.querySelector(".left-panel-wrap");
   const panel = document.getElementById("leftPanel");
   const menuLinks = document.querySelectorAll(".side-bar .menu-top a");
 
-  if (!liveMapBtn || !wrap || !panel) return;
+  if (!wrap || !panel) return;
 
-  wrap.classList.remove("is-open");
-  panel.classList.add("is-collapsed");
   menuLinks.forEach(l => l.classList.remove("is-active"));
-
-  liveMapBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    menuLinks.forEach(l => l.classList.remove("is-active"));
+  if (liveMapBtn) {
     liveMapBtn.classList.add("is-active");
+  }
 
-    wrap.classList.add("is-open");
-    panel.classList.remove("is-collapsed");
+  wrap.classList.add("is-open");
+  panel.classList.remove("is-collapsed");
 
-    document
-      .querySelector('.tab-button[data-tab="filter"]')
-      ?.click();
-  });
+  document
+    .querySelector('.tab-button[data-tab="filter"]')
+    ?.classList.add("active");
 });
+
 
 
 
@@ -395,7 +391,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = document.getElementById("shareAlarmClose");
   const okBtn = document.getElementById("shareAlarmOk");
 
-  if (!openBtn || !overlay) return;
+  // ✅ openBtn 없어도 "처음부터 띄우기"는 가능해야 해서 조건을 overlay 기준으로 바꿈
+  if (!overlay) return;
 
   const openModal = () => {
     overlay.classList.add("is-open");
@@ -409,7 +406,11 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.remove("is-modal-open");
   };
 
-  openBtn.addEventListener("click", (e) => {
+  // ✅ 1) 페이지 로드시 알람 리스트 모달을 처음부터 오픈
+  openModal();
+
+  // ✅ 2) 버튼 클릭으로도 열리게 유지 (버튼이 있을 때만)
+  openBtn?.addEventListener("click", (e) => {
     e.preventDefault();
     openModal();
   });
@@ -421,6 +422,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === overlay) closeModal();
   });
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const row1 = document.getElementById("shareRow1");
@@ -504,7 +506,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const dashboardPanel = document.getElementById("dashboardPanel");
   const dashboardClose = document.getElementById("dashboardClose");
 
-  if (!btnMyDashboard || !dashboardPanel) return;
+  if (!dashboardPanel) return;
 
   const openDash = () => {
     dashboardPanel.style.display = "block";
@@ -516,10 +518,15 @@ document.addEventListener("DOMContentLoaded", () => {
     dashboardPanel.setAttribute("aria-hidden", "true");
   };
 
-  btnMyDashboard.addEventListener("click", openDash);
+  // ✅ 1. 페이지 최초 진입 시 → 마이 대시보드 열림
+  openDash();
+
+  btnMyDashboard?.addEventListener("click", openDash);
   dashboardClose?.addEventListener("click", closeDash);
 });
 
+
+// 관심선박/영역 설정 모달
 document.addEventListener("DOMContentLoaded", () => {
   const shipOverlay = document.getElementById("shipGroupOverlay");
   const shipClose = document.getElementById("shipGroupClose");
@@ -540,12 +547,15 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.remove("is-modal-open");
   };
 
-  btnDashSetting?.addEventListener("click", openShipGroup);
+  // ✅ 2. 페이지 최초 진입 시 → 모달도 자동 오픈
+  openShipGroup();
 
+  btnDashSetting?.addEventListener("click", openShipGroup);
   shipClose?.addEventListener("click", closeShipGroup);
   shipOk?.addEventListener("click", closeShipGroup);
-
 });
+
+
 
 //퀵메뉴(범례)//
 document.addEventListener("DOMContentLoaded", () => {
@@ -576,6 +586,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   panel.addEventListener("click", (e) => e.stopPropagation());
 });
+
 
 
 //세계선박 데이터 필터//
