@@ -4950,11 +4950,14 @@ body.is-modal-open{
   background:#e6e6e6;
   font-size:13px;
   cursor:pointer;
+  border: none;
 }
+
 .tab.is-active{
   background:#25386b;
   border-color:#25386b;
   color:#fff;
+  border: none;
 }
 
 .result-meta{
@@ -5089,10 +5092,6 @@ body.is-modal-open{
 }
 
 /* 인덱스 */
-/* =========================
-   페이지 인덱스 (리스트)
-========================= */
-
 .page-index {
   max-width: 1100px;
   margin: 40px auto;
@@ -5106,14 +5105,12 @@ body.is-modal-open{
   margin-bottom: 20px;
 }
 
-/* 테이블 기본 */
 .page-index__table {
   width: 100%;
   border-collapse: collapse;
   font-size: 14px;
 }
 
-/* 헤더 */
 .page-index__table thead th {
   text-align: left;
   padding: 10px 12px;
@@ -5122,27 +5119,23 @@ body.is-modal-open{
   font-weight: 600;
 }
 
-/* 바디 */
 .page-index__table tbody td {
   padding: 10px 12px;
   border-bottom: 1px solid #333;
   vertical-align: top;
 }
 
-/* 메뉴명 */
 .page-index__table tbody td:first-child {
   width: 140px;
   font-weight: 600;
   color: #000000;
 }
 
-/* 설명 */
 .page-index__table tbody td:nth-child(2) {
   color: #000000;
   font-size: 13px;
 }
 
-/* 링크 */
 .page-index__table a {
   color: #2494D3;
   text-decoration: underline;
@@ -5153,8 +5146,120 @@ body.is-modal-open{
   color: #a9c0ff;
 }
 
-/* 행 hover (선택사항) */
 .page-index__table tbody tr:hover {
   background: rgba(255,255,255,0.04);
 }
+
+
+/* 선박 상세정보 */
+    .topbar{
+      height:54px;
+      background:#262B44;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 14px;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+    .topbar__left{
+      display:flex; align-items:center; gap:10px;
+      min-width: 260px;
+    }
+    .logoBox{
+      width:26px;height:26px;border-radius:4px;
+      background:rgba(255,255,255,.18);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:900;font-size:13px;
+    }
+    .titleLine{
+      display:flex; align-items:center; gap:10px;
+      white-space:nowrap;
+      font-weight:800;
+    }
+    .titleLine .shipName{font-size:16px}
+    .titleLine .shipMeta{font-weight:600; opacity:.85}
+
+    .topbar__right{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .topBtn{
+      height:30px;
+      padding:0 10px;
+      border-radius:999px;
+      border:none;
+      background:#3B4B9A;
+      color:#fff;
+      font-size:12px;
+      display:flex;
+      align-items:center;
+      gap:6px;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+
+    .topBtn-01{
+      height:30px;
+      padding:0 10px;
+      border-radius:999px;
+      border:none;
+      background:#505B8D;
+      color:#fff;
+      font-size:12px;
+      display:flex;
+      align-items:center;
+      gap:6px;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+
+    .topBtn__ico{
+      width:16px;height:16px;border-radius:50%;
+      border:2px solid rgba(255,255,255,.7);
+      display:inline-block;
+      position:relative;
+    }
+
+    .topBtn__ico:after{
+      content:"";
+      position:absolute; inset:3px;
+      border-top:2px solid rgba(255,255,255,.7);
+      transform:rotate(45deg);
+      opacity:.0;
+    }
+
+    .tabs{
+      display:flex;
+      align-items:flex-end;
+      gap:2px;
+      padding:0 14px 0 0;
+      background:#fff;
+    }
+
+    .tab{
+      height: 35px;
+      padding:0 14px;
+      border:0;
+      background:#DDDDDD;
+      cursor:pointer;
+      color: #666666;
+    }
+
+    .tab.is-active{
+      color: #ffffff;
+      background-color: #213079;
+    }
+
+    .tabs__meta{
+      margin-left:auto;
+      padding-bottom:8px;
+      color:var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+    }
 
