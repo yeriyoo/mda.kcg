@@ -286,24 +286,23 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
-
 //분석검색//
 document.addEventListener("DOMContentLoaded", () => {
   const wrap = document.querySelector(".left-panel-wrap");
-  const panel480 = document.getElementById("leftPanel480"); 
-  const panelLive = document.getElementById("leftPanel");   
+  const panel480 = document.getElementById("leftPanel480");
+  const panelLive = document.getElementById("leftPanel");
   const analysisBtn = document.querySelector(".menu-analysis");
   const collapseBtn = document.querySelector(".panel-collapseBtn_480");
 
   const menuLinks = document.querySelectorAll(".side-bar .menu-top a");
 
   if (!wrap || !panel480 || !analysisBtn) return;
-
-
   menuLinks.forEach(l => l.classList.remove("is-active"));
-  wrap.classList.remove("is-open"); 
+  analysisBtn.classList.add("is-active");
+
+  wrap.classList.add("is-open");
   panel480.classList.remove("is-collapsed");
+  panelLive?.classList.add("is-collapsed");
 
   analysisBtn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -311,10 +310,9 @@ document.addEventListener("DOMContentLoaded", () => {
     menuLinks.forEach(l => l.classList.remove("is-active"));
     analysisBtn.classList.add("is-active");
 
-    panelLive?.classList.add("is-collapsed");
-
     wrap.classList.add("is-open");
     panel480.classList.remove("is-collapsed");
+    panelLive?.classList.add("is-collapsed");
   });
 
   collapseBtn?.addEventListener("click", (e) => {
@@ -337,6 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
 
 //마이페이지-공유, 알람//
 document.addEventListener("DOMContentLoaded", () => {
@@ -391,7 +390,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = document.getElementById("shareAlarmClose");
   const okBtn = document.getElementById("shareAlarmOk");
 
-  // ✅ openBtn 없어도 "처음부터 띄우기"는 가능해야 해서 조건을 overlay 기준으로 바꿈
   if (!overlay) return;
 
   const openModal = () => {
@@ -406,10 +404,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.remove("is-modal-open");
   };
 
-  // ✅ 1) 페이지 로드시 알람 리스트 모달을 처음부터 오픈
   openModal();
 
-  // ✅ 2) 버튼 클릭으로도 열리게 유지 (버튼이 있을 때만)
   openBtn?.addEventListener("click", (e) => {
     e.preventDefault();
     openModal();
@@ -500,6 +496,7 @@ document.addEventListener("DOMContentLoaded", () => {
   alarmDetailOverlay.style.display = "none";
 });
 
+
 //나의 대시보드(관심선박)//
 document.addEventListener("DOMContentLoaded", () => {
   const btnMyDashboard = document.getElementById("btnMyDashboard");
@@ -518,15 +515,12 @@ document.addEventListener("DOMContentLoaded", () => {
     dashboardPanel.setAttribute("aria-hidden", "true");
   };
 
-  // ✅ 1. 페이지 최초 진입 시 → 마이 대시보드 열림
   openDash();
 
   btnMyDashboard?.addEventListener("click", openDash);
   dashboardClose?.addEventListener("click", closeDash);
 });
 
-
-// 관심선박/영역 설정 모달
 document.addEventListener("DOMContentLoaded", () => {
   const shipOverlay = document.getElementById("shipGroupOverlay");
   const shipClose = document.getElementById("shipGroupClose");
@@ -547,7 +541,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.remove("is-modal-open");
   };
 
-  // ✅ 2. 페이지 최초 진입 시 → 모달도 자동 오픈
   openShipGroup();
 
   btnDashSetting?.addEventListener("click", openShipGroup);
@@ -555,6 +548,38 @@ document.addEventListener("DOMContentLoaded", () => {
   shipOk?.addEventListener("click", closeShipGroup);
 });
 
+function openModal(modalId){
+  const modal = document.getElementById(modalId);
+  if(!modal) return;
+
+  modal.classList.add('is-open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.documentElement.style.overflow = 'hidden';
+}
+
+function closeModal(modalId){
+  const modal = document.getElementById(modalId);
+  if(!modal) return;
+
+  modal.classList.remove('is-open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.documentElement.style.overflow = '';
+}
+
+document.addEventListener('click', (e) => {
+  const manageBtn = e.target.closest('#shipGroupOverlay .shipgroup-manage-btn');
+  if(manageBtn){
+    e.preventDefault();
+    openModal('shipGroupModal');
+    return;
+  }
+
+  const closer = e.target.closest('[data-modal-close]');
+  if(closer){
+    e.preventDefault();
+    closeModal(closer.getAttribute('data-modal-close'));
+  }
+});
 
 
 //퀵메뉴(범례)//
