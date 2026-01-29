@@ -99,8 +99,9 @@ export default function Panel1Component({ isOpen, onToggle }) {
                             <input type="text" placeholder="선박명" />
                         </label>
                     </li>
+                    <li>
                     {/* 아코디언 1 */}
-                    <div className={`accordion ${isAccordionOpen1 ? 'is-open' : ''}`}>
+                    <ul className={`accordion ${isAccordionOpen1 ? 'is-open' : ''}`}>
                         <li>
                             <label>
                                 <span>위험물</span>
@@ -112,11 +113,11 @@ export default function Panel1Component({ isOpen, onToggle }) {
                             </label>
                         </li>
                         <li>
-                            <label>
+                            <div className="label">
                                 <span>승선원수</span>
                                 <div className="labelRow">
                                     <div className="numInput">
-                                        <input type="number" placeholder="최소" min="" max="" />
+                                        <input type="number" placeholder="최소" aria-label="최소 승선원수"/>
                                         <div className="spin">
                                             <button type="button" className="spinUp"><span className="blind">증가</span></button>
                                             <button type="button" className="spinDown"><span className="blind">감소</span></button>
@@ -125,29 +126,30 @@ export default function Panel1Component({ isOpen, onToggle }) {
                                     <span>-</span>
                                     
                                     <div className="numInput">
-                                        <input type="number" placeholder="최대" min="" max="" />
+                                        <input type="number" placeholder="최대" aria-label="최대 승선원수"/>
                                         <div className="spin">
                                             <button type="button" className="spinUp"><span className="blind">증가</span></button>
                                             <button type="button" className="spinDown"><span className="blind">감소</span></button>
                                         </div>
                                     </div>
                                 </div>
-                            </label>
+                            </div>
                         </li>
                         <li>
-                            <label>
+                            <div className="label">
                                 <span>너비(m)</span>
                                 <div className="numInput">
-                                    <input type="number" placeholder="최소" min="" max="" />
+                                    <input type="number" placeholder="최소" aria-label="너비(m)"/>
                                     <div className="spin">
                                         <button type="button" className="spinUp"><span className="blind">증가</span></button>
                                         <button type="button" className="spinDown"><span className="blind">감소</span></button>
                                     </div>
                                 </div>
-                            </label>
+                            </div>
                         </li>
-                    </div>
+                    </ul>
                     {/* 여기까지 아코디언1 */}
+                    </li>
                     <li>
                         <button
                         type="button"
@@ -403,13 +405,13 @@ export default function Panel1Component({ isOpen, onToggle }) {
                             </label>
                         </li>
                         <li>
-                            <label>
+                            <div className="label">
                                 <span>사고기간</span>
                                 <div className='labelRow'>
-                                <input type="text" className="dateInput" placeholder="연도-월-일" />
+                                <input type="text" className="dateInput" placeholder="연도-월-일" aria-label="시작일" />
                                  <span>-</span>
-                                 <input type="text"className="dateInput" placeholder="연도-월-일" /></div>
-                            </label>
+                                 <input type="text"className="dateInput" placeholder="연도-월-일" aria-label="종료일" /></div>
+                            </div>
                         </li>
                         <li>
                             <label>
@@ -511,8 +513,9 @@ export default function Panel1Component({ isOpen, onToggle }) {
                                 <input type="text" placeholder="선박명" />
                             </label>
                         </li>
+                        <li>
                         {/* 여기부터 아코디언 */}
-                        <div className={`accordion ${isAccordionOpen2 ? 'is-open' : ''}`}>
+                        <ul className={`accordion ${isAccordionOpen2 ? 'is-open' : ''}`}>
                         <li>
                             <label>
                                 <span>낚시여부</span>
@@ -581,8 +584,9 @@ export default function Panel1Component({ isOpen, onToggle }) {
                                 </select>
                             </label>
                         </li>
-                        </div>
+                        </ul>
                         {/* 여기까지 아코디언 */}
+                        </li>
                         <li>
                             <button
                             type="button"

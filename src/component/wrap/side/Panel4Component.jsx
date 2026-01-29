@@ -74,7 +74,7 @@ export default function Panel4Component({ isOpen, onToggle }) {
                     <div className="btnBox">
                         <button 
                         type="button" 
-                        class="btn btnLine"
+                        className="btn btnLine"
                         onClick={() => navigate("/analysis/area")}
                         >등록</button>
                     </div>
@@ -89,14 +89,14 @@ export default function Panel4Component({ isOpen, onToggle }) {
                 <div className="formGroup">
                     <ul>
                         <li>
-                            <label>
+                            <div className="label">
                                 <span>조회기간</span>
-                                <div class="labelRow">
-                                    <input class="dateInput" placeholder="연도-월-일" type="text" />
+                                <div className="labelRow">
+                                    <input className="dateInput" placeholder="연도-월-일" type="text"  aria-label="시작일"/>
                                     <span>-</span>
-                                    <input class="dateInput" placeholder="연도-월-일" type="text" />
+                                    <input className="dateInput" placeholder="연도-월-일" type="text"  aria-label="종료일"/>
                                 </div>
-                            </label>
+                            </div>
                         </li>
                         <li>
                             <label>
@@ -124,7 +124,7 @@ export default function Panel4Component({ isOpen, onToggle }) {
                     <div className="btnBox">
                         <button 
                         type="button" 
-                        class="btn btnLine"
+                        className="btn btnLine"
                         onClick={() => navigate("/analysis/register")}
                         >등록</button>
                     </div>
@@ -139,18 +139,18 @@ export default function Panel4Component({ isOpen, onToggle }) {
                 <div className="formGroup">
                     <ul>
                         <li>
-                            <label>
+                            <div className="label">
                                 <span>진입 일시</span>
-                                <div class="labelRow">
-                                    <input class="dateInput" placeholder="연도-월-일" type="text" />
+                                <div className="labelRow">
+                                    <input className="dateInput" placeholder="연도-월-일" type="text"  aria-label="시작일"/>
                                     <span>-</span>
-                                    <input class="dateInput" placeholder="연도-월-일" type="text" />
+                                    <input className="dateInput" placeholder="연도-월-일" type="text"  aria-label="종료일"/>
                                 </div>
-                            </label>
+                            </div>
                         </li>
-
+                        <li className={`accordion ${isAccordionOpen1 ? 'is-open' : ''}`}>
                         {/* 아코디언 1 */}
-                        <div className={`accordion pt8 ${isAccordionOpen1 ? 'is-open' : ''}`}>
+                        <ul>
                         <li>
                             <label>
                                 <span>국적</span>
@@ -200,7 +200,8 @@ export default function Panel4Component({ isOpen, onToggle }) {
                                 </select>
                             </label>
                         </li>
-                        </div>
+                        </ul>
+                        </li>
                         {/* 여기까지 아코디언1 */}
                         <li>
                             <label>
@@ -247,11 +248,11 @@ export default function Panel4Component({ isOpen, onToggle }) {
                 <div className="formGroup">
                     <ul>
                         <li>
-                            <label>
+                            <div className="label">
                                 <span>전체 통화량</span>
                                 <div className="labelRow">
                                     <div className="numInput">
-                                        <input type="number" placeholder="최소" min="" max="" />
+                                        <input type="number" placeholder="최소" aria-label="최소 전체 통화량"/>
                                         <div className="spin">
                                             <button type="button" className="spinUp"><span className="blind">증가</span></button>
                                             <button type="button" className="spinDown"><span className="blind">감소</span></button>
@@ -260,21 +261,21 @@ export default function Panel4Component({ isOpen, onToggle }) {
                                     <span>~</span>
                                     
                                     <div className="numInput">
-                                        <input type="number" placeholder="최대" min="" max="" />
+                                        <input type="number" placeholder="최대" aria-label="최대 전체 통화량"/>
                                         <div className="spin">
                                             <button type="button" className="spinUp"><span className="blind">증가</span></button>
                                             <button type="button" className="spinDown"><span className="blind">감소</span></button>
                                         </div>
                                     </div>
                                 </div>
-                            </label>
+                            </div>
                         </li>
                         <li>
-                            <label>
+                            <div className="label">
                                 <span>유의파고(m)</span>
                                 <div className="labelRow">
                                     <div className="numInput">
-                                        <input type="number" placeholder="최소" min="" max="" />
+                                        <input type="number" placeholder="최소" aria-label="최소 유의파고" />
                                         <div className="spin">
                                             <button type="button" className="spinUp"><span className="blind">증가</span></button>
                                             <button type="button" className="spinDown"><span className="blind">감소</span></button>
@@ -283,21 +284,21 @@ export default function Panel4Component({ isOpen, onToggle }) {
                                     <span>~</span>
                                     
                                     <div className="numInput">
-                                        <input type="number" placeholder="최대" min="" max="" />
+                                        <input type="number" placeholder="최대" aria-label="최대 유의파고" />
                                         <div className="spin">
                                             <button type="button" className="spinUp"><span className="blind">증가</span></button>
                                             <button type="button" className="spinDown"><span className="blind">감소</span></button>
                                         </div>
                                     </div>
                                 </div>
-                            </label>
+                            </div>
                         </li>
                         <li>
-                            <label>
+                            <div className="label">
                                 <span>파향(deg)</span>
                                 <div className="labelRow">
                                     <div className="numInput">
-                                        <input type="number" placeholder="최소" min="" max="" />
+                                        <input type="number" placeholder="최소" aria-label="최소 파향" />
                                         <div className="spin">
                                             <button type="button" className="spinUp"><span className="blind">증가</span></button>
                                             <button type="button" className="spinDown"><span className="blind">감소</span></button>
@@ -306,21 +307,21 @@ export default function Panel4Component({ isOpen, onToggle }) {
                                     <span>~</span>
                                     
                                     <div className="numInput">
-                                        <input type="number" placeholder="최대" min="" max="" />
+                                        <input type="number" placeholder="최대" aria-label="최대 파향" />
                                         <div className="spin">
                                             <button type="button" className="spinUp"><span className="blind">증가</span></button>
                                             <button type="button" className="spinDown"><span className="blind">감소</span></button>
                                         </div>
                                     </div>
                                 </div>
-                            </label>
+                            </div>
                         </li>
                         <li>
-                            <label>
+                            <div className="label">
                                 <span>파주기(초)</span>
                                 <div className="labelRow">
                                     <div className="numInput">
-                                        <input type="number" placeholder="최소" min="" max="" />
+                                        <input type="number" placeholder="최소" aria-label="최소 파주기" />
                                         <div className="spin">
                                             <button type="button" className="spinUp"><span className="blind">증가</span></button>
                                             <button type="button" className="spinDown"><span className="blind">감소</span></button>
@@ -329,21 +330,21 @@ export default function Panel4Component({ isOpen, onToggle }) {
                                     <span>~</span>
                                     
                                     <div className="numInput">
-                                        <input type="number" placeholder="최대" min="" max="" />
+                                        <input type="number" placeholder="최대" aria-label="최대 파주기" />
                                         <div className="spin">
                                             <button type="button" className="spinUp"><span className="blind">증가</span></button>
                                             <button type="button" className="spinDown"><span className="blind">감소</span></button>
                                         </div>
                                     </div>
                                 </div>
-                            </label>
+                            </div>
                         </li>
                         <li>
-                            <label>
+                            <div className="label">
                                 <span>풍속(m/s)</span>
                                 <div className="labelRow">
                                     <div className="numInput">
-                                        <input type="number" placeholder="최소" min="" max="" />
+                                        <input type="number" placeholder="최소" aria-label="최소 풍속" />
                                         <div className="spin">
                                             <button type="button" className="spinUp"><span className="blind">증가</span></button>
                                             <button type="button" className="spinDown"><span className="blind">감소</span></button>
@@ -352,21 +353,21 @@ export default function Panel4Component({ isOpen, onToggle }) {
                                     <span>~</span>
                                     
                                     <div className="numInput">
-                                        <input type="number" placeholder="최대" min="" max="" />
+                                        <input type="number" placeholder="최대" aria-label="최대 풍속" />
                                         <div className="spin">
                                             <button type="button" className="spinUp"><span className="blind">증가</span></button>
                                             <button type="button" className="spinDown"><span className="blind">감소</span></button>
                                         </div>
                                     </div>
                                 </div>
-                            </label>
+                            </div>
                         </li>
                         <li>
-                            <label>
+                            <div className="label">
                                 <span>풍향(deg)</span>
                                 <div className="labelRow">
                                     <div className="numInput">
-                                        <input type="number" placeholder="최소" min="" max="" />
+                                        <input type="number" placeholder="최소" aria-label="최소 풍향" />
                                         <div className="spin">
                                             <button type="button" className="spinUp"><span className="blind">증가</span></button>
                                             <button type="button" className="spinDown"><span className="blind">감소</span></button>
@@ -375,14 +376,14 @@ export default function Panel4Component({ isOpen, onToggle }) {
                                     <span>~</span>
                                     
                                     <div className="numInput">
-                                        <input type="number" placeholder="최대" min="" max="" />
+                                        <input type="number" placeholder="최대" aria-label="최대 풍향" />
                                         <div className="spin">
                                             <button type="button" className="spinUp"><span className="blind">증가</span></button>
                                             <button type="button" className="spinDown"><span className="blind">감소</span></button>
                                         </div>
                                     </div>
                                 </div>
-                            </label>
+                            </div>
                         </li>
                         <li className="fgBtn rowSB">
                             <span className="infoTxt">통화량 조회에 최대 30초 소요될 수 있습니다.</span>
@@ -445,7 +446,8 @@ export default function Panel4Component({ isOpen, onToggle }) {
                             <div className="btnArea w4r">
                                 <button
                                     type="button" 
-                                    class="btnMap"
+                                    className="btnMap"
+                                    aria-label="지도"
                                     onClick={() => navigate("/analysis/trench")}
                                 ></button>
                             </div>
@@ -496,7 +498,7 @@ export default function Panel4Component({ isOpen, onToggle }) {
                                 </li>
                             </ul>
                             <div className="btnArea w4r">
-                                <button type="button" className="btnMap"></button>
+                                <button type="button" className="btnMap" aria-label="지도"></button>
                             </div>
                         </li>
                     </ul>

@@ -75,21 +75,21 @@ export default function ReplayComponent() {
                     </div>
                     {/* 재생옵션 영역 */}
                     <div className="option">
-                        <label>
+                        <div className="label">
                             <span>재생기간</span>
                             <select className="controlSelect w8r">
                                 <option value="">어제</option>
                             </select>
-                            <input placeholder="" type="text" className="controlInput w14r" /> ~
-                            <input placeholder="" type="text" className="controlInput w14r" />
-                        </label>
-                        <label>
+                            <input placeholder="" type="text" className="controlInput w14r" aria-label="시작일"/> ~
+                            <input placeholder="" type="text" className="controlInput w14r" aria-label="종료일"/>
+                        </div>
+                        <div className="label">
                             <span>표출정보</span>
                             <button
                                 type="button"
                                 className="trackRndBtn"
                             >항적</button>
-                        </label>
+                        </div>
                     </div>
                     
                 </div>

@@ -48,8 +48,8 @@ export default function Analysis3Component() {
                                             <th scope="row">공유 여부</th>
                                             <td >
                                                 <div className="row">
-                                                    <label class="radio radioL"> <input type="radio" name="share" /> <span>공유</span></label>
-                                                    <label class="radio radioL"> <input type="radio" name="share" /> <span>공유 안함</span></label>
+                                                    <label className="radio radioL"> <input type="radio" name="share" /> <span>공유</span></label>
+                                                    <label className="radio radioL"> <input type="radio" name="share" /> <span>공유 안함</span></label>
                                                 </div>
                                             </td>
                                         </tr>

@@ -13,7 +13,7 @@ export default function TopComponent() {
             </div>
 
             <div className="topSchBox">
-                <input type="text" className="tschInput" placeholder="선박 위치 검색" />
+                <input type="text" className="tschInput" placeholder="선박 위치 검색" aria-label="선박 위치 검색" />
                 <button type="button" className="mainSchBtn">검색</button>
             </div>
         </section>

@@ -49,7 +49,7 @@ export default function Satellite1Component() {
                                 </tr>
                                 <tr>
                                     <th scope="row">영상 촬영일 <span className="required">*</span></th>
-                                    <td colSpan={3}><input class="dateInput" placeholder="연도-월-일" type="text" aria-label="영상 촬영일" /></td>
+                                    <td colSpan={3}><input className="dateInput" placeholder="연도-월-일" type="text" aria-label="영상 촬영일" /></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">위성영상파일 <span className="required">*</span></th>
@@ -157,7 +157,7 @@ export default function Satellite1Component() {
                                     <th scope="row">구매가격 </th>
                                     <td>
                                         <div className="numInput">
-                                            <input type="number" placeholder="0" min="" max="" aria-label="구매가격" />
+                                            <input type="number" placeholder="0" aria-label="구매가격" />
                                             <div className="spin">
                                                 <button type="button" className="spinUp"><span className="blind">증가</span></button>
                                                 <button type="button" className="spinDown"><span className="blind">감소</span></button>

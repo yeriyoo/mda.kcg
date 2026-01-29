@@ -42,9 +42,9 @@ export default function Analysis2Component() {
                                 <th scope="row">설정 옵션</th>
                                 <td colSpan={3}>
                                     <div className="row">
-                                        <label class="checkbox checkL"><input type="checkbox" /><span>사용 여부</span></label>
-                                        <label class="checkbox checkL"><input type="checkbox" /><span>알림 여부</span></label>
-                                        <label class="checkbox checkL"><input type="checkbox" /><span>공유 여부</span></label>
+                                        <label className="checkbox checkL"><input type="checkbox" /><span>사용 여부</span></label>
+                                        <label className="checkbox checkL"><input type="checkbox" /><span>알림 여부</span></label>
+                                        <label className="checkbox checkL"><input type="checkbox" /><span>공유 여부</span></label>
                                     </div>
                                 </td>
                             </tr>
@@ -61,8 +61,8 @@ export default function Analysis2Component() {
                                 <th scope="row">영역 옵션</th>
                                 <td colSpan={3}>
                                     <div className="row">
-                                        <label class="checkbox checkL"><input type="checkbox" /><span>해상영역 표시</span></label>
-                                        <label class="checkbox checkL"><input type="checkbox" /><span>해상영역명 표시</span></label>
+                                        <label className="checkbox checkL"><input type="checkbox" /><span>해상영역 표시</span></label>
+                                        <label className="checkbox checkL"><input type="checkbox" /><span>해상영역명 표시</span></label>
                                     </div>
                                 </td>
                             </tr>
@@ -70,7 +70,7 @@ export default function Analysis2Component() {
                                 <th scope="row">해상영역명 크기</th>
                                 <td>
                                     <div className="numInput">
-                                        <input type="number" placeholder="0" min="" max="" aria-label="해상영역명 크기" />
+                                        <input type="number" placeholder="0" aria-label="해상영역명 크기" />
                                         <div className="spin">
                                             <button type="button" className="spinUp"><span className="blind">증가</span></button>
                                             <button type="button" className="spinDown"><span className="blind">감소</span></button>
@@ -84,7 +84,7 @@ export default function Analysis2Component() {
                                 <th scope="row">윤곽선 굵기 </th>
                                 <td>
                                     <div className="numInput">
-                                        <input type="number" placeholder="0" min="" max="" aria-label="윤곽선 굵기 " />
+                                        <input type="number" placeholder="0" aria-label="윤곽선 굵기 " />
                                         <div className="spin">
                                             <button type="button" className="spinUp"><span className="blind">증가</span></button>
                                             <button type="button" className="spinDown"><span className="blind">감소</span></button>

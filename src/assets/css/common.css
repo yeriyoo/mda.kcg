@@ -56,27 +56,36 @@ background:transparent url('../images/ico_control_select.svg')no-repeat right .5
 .tabDefault.borderLess button.on {background-color: var(--secondary2);font-weight:var(--fw-bold);}
 
 /**** 폼그룹 ****/
-.formGroup > ul{width:100%;}
-.formGroup > ul li{display:flex;gap:1rem;}
-.formGroup > ul li+li{margin:.7rem 0;}
-.formGroup > ul li .col{flex:1;}
-.formGroup > ul li label {display: flex; align-items: center; flex: 1 1 50%;}
-.formGroup > ul li label span {flex-shrink: 0;width: 7.5rem; color: var(--white);}
-.formGroup > ul li label select, .formGroup > ul li label input, 
-.formGroup > ul li label .numInput {flex: 1;}
-.formGroup > ul li label .labelRow {flex: 1; display: flex; align-items: center; gap: .5rem; color: var(--white);}
-.formGroup > ul li label .labelRow > span{flex-shrink: 0; width: 2rem; text-align: center; }
-.formGroup > ul li label .labelRow > input, .formGroup > ul li label .labelRow > .numInput {flex: 1;}
-.formGroup > ul li.fgBtn { justify-content: flex-end; padding: 1rem 0 1.5rem;}
-.formGroup > ul li.fgBtn.rowSB  { justify-content: space-between;}
-.formGroup > ul li.fgBtn.rowSB .infoTxt {color: var(--secondary4);}
+.formGroup ul{width:100%; display: flex; flex-direction: column; row-gap: .7rem;}
+.formGroup ul li{display:flex;gap:1rem;}
+/* .formGroup ul li+li{margin:.7rem 0;} */
+.formGroup ul li .col{flex:1;}
+.formGroup ul li .label,
+.formGroup ul li label {display: flex; align-items: center; flex: 1 1 50%;}
+.formGroup ul li .label span,
+.formGroup ul li label span {flex-shrink: 0;width: 7.5rem; color: var(--white);}
+.formGroup ul li label select, 
+.formGroup ul li label input, 
+.formGroup ul li label .numInput {flex: 1;}
+.formGroup ul li label .labelRow,
+.formGroup ul li .label .labelRow {flex: 1; display: flex; align-items: center; gap: .5rem; color: var(--white);}
+.formGroup ul li label .labelRow > span,
+.formGroup ul li .label .labelRow > span{flex-shrink: 0; width: 2rem; text-align: center; }
+.formGroup ul li label .labelRow > input,
+.formGroup ul li .label .labelRow > input, 
+.formGroup ul li label .labelRow > .numInput,
+.formGroup ul li .label .labelRow > .numInput {flex: 1;}
+.formGroup ul li.fgBtn { justify-content: flex-end; padding: 1rem 0 1.5rem;}
+.formGroup ul li.fgBtn.rowSB  { justify-content: space-between;}
+.formGroup ul li.fgBtn.rowSB .infoTxt {color: var(--secondary4);}
 /* 폼그룹 label width변경 */
-.formGroup > ul.lagelW12 li label > span {flex-shrink: 0;width: 12rem; color: var(--white);}
+.formGroup ul.lagelW12 li label > span {flex-shrink: 0;width: 12rem; color: var(--white);}
 /* 폼그룹 아코디언 */
-.formGroup > ul .accordion {max-height: 0; overflow: hidden;transition: max-height .3s ease;}
-.formGroup > ul .accordion.is-open {max-height: 1000px;}
-.formGroup > ul .accordion li {display:flex;gap:1rem;}
-
+.formGroup ul .accordion {max-height: 0; overflow: hidden;transition: max-height .3s ease;}
+.formGroup ul .accordion.is-open {max-height: 1000px;}
+.formGroup ul .accordion li {display:flex;gap:1rem;}
+.formGroup ul li.accordion:not(:last-child) {margin-top: -0.7rem;} /* 아코디언 중간에 생길경우 margin 음수적용*/
+.formGroup ul li.accordion.is-open {max-height: 1000px;margin-top: 0;}
 /* 박스그룹 */
 .schbox ul {display: flex;width: 100%;}
 .schbox ul li:first-child {flex: 1;}
@@ -256,7 +265,7 @@ background:transparent url('../images/ico_control_select.svg')no-repeat right .5
 .pmGallery .navBtn { position: absolute; width: 3.4rem; height: 3.4rem; top: 0; bottom: 0; margin: auto 0; display: flex; align-items: center; justify-content: center;}
 .pmGallery .prev {background: url(../images/ico_arrow_left_big.svg) no-repeat center / 3.4rem; left: 0;}
 .pmGallery .next {background: url(../images/ico_arrow_right_big.svg) no-repeat center / 3.4rem; right: 0;}
-.pmGallery .navBtn.disabled {opacity: 0.5;cursor: default;pointer-events: none;}
+.pmGallery .navBtn.disabled {opacity: 0.5;cursor: default;}
 
 /* popup-Action */
 .shipAction {display: flex; align-items: center; justify-content: space-between;}
@@ -409,8 +418,12 @@ background:transparent url('../images/ico_control_select.svg')no-repeat right .5
 .replayControlBar .control .playProgress {display: flex;flex-direction: column; gap: .6rem; width: 50rem; padding-top: .3rem;}
 .replayControlBar .control .playProgress .timeLabel {font-size: var(--fs-s);}
 .replayControlBar .option {display: flex; align-items: center; width: 100%; padding: .9rem 2.3rem;}
+.replayControlBar .option .label,
 .replayControlBar .option label {display: flex; align-items: center; gap: .5rem;}
+.replayControlBar .option .label span,
 .replayControlBar .option label span {display: flex; width: 6rem; }
+.replayControlBar .option .label:first-child,
 .replayControlBar .option label:first-child {padding-right: 3rem;}
+.replayControlBar .option .label:last-child,
 .replayControlBar .option label:last-child {padding-right: 1rem;}
 .replayControlBar .option .schRndBtn { margin-left: auto;}

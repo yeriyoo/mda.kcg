@@ -38,13 +38,13 @@ export default function Panel3Component({ isOpen, onToggle }) {
             <div className="formGroup">
                 <ul>
                     <li>
-                        <label>
+                        <div className="label">
                             <span>일자</span>
                             <div className='labelRow'>
-                            <input type="text" className="dateInput" placeholder="연도-월-일" />
+                            <input type="text" className="dateInput" placeholder="연도-월-일" aria-label="시작일" />
                                 <span>-</span>
-                                <input type="text"className="dateInput" placeholder="연도-월-일" /></div>
-                        </label>
+                                <input type="text"className="dateInput" placeholder="연도-월-일" aria-label="종료일" /></div>
+                        </div>
                     </li>
                     <li className="fgBtn">
                         <button type="button" className="schBtn">검색</button>

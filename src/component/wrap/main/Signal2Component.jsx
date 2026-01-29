@@ -94,16 +94,16 @@ export default function Signal2Component() {
                                         <label className="radio radioL"> <input type="radio" name="state2" /> <span>미사용</span></label>
                                     </li>
                                     <li className="check">
-                                        <label class="checkbox checkL"><input type="checkbox" /><span>특정 어업수역 I</span></label>
+                                        <label className="checkbox checkL"><input type="checkbox" /><span>특정 어업수역 I</span></label>
                                     </li>
                                     <li className="check">
-                                        <label class="checkbox checkL"><input type="checkbox" /><span>특정 어업수역 II</span></label>
+                                        <label className="checkbox checkL"><input type="checkbox" /><span>특정 어업수역 II</span></label>
                                     </li>
                                     <li className="check">
-                                        <label class="checkbox checkL"><input type="checkbox" /><span>특정 어업수역 III</span></label>
+                                        <label className="checkbox checkL"><input type="checkbox" /><span>특정 어업수역 III</span></label>
                                     </li>
                                     <li className="check">
-                                        <label class="checkbox checkL"><input type="checkbox" /><span>특정 어업수역 IV</span></label>
+                                        <label className="checkbox checkL"><input type="checkbox" /><span>특정 어업수역 IV</span></label>
                                     </li>
                                 </ul>
                             </div>

@@ -46,18 +46,18 @@ export default function Panel2Component({ isOpen, onToggle }) {
                 <div className="formGroup">
                     <ul>
                         <li>
-                            <label>
+                            <div className="label">
                                 <span>영상 촬영일</span>
-                                <div class="labelRow">
-                                    <input class="dateInput" placeholder="연도-월-일" type="text" />
+                                <div className="labelRow">
+                                    <input className="dateInput" placeholder="연도-월-일" type="text" aria-label="시작일" />
                                     <span>-</span>
-                                    <input class="dateInput" placeholder="연도-월-일" type="text" />
+                                    <input className="dateInput" placeholder="연도-월-일" type="text" aria-label="종료일" />
                                 </div>
-                            </label>
+                            </div>
                         </li>
-
+                        <li className={`accordion ${isAccordionOpen1 ? 'is-open' : ''}`}>
                         {/* 아코디언 1 */}
-                        <div className={`accordion pt8 ${isAccordionOpen1 ? 'is-open' : ''}`}>
+                        <ul>
                         <li>
                             <label>
                                 <span>영상 종류</span>
@@ -103,8 +103,9 @@ export default function Panel2Component({ isOpen, onToggle }) {
                                 </select>
                             </label>
                         </li>
-                        </div>
+                        </ul>
                         {/* 여기까지 아코디언1 */}
+                        </li>
                         <li>
                             <label>
                                 <span>위성영상명</span>
@@ -177,9 +178,9 @@ export default function Panel2Component({ isOpen, onToggle }) {
                                         </li>
                                     </ul>
                                     <div className="btnArea">
-                                        <button type="button" className="btnEdit"></button>
-                                        <button type="button" className="btnDel"  onClick={() => navigate("/satellite/delete")}></button>
-                                        <button type="button" className="btnMap"></button>
+                                        <button type="button" className="btnEdit" aria-label="수정"></button>
+                                        <button type="button" className="btnDel" aria-label="삭제"  onClick={() => navigate("/satellite/delete")}></button>
+                                        <button type="button" className="btnMap" aria-label="지도"></button>
                                     </div>
                                 </li>
                             </ul>
@@ -213,18 +214,18 @@ export default function Panel2Component({ isOpen, onToggle }) {
                                         </li>
                                     </ul>
                                     <div className="btnArea">
-                                        <button type="button" className="btnEdit"></button>
-                                        <button type="button" className="btnDel"></button>
-                                        <button type="button" className="btnMap"></button>
+                                        <button type="button" className="btnEdit" aria-label="수정"></button>
+                                        <button type="button" className="btnDel" aria-label="삭제"  onClick={() => navigate("/satellite/delete")}></button>
+                                        <button type="button" className="btnMap" aria-label="지도"></button>
                                     </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     {/* 하단버튼 영역 */}
-                    <div class="btnBox rowSB">
-                        <button type="button" class="btn btnLine">위성영상 폴더 업로드</button>
-                        <button type="button" class="btn btnLine" onClick={() => navigate("/satellite/add")}>위성영상 등록</button>
+                    <div className="btnBox rowSB">
+                        <button type="button" className="btn btnLine">위성영상 폴더 업로드</button>
+                        <button type="button" className="btn btnLine" onClick={() => navigate("/satellite/add")}>위성영상 등록</button>
                     </div>
                 </div>
             </div>
@@ -288,10 +289,10 @@ export default function Panel2Component({ isOpen, onToggle }) {
                         </div>
                     </div>
                     {/* 하단버튼 영역 */}
-                    <div class="btnBox">
+                    <div className="btnBox">
                         <button 
                         type="button" 
-                        class="btn btnLine" 
+                        className="btn btnLine" 
                         onClick={() => navigate("/satellite/provider")}
                         >
                         등록
@@ -391,10 +392,10 @@ export default function Panel2Component({ isOpen, onToggle }) {
                         </div>
                     </div>
                     {/* 하단버튼 영역 */}
-                    <div class="btnBox">
+                    <div className="btnBox">
                         <button 
                         type="button" 
-                        class="btn btnLine" 
+                        className="btn btnLine" 
                         onClick={() => navigate("/satellite/manage")}
                         >
                         등록
