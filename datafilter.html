@@ -1,0 +1,1202 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-police.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-police.png">
+        <link rel="shortcut icon" href="img/favicon-police.ico">
+
+        <link rel="stylesheet" href="common.css">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+        <title>해양환경 위기대응 통합지원시스템 플랫폼</title>
+        <script src="common.js" defer></script>
+    </head>
+    <body>
+      <div class="background-image">
+
+    <!-- 상단 중앙 검색 -->
+    <div class="map-search" role="search" aria-label="선박 위치 검색">
+    <input class="map-search__input" type="search" placeholder="선박 위치 검색" />
+    <button class="map-search__btn" type="button" aria-label="검색">
+        <span class="material-symbols-outlined">search</span>
+    </button>
+    </div>
+
+    <!-- 우측 상단 시간/연장 -->
+    <div class="map-topTime" aria-label="시간 표시">
+        <div class="map-topTime__clock">
+            <span class="material-symbols-outlined map-topTime__ico" aria-hidden="true">schedule</span>
+            <span class="map-topTime__time" id="topClock">03:22:00</span>
+            <button class="map-topTime__extend" type="button">연장</button>
+        </div>
+    </div>
+
+
+    <!-- 하단 중앙 좌표/시간 바 -->
+    <div class="map-hud" aria-label="지도 좌표 표시">
+    <div class="map-hud__pill">
+
+        <span class="map-hud__item">
+        <img src="img/location.svg" alt="" class="map-hud__icon">
+        <span class="map-hud__label">경도</span>
+        <span class="map-hud__value" id="hudLon">129° 38′ 31.071″ E</span>
+        </span>
+
+        <span class="map-hud__divider" aria-hidden="true"></span>
+
+        <span class="map-hud__item">
+        <img src="img/location.svg" alt="" class="map-hud__icon">
+        <span class="map-hud__label">위도</span>
+        <span class="map-hud__value" id="hudLat">35° 21′ 24.580″ N</span>
+        </span>
+
+        <span class="map-hud__divider" aria-hidden="true"></span>
+
+        <span class="map-hud__item">
+        <span class="map-hud__label">KST</span>
+        <span class="map-hud__value" id="hudTime">2024-07-01(월) 12:00:00</span>
+        </span>
+
+        <button class="map-hud__gear" type="button" aria-label="설정">
+        <span class="material-symbols-outlined">settings</span>
+        </button>
+    </div>
+    </div>
+
+ 
+    <!-- ▣ 사이드바 -->
+    <div class="side-bar">
+        <ul class="menu-top">
+            <li><a><span><img src="img/menu_01.svg" alt="라이브맵"></span></a></li>
+            <li><a><span><img src="img/menu_02.svg" alt="선박DB"></span></a></li>
+            <li><a><span><img src="img/menu_03.svg" alt="해경자산"></span></a></li>
+            <li><a><span><img src="img/menu_04.svg" alt="분석검색"></span></a></li>
+            <li><a><span><img src="img/menu_05.svg" alt="분석맵"></span></a></li>
+            <li><a class="menu-analysis" href="javascript:void(0)">
+                <span><img src="img/menu_07.svg" alt="세계선박 데이터 필터"></span></a>
+            </li>
+            <li><a><span><img src="img/menu_08.svg" alt="세계선박 DB"></span></a></li>
+            <li><a><span><img src="img/menu_06.svg" alt="조건분석"></span></a></li>
+        </ul>
+
+        <ul class="menu-bottom">
+            <li><a><span><img src="img/slideicon_01.svg" alt="뷰파인더"></span></a></li>
+            <li><a><span><img src="img/slideicon_02.svg" alt="설정"></span></a></li>
+            <li><a><span><img src="img/slideicon_03.svg" alt="마이페이지"></span></a></li>
+        </ul>
+    </div>
+
+
+    <!-- 왼쪽 패널 전체 -->
+    <div class="left-panel-wrap">
+        <div class="left-panel_480" id="leftPanel480">
+
+        <div class="panel-header-row">
+            <div class="panel-title-480">세계선박 데이터 필터</div>
+            <div class="top-btn-row">
+                <button class="btn-reset" type="button">필터 저장</button>
+                <button class="btn-list" type="button">필터 리스트</button>
+            </div>
+            </div>
+
+            <div class="filter-tabs" role="tablist" aria-label="필터 탭">
+            <button class="filter-tab is-active" type="button" role="tab" aria-selected="true" data-tab="ship">선박</button>
+            <button class="filter-tab" type="button" role="tab" aria-selected="false" data-tab="port">항구</button>
+            <button class="filter-tab" type="button" role="tab" aria-selected="false" data-tab="risk">위험</button>
+            </div>
+
+            <div class="filter-body">
+            <div class="filter-pane is-active" data-pane="ship">
+                <div class="acc">
+
+                <!-- ✅ 1. 선박보기 -->
+                <div class="acc-item">
+                    <button class="acc-head" type="button" aria-expanded="false">
+                        <span class="acc-plus">+</span>
+                        <span class="acc-title">선박보기</span>
+                    </button>
+
+                    <div class="acc-body" hidden>
+                    <div class="acc-inner">
+
+                        <div class="f-block">
+                        <div class="f-tree">
+
+                            <div class="f-row">
+                            <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                                <label class="alarm-check alarm-check--inline">
+                                    <input type="checkbox">
+                                    <span class="check-ui"></span>
+                                    <span class="f-txt">전체 선박</span>
+                                </label>
+                            </div>
+
+                            <div class="f-row f-indent-1">
+                            <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                                <label class="alarm-check alarm-check--inline">
+                                    <input type="checkbox">
+                                    <span class="check-ui"></span>
+                                    <span class="f-txt">내 관심 선박 목록</span>
+                                </label>
+                            </div>
+
+                            <div class="f-row f-indent-2">
+                                <label class="alarm-check alarm-check--inline">
+                                    <input type="checkbox">
+                                    <span class="check-ui"></span>
+                                    <span class="f-txt">관심 선박 001</span>
+                                </label>
+                            </div>
+
+                        </div>
+                        </div>
+
+                    </div>
+                    </div>
+                </div>
+
+                <!-- ✅ 2. 나의 구역 -->
+                <div class="acc-item">
+                    <button class="acc-head" type="button" aria-expanded="false">
+                    <span class="acc-plus">+</span>
+                    <span class="acc-title">나의 구역</span>
+                    </button>
+                    <div class="acc-body" hidden>
+                        <div class="acc-inner">
+                            <div class="f-block">
+                            <div class="f-sec-head">
+                                <button class="f-sec-toggle" type="button" aria-expanded="true">
+                                <span class="f-sec-ico">−</span>
+                                </button>
+                                <div class="f-title">나의 구역</div>
+                            </div>
+
+                            <div class="f-row f-indent-1">
+                                <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                                <div class="f-subtitle">나의 구역</div>
+                            </div>
+
+                            <div class="f-control f-indent-1">
+                                <select class="f-select">
+                                <option>선택</option>
+                                <option>나의 구역 1</option>
+                                <option>나의 구역 2</option>
+                                </select>
+                            </div>
+
+                            <div class="f-row f-indent-1" style="margin-top:12px;">
+                                <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                                <div class="f-subtitle">EEZ 구역</div>
+                            </div>
+
+                            <div class="f-control f-indent-1">
+                                <select class="f-select">
+                                <option>선택</option>
+                                <option>EEZ 1</option>
+                                <option>EEZ 2</option>
+                                </select>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ✅ 3. 선종 -->
+                <div class="acc-item">
+                    <button class="acc-head" type="button" aria-expanded="false">
+                    <span class="acc-plus">+</span>
+                    <span class="acc-title">선종</span>
+                    </button>
+                    <div class="acc-body" hidden>
+                    <div class="acc-inner">
+                        <div class="f-block">
+
+                        <div class="f-list">
+                            <label class="alarm-check alarm-check--inline f-indent-1">
+                                    <input type="checkbox">
+                                    <span class="check-ui"></span>
+                                    <span class="f-txt">벌크선</span>
+                            </label>
+                            <label class="alarm-check alarm-check--inline">
+                                    <input type="checkbox">
+                                    <span class="check-ui"></span>
+                                    <span class="f-txt">화학 운반선</span>
+                            </label>
+                            <label class="alarm-check alarm-check--inline">
+                                    <input type="checkbox">
+                                    <span class="check-ui"></span>
+                                    <span class="f-txt">원유 운반선</span>
+                            </label>
+                            <label class="alarm-check alarm-check--inline">
+                                    <input type="checkbox">
+                                    <span class="check-ui"></span>
+                                    <span class="f-txt">컨테이너선</span>
+                            </label>
+                            <label class="alarm-check alarm-check--inline">
+                                    <input type="checkbox">
+                                    <span class="check-ui"></span>
+                                    <span class="f-txt">일반 화물선</span>
+                            </label>
+                            <label class="alarm-check alarm-check--inline">
+                                    <input type="checkbox">
+                                    <span class="check-ui"></span>
+                                    <span class="f-txt">액화천연가스 운반선 (LNG)</span>
+                            </label>
+                            <label class="alarm-check alarm-check--inline">
+                                    <input type="checkbox">
+                                    <span class="check-ui"></span>
+                                    <span class="f-txt">액화석유가스 운반선 (LPG)</span>
+                            </label>
+                            <label class="alarm-check alarm-check--inline">
+                                    <input type="checkbox">
+                                    <span class="check-ui"></span>
+                                    <span class="f-txt">정유 제품 운반선</span>
+                            </label>
+                            <label class="alarm-check alarm-check--inline">
+                                    <input type="checkbox">
+                                    <span class="check-ui"></span>
+                                    <span class="f-txt">롤온/롤오프선</span>
+                            </label>
+                            <label class="alarm-check alarm-check--inline">
+                                    <input type="checkbox">
+                                    <span class="check-ui"></span>
+                                    <span class="f-txt">검증됨 (IMO)</span>
+                            </label>
+                            <label class="alarm-check alarm-check--inline">
+                                    <input type="checkbox">
+                                    <span class="check-ui"></span>
+                                    <span class="f-txt">alrjawmd (비IMO)</span>
+                            </label>
+                        </div>
+
+                       </div>
+
+                    </div>
+                    </div>
+                </div>
+
+                <!-- ✅ 4. 위험 및 규제 준수 -->
+                <div class="acc-item">
+                    <button class="acc-head" type="button" aria-expanded="false">
+                        <span class="acc-plus">+</span>
+                        <span class="acc-title">위험 및 규제 준수</span>
+                    </button>
+                <div class="acc-body" hidden>
+                    <div class="acc-inner">
+
+                    <div class="f-block">
+                        <div class="f-row">
+                            <button class="f-minus" type="button">−</button>
+                            <div class="f-subtitle">불확실한 최근 위치</div>
+                        </div>
+
+                        <div class="f-slider-row">
+                            <div class="f-days">
+                            <span>6일</span>
+                            </div>
+
+                            <input class="f-range" type="range" min="1" max="30" value="10">
+                            <button class="f-refresh" type="button" aria-label="초기화"><img src="img/reload_02.svg" alt="재실행" class="map-hud__icon"></button>
+                        </div>
+
+                        <div class="f-row" style="margin-top:16px;">
+                            <button class="f-minus" type="button">−</button>
+                            <div class="f-subtitle">규제 준수 상황</div>
+                        </div>
+
+                        <div class="f-control">
+                            <select class="f-select">
+                            <option>경고</option>
+                            <option>주의</option>
+                            <option>정상</option>
+                            </select>
+                        </div>
+
+                        <div class="f-list f-indent-0" style="margin-top:10px;">
+                            <label class="f-check"><input type="checkbox"><span class="f-box"></span><span class="f-txt">OFAC 제재국 근접</span></label>
+                            <label class="f-check"><input type="checkbox"><span class="f-box"></span><span class="f-txt">목적지 제재국</span></label>
+                        </div>
+
+                        <div class="f-row" style="margin-top:16px;">
+                            <button class="f-minus" type="button">−</button>
+                            <div class="f-subtitle">최근 1년 제재국 기항</div>
+                        </div>
+
+                        <div class="f-control">
+                            <select class="f-select">
+                            <option>경고</option>
+                            <option>주의</option>
+                            <option>정상</option>
+                            </select>
+                        </div>
+
+                        <div class="f-row" style="margin-top:16px;">
+                            <button class="f-minus" type="button">−</button>
+                            <label class="f-check">
+                            <input type="checkbox">
+                            <span class="f-box"></span>
+                            <span class="f-txt">전쟁 위험 해역(JWC)</span>
+                            </label>
+                        </div>
+
+                        <div class="f-list f-indent-0">
+                            <label class="f-check"><input type="checkbox"><span class="f-box"></span><span class="f-txt">기니만</span></label>
+                            <label class="f-check"><input type="checkbox"><span class="f-box"></span><span class="f-txt">가이아나 해상 시설</span></label>
+                            <label class="f-check"><input type="checkbox"><span class="f-box"></span><span class="f-txt">인도양 일대..</span></label>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+            
+                <!-- ✅ 최근 기항지/목적지 -->
+                <div class="acc-item">
+                    <button class="acc-head" type="button" aria-expanded="false">
+                        <span class="acc-plus">+</span>
+                        <span class="acc-title">최근 기항지/목적지</span>
+                    </button>
+
+                    <div class="acc-body" hidden>
+                       <div class="acc-inner">
+
+                        <div class="f-block">
+
+                            <!-- 최근 기항지 -->
+                            <div class="f-row">
+                            <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                            <div class="f-subtitle">최근 기항지</div>
+                            </div>
+                            <div class="f-control">
+                            <input class="f-input" type="text" placeholder="">
+                            </div>
+
+                            <!-- 목적지 항구 -->
+                            <div class="f-row" style="margin-top:12px;">
+                            <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                            <div class="f-subtitle">목적지 항구</div>
+                            </div>
+                            <div class="f-control">
+                            <input class="f-input" type="text" placeholder="">
+                            </div>
+
+                            <!-- 도착 예정시각(ETA) -->
+                            <div class="f-row" style="margin-top:12px;">
+                            <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                            <div class="f-subtitle">도착 예정시각 (ETA)</div>
+                            </div>
+
+                            <div class="f-eta">
+                            <div class="f-eta-row">
+                                <div class="f-eta-label">From</div>
+                                <input class="f-input" type="text" placeholder="">
+                            </div>
+                            <div class="f-eta-row">
+                                <div class="f-eta-label">To</div>
+                                <input class="f-input" type="text" placeholder="">
+                            </div>
+                            </div>
+
+                            <!-- 최근 기항 국가/지역 -->
+                            <div class="f-row" style="margin-top:12px;">
+                            <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                            <div class="f-subtitle">최근 기항 국가/지역</div>
+                            </div>
+                            <div class="f-control">
+                            <select class="f-select">
+                                <option>선택</option>
+                                <option>대한민국</option>
+                                <option>일본</option>
+                                <option>중국</option>
+                            </select>
+                            </div>
+
+                            <!-- 목적지 국가/지역 -->
+                            <div class="f-row" style="margin-top:12px;">
+                            <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                            <div class="f-subtitle">목적지 국가/지역</div>
+                            </div>
+                            <div class="f-control">
+                            <select class="f-select">
+                                <option>선택</option>
+                                <option>대한민국</option>
+                                <option>일본</option>
+                                <option>중국</option>
+                            </select>
+                            </div>
+
+                            <!-- 마지막 기항 후 경과일/항해일 (슬라이더 + 리로드) -->
+                            <div class="f-row" style="margin-top:12px;">
+                            <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                            <div class="f-subtitle">마지막 기항 후 경과일/항해일</div>
+                            </div>
+
+                            <div class="f-slider-row">
+                            <div class="f-days">
+                                <span>마지막 호출 50일 전</span>
+                            </div>
+
+                            <input class="f-range" type="range" min="1" max="180" value="50">
+
+                            <button class="f-refresh" type="button" aria-label="초기화">
+                                <img src="img/reload_02.svg" alt="재실행" class="f-reload-icon">
+                            </button>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+                <!-- ✅ 6. 항해 상태 -->
+                <div class="acc-item">
+                    <button class="acc-head" type="button" aria-expanded="false">
+                    <span class="acc-plus">+</span>
+                    <span class="acc-title">항해 상태</span>
+                    </button>
+                    <div class="acc-body" hidden>
+                    <div class="acc-inner">
+                        <div class="f-block">
+
+                            <!-- 1) 7일간 항해 거리 (nm) -->
+                            <div class="f-row">
+                            <button class="f-minus" type="button" data-toggle="sailDist" aria-expanded="true">−</button>
+                            <div class="f-subtitle">7일간 항해 거리 (nm)</div>
+                            </div>
+
+                            <div class="f-groupBody f-indent-1" data-group="sailDist">
+                            <div class="f-eta">
+                                <div class="f-eta-row">
+                                <div class="f-eta-label">From</div>
+                                <input class="f-input" type="text" placeholder="">
+                                </div>
+                                <div class="f-eta-row">
+                                <div class="f-eta-label">To</div>
+                                <input class="f-input" type="text" placeholder="">
+                                </div>
+                            </div>
+                            </div>
+
+                            <!-- 2) 현재 흘수 -->
+                            <div class="f-row" style="margin-top:18px;">
+                            <button class="f-minus" type="button" data-toggle="draftNow" aria-expanded="true">−</button>
+                            <div class="f-subtitle">현재 흘수</div>
+                            </div>
+
+                            <div class="f-groupBody f-indent-1" data-group="draftNow">
+                            <div class="f-eta">
+                                <div class="f-eta-row">
+                                <div class="f-eta-label">From</div>
+                                <input class="f-input" type="text" placeholder="">
+                                </div>
+                                <div class="f-eta-row">
+                                <div class="f-eta-label">To</div>
+                                <input class="f-input" type="text" placeholder="">
+                                </div>
+                            </div>
+                            </div>
+
+                            <!-- 3) 적재 상태 -->
+                            <div class="f-row" style="margin-top:18px;">
+                            <button class="f-minus" type="button" data-toggle="cargoState" aria-expanded="true">−</button>
+                            <div class="f-subtitle f-subtitle--blue">적재 상태</div>
+                            </div>
+
+                            <div class="f-groupBody f-indent-1" data-group="cargoState">
+                                <div class="f-qtyRow">
+                                    <select class="f-select f-select--load">
+                                        <option>적재</option>
+                                        <option>공선</option>
+                                    </select>
+
+                                    <div class="f-qtyBox">
+                                        <input class="f-input f-input--qty" type="number" value="100" />
+                                        <span class="f-unit">t</span>
+                                    </div>
+
+                                    <button class="f-refresh f-refresh--right" type="button" aria-label="초기화">
+                                        <img src="img/reload_02.svg" alt="">
+                                    </button>
+                                </div>
+
+                            <div class="f-slider-row-02" style="margin-top:10px;">
+                                <input class="f-range" type="range" min="0" max="100" value="50">
+                            </div>
+                            </div>
+
+                           </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ✅ 7. 운항 상태 -->
+                <div class="acc-item">
+                <button class="acc-head" type="button" aria-expanded="false">
+                    <span class="acc-plus">+</span>
+                    <span class="acc-title">운항 상태</span>
+                </button>
+
+                <div class="acc-body" hidden>
+                    <div class="acc-inner">
+
+                    <div class="f-block">
+
+                        <!-- STS 작업 또는 표류 중 -->
+                        <div class="f-row">
+                        <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                        <div class="f-subtitle f-subtitle--blue">STS 작업 또는 표류 중</div>
+                        </div>
+                        <div class="f-control">
+                        <select class="f-select">
+                            <option>연료 공급 중</option>
+                            <option>STS 작업 중</option>
+                            <option>표류 중</option>
+                            <option>해당 없음</option>
+                        </select>
+                        </div>
+
+                        <!-- 항구 정박 중 -->
+                        <div class="f-row" style="margin-top:16px;">
+                        <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                        <div class="f-subtitle f-subtitle--blue">항구 정박 중</div>
+                        </div>
+                        <div class="f-control">
+                        <select class="f-select">
+                            <option>예</option>
+                            <option>아니오</option>
+                        </select>
+                        </div>
+
+                        <!-- 부두 접안 중 -->
+                        <div class="f-row" style="margin-top:16px;">
+                        <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                        <div class="f-subtitle f-subtitle--blue">부두 접안 중</div>
+                        </div>
+                        <div class="f-control f-note">(화물 운송, 주요 항구)</div>
+                        <div class="f-control">
+                        <select class="f-select">
+                            <option>예</option>
+                            <option>아니오</option>
+                        </select>
+                        </div>
+
+                        <!-- 최근 적재한 벌크 화물 -->
+                        <div class="f-row" style="margin-top:16px;">
+                        <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                        <div class="f-subtitle">최근 적재한 벌크 화물</div>
+                        </div>
+                        <div class="f-control">
+                        <select class="f-select">
+                            <option value="">선택</option>
+                            <option>석탄</option>
+                            <option>철광석</option>
+                            <option>곡물</option>
+                            <option>비료</option>
+                            <option>기타</option>
+                        </select>
+                        </div>
+
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+
+                <!-- ✅ 8. 소유주 및 등록정보 -->
+                <div class="acc-item">
+                <button class="acc-head" type="button" aria-expanded="false">
+                    <span class="acc-plus">+</span>
+                    <span class="acc-title">소유주 및 등록 정보</span>
+                </button>
+
+                <div class="acc-body" hidden>
+                    <div class="acc-inner">
+                    <div class="f-block">
+
+                        <!-- 기국 -->
+                        <div class="f-row">
+                        <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                        <div class="f-subtitle">기국</div>
+                        </div>
+                        <div class="f-control">
+                        <select class="f-select">
+                            <option value="">선택</option>
+                            <option>대한민국</option>
+                            <option>일본</option>
+                            <option>중국</option>
+                            <option>미국</option>
+                        </select>
+                        </div>
+
+                        <!-- 기국(AIS) -->
+                        <div class="f-row" style="margin-top:16px;">
+                        <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                        <div class="f-subtitle">기국 (AIS)</div>
+                        </div>
+                        <div class="f-control">
+                        <select class="f-select">
+                            <option value="">선택</option>
+                            <option>KOR</option>
+                            <option>JPN</option>
+                            <option>CHN</option>
+                            <option>USA</option>
+                        </select>
+                        </div>
+
+                        <!-- 선박 이름 (드롭다운 + 입력) -->
+                        <div class="f-row" style="margin-top:16px;">
+                        <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                        <div class="f-subtitle">선박 이름</div>
+                        </div>
+                        <div class="f-control">
+                        <select class="f-select">
+                            <option value="">선택</option>
+                            <option>HD HYUNDAI MIPO</option>
+                            <option>SHIP 002</option>
+                            <option>SHIP 003</option>
+                        </select>
+                        </div>
+                        <div class="f-control" style="margin-top:10px;">
+                        <input class="f-input" type="text" placeholder="" />
+                        </div>
+
+                        <!-- 선박 운영사 -->
+                        <div class="f-row" style="margin-top:16px;">
+                        <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                        <div class="f-subtitle">선박 운영사</div>
+                        </div>
+                        <div class="f-control">
+                        <input class="f-input" type="text" placeholder="" />
+                        </div>
+
+                        <!-- 선박 기술 관리자 -->
+                        <div class="f-row" style="margin-top:16px;">
+                        <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                        <div class="f-subtitle">선박 기술 관리자</div>
+                        </div>
+                        <div class="f-control">
+                        <input class="f-input" type="text" placeholder="" />
+                        </div>
+
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+
+                <!-- ✅ 9. 건조 정보 -->
+                <div class="acc-item">
+                <button class="acc-head" type="button" aria-expanded="false">
+                    <span class="acc-plus">+</span>
+                    <span class="acc-title">건조 정보</span>
+                </button>
+
+                <div class="acc-body" hidden>
+                    <div class="acc-inner">
+                    <div class="f-block">
+
+                        <!-- 선령 -->
+                        <div class="f-row">
+                        <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                        <div class="f-subtitle">선령</div>
+                        </div>
+                        <div class="f-eta f-indent-1">
+                        <div class="f-eta-row">
+                            <div class="f-eta-label">From</div>
+                            <input class="f-input" type="text" placeholder="" />
+                        </div>
+                        <div class="f-eta-row">
+                            <div class="f-eta-label">To</div>
+                            <input class="f-input" type="text" placeholder="" />
+                        </div>
+                        </div>
+
+                        <!-- 총중량 톤수 -->
+                        <div class="f-row" style="margin-top:16px;">
+                        <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                        <div class="f-subtitle">총중량 톤수</div>
+                        </div>
+                        <div class="f-eta f-indent-1">
+                        <div class="f-eta-row">
+                            <div class="f-eta-label">From</div>
+                            <input class="f-input" type="text" placeholder="" />
+                        </div>
+                        <div class="f-eta-row">
+                            <div class="f-eta-label">To</div>
+                            <input class="f-input" type="text" placeholder="" />
+                        </div>
+                        </div>
+
+                        <!-- 총톤수 -->
+                        <div class="f-row" style="margin-top:16px;">
+                        <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                        <div class="f-subtitle">총톤수</div>
+                        </div>
+                        <div class="f-eta f-indent-1">
+                        <div class="f-eta-row">
+                            <div class="f-eta-label">From</div>
+                            <input class="f-input" type="text" placeholder="" />
+                        </div>
+                        <div class="f-eta-row">
+                            <div class="f-eta-label">To</div>
+                            <input class="f-input" type="text" placeholder="" />
+                        </div>
+                        </div>
+
+                        <!-- 선박 길이 -->
+                        <div class="f-row" style="margin-top:16px;">
+                        <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                        <div class="f-subtitle">선박 길이</div>
+                        </div>
+                        <div class="f-eta f-indent-1">
+                        <div class="f-eta-row">
+                            <div class="f-eta-label">From</div>
+                            <input class="f-input" type="text" placeholder="" />
+                        </div>
+                        <div class="f-eta-row">
+                            <div class="f-eta-label">To</div>
+                            <input class="f-input" type="text" placeholder="" />
+                        </div>
+                        </div>
+
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+
+                <!-- ✅ 10. 용적/용량 -->
+                <div class="acc-item">
+                <button class="acc-head" type="button" aria-expanded="false">
+                    <span class="acc-plus">+</span>
+                    <span class="acc-title">용적/용량</span>
+                </button>
+
+                <div class="acc-body" hidden>
+                    <div class="acc-inner">
+                    <div class="f-block">
+
+                        <!-- 예인력 -->
+                        <div class="f-row">
+                        <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                        <div class="f-subtitle f-subtitle--blue">예인력</div>
+                        </div>
+
+                        <div class="f-slider-row f-indent-1 f-slider-row--withReset">
+                        <div class="f-rangeHead">
+                            <span class="f-minTxt">최소 1톤</span>
+                        </div>
+
+                        <div class="f-rangeLine">
+                            <input class="f-range" type="range" min="1" max="500" value="150">
+                            <button class="f-refresh" type="button" aria-label="초기화">
+                            <img src="img/reload_02.svg" alt="재실행" class="f-reload-icon">
+                            </button>
+                        </div>
+                        </div>
+
+                        <!-- 가스 적재 용량 -->
+                        <div class="f-row" style="margin-top:16px;">
+                        <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                        <div class="f-subtitle f-subtitle--blue">가스 적재 용량</div>
+                        </div>
+
+                        <div class="f-eta f-indent-1">
+                        <div class="f-eta-row">
+                            <div class="f-eta-label">From</div>
+                            <input class="f-input" type="text" placeholder="" />
+                        </div>
+                        <div class="f-eta-row">
+                            <div class="f-eta-label">To</div>
+                            <input class="f-input" type="text" placeholder="" />
+                        </div>
+                        </div>
+
+                        <div class="f-row" style="margin-top:16px;">
+                        <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                        <div class="f-subtitle f-subtitle--blue">인양 장비 SWL</div>
+                        </div>
+
+                        <div class="f-slider-row f-indent-1 f-slider-row--withReset">
+                        <div class="f-rangeHead">
+                            <span class="f-minTxt">최소 198톤</span>
+                        </div>
+
+                        <div class="f-rangeLine">
+                            <input class="f-range" type="range" min="1" max="500" value="150">
+                            <button class="f-refresh" type="button" aria-label="초기화">
+                            <img src="img/reload_02.svg" alt="재실행" class="f-reload-icon">
+                            </button>
+                        </div>
+                        </div>
+
+                        <!-- TEU -->
+                        <div class="f-row" style="margin-top:16px;">
+                        <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                        <div class="f-subtitle">TEU</div>
+                        </div>
+
+                        <div class="f-eta f-indent-1">
+                        <div class="f-eta-row">
+                            <div class="f-eta-label">From</div>
+                            <input class="f-input" type="text" placeholder="" />
+                        </div>
+                        <div class="f-eta-row">
+                            <div class="f-eta-label">To</div>
+                            <input class="f-input" type="text" placeholder="" />
+                        </div>
+                        </div>
+
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+
+                <!-- ✅ 11. AIS 메시지 -->
+                <div class="acc-item">
+                <button class="acc-head" type="button" aria-expanded="false">
+                    <span class="acc-plus">+</span>
+                    <span class="acc-title">AIS 메시지</span>
+                </button>
+
+                <div class="acc-body" hidden>
+                    <div class="acc-inner">
+                    <div class="f-block">
+
+                        <!-- 최종 확인 시각 -->
+                        <div class="f-row">
+                        <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                        <div class="f-subtitle f-subtitle--blue">최종 확인 시각</div>
+                        </div>
+
+                        <div class="f-aisHead f-indent-1">
+                        <label class="f-radio">
+                            <input type="radio" name="aisLastSeenMode" checked>
+                            <span class="f-radioUi" aria-hidden="true"></span>
+                            <span class="f-radioTxt">최근 확인</span>
+                        </label>
+
+                        <label class="f-radio">
+                            <input type="radio" name="aisLastSeenMode">
+                            <span class="f-radioUi" aria-hidden="true"></span>
+                            <span class="f-radioTxt">미확인 기간</span>
+                        </label>
+                        </div>
+
+                        <div class="f-slider-row f-indent-1 f-slider-row--withReset">
+                        <div class="f-rangeHead">
+                            <span class="f-minTxt">9 시간</span>
+                        </div>
+
+                        <div class="f-rangeLine">
+                            <input class="f-range" type="range" min="1" max="24" value="9">
+                            <button class="f-refresh" type="button" aria-label="초기화">
+                            <img src="img/reload_02.svg" alt="재실행" class="f-reload-icon">
+                            </button>
+                        </div>
+                        </div>
+
+                        <!-- 메시지 종류 -->
+                        <div class="f-row" style="margin-top:16px;">
+                        <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                        <div class="f-subtitle">메시지 종류</div>
+                        </div>
+                        <div class="f-control f-indent-1">
+                        <select class="f-select">
+                            <option value="" selected></option>
+                            <option>Position Report</option>
+                            <option>Static &amp; Voyage</option>
+                            <option>Safety Related</option>
+                        </select>
+                        </div>
+
+                        <!-- 선박 외 MMSI -->
+                        <div class="f-row" style="margin-top:16px;">
+                        <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                        <div class="f-subtitle">선박 외 MMSI</div>
+                        </div>
+                        <div class="f-control f-indent-1">
+                        <select class="f-select">
+                            <option value="" selected></option>
+                            <option>123456789</option>
+                            <option>987654321</option>
+                        </select>
+                        </div>
+
+                        <!-- 비정상 데이터 수신 -->
+                        <div class="f-row" style="margin-top:16px;">
+                        <button class="f-minus" type="button" aria-label="접기/펼치기">−</button>
+                        <div class="f-subtitle">비정상 데이터 수신</div>
+                        </div>
+                        <div class="f-control f-indent-1">
+                        <select class="f-select">
+                            <option value="" selected></option>
+                            <option>예</option>
+                            <option>아니오</option>
+                        </select>
+                        </div>
+
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+
+                </div>
+            </div>
+
+            <!-- 항구 탭 -->
+            <div class="filter-pane" data-pane="port">
+                <div class="acc-inner">
+                    
+                    <div class="acc-item">
+                        <button class="acc-head" type="button" aria-expanded="false">
+                            <span class="acc-plus">+</span>
+                            <span class="acc-title">화물종류</span>
+                        </button>
+
+                        <div class="acc-body" hidden>
+                            <div class="acc-inner">내용</div>
+                        </div>
+                    </div>
+
+                    <div class="acc-item">
+                        <button class="acc-head" type="button" aria-expanded="false">
+                            <span class="acc-plus">+</span>
+                            <span class="acc-title">국가/지역</span>
+                        </button>
+
+                        <div class="acc-body" hidden>
+                            <div class="acc-inner">내용</div>
+                        </div>
+                    </div>
+
+                    <div class="acc-item">
+                        <button class="acc-head" type="button" aria-expanded="false">
+                            <span class="acc-plus">+</span>
+                            <span class="acc-title">최대 전장</span>
+                        </button>
+
+                        <div class="acc-body" hidden>
+                            <div class="acc-inner">내용</div>
+                        </div>
+                    </div>
+
+                    <div class="acc-item">
+                        <button class="acc-head" type="button" aria-expanded="false">
+                            <span class="acc-plus">+</span>
+                            <span class="acc-title">최대 흘수</span>
+                        </button>
+
+                        <div class="acc-body" hidden>
+                            <div class="acc-inner">내용</div>
+                        </div>
+                    </div>
+
+                    <div class="acc-item">
+                        <button class="acc-head" type="button" aria-expanded="false">
+                            <span class="acc-plus">+</span>
+                            <span class="acc-title">최대 폭</span>
+                        </button>
+
+                        <div class="acc-body" hidden>
+                            <div class="acc-inner">내용</div>
+                        </div>
+                    </div>
+
+                    <div class="acc-item">
+                        <button class="acc-head" type="button" aria-expanded="false">
+                            <span class="acc-plus">+</span>
+                            <span class="acc-title">최대 적재 중량</span>
+                        </button>
+
+                        <div class="acc-body" hidden>
+                            <div class="acc-inner">내용</div>
+                        </div>
+                    </div>
+
+                    <div class="acc-item">
+                        <button class="acc-head" type="button" aria-expanded="false">
+                            <span class="acc-plus">+</span>
+                            <span class="acc-title">최대 외해 흘수</span>
+                        </button>
+
+                        <div class="acc-body" hidden>
+                            <div class="acc-inner">내용</div>
+                        </div>
+                    </div>
+
+                    <div class="acc-item">
+                        <button class="acc-head" type="button" aria-expanded="false">
+                            <span class="acc-plus">+</span>
+                            <span class="acc-title">최대 외해 전장</span>
+                        </button>
+
+                        <div class="acc-body" hidden>
+                            <div class="acc-inner">내용</div>
+                        </div>
+                    </div>
+
+                    <div class="acc-item">
+                        <button class="acc-head" type="button" aria-expanded="false">
+                            <span class="acc-plus">+</span>
+                            <span class="acc-title">최대 외해 화물창 적재용적</span>
+                        </button>
+
+                        <div class="acc-body" hidden>
+                            <div class="acc-inner">내용</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 위험 탭 -->
+            <div class="filter-pane" data-pane="risk">
+                <div class="acc-inner">
+                     <div class="acc-item">
+                        <button class="acc-head" type="button" aria-expanded="false">
+                            <span class="acc-plus">+</span>
+                            <span class="acc-title">사고</span>
+                        </button>
+
+                        <div class="acc-body" hidden>
+                            <div class="acc-inner">내용</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+
+            <div class="filter-footer">
+            <button class="filter-search-btn" type="button">선박 검색</button>
+            </div>
+
+        </div>
+
+        <!-- 패널 접기/펼치기 버튼 -->
+        <button class="panel-collapseBtn_480" type="button" aria-label="패널 접기/펼치기">
+            <img src="img/panel-collapseBtn.svg" alt="접힘펼침버튼">
+        </button>
+       </div>
+
+
+        <!-- 오른쪽 퀵메뉴 -->
+        <div class="quick-menu">
+            <div class="quick-menu-top">
+                <button class="q-btn" data-tooltip="알람"><img src="img/quick_001.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="관심선박"><img src="img/quick_002.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="미니맵"><img src="img/quick_003.svg" alt=""></button>
+            </div>
+
+            <div class="gap-space"></div>
+            <button class="q-btn mid-toggle">
+                <span class="material-symbols-outlined">keyboard_arrow_up</span>
+            </button>
+
+            <div class="quick-menu-middle">
+                <button class="q-btn active" data-tooltip="기상"><img src="img/quick_004.svg" alt=""></button>
+                <button class="q-btn active" data-tooltip="다운로드"><img src="img/quick_005.svg" alt=""></button>
+            </div>
+            
+            <div class="gap-space"></div>
+            <div class="quick-menu-bottom">
+                <button class="q-btn" data-tooltip="선박통합"><img src="img/quick_006.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="선박표시"><img src="img/quick_007.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="해경자산"><img src="img/quick_008.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="구역설정"><img src="img/quick_009.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="거리"><img src="img/quick_010.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="면적"><img src="img/quick_011.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="거리환"><img src="img/quick_012.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="캡처"><img src="img/quick_013.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="초기화"><img src="img/quick_014.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="AI"><img src="img/quick_015.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="업로드"><img src="img/quick_016.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="선박추적"><img src="img/quick_017.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="필터결과"><img src="img/quick_018.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="녹화"><img src="img/quick_019.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="항공영상"><img src="img/quick_020.svg" alt=""></button>
+            </div>
+        </div>
+
+        <div class="quick-menu-end">
+            <button class="q-btn"><img src="img/quick_021.svg" alt=""></button>
+            <button class="q-btn"><img src="img/quick_022.svg" alt=""></button>
+            <button class="q-btn"><img src="img/quick_023.svg" alt=""></button>
+        </div>
+        <div class="gap-space"></div>
+        <div class="quick-menu-end-02">
+            <button class="q-btn" id="btnLegend" type="button" aria-label="범례" aria-expanded="false">
+            <img src="img/quick_024.svg" alt=""></button>
+        </div>
+      </div>
+     <div id="tooltip-layer"></div>
+
+    <div class="legend-panel" id="legendPanel" aria-hidden="true">
+    <ul class="legend-list">
+        <li class="legend-item"><img src="img/legend_01.svg" alt=""><span>어선</span><b>23255</b></li>
+        <li class="legend-item"><img src="img/legend_02.svg" alt=""><span>여객선</span><b>914</b></li>
+        <li class="legend-item"><img src="img/legend_03.svg" alt=""><span>화물선</span><b>12025</b></li>
+        <li class="legend-item"><img src="img/legend_04.svg" alt=""><span>유조선</span><b>3364</b></li>
+        <li class="legend-item"><img src="img/legend_05.svg" alt=""><span>관공선</span><b>497</b></li>
+        <li class="legend-item"><img src="img/legend_06.svg" alt=""><span>경비 함정</span><b>483</b></li>
+        <li class="legend-item"><img src="img/legend_07.svg" alt=""><span>어망/부이</span><b>1351</b></li>
+        <li class="legend-item"><img src="img/legend_08.svg" alt=""><span>기타</span><b>8087</b></li>
+    </ul>
+    </div>
+
+    <!--  필터 리스트 -->
+  <div id="filterListPanel" class="filterListPanel" hidden aria-hidden="true">
+    <div class="filterListPanel__head">
+      <div class="filterListPanel__headTop">
+        <div class="filterListPanel__title">필터 리스트</div>
+        <button class="filterListPanel__close" type="button" aria-label="닫기">
+          <img src="img/close-btn.svg" alt="닫기">
+        </button>
+      </div>
+
+      <div class="filterListPanel__headBtns">
+        <button class="caBtn-02" type="button">공유</button>
+        <button class="caBtn-02" type="button">삭제</button>
+      </div>
+    </div>
+
+        <div class="filterListPanel__body">
+            <table class="caTable caTable--filterList">
+            <thead>
+                <tr>
+                <th style="width:60px;">
+                    <label class="alarm-check">
+                    <input type="checkbox" id="filterListAllChk">
+                    <span class="check-ui"></span>
+                    </label>
+                </th>
+                <th style="width:40px;">번호</th>
+                <th>필터 이름</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                    <td>
+                        <label class="alarm-check">
+                        <input type="checkbox" class="filterRowChk" checked>
+                        <span class="check-ui"></span>
+                        </label>
+                    </td>
+                    <td>1</td>
+                    <td>필터 001</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+    </body>
+</html>

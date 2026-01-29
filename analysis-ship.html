@@ -1,0 +1,455 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-police.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-police.png">
+        <link rel="shortcut icon" href="img/favicon-police.ico">
+
+        <link rel="stylesheet" href="common.css">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+        <title>해양환경 위기대응 통합지원시스템 플랫폼</title>
+        <script src="common.js" defer></script>
+    </head>
+    <body>
+      <div class="background-image">
+
+    <!-- 상단 중앙 검색 -->
+    <div class="map-search" role="search" aria-label="선박 위치 검색">
+    <input class="map-search__input" type="search" placeholder="선박 위치 검색" />
+    <button class="map-search__btn" type="button" aria-label="검색">
+        <span class="material-symbols-outlined">search</span>
+    </button>
+    </div>
+
+    <!-- 우측 상단 시간/연장 -->
+    <div class="map-topTime" aria-label="시간 표시">
+        <div class="map-topTime__clock">
+            <span class="material-symbols-outlined map-topTime__ico" aria-hidden="true">schedule</span>
+            <span class="map-topTime__time" id="topClock">03:22:00</span>
+            <button class="map-topTime__extend" type="button">연장</button>
+        </div>
+    </div>
+
+
+    <!-- 하단 중앙 좌표/시간 바 -->
+    <div class="map-hud" aria-label="지도 좌표 표시">
+    <div class="map-hud__pill">
+
+        <span class="map-hud__item">
+        <img src="img/location.svg" alt="" class="map-hud__icon">
+        <span class="map-hud__label">경도</span>
+        <span class="map-hud__value" id="hudLon">129° 38′ 31.071″ E</span>
+        </span>
+
+        <span class="map-hud__divider" aria-hidden="true"></span>
+
+        <span class="map-hud__item">
+        <img src="img/location.svg" alt="" class="map-hud__icon">
+        <span class="map-hud__label">위도</span>
+        <span class="map-hud__value" id="hudLat">35° 21′ 24.580″ N</span>
+        </span>
+
+        <span class="map-hud__divider" aria-hidden="true"></span>
+
+        <span class="map-hud__item">
+        <span class="map-hud__label">KST</span>
+        <span class="map-hud__value" id="hudTime">2024-07-01(월) 12:00:00</span>
+        </span>
+
+        <button class="map-hud__gear" type="button" aria-label="설정">
+        <span class="material-symbols-outlined">settings</span>
+        </button>
+    </div>
+    </div>
+
+ 
+    <!-- ▣ 사이드바 -->
+    <div class="side-bar">
+        <ul class="menu-top">
+            <li><a><span><img src="img/menu_01.svg" alt="라이브맵"></span></a></li>
+            <li><a><span><img src="img/menu_02.svg" alt="선박DB"></span></a></li>
+            <li><a><span><img src="img/menu_03.svg" alt="해경자산"></span></a></li>
+            <li><a class="menu-analysis" href="javascript:void(0)">
+                <span><img src="img/menu_04.svg" alt="분석검색"></span></a>
+            </li>
+            <li><a><span><img src="img/menu_05.svg" alt="분석맵"></span></a></li>
+                <a><span><img src="img/menu_07.svg" alt="데이터 필터"></span></a>
+            </li>
+            <li><a><span><img src="img/menu_08.svg" alt="세계선박 DB"></span></a></li>
+            <li><a><span><img src="img/menu_06.svg" alt="조건분석"></span></a></li>
+        </ul>
+
+        <ul class="menu-bottom">
+            <li><a><span><img src="img/slideicon_01.svg" alt="뷰파인더"></span></a></li>
+            <li><a><span><img src="img/slideicon_02.svg" alt="설정"></span></a></li>
+            <li><a><span><img src="img/slideicon_03.svg" alt="마이페이지"></span></a></li>
+        </ul>
+    </div>
+
+
+
+        <!-- 왼쪽 패널 전체 -->
+        <div class="left-panel-wrap">
+        <div class="left-panel_480" id="leftPanel480">
+            <div class="panel-header-row">
+                <div class="panel-title-480">분석 검색</div>
+
+                <div class="top-btn-row">
+                    <button class="btn-reset">초기화</button>
+                    <button class="btn-list">분석리스트</button>
+                </div>
+            </div>
+
+            <div class="section-box analysis-method">
+                <div class="section-label method-label">분석<br>방법</div>
+
+                <div class="method-grid">
+                    <label><input type="radio" name="method"> 항적분석</label>
+                    <label><input type="radio" name="method" checked> 리플레이</label>
+                    <label><input type="radio" name="method"> 타임라인</label>
+                    <label><input type="radio" name="method"> 사용자분석</label>
+                </div>
+            </div>
+
+            <div class="section-box analysis-period">
+                <div class="section-label method-label">분석<br>기간</div>
+
+                <div class="date-range">
+                    <input type="text" class="date-input" value="2024-01-01 (12:00:00)">
+                    <span class="date-separator">~</span>
+                    <input type="text" class="date-input" value="2024-12-01 (12:00:00)">
+                </div>
+            </div>
+
+            <button class="analysis-main-btn">분석</button>
+
+            <div class="analysis-result">
+
+            <button class="analysis-result-header" type="button">
+                <span class="title">분석 결과 - 필터 설정</span>
+                <span class="arrow"></span>
+            </button>
+
+            <div class="analysis-result-body">
+
+                <div class="result-row">
+                <div class="row-label">선박<br>목록</div>
+                <div class="row-controls">
+                    <label class="toggle">
+                        <span class="toggle-label">기본</span>
+                        <input type="checkbox" checked>
+                        <span class="toggle-ui"></span>
+                    </label>
+                    <label class="toggle">
+                        <span class="toggle-label">선택</span>
+                        <input type="checkbox" checked>
+                        <span class="toggle-ui"></span>
+                    </label>
+                   <label class="toggle">
+                        <span class="toggle-label">삭제</span>
+                        <input type="checkbox" checked>
+                        <span class="toggle-ui"></span>
+                    </label>
+                </div>
+                </div>
+
+                <div class="result-row">
+                <div class="row-label">선종</div>
+                <div class="row-controls grid">
+                    <label class="toggle">
+                        <span class="toggle-label">어선</span>
+                        <input type="checkbox" checked>
+                        <span class="toggle-ui"></span>
+                    </label>
+                    <label class="toggle">
+                        <span class="toggle-label">함정</span>
+                        <input type="checkbox" checked>
+                        <span class="toggle-ui"></span>
+                    </label>
+                    <label class="toggle">
+                        <span class="toggle-label">여객선</span>
+                        <input type="checkbox" checked>
+                        <span class="toggle-ui"></span>
+                    </label>
+                    <label class="toggle">
+                        <span class="toggle-label">화물선</span>
+                        <input type="checkbox" checked>
+                        <span class="toggle-ui"></span>
+                    </label>
+                    <label class="toggle">
+                        <span class="toggle-label">유조선</span>
+                        <input type="checkbox" checked>
+                        <span class="toggle-ui"></span>
+                    </label>
+                    <label class="toggle">
+                        <span class="toggle-label">관공선</span>
+                        <input type="checkbox" checked>
+                        <span class="toggle-ui"></span>
+                    </label>
+                    <label class="toggle">
+                        <span class="toggle-label">기타</span>
+                        <input type="checkbox" checked>
+                        <span class="toggle-ui"></span>
+                    </label>
+                    <label class="toggle">
+                        <span class="toggle-label">부이</span>
+                        <input type="checkbox" checked>
+                        <span class="toggle-ui"></span>
+                    </label>
+                </div>
+                </div>
+
+                <div class="result-row">
+                <div class="row-label">항적</div>
+                <div class="row-controls">
+                    <label class="toggle">
+                        <span class="toggle-label">기본</span>
+                        <input type="checkbox" checked>
+                        <span class="toggle-ui"></span>
+                    </label>
+                    <label class="toggle">
+                        <span class="toggle-label">선택</span>
+                        <input type="checkbox" checked>
+                        <span class="toggle-ui"></span>
+                    </label>
+                    <label class="toggle">
+                        <span class="toggle-label">삭제</span>
+                        <input type="checkbox" checked>
+                        <span class="toggle-ui"></span>
+                    </label>
+                </div>
+                </div>
+
+                <div class="result-row">
+                <div class="row-label">라벨</div>
+                <div class="row-controls">
+                     <label class="toggle">
+                        <span class="toggle-label">기본</span>
+                        <input type="checkbox" checked>
+                        <span class="toggle-ui"></span>
+                    </label>
+                    <label class="toggle">
+                        <span class="toggle-label">선택</span>
+                        <input type="checkbox" checked>
+                        <span class="toggle-ui"></span>
+                    </label>
+                    <label class="toggle">
+                        <span class="toggle-label">삭제</span>
+                        <input type="checkbox" checked>
+                        <span class="toggle-ui"></span>
+                    </label>
+                </div>
+               </div>
+
+            </div>
+            </div>
+
+            <div class="analysis-result ship-result" id="shipResult">
+
+            <button class="analysis-result-header" type="button">
+                <span class="title">분석 결과 - 선박 목록 (총 <span id="shipTotal">275</span>척)</span>
+                <span class="arrow"></span>
+            </button>
+
+            <div class="analysis-result-body">
+
+                <div class="ship-filter-row">
+                <select class="ship-select">
+                    <option>선종</option>
+                    <option>어선</option>
+                    <option>여객선</option>
+                    <option>화물선</option>
+                </select>
+
+                <select class="ship-select">
+                    <option>국적</option>
+                    <option>한국</option>
+                    <option>중국</option>
+                    <option>일본</option>
+                </select>
+
+                <input class="ship-search" type="text" placeholder="선박명">
+                </div>
+
+                <div class="ship-action-row">
+                <div class="ship-selected-pill"><span id="shipSelected">1</span>척 선택됨</div>
+
+                <div class="ship-bulk">
+                    <span class="ship-bulk-label">일괄 이동:</span>
+                    <button class="btn-bulk">
+                        <span class="btn-bulk-title">초기화</span>
+                        <img src="img/reload.svg" alt="" class="btn-icon">
+                    </button>
+                    <button class="btn-bulk"><span class="btn-bulk-title">선택</span></button>
+                    <button class="btn-bulk"><span class="btn-bulk-title">삭제</span></button>
+                </div>
+                </div>
+
+                <div class="ship-tabs">
+                <button class="ship-tab is-active" data-tab="base">기본 선박 (265)</button>
+                <button class="ship-tab" data-tab="picked">선택 선박 (4)</button>
+                <button class="ship-tab" data-tab="deleted">삭제 선박 (6)</button>
+                </div>
+
+                <div class="ship-list" id="shipList">
+                <div class="ship-item">
+                    <label class="ship-check">
+                        <input type="checkbox" checked>
+                        <span class="check-ui"></span>
+                    </label>
+
+                    <div class="ship-meta">
+                    <div class="ship-code">0001</div>
+                    <div class="ship-name">1511함A-05</div>
+                    <div class="ship-flag">🇰🇷</div>
+                    <div class="ship-signal">
+                        <span class="dot"></span>
+                        <span class="sig-text">(AIS)</span>
+                    </div>
+                    </div>
+
+                    <button class="ship-go" type="button" aria-label="해당 선박으로 이동"></button>
+                </div>
+
+                <div class="ship-item">
+                    <label class="ship-check">
+                        <input type="checkbox">
+                        <span class="check-ui"></span>
+                    </label>
+
+                    <div class="ship-meta">
+                    <div class="ship-code">0002</div>
+                    <div class="ship-name">1511함A-48</div>
+                    <div class="ship-flag">🇰🇷</div>
+                    <div class="ship-signal">
+                        <span class="dot"></span>
+                        <span class="sig-text">(AIS)</span>
+                    </div>
+                    </div>
+
+                    <button class="ship-go" type="button" aria-label="해당 선박으로 이동"></button>
+                </div>
+
+                <div class="ship-item">
+                    <label class="ship-check">
+                    <input type="checkbox">
+                    <span class="check-ui"></span>
+                    </label>
+
+                    <div class="ship-meta">
+                    <div class="ship-code">0002</div>
+                    <div class="ship-name">1511함A-48</div>
+                    <div class="ship-flag">🇰🇷</div>
+                    <div class="ship-signal">
+                        <span class="dot"></span>
+                        <span class="sig-text">(AIS)</span>
+                    </div>
+                    </div>
+
+                    <button class="ship-go" type="button" aria-label="해당 선박으로 이동"></button>
+                </div>
+
+                <div class="ship-item">
+                    <label class="ship-check">
+                    <input type="checkbox">
+                    <span class="check-ui"></span>
+                    </label>
+
+                    <div class="ship-meta">
+                    <div class="ship-code">0002</div>
+                    <div class="ship-name">1511함A-48</div>
+                    <div class="ship-flag">🇰🇷</div>
+                    <div class="ship-signal">
+                        <span class="dot"></span>
+                        <span class="sig-text">(AIS)</span>
+                    </div>
+                    </div>
+
+                    <button class="ship-go" type="button" aria-label="해당 선박으로 이동"></button>
+                </div>
+                </div>
+
+            </div>
+            </div>
+
+          </div>
+
+            <!-- 패널 접기/펼치기 버튼 -->
+            <button class="panel-collapseBtn_480" type="button" aria-label="패널 접기/펼치기">
+                <img src="img/panel-collapseBtn.svg" alt="접힘펼침버튼">
+            </button>
+        </div>
+
+
+        <!-- 오른쪽 퀵메뉴 -->
+        <div class="quick-menu">
+            <div class="quick-menu-top">
+                <button class="q-btn" data-tooltip="알람"><img src="img/quick_001.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="관심선박"><img src="img/quick_002.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="미니맵"><img src="img/quick_003.svg" alt=""></button>
+            </div>
+
+            <div class="gap-space"></div>
+            <button class="q-btn mid-toggle">
+                <span class="material-symbols-outlined">keyboard_arrow_up</span>
+            </button>
+
+            <div class="quick-menu-middle">
+                <button class="q-btn active" data-tooltip="기상"><img src="img/quick_004.svg" alt=""></button>
+                <button class="q-btn active" data-tooltip="다운로드"><img src="img/quick_005.svg" alt=""></button>
+            </div>
+            
+            <div class="gap-space"></div>
+            <div class="quick-menu-bottom">
+                <button class="q-btn" data-tooltip="선박통합"><img src="img/quick_006.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="선박표시"><img src="img/quick_007.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="해경자산"><img src="img/quick_008.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="구역설정"><img src="img/quick_009.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="거리"><img src="img/quick_010.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="면적"><img src="img/quick_011.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="거리환"><img src="img/quick_012.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="캡처"><img src="img/quick_013.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="초기화"><img src="img/quick_014.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="AI"><img src="img/quick_015.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="업로드"><img src="img/quick_016.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="선박추적"><img src="img/quick_017.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="필터결과"><img src="img/quick_018.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="녹화"><img src="img/quick_019.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="항공영상"><img src="img/quick_020.svg" alt=""></button>
+            </div>
+        </div>
+
+        <div class="quick-menu-end">
+            <button class="q-btn"><img src="img/quick_021.svg" alt=""></button>
+            <button class="q-btn"><img src="img/quick_022.svg" alt=""></button>
+            <button class="q-btn">
+                <img src="img/quick_023.svg" alt="">
+            </button>
+        </div>
+        <div class="gap-space"></div>
+        <div class="quick-menu-end-02">
+            <button class="q-btn" id="btnLegend" type="button" aria-label="범례" aria-expanded="false"><img src="img/quick_024.svg" alt=""></button>
+        </div>
+
+      </div>
+     <div id="tooltip-layer"></div>
+      <div class="legend-panel" id="legendPanel" aria-hidden="true">
+    <ul class="legend-list">
+        <li class="legend-item"><img src="img/legend_01.svg" alt=""><span>어선</span><b>23255</b></li>
+        <li class="legend-item"><img src="img/legend_02.svg" alt=""><span>여객선</span><b>914</b></li>
+        <li class="legend-item"><img src="img/legend_03.svg" alt=""><span>화물선</span><b>12025</b></li>
+        <li class="legend-item"><img src="img/legend_04.svg" alt=""><span>유조선</span><b>3364</b></li>
+        <li class="legend-item"><img src="img/legend_05.svg" alt=""><span>관공선</span><b>497</b></li>
+        <li class="legend-item"><img src="img/legend_06.svg" alt=""><span>경비 함정</span><b>483</b></li>
+        <li class="legend-item"><img src="img/legend_07.svg" alt=""><span>어망/부이</span><b>1351</b></li>
+        <li class="legend-item"><img src="img/legend_08.svg" alt=""><span>기타</span><b>8087</b></li>
+    </ul>
+    </div>
+    
+    </body>
+</html>

@@ -1,0 +1,363 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-police.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-police.png">
+        <link rel="shortcut icon" href="img/favicon-police.ico">
+
+        <link rel="stylesheet" href="common.css">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+        <title>해양환경 위기대응 통합지원시스템 플랫폼</title>
+        <script src="common.js" defer></script>
+    </head>
+    <body>
+
+    <!-- ▣ 사이드바 -->
+  <div class="page-wrap">
+    <div class="side-bar">
+      <ul class="menu-top">
+        <li><a><span><img src="img/menu_01.svg" alt="라이브맵"></span></a></li>
+        <li><a><span><img src="img/menu_02.svg" alt="선박DB"></span></a></li>
+        <li><a><span><img src="img/menu_03.svg" alt="해경자산"></span></a></li>
+        <li><a><span><img src="img/menu_04.svg" alt="분석검색"></span></a></li>
+        <li><a><span><img src="img/menu_05.svg" alt="분석맵"></span></a></li>
+        <li><a><span><img src="img/menu_07.svg" alt="세계선박 데이터 필터"></span></a></li>
+        <li><a id="menuWorldShipDB" href="javascript:void(0)">
+            <span><img src="img/menu_08.svg" alt="세계선박 DB"></span>
+            </a>
+        </li>
+        <li><a><span><img src="img/menu_06.svg" alt="조건분석"></span></a></li>
+      </ul>
+
+      <ul class="menu-bottom">
+        <li><a><span><img src="img/slideicon_01.svg" alt="뷰파인더"></span></a></li>
+        <li><a><span><img src="img/slideicon_02.svg" alt="설정"></span></a></li>
+        <li><a><span><img src="img/slideicon_03.svg" alt="마이페이지"></span></a></li>
+      </ul>
+    </div>
+        
+        <!-- ✅ 콘텐츠 영역 -->
+        <div class="content-wrap">
+
+        <aside class="subnav left-panel_200" aria-label="세계 선박 DB 메뉴">
+            <div class="subnav__title">세계 선박 DB</div>
+            <div class="subnav__item is-active"><span>식별</span><span class="subnav__arrow">›</span></div>
+            <div class="subnav__item"><span>특성</span></div>
+            <div class="subnav__item"><span>비정상 정보</span></div>
+            <div class="subnav__item"><span>움직임</span></div>
+            <div class="subnav__item"><span>위치</span></div>
+            <div class="subnav__item"><span>이력</span></div>
+            <div class="subnav__item"><span>제재</span></div>
+            <div class="subnav__item"><span>외부 데이터</span></div>
+        </aside>
+
+        <button class="panel-collapseBtn_200" type="button" aria-label="패널 접기/펼치기">
+                <img src="img/panel-collapseBtn.svg" alt="접힘펼침버튼">
+        </button>
+
+        <main class="main">
+        <section class="search-card" aria-label="검색 조건">
+            <div class="search-grid">
+                <div class="field">
+                <label>국적 (ISO3)</label>
+                <select>
+                    <option>국가를 선택해 주세요.</option>
+                    <option>KOR</option>
+                    <option>JPN</option>
+                    <option>CHN</option>
+                </select>
+                </div>
+
+                <div class="field">
+                <label>MMSI</label>
+                <input type="text" placeholder="MMSI(9자리)를 입력해 주세요." />
+                </div>
+
+                <div class="field">
+                <label>IMO</label>
+                <input type="text" placeholder="IMO(7자리)를 입력해 주세요." />
+                </div>
+
+                <div class="field">
+                <label>선명(Name)</label>
+                <input type="text" placeholder="선명을 입력해 주세요." />
+                </div>
+
+                <div class="field">
+                <label>호출부호(Call Sign)</label>
+                <input type="text" placeholder="호출부호를 입력해 주세요." />
+                </div>
+
+                <div class="field">
+                <label>화물유형</label>
+                <select>
+                    <option>화물유형을 선택해 주세요.</option>
+                    <option>Bulk</option>
+                    <option>Oil</option>
+                </select>
+                </div>
+            </div>
+
+            <div class="search-actions">
+                <button class="btn" type="button">조건 분석 추가</button>
+                <button class="btn--reload" type="button">초기화<img src="img/reload.svg" alt="초기화"></button>
+                <button class="btn btn--primary" type="button">검색<img src="img/db_search.svg" alt="검색"></button>
+            </div>
+        </section>
+
+           <div class="chips-wrap" aria-label="적용된 조건">
+                <div class="chips" aria-label="적용된 조건">
+                    <div class="chip">식별 &gt; 기국 &gt; 국가 01 <button type="button" class="chip__x" aria-label="삭제">×</button></div>
+                    <div class="chip">식별 &gt; 기국 &gt; 국가 02 <button type="button" class="chip__x" aria-label="삭제">×</button></div>
+                    <div class="chip">식별 &gt; 선명 &gt; 선명이름 &gt; 일치 <button type="button" class="chip__x" aria-label="삭제">×</button></div>
+                    <div class="chip">식별 &gt; MMSI &gt; MMSI명 &gt; 시작 <button type="button" class="chip__x" aria-label="삭제">×</button></div>
+                    <div class="chip">식별 &gt; MMSI &gt; MMSI명 &gt; 일부일치 <button type="button" class="chip__x" aria-label="삭제">×</button></div>
+                    <div class="chip">식별 &gt; MMSI &gt; MMSI명 &gt; 일부일치 <button type="button" class="chip__x" aria-label="삭제">×</button></div>
+                    <div class="chip">식별 &gt; MMSI &gt; MMSI명 &gt; 일부일치 <button type="button" class="chip__x" aria-label="삭제">×</button></div>
+                    <div class="chip">식별 &gt; MMSI &gt; MMSI명 &gt; 일부일치 <button type="button" class="chip__x" aria-label="삭제">×</button></div>
+                    <div class="chip">식별 &gt; MMSI &gt; MMSI명 &gt; 일부일치 <button type="button" class="chip__x" aria-label="삭제">×</button></div>
+                    <div class="chip">식별 &gt; MMSI &gt; MMSI명 &gt; 일부일치 <button type="button" class="chip__x" aria-label="삭제">×</button></div>
+                    <div class="chip">식별 &gt; MMSI &gt; MMSI명 &gt; 일부일치 <button type="button" class="chip__x" aria-label="삭제">×</button></div>
+                    <div class="chip">식별 &gt; MMSI &gt; MMSI명 &gt; 일부일치 <button type="button" class="chip__x" aria-label="삭제">×</button></div>
+                    <div class="chip">식별 &gt; MMSI &gt; MMSI명 &gt; 일부일치 <button type="button" class="chip__x" aria-label="삭제">×</button></div>
+
+                </div>
+            </div>
+
+
+            <!-- 결과 영역 -->
+            <section class="result-card" aria-label="검색 결과">
+
+            <div class="result-top">
+                <div class="tabs" role="tablist" aria-label="결과 보기">
+                <button class="tab is-active" type="button" data-view="list" aria-selected="true">리스트</button>
+                <button class="tab" type="button" data-view="map" aria-selected="false">지도</button>
+                </div>
+
+                <div class="result-meta">
+                <div class="result-count">50건 / 총 1,000건</div>
+                <button class="btn" type="button">
+                    <img src="img/download.svg" alt="다운로드">다운로드
+                </button>
+                <button class="btn" type="button">자세히 보기 &gt;</button>
+                </div>
+            </div>
+
+            <div class="table-wrap" data-pane="list">
+                <table class="db-table" aria-label="세계 선박 DB 리스트">
+                <thead>
+                    <tr>
+                    <th>번호</th>
+                    <th>선명</th>
+                    <th>선종</th>
+                    <th>국적</th>
+                    <th>IMO</th>
+                    <th>MMSI</th>
+                    <th>호출부호</th>
+                    <th>최종 확인 시간</th>
+                    <th>최근 기항지</th>
+                    <th>위도</th>
+                    <th>경도</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>0001</td>
+                    <td>RYOFU MARU</td>
+                    <td>Research Survey</td>
+                    <td>JAPAN</td>
+                    <td>9978793</td>
+                    <td>431208000</td>
+                    <td>7KPB</td>
+                    <td>33 mins ago</td>
+                    <td>Niigata-Higashi – 24 Oct 2025</td>
+                    <td>33°28'54.00" N</td>
+                    <td>129°23'42.00" E</td>
+                    </tr>
+
+                    <tr>
+                    <td>0002</td>
+                    <td>RYOFU MARU</td>
+                    <td>Research Survey</td>
+                    <td>JAPAN</td>
+                    <td>9978793</td>
+                    <td>431208000</td>
+                    <td>7KPB</td>
+                    <td>33 mins ago</td>
+                    <td>Niigata-Higashi – 24 Oct 2025</td>
+                    <td>33°28'54.00" N</td>
+                    <td>129°23'42.00" E</td>
+                    </tr>
+
+                    <tr>
+                    <td>0003</td>
+                    <td>RYOFU MARU</td>
+                    <td>Research Survey</td>
+                    <td>JAPAN</td>
+                    <td>9978793</td>
+                    <td>431208000</td>
+                    <td>7KPB</td>
+                    <td>33 mins ago</td>
+                    <td>Niigata-Higashi – 24 Oct 2025</td>
+                    <td>33°28'54.00" N</td>
+                    <td>129°23'42.00" E</td>
+                    </tr>
+
+                    <tr>
+                    <td>0004</td>
+                    <td>RYOFU MARU</td>
+                    <td>Research Survey</td>
+                    <td>JAPAN</td>
+                    <td>9978793</td>
+                    <td>431208000</td>
+                    <td>7KPB</td>
+                    <td>33 mins ago</td>
+                    <td>Niigata-Higashi – 24 Oct 2025</td>
+                    <td>33°28'54.00" N</td>
+                    <td>129°23'42.00" E</td>
+                    </tr>
+
+                    <tr>
+                    <td>0005</td>
+                    <td>RYOFU MARU</td>
+                    <td>Research Survey</td>
+                    <td>JAPAN</td>
+                    <td>9978793</td>
+                    <td>431208000</td>
+                    <td>7KPB</td>
+                    <td>33 mins ago</td>
+                    <td>Niigata-Higashi – 24 Oct 2025</td>
+                    <td>33°28'54.00" N</td>
+                    <td>129°23'42.00" E</td>
+                    </tr>
+
+                    <tr>
+                    <td>0006</td>
+                    <td>RYOFU MARU</td>
+                    <td>Research Survey</td>
+                    <td>JAPAN</td>
+                    <td>9978793</td>
+                    <td>431208000</td>
+                    <td>7KPB</td>
+                    <td>33 mins ago</td>
+                    <td>Niigata-Higashi – 24 Oct 2025</td>
+                    <td>33°28'54.00" N</td>
+                    <td>129°23'42.00" E</td>
+                    </tr>
+
+                    <tr>
+                    <td>0007</td>
+                    <td>RYOFU MARU</td>
+                    <td>Research Survey</td>
+                    <td>JAPAN</td>
+                    <td>9978793</td>
+                    <td>431208000</td>
+                    <td>7KPB</td>
+                    <td>33 mins ago</td>
+                    <td>Niigata-Higashi – 24 Oct 2025</td>
+                    <td>33°28'54.00" N</td>
+                    <td>129°23'42.00" E</td>
+                    </tr>
+
+                    <tr>
+                    <td>0007</td>
+                    <td>RYOFU MARU</td>
+                    <td>Research Survey</td>
+                    <td>JAPAN</td>
+                    <td>9978793</td>
+                    <td>431208000</td>
+                    <td>7KPB</td>
+                    <td>33 mins ago</td>
+                    <td>Niigata-Higashi – 24 Oct 2025</td>
+                    <td>33°28'54.00" N</td>
+                    <td>129°23'42.00" E</td>
+                    </tr>
+
+                    <tr>
+                    <td>0009</td>
+                    <td>RYOFU MARU</td>
+                    <td>Research Survey</td>
+                    <td>JAPAN</td>
+                    <td>9978793</td>
+                    <td>431208000</td>
+                    <td>7KPB</td>
+                    <td>33 mins ago</td>
+                    <td>Niigata-Higashi – 24 Oct 2025</td>
+                    <td>33°28'54.00" N</td>
+                    <td>129°23'42.00" E</td>
+                    </tr>
+
+                    <tr>
+                    <td>0010</td>
+                    <td>RYOFU MARU</td>
+                    <td>Research Survey</td>
+                    <td>JAPAN</td>
+                    <td>9978793</td>
+                    <td>431208000</td>
+                    <td>7KPB</td>
+                    <td>33 mins ago</td>
+                    <td>Niigata-Higashi – 24 Oct 2025</td>
+                    <td>33°28'54.00" N</td>
+                    <td>129°23'42.00" E</td>
+                    </tr>
+
+                    <tr>
+                    <td>0011</td>
+                    <td>RYOFU MARU</td>
+                    <td>Research Survey</td>
+                    <td>JAPAN</td>
+                    <td>9978793</td>
+                    <td>431208000</td>
+                    <td>7KPB</td>
+                    <td>33 mins ago</td>
+                    <td>Niigata-Higashi – 24 Oct 2025</td>
+                    <td>33°28'54.00" N</td>
+                    <td>129°23'42.00" E</td>
+                    </tr>
+
+                    <tr>
+                    <td>0012</td>
+                    <td>RYOFU MARU</td>
+                    <td>Research Survey</td>
+                    <td>JAPAN</td>
+                    <td>9978793</td>
+                    <td>431208000</td>
+                    <td>7KPB</td>
+                    <td>33 mins ago</td>
+                    <td>Niigata-Higashi – 24 Oct 2025</td>
+                    <td>33°28'54.00" N</td>
+                    <td>129°23'42.00" E</td>
+                    </tr>
+                </tbody>
+                </table>
+
+                <div class="pager" aria-label="페이지네이션">
+                <button type="button" class="caNav" aria-label="처음">«</button>
+                <button type="button" class="caNav" aria-label="이전">‹</button>
+                <button class="is-active" type="button">1</button>
+                <button type="button">2</button>
+                <button type="button">3</button>
+                <button type="button">4</button>
+                <button type="button">5</button>
+                <button type="button" class="caNav" aria-label="다음">›</button>
+                <button type="button" class="caNav" aria-label="끝">»</button>
+                </div>
+            </div>
+
+            <!-- 지도 영역(자리만) -->
+            <div class="map-pane" data-pane="map" aria-label="지도 보기">
+                지도 영역(추후 지도 SDK 붙이는 자리)
+            </div>
+
+            </section>
+        </main>
+        </div>
+        
+    </body>
+
+</html>
