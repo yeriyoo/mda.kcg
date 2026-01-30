@@ -497,73 +497,54 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-//나의 대시보드(관심선박)//
+//관심선박//
 document.addEventListener("DOMContentLoaded", () => {
   const btnMyDashboard = document.getElementById("btnMyDashboard");
   const dashboardPanel = document.getElementById("dashboardPanel");
   const dashboardClose = document.getElementById("dashboardClose");
 
-  if (!dashboardPanel) return;
-
-  const openDash = () => {
-    dashboardPanel.style.display = "block";
-    dashboardPanel.setAttribute("aria-hidden", "false");
-  };
-
-  const closeDash = () => {
-    dashboardPanel.style.display = "none";
-    dashboardPanel.setAttribute("aria-hidden", "true");
-  };
-
-  openDash();
-
-  btnMyDashboard?.addEventListener("click", openDash);
-  dashboardClose?.addEventListener("click", closeDash);
-});
-
-document.addEventListener("DOMContentLoaded", () => {
   const shipOverlay = document.getElementById("shipGroupOverlay");
   const shipClose = document.getElementById("shipGroupClose");
   const shipOk = document.getElementById("shipGroupOk");
   const btnDashSetting = document.getElementById("btnDashSetting");
 
-  // ✅ 상세 모달 관련
-  const shipModal = document.getElementById("shipGroupModal");
-  const shipModalOk = document.getElementById("shipGroupModalOk");
-  const shipModalCloseBtns = document.querySelectorAll('[data-modal-close="shipGroupModal"]');
+  const openDash = () => {
+    if (!dashboardPanel) return;
+    dashboardPanel.style.display = "block";
+    dashboardPanel.setAttribute("aria-hidden", "false");
+  };
 
-  if (!shipOverlay) return;
+  const closeDash = () => {
+    if (!dashboardPanel) return;
+    dashboardPanel.style.display = "none";
+    dashboardPanel.setAttribute("aria-hidden", "true");
+  };
 
   const openShipGroup = () => {
+    if (!shipOverlay) return;
     shipOverlay.style.display = "flex";
     shipOverlay.setAttribute("aria-hidden", "false");
     document.body.classList.add("is-modal-open");
   };
 
   const closeShipGroup = () => {
-    shipOverlay.setAttribute("aria-hidden", "true");
+    if (!shipOverlay) return;
     shipOverlay.style.display = "none";
+    shipOverlay.setAttribute("aria-hidden", "true");
     document.body.classList.remove("is-modal-open");
   };
 
-  const closeShipGroupModal = () => {
-    if (!shipModal) return;
-    shipModal.setAttribute("aria-hidden", "true");
-    shipModal.style.display = "none"; // CSS가 display로 제어한다면 필요
-  };
+  openDash();
+  openShipGroup();
+
+  btnMyDashboard?.addEventListener("click", openDash);
+  dashboardClose?.addEventListener("click", closeDash);
 
   btnDashSetting?.addEventListener("click", openShipGroup);
 
-  // overlay 닫기
   shipClose?.addEventListener("click", closeShipGroup);
   shipOk?.addEventListener("click", closeShipGroup);
-
-  // ✅ 상세 모달 닫기
-  shipModalOk?.addEventListener("click", closeShipGroupModal);
-  shipModalCloseBtns.forEach((btn) => btn.addEventListener("click", closeShipGroupModal));
 });
-
-
 
 function openModal(modalId){
   const modal = document.getElementById(modalId);
