@@ -527,6 +527,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const shipOk = document.getElementById("shipGroupOk");
   const btnDashSetting = document.getElementById("btnDashSetting");
 
+  // ✅ 상세 모달 관련
+  const shipModal = document.getElementById("shipGroupModal");
+  const shipModalOk = document.getElementById("shipGroupModalOk");
+  const shipModalCloseBtns = document.querySelectorAll('[data-modal-close="shipGroupModal"]');
+
   if (!shipOverlay) return;
 
   const openShipGroup = () => {
@@ -541,12 +546,24 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.remove("is-modal-open");
   };
 
-  openShipGroup();
+  const closeShipGroupModal = () => {
+    if (!shipModal) return;
+    shipModal.setAttribute("aria-hidden", "true");
+    shipModal.style.display = "none"; // CSS가 display로 제어한다면 필요
+  };
 
   btnDashSetting?.addEventListener("click", openShipGroup);
+
+  // overlay 닫기
   shipClose?.addEventListener("click", closeShipGroup);
   shipOk?.addEventListener("click", closeShipGroup);
+
+  // ✅ 상세 모달 닫기
+  shipModalOk?.addEventListener("click", closeShipGroupModal);
+  shipModalCloseBtns.forEach((btn) => btn.addEventListener("click", closeShipGroupModal));
 });
+
+
 
 function openModal(modalId){
   const modal = document.getElementById(modalId);

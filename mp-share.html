@@ -1,5 +1,5 @@
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="ko">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +27,7 @@
     </div>
 
     <!-- 우측 상단 시간/연장 -->
-    <div class="map-topTime" aria-label="시간 표시">
+    <div class="map-topTime" role="group" aria-label="시간 표시">
         <div class="map-topTime__clock">
             <span class="material-symbols-outlined map-topTime__ico" aria-hidden="true">schedule</span>
             <span class="map-topTime__time" id="topClock">03:22:00</span>
@@ -37,7 +37,7 @@
 
 
     <!-- 하단 중앙 좌표/시간 바 -->
-    <div class="map-hud" aria-label="지도 좌표 표시">
+    <div class="map-hud" role="group" aria-label="지도 좌표 표시">
     <div class="map-hud__pill">
 
         <span class="map-hud__item">
@@ -71,15 +71,46 @@
     <!-- ▣ 사이드바 -->
     <div class="side-bar">
         <ul class="menu-top">
-            <li><a><span><img src="img/menu_01.svg" alt="라이브맵"></span></a></li>
-            <li><a><span><img src="img/menu_02.svg" alt="선박DB"></span></a></li>
-            <li><a><span><img src="img/menu_03.svg" alt="해경자산"></span></a></li>
-            <li><a><span><img src="img/menu_04.svg" alt="분석검색"></span></a></li>
-            <li><a><span><img src="img/menu_05.svg" alt="분석맵"></span></a></li>
-                <a><span><img src="img/menu_07.svg" alt="데이터 필터"></span></a>
+            <li>
+                <a>
+                    <span><img src="img/menu_01.svg" alt="라이브맵"></span>
+                </a>
             </li>
-            <li><a><span><img src="img/menu_08.svg" alt="세계선박 DB"></span></a></li>
-            <li><a><span><img src="img/menu_06.svg" alt="조건분석"></span></a></li>
+            <li>
+                <a>
+                    <span><img src="img/menu_02.svg" alt="선박DB"></span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span><img src="img/menu_03.svg" alt="해경자산"></span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span><img src="img/menu_04.svg" alt="분석검색"></span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span><img src="img/menu_05.svg" alt="분석맵"></span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span><img src="img/menu_07.svg" alt="데이터 필터"></span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span><img src="img/menu_08.svg" alt="세계선박 DB"></span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span><img src="img/menu_06.svg" alt="조건분석"></span>
+                </a>
+            </li>
         </ul>
 
         <ul class="menu-bottom">
@@ -273,7 +304,7 @@
 
             </div>
 
-            <div class="modal-pagination" aria-label="페이지네이션">
+            <div class="modal-pagination" role="navigation" aria-label="페이지네이션">
             <button class="page-btn" type="button" aria-label="첫 페이지">&laquo;</button>
             <button class="page-btn" type="button" aria-label="이전 페이지">&lsaquo;</button>
 
@@ -407,14 +438,29 @@
 
     <div class="legend-panel" id="legendPanel" aria-hidden="true">
     <ul class="legend-list">
-        <li class="legend-item"><img src="img/legend_01.svg" alt=""><span>어선</span><b>23255</b></li>
-        <li class="legend-item"><img src="img/legend_02.svg" alt=""><span>여객선</span><b>914</b></li>
-        <li class="legend-item"><img src="img/legend_03.svg" alt=""><span>화물선</span><b>12025</b></li>
-        <li class="legend-item"><img src="img/legend_04.svg" alt=""><span>유조선</span><b>3364</b></li>
-        <li class="legend-item"><img src="img/legend_05.svg" alt=""><span>관공선</span><b>497</b></li>
-        <li class="legend-item"><img src="img/legend_06.svg" alt=""><span>경비 함정</span><b>483</b></li>
-        <li class="legend-item"><img src="img/legend_07.svg" alt=""><span>어망/부이</span><b>1351</b></li>
-        <li class="legend-item"><img src="img/legend_08.svg" alt=""><span>기타</span><b>8087</b></li>
+        <li class="legend-item">
+            <img src="img/legend_01.svg" alt=""><span>어선</span><b>23255</b>
+        </li>
+        <li class="legend-item">
+            <img src="img/legend_02.svg" alt=""><span>여객선</span><b>914</b>
+        </li>
+        <li class="legend-item">
+            <img src="img/legend_03.svg" alt=""><span>화물선</span><b>12025</b>
+        </li>
+        <li class="legend-item">
+            <img src="img/legend_04.svg" alt=""><span>유조선</span><b>3364</b></li>
+        <li class="legend-item">
+            <img src="img/legend_05.svg" alt=""><span>관공선</span><b>497</b>
+        </li>
+        <li class="legend-item">
+            <img src="img/legend_06.svg" alt=""><span>경비 함정</span><b>483</b>
+        </li>
+        <li class="legend-item">
+            <img src="img/legend_07.svg" alt=""><span>어망/부이</span><b>1351</b>
+        </li>
+        <li class="legend-item">
+            <img src="img/legend_08.svg" alt=""><span>기타</span><b>8087</b>
+        </li>
     </ul>
     </div>
 
