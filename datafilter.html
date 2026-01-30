@@ -107,6 +107,7 @@
 
             <div class="filter-tabs" role="tablist" aria-label="필터 탭">
             <button class="filter-tab is-active" type="button"
+                data-tab="ship"
                 role="tab"
                 id="tab-ship"
                 aria-selected="true"
@@ -114,6 +115,7 @@
                 >선박
             </button>
             <button class="filter-tab" type="button"
+                data-tab="port"
                 role="tab"
                 id="tab-port"
                 aria-selected="false"
@@ -122,6 +124,7 @@
                 >항구
             </button>
             <button class="filter-tab" type="button"
+                data-tab="risk"
                 role="tab"
                 id="tab-risk"
                 aria-selected="false"
@@ -136,6 +139,7 @@
                 id="panel-ship"
                 role="tabpanel"
                 aria-labelledby="tab-ship"
+                data-pane="ship"
                 >
                 <div class="acc">
 
@@ -982,6 +986,7 @@
                 id="panel-port"
                 role="tabpanel"
                 aria-labelledby="tab-port"
+                data-pane="port"
                 hidden
                 >
                 <div class="acc-inner">
@@ -1092,6 +1097,7 @@
                 id="panel-risk"
                 role="tabpanel"
                 aria-labelledby="tab-risk"
+                data-pane="risk"
                 hidden
                 >
                 <div class="acc-inner">

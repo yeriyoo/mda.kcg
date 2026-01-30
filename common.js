@@ -624,19 +624,21 @@ document.addEventListener("DOMContentLoaded", () => {
     risk: "위험 검색",
   };
 
-  const setActiveTab = (key) => {
-    tabs.forEach((t) => {
-      const isActive = t.dataset.tab === key;
-      t.classList.toggle("is-active", isActive);
-      t.setAttribute("aria-selected", isActive ? "true" : "false");
-    });
+const setActiveTab = (key) => {
+  tabs.forEach((t) => {
+    const isActive = t.dataset.tab === key;
+    t.classList.toggle("is-active", isActive);
+    t.setAttribute("aria-selected", isActive ? "true" : "false");
+  });
 
-    panes.forEach((p) => {
-      p.classList.toggle("is-active", p.dataset.pane === key);
-    });
+  panes.forEach((p) => {
+    const isActive = p.dataset.pane === key;
+    p.classList.toggle("is-active", isActive);
+    p.hidden = !isActive;               // ✅ 핵심: 활성 아닌 패널 숨김 처리
+  });
 
-    if (searchBtn && labelMap[key]) searchBtn.textContent = labelMap[key];
-  };
+  if (searchBtn && labelMap[key]) searchBtn.textContent = labelMap[key];
+};
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => setActiveTab(tab.dataset.tab));
@@ -700,6 +702,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
 
 // S&P 정보 //
 document.addEventListener("DOMContentLoaded", () => {
