@@ -1,0 +1,261 @@
+    <!DOCTYPE html>
+    <html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-police.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-police.png">
+        <link rel="shortcut icon" href="img/favicon-police.ico">
+
+        <link rel="stylesheet" href="common.css">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <title>해양환경 위기대응 통합지원시스템 플랫폼</title>
+        <script src="common.js" defer></script>
+    </head>
+    <body>
+      <div class="background-image-gis">
+
+        <!-- ✅ TOP BAR -->
+        <header class="top-bar-gis" role="banner">
+            <div class="top-left">
+            <img class="top-logo" src="img/gis-logo.svg" alt="GIS 함정용" />
+            <span class="top-title">GIS 함정용</span>
+            </div>
+
+            <div class="top-right" aria-label="상단 메뉴">
+            <button class="top-icon" type="button" aria-label="알림">
+                <img src="img/gis_01.svg" alt="" />
+            </button>
+            <button class="top-icon" type="button" aria-label="설정">
+                <img src="img/gis-02.svg" alt="" />
+            </button>
+            <button class="top-icon" type="button" aria-label="사용자">
+                <img src="img/gis-03.svg" alt="" />
+            </button>
+            </div>
+        </header>
+
+        <!-- ▣ 사이드바 -->
+        <div class="side-bar-gis">
+            <ul class="menu-top">
+                <li>
+                     <a class="is-active" href="javascript:void(0)">
+                        <span><img src="img/gis-ic-01.svg" alt="선박"></span>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span><img src="img/gis-ic-02.svg" alt="위성"></span>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span><img src="img/gis-ic-03.svg" alt="기상"></span>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span><img src="img/gis-ic-04.svg" alt="분석"></span>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span><img src="img/gis-ic-05.svg" alt="타임라인"></span>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span><img src="img/gis-ic-06.svg" alt="AI"></span>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span><img src="img/gis-ic-07.svg" alt="리플레이"></span>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span><img src="img/gis-ic-08.svg" alt="힝적조회"></span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="menu-bottom">
+                <li><a><span><img src="img/gis-ic-09.svg" alt="필터"></span></a></li>
+                <li><a><span><img src="img/gis-ic-10.svg" alt="레이어"></span></a></li>
+            </ul>
+        </div>
+
+        <!-- 왼쪽 패널 전체 -->
+            <div class="left-panel-wrap-gis">
+                <!-- ✅ LEFT AREA (아이콘바 + 좌측 패널) -->
+                <div class="left-area">
+                <!-- 1) 세로 아이콘바 -->
+                <aside class="icon-rail" aria-label="좌측 퀵메뉴">
+                    <button class="rail-btn is-active" type="button" aria-label="선박">
+                    <img src="img/gis-ic-01.svg" alt="" />
+                    </button>
+                    <button class="rail-btn" type="button" aria-label="위성">
+                    <img src="img/gis-ic-02.svg" alt="" />
+                    </button>
+                    <button class="rail-btn" type="button" aria-label="기상">
+                    <img src="img/gis-ic-03.svg" alt="" />
+                    </button>
+                    <button class="rail-btn" type="button" aria-label="분석">
+                    <img src="img/gis-ic-04.svg" alt="" />
+                    </button>
+                    <button class="rail-btn" type="button" aria-label="타임라인">
+                    <img src="img/gis-ic-05.svg" alt="" />
+                    </button>
+
+                    <div class="rail-spacer"></div>
+
+                    <button class="rail-btn" type="button" aria-label="필터">
+                    <img src="img/gis-ic-09.svg" alt="" />
+                    </button>
+                    <button class="rail-btn" type="button" aria-label="레이어">
+                    <img src="img/gis-ic-10.svg" alt="" />
+                    </button>
+                </aside>
+
+                <!-- 2) 메인 좌측 패널 -->
+                <section class="left-panel_480-gis" aria-label="선박 검색 패널">
+                    <!-- 상단 탭 -->
+                    <nav class="panel-tabs-gis" aria-label="좌측 상단 탭">
+                    <button class="tab-gis is-active" type="button">선박검색</button>
+                    <button class="tab-gis" type="button">허가선박</button>
+                    <button class="tab-gis" type="button">제재단속</button>
+                    <button class="tab-gis" type="button">침몰선박</button>
+                    <button class="tab-gis" type="button">선박입출항</button>
+                    <button class="tab-gis" type="button">관심선박</button>
+                    </nav>
+
+                    <div class="panel-body">
+                    <h2 class="panel-title-gis">선박 검색</h2>
+
+                    <!-- 검색 폼 -->
+                    <form class="search-form" action="javascript:void(0)">
+                        <div class="form-grid form-grid--inline">
+
+                            <label class="field field--inline">
+                            <span class="field__label-gis">선종</span>
+                            <select class="field__control">
+                                <option>전체</option>
+                                <option>어선</option>
+                                <option>화물선</option>
+                                <option>유조선</option>
+                            </select>
+                            </label>
+
+                            <label class="field field--inline">
+                            <span class="field__label-gis">국적</span>
+                            <select class="field__control">
+                                <option>전체</option>
+                                <option>대한민국</option>
+                                <option>일본</option>
+                                <option>중국</option>
+                            </select>
+                            </label>
+
+                            <label class="field field--inline">
+                            <span class="field__label-gis">타깃 ID</span>
+                            <input class="field__control" type="text" />
+                            </label>
+
+                            <label class="field field--inline">
+                            <span class="field__label-gis">선박명</span>
+                            <input class="field__control" type="text" />
+                            </label>
+
+                        </div>
+
+                        <button class="adv-btn" type="button" aria-expanded="false">
+                            상세검색 열기
+                        </button>
+
+                        <div class="form-actions">
+                            <button class="search-btn-gis" type="submit">
+                            검색
+                            <img src="img/search-ic.svg" alt="검색 버튼">
+                            </button>
+                        </div>
+                        </form>
+
+
+                    <!-- 결과 리스트 -->
+                    <div class="result-wrap" aria-label="검색 결과">
+                        <ul class="result-list">
+                        <li class="result-item is-active">
+                            <span class="dot dot--on" aria-hidden="true"></span>
+                            <span class="rid">0001</span>
+                            <span class="rname">1511함A-05</span>
+                            <span class="flag" aria-label="국적"><img src="img/ko-flag.svg" alt="태극기" /></span>
+                            <span class="sig">(AIS)</span>
+                            <button class="go-btn" type="button" aria-label="해당 선박으로 이동">
+                                <img src="img/gis-loc.svg" alt="위치" /></span>
+                            </button>
+                        </li>
+
+                        <li class="result-item">
+                            <span class="dot dot--on" aria-hidden="true"></span>
+                            <span class="rid">0002</span>
+                            <span class="rname">1511함A-48</span>
+                            <span class="flag" aria-label="국적"><img src="img/ko-flag.svg" alt="태극기" /></span>
+                            <span class="sig">(AIS)</span>
+                            <button class="go-btn" type="button" aria-label="해당 선박으로 이동">
+                                <img src="img/gis-loc.svg" alt="위치" /></span>
+                            </button>
+                        </li>
+
+                        <li class="result-item">
+                            <span class="dot dot--on" aria-hidden="true"></span>
+                            <span class="rid">0003</span>
+                            <span class="rname">1511함A-54</span>
+                            <span class="flag" aria-label="국적"><img src="img/ko-flag.svg" alt="태극기" /></span>
+                            <span class="sig">(AIS)</span>
+                            <button class="go-btn" type="button" aria-label="해당 선박으로 이동">
+                                <img src="img/gis-loc.svg" alt="위치" /></span>
+                            </button>
+                        </li>
+
+                        <li class="result-item">
+                            <span class="dot dot--on" aria-hidden="true"></span>
+                            <span class="rid">0004</span>
+                            <span class="rname">1511함A-55</span>
+                            <span class="flag" aria-label="국적"><img src="img/ko-flag.svg" alt="태극기" /></span>
+                            <span class="sig">(AIS)</span>
+                            <button class="go-btn" type="button" aria-label="해당 선박으로 이동">
+                                <img src="img/gis-loc.svg" alt="위치" /></span>
+                            </button>
+                        </li>
+
+                        <li class="result-item">
+                            <span class="dot dot--on" aria-hidden="true"></span>
+                            <span class="rid">0005</span>
+                            <span class="rname">1511함A-93</span>
+                            <span class="flag" aria-label="국적"><img src="img/ko-flag.svg" alt="태극기" /></span>
+                            <span class="sig">(AIS)</span>
+                            <button class="go-btn" type="button" aria-label="해당 선박으로 이동">
+                                <img src="img/gis-loc.svg" alt="위치" /></span>
+                            </button>
+                        </li>
+                        </ul>
+                    </div>
+                    </div>
+                </section>
+                </div>
+
+
+                <!-- 패널 접기/펼치기 버튼 -->
+                <button class="panel-collapseBtn_480-gis" type="button" aria-label="패널 접기/펼치기">
+                    <img src="img/gis-coll.svg" alt="접힘펼침버튼">
+                </button>
+            </div>
+    </div>
+    </body>
+</html>

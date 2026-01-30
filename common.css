@@ -38,7 +38,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("img/map.jpg"); 
+    background-image: url("img/map.jpg");
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
@@ -744,7 +744,6 @@ body {
   height: 48px;      
 }
 
-
 .menu-top {
     list-style: none;
     padding: 0;
@@ -831,7 +830,6 @@ margin: 0;
 .left-panel_480.is-collapsed{
   transform: translateX(-200%);
 }
-
 
 .panel-tabs {
     display: flex;
@@ -5095,16 +5093,16 @@ body.is-modal-open{
   font-size:14px;
   color:#000;
   margin-bottom:6px;
-  font-weight:500;
+  font-weight:400;
 }
 
 .field input,
 .field select{
-  width: 240px;
+  width: 180px;
   height:34px;
   box-sizing: border-box;  
   border:1px solid #AAAAAA;
-  background:#fff;
+  background:#122D41;
   font-size:13px;
   color: #AAAAAA;
 }
@@ -5529,4 +5527,406 @@ body.is-modal-open{
       font-size:12px;
       white-space:nowrap;
     }
+
+/* GIS 함정용 */
+.background-image-gis {
+    position: fixed;  
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("img/dark-map.jpg");  
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    z-index: 0; 
+}
+
+.side-bar-gis {
+    width: 44px;
+    height: 96vh; 
+    background-color: #011C2F;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 9000; 
+}
+
+.side-bar-gis .menu-top a{
+  background: transparent !important;
+}
+
+.side-bar-gis .menu-top a.is-active{
+  background: #02908B !important;
+  width: 42px;
+}
+
+.side-bar-gis .menu-top a{
+  display: flex;       
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 48px;      
+}
+
+.left-panel-wrap-gis{
+  position: absolute;
+  top: 0;
+  left: 44px;   
+  height: 100vh;
+  z-index: 5000;
+  transform: translateX(-100%);
+  transition: transform .25s ease;
+}
+
+.left-panel_480-gis {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 540px;
+    height: 100vh;
+    background-color: #122D41;
+    border-right: 1px solid #0A3F4E;
+    box-sizing: border-box;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.left-panel_480-gis.is-collapsed{
+  transform: translateX(-200%);
+}
+
+.panel-collapseBtn_480-gis {
+  position: absolute;
+  top: 50%;
+  left: 540px;  
+  transform: translateY(-50%);
+  width: 24px;
+  height: 52px;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #0F2C40;
+  border: 1px solid #0A3F4E;
+  border-left: none;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+  transition: transform .15s ease;
+}
+
+.left-panel_480-gis.is-collapsed + .panel-collapseBtn_480-gis{
+  left: 0;
+  transition: transform .15s ease;
+}
+
+.panel-collapseBtn_480-gis img{
+  width: 24px;
+  height: 24px;
+  transition: transform .12s ease;
+}
+
+.left-area{
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  z-index: 10;
+  font-family: "NanumSquare", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+.icon-rail{
+  width: 56px;
+  background: rgba(9, 56, 60, 0.85);
+  border-right: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 6px;
+  gap: 10px;
+}
+
+.rail-btn{
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+
+.panel-tabs-gis{
+  display: flex;
+  padding: 10px 10px 8px;
+  background: #122D41;
+  border: none;
+  overflow-x: auto;
+}
+
+.tab-gis{
+  width: 82px;
+  background: #011C2F;
+  border: 1px solid #0A3F4E;
+  color: #9B9EA8;
+  padding: 10px 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.tab-gis.is-active{
+  background: #02908B;
+  color: #ffffff;
+}
+
+.panel-body{
+  padding: 16px 18px;
+  overflow: auto;
+}
+.panel-title-gis{
+  margin: 4px 0 14px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.search-form{ display: grid; gap: 12px; }
+.form-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 16px;
+}
+.field{
+  display: grid;
+  gap: 8px;
+}
+.field__label-gis{
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.field__control{
+  height: 40px;
+  border: 1px solid #7E9796;
+  background: #122D41;
+  color: #fff;
+  padding: 0 10px;
+  outline: none;
+}
+
+.adv-btn{
+  height: 40px;
+  border-radius: 4px;
+  border: none;
+  background: #16586A;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.adv-btn .chev{ opacity: .85; }
+
+.form-actions{
+  display: flex;
+  justify-content: flex-end;
+}
+.search-btn-gis{
+  height: 35px;
+  min-width: 80px;
+  border: 0;
+  background: #02908B;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.search-btn-gis:hover{ filter: brightness(1.05); }
+.result-wrap{
+  margin-top: 12px;
+  padding-top: 12px;
+}
+
+.result-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.result-item{
+  display: grid;
+  grid-template-columns: 18px 56px 1fr 34px 64px 46px;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 12px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.result-item.is-active{
+  border: 2px solid #02908B;
+}
+
+.dot{
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #02908B;
+}
+.dot--on{ background: #02908B; }
+
+.rid{
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.rname{
+  color: #fff;
+  font-weight: 500;
+}
+.flag img{
+  height: 20px;
+ }
+
+.sig{
+  color: rgba(255,255,255,0.7);
+  font-weight: 800;
+}
+.go-btn{
+  width: 36px;
+  height: 30px;
+  border-radius: 8px;
+  border: 0;
+  background: none;
+  color: white;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.go-btn img{
+  height: 24px;
+}
+.go-btn:hover{ filter: brightness(1.05); }
+
+/* ===== TOP BAR ===== */
+:root{
+  --topbar-h: 44px;   /* 이미지처럼 얇은 상단바 */
+}
+
+.top-bar-gis{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--topbar-h);
+  background: #0B5E5C;          /* 이미지 느낌의 청록 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  z-index: 99999;
+  box-sizing: border-box;
+}
+
+.top-left{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.top-logo{
+  width: 30px;
+  height: 30px;
+}
+.top-title{
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.2px;
+}
+
+.top-right{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.top-icon{
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.top-icon img{
+  width: 30px;
+  height: 30px;
+  opacity: .95;
+}
+.top-icon:hover{
+  background: rgba(255,255,255,0.12);
+}
+
+/* ===== 상단바가 생겼으니, 전체 UI를 아래로 밀기 ===== */
+.background-image-gis{
+  padding-top: var(--topbar-h);
+}
+
+.left-panel-wrap-gis{
+  top: var(--topbar-h);
+  height: calc(100vh - var(--topbar-h));
+}
+
+/* 전체 폼 그리드: 2열 (좌/우) */
+.form-grid--inline{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 16px;
+}
+
+/* 라벨 + 인풋을 가로로 */
+.field--inline{
+  display: grid;
+  grid-template-columns: 40px 1fr; /* 라벨 | 인풋 */
+  align-items: center;
+  gap: 8px;
+}
+
+.field__label-gis{
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* 기존 스타일 유지 */
+.field__control{
+  height: 40px;
+  border: 1px solid #7E9796;
+  background: #122D41;
+  color: #fff;
+  padding: 0 10px;
+  outline: none;
+}
 
