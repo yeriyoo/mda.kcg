@@ -4454,9 +4454,9 @@ body.is-modal-open{
   height: 32px;
   padding: 0 12px;
   border: none;
-  background: #EFF6FF;
-  border: 1px solid #9EB7D2;
-  color: #426891;
+  background: #DDDDDD;
+  border: none;
+  color: #000;
   font-size: 13px;
   align-items: center;
   gap: 6px;
@@ -4466,9 +4466,9 @@ body.is-modal-open{
 .caBtn--primary {
   width: 80px;
   text-align: center;
-  background: #213079;
-  border-color: none;
-  color: #ffff;
+  background: #E5F1FF;
+  border-color: 1px solid #9EB7D2;
+  color: #426891;
   font-weight: 600;
 }
 
@@ -4490,6 +4490,7 @@ body.is-modal-open{
 }
 
 .caTable thead th {
+  height: 40px;
   background: #EFF6FF;
   text-align: center;
   font-size: 14px;
@@ -5098,11 +5099,11 @@ body.is-modal-open{
 
 .field input,
 .field select{
-  width: 180px;
+  width: 240px;
   height:34px;
   box-sizing: border-box;  
   border:1px solid #AAAAAA;
-  background:#122D41;
+  background:#fff;
   font-size:13px;
   color: #AAAAAA;
 }
@@ -5828,9 +5829,8 @@ body.is-modal-open{
 }
 .go-btn:hover{ filter: brightness(1.05); }
 
-/* ===== TOP BAR ===== */
 :root{
-  --topbar-h: 44px;   /* 이미지처럼 얇은 상단바 */
+  --topbar-h: 44px;
 }
 
 .top-bar-gis{
@@ -5839,7 +5839,7 @@ body.is-modal-open{
   left: 0;
   right: 0;
   height: var(--topbar-h);
-  background: #0B5E5C;          /* 이미지 느낌의 청록 */
+  background: #0B5E5C; 
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -5888,7 +5888,6 @@ body.is-modal-open{
   background: rgba(255,255,255,0.12);
 }
 
-/* ===== 상단바가 생겼으니, 전체 UI를 아래로 밀기 ===== */
 .background-image-gis{
   padding-top: var(--topbar-h);
 }
@@ -5898,17 +5897,15 @@ body.is-modal-open{
   height: calc(100vh - var(--topbar-h));
 }
 
-/* 전체 폼 그리드: 2열 (좌/우) */
 .form-grid--inline{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px 16px;
 }
 
-/* 라벨 + 인풋을 가로로 */
 .field--inline{
   display: grid;
-  grid-template-columns: 40px 1fr; /* 라벨 | 인풋 */
+  grid-template-columns: 40px 1fr;
   align-items: center;
   gap: 8px;
 }
@@ -5920,7 +5917,6 @@ body.is-modal-open{
   white-space: nowrap;
 }
 
-/* 기존 스타일 유지 */
 .field__control{
   height: 40px;
   border: 1px solid #7E9796;
@@ -5929,4 +5925,16 @@ body.is-modal-open{
   padding: 0 10px;
   outline: none;
 }
+
+.background-image-gis .field input,
+.background-image-gis .field select{
+  width: 180px;
+  height: 34px;
+  box-sizing: border-box;  
+  border: 1px solid #7E9796;
+  background: #122D41;
+  font-size: 13px;
+  color: #AAAAAA;
+}
+
 
