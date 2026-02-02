@@ -22,7 +22,7 @@
 
     <!-- 상단 중앙 검색 -->
     <div class="map-search" role="search" aria-label="선박 위치 검색">
-    <input class="map-search__input" type="search" placeholder="선박 위치 검색" >
+    <input class="map-search__input" type="search" placeholder="선박 위치 검색" aria-label="선박 위치 검색">
     <button class="map-search__btn" type="button" aria-label="검색">
         <span class="material-symbols-outlined">search</span>
     </button>
@@ -329,7 +329,7 @@
                             <span>6일</span>
                             </div>
 
-                            <input class="f-range" type="range" min="1" max="30" value="10">
+                            <input class="f-range" aria-label="값 조절" type="range" min="1" max="30" value="10">
                             <button class="f-refresh" type="button" aria-label="초기화"><img src="img/reload_02.svg" alt="재실행" class="map-hud__icon"></button>
                         </div>
 
@@ -402,7 +402,7 @@
                             <div class="f-subtitle">최근 기항지</div>
                             </div>
                             <div class="f-control">
-                            <input class="f-input" type="text" placeholder="">
+                            <input class="f-input" type="text" placeholder="" aria-label="항구">
                             </div>
 
                             <!-- 목적지 항구 -->
@@ -411,7 +411,7 @@
                             <div class="f-subtitle">목적지 항구</div>
                             </div>
                             <div class="f-control">
-                            <input class="f-input" type="text" placeholder="">
+                            <input class="f-input" type="text" placeholder="" aria-label="항구">
                             </div>
 
                             <!-- 도착 예정시각(ETA) -->
@@ -423,11 +423,11 @@
                             <div class="f-eta">
                             <div class="f-eta-row">
                                 <div class="f-eta-label">From</div>
-                                <input class="f-input" type="text" placeholder="">
+                                <input class="f-input" type="text" placeholder="" aria-label="시각">
                             </div>
                             <div class="f-eta-row">
                                 <div class="f-eta-label">To</div>
-                                <input class="f-input" type="text" placeholder="">
+                                <input class="f-input" type="text" placeholder="" aria-label="시각">
                             </div>
                             </div>
 
@@ -470,9 +470,9 @@
                                 <span>마지막 호출 50일 전</span>
                             </div>
 
-                            <input class="f-range" type="range" min="1" max="180" value="50">
+                            <input class="f-range" aria-label="값 조절" type="range" min="1" max="180" value="50">
 
-                            <button class="f-refresh" type="button" aria-label="초기화">
+                            <button class="f-refresh" type="button" aria-label="호출">
                                 <img src="img/reload_02.svg" alt="재실행" class="f-reload-icon">
                             </button>
                             </div>
@@ -503,11 +503,11 @@
                             <div class="f-eta">
                                 <div class="f-eta-row">
                                 <div class="f-eta-label">From</div>
-                                <input class="f-input" type="text" placeholder="">
+                                <input class="f-input" type="text" placeholder="" aria-label="거리">
                                 </div>
                                 <div class="f-eta-row">
                                 <div class="f-eta-label">To</div>
-                                <input class="f-input" type="text" placeholder="">
+                                <input class="f-input" type="text" placeholder="" aria-label="거리">
                                 </div>
                             </div>
                             </div>
@@ -522,11 +522,11 @@
                             <div class="f-eta">
                                 <div class="f-eta-row">
                                 <div class="f-eta-label">From</div>
-                                <input class="f-input" type="text" placeholder="">
+                                <input class="f-input" type="text" placeholder="" aria-label="흘수">
                                 </div>
                                 <div class="f-eta-row">
                                 <div class="f-eta-label">To</div>
-                                <input class="f-input" type="text" placeholder="">
+                                <input class="f-input" type="text" placeholder="" aria-label="흘수">
                                 </div>
                             </div>
                             </div>
@@ -545,7 +545,7 @@
                                     </select>
 
                                     <div class="f-qtyBox">
-                                        <input class="f-input f-input--qty" type="number" value="100" >
+                                        <input class="f-input f-input--qty" type="number" value="100" aria-label="숫자입력">
                                         <span class="f-unit">t</span>
                                     </div>
 
@@ -555,7 +555,7 @@
                                 </div>
 
                             <div class="f-slider-row-02" style="margin-top:10px;">
-                                <input class="f-range" type="range" min="0" max="100" value="50">
+                                <input class="f-range" aria-label="값 입력" type="range" min="0" max="100" value="50">
                             </div>
                             </div>
 
@@ -692,7 +692,7 @@
                         </select>
                         </div>
                         <div class="f-control" style="margin-top:10px;">
-                        <input class="f-input" type="text" placeholder="" >
+                        <input class="f-input" type="text" placeholder="" aria-label="선박입력" >
                         </div>
 
                         <!-- 선박 운영사 -->
@@ -701,7 +701,7 @@
                         <div class="f-subtitle">선박 운영사</div>
                         </div>
                         <div class="f-control">
-                        <input class="f-input" type="text" placeholder="" >
+                        <input class="f-input" type="text" placeholder="" aria-label="선박 운영사" >
                         </div>
 
                         <!-- 선박 기술 관리자 -->
@@ -710,7 +710,7 @@
                         <div class="f-subtitle">선박 기술 관리자</div>
                         </div>
                         <div class="f-control">
-                        <input class="f-input" type="text" placeholder="" >
+                        <input class="f-input" type="text" placeholder="" aria-label="선박 기술 관리자">
                         </div>
 
                     </div>
@@ -738,11 +738,11 @@
                         <div class="f-eta f-indent-1">
                         <div class="f-eta-row">
                             <div class="f-eta-label">From</div>
-                            <input class="f-input" type="text" placeholder="" >
+                            <input class="f-input" type="text" placeholder="" aria-label="선령">
                         </div>
                         <div class="f-eta-row">
                             <div class="f-eta-label">To</div>
-                            <input class="f-input" type="text" placeholder="" >
+                            <input class="f-input" type="text" placeholder="" aria-label="선령">
                         </div>
                         </div>
 
@@ -754,11 +754,11 @@
                         <div class="f-eta f-indent-1">
                         <div class="f-eta-row">
                             <div class="f-eta-label">From</div>
-                            <input class="f-input" type="text" placeholder="" >
+                            <input class="f-input" type="text" placeholder="" aria-label="톤수">
                         </div>
                         <div class="f-eta-row">
                             <div class="f-eta-label">To</div>
-                            <input class="f-input" type="text" placeholder="" >
+                            <input class="f-input" type="text" placeholder="" aria-label="톤수">
                         </div>
                         </div>
 
@@ -770,11 +770,11 @@
                         <div class="f-eta f-indent-1">
                         <div class="f-eta-row">
                             <div class="f-eta-label">From</div>
-                            <input class="f-input" type="text" placeholder="" >
+                            <input class="f-input" type="text" placeholder="" aria-label="톤수">
                         </div>
                         <div class="f-eta-row">
                             <div class="f-eta-label">To</div>
-                            <input class="f-input" type="text" placeholder="" >
+                            <input class="f-input" type="text" placeholder="" aria-label="톤수">
                         </div>
                         </div>
 
@@ -786,11 +786,11 @@
                         <div class="f-eta f-indent-1">
                         <div class="f-eta-row">
                             <div class="f-eta-label">From</div>
-                            <input class="f-input" type="text" placeholder="" >
+                            <input class="f-input" type="text" placeholder="" aria-label="길이">
                         </div>
                         <div class="f-eta-row">
                             <div class="f-eta-label">To</div>
-                            <input class="f-input" type="text" placeholder="" >
+                            <input class="f-input" type="text" placeholder="" aria-label="길이">
                         </div>
                         </div>
 
@@ -823,7 +823,7 @@
                         </div>
 
                         <div class="f-rangeLine">
-                            <input class="f-range" type="range" min="1" max="500" value="150">
+                            <input class="f-range" aria-label="값 조절" type="range" min="1" max="500" value="150">
                             <button class="f-refresh" type="button" aria-label="초기화">
                             <img src="img/reload_02.svg" alt="재실행" class="f-reload-icon">
                             </button>
@@ -839,11 +839,11 @@
                         <div class="f-eta f-indent-1">
                         <div class="f-eta-row">
                             <div class="f-eta-label">From</div>
-                            <input class="f-input" type="text" placeholder="" >
+                            <input class="f-input" type="text" placeholder="" aria-label="용량">
                         </div>
                         <div class="f-eta-row">
                             <div class="f-eta-label">To</div>
-                            <input class="f-input" type="text" placeholder="" >
+                            <input class="f-input" type="text" placeholder="" aria-label="용량">
                         </div>
                         </div>
 
@@ -858,7 +858,7 @@
                         </div>
 
                         <div class="f-rangeLine">
-                            <input class="f-range" type="range" min="1" max="500" value="150">
+                            <input class="f-range" aria-label="값 조절" type="range" min="1" max="500" value="150">
                             <button class="f-refresh" type="button" aria-label="초기화">
                             <img src="img/reload_02.svg" alt="재실행" class="f-reload-icon">
                             </button>
@@ -874,11 +874,11 @@
                         <div class="f-eta f-indent-1">
                         <div class="f-eta-row">
                             <div class="f-eta-label">From</div>
-                            <input class="f-input" type="text" placeholder="" >
+                            <input class="f-input" type="text" placeholder="" aria-label="TEU">
                         </div>
                         <div class="f-eta-row">
                             <div class="f-eta-label">To</div>
-                            <input class="f-input" type="text" placeholder="" >
+                            <input class="f-input" type="text" placeholder="" aria-label="TEU">
                         </div>
                         </div>
 
@@ -925,7 +925,7 @@
                         </div>
 
                         <div class="f-rangeLine">
-                            <input class="f-range" type="range" min="1" max="24" value="9">
+                            <input class="f-range" aria-label="값 조절" type="range" min="1" max="24" value="9">
                             <button class="f-refresh" type="button" aria-label="초기화">
                             <img src="img/reload_02.svg" alt="재실행" class="f-reload-icon">
                             </button>
@@ -1132,9 +1132,9 @@
         <!-- 오른쪽 퀵메뉴 -->
         <div class="quick-menu">
             <div class="quick-menu-top">
-                <button class="q-btn" data-tooltip="알람"><img src="img/quick_001.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="관심선박"><img src="img/quick_002.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="미니맵"><img src="img/quick_003.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="알람"><img src="img/quick_001.svg" alt="알람"></button>
+                <button class="q-btn" data-tooltip="관심선박"><img src="img/quick_002.svg" alt="관심선박"></button>
+                <button class="q-btn" data-tooltip="미니맵"><img src="img/quick_003.svg" alt="미니맵"></button>
             </div>
 
             <div class="gap-space"></div>
@@ -1143,53 +1143,53 @@
             </button>
 
             <div class="quick-menu-middle">
-                <button class="q-btn active" data-tooltip="기상"><img src="img/quick_004.svg" alt=""></button>
-                <button class="q-btn active" data-tooltip="다운로드"><img src="img/quick_005.svg" alt=""></button>
+                <button class="q-btn active" data-tooltip="기상"><img src="img/quick_004.svg" alt="기상"></button>
+                <button class="q-btn active" data-tooltip="다운로드"><img src="img/quick_005.svg" alt="다운로드"></button>
             </div>
             
             <div class="gap-space"></div>
             <div class="quick-menu-bottom">
-                <button class="q-btn" data-tooltip="선박통합"><img src="img/quick_006.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="선박표시"><img src="img/quick_007.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="해경자산"><img src="img/quick_008.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="구역설정"><img src="img/quick_009.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="거리"><img src="img/quick_010.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="면적"><img src="img/quick_011.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="거리환"><img src="img/quick_012.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="캡처"><img src="img/quick_013.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="초기화"><img src="img/quick_014.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="AI"><img src="img/quick_015.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="업로드"><img src="img/quick_016.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="선박추적"><img src="img/quick_017.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="필터결과"><img src="img/quick_018.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="녹화"><img src="img/quick_019.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="항공영상"><img src="img/quick_020.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="선박통합"><img src="img/quick_006.svg" alt="선박통합"></button>
+                <button class="q-btn" data-tooltip="선박표시"><img src="img/quick_007.svg" alt="선박표시"></button>
+                <button class="q-btn" data-tooltip="해경자산"><img src="img/quick_008.svg" alt="해경자산"></button>
+                <button class="q-btn" data-tooltip="구역설정"><img src="img/quick_009.svg" alt="구역설정"></button>
+                <button class="q-btn" data-tooltip="거리"><img src="img/quick_010.svg" alt="거리"></button>
+                <button class="q-btn" data-tooltip="면적"><img src="img/quick_011.svg" alt="면적"></button>
+                <button class="q-btn" data-tooltip="거리환"><img src="img/quick_012.svg" alt="거리환"></button>
+                <button class="q-btn" data-tooltip="캡처"><img src="img/quick_013.svg" alt="캡처"></button>
+                <button class="q-btn" data-tooltip="초기화"><img src="img/quick_014.svg" alt="초기화"></button>
+                <button class="q-btn" data-tooltip="AI"><img src="img/quick_015.svg" alt="AI"></button>
+                <button class="q-btn" data-tooltip="업로드"><img src="img/quick_016.svg" alt="업로드"></button>
+                <button class="q-btn" data-tooltip="선박추적"><img src="img/quick_017.svg" alt="선박추적"></button>
+                <button class="q-btn" data-tooltip="필터결과"><img src="img/quick_018.svg" alt="필터결과"></button>
+                <button class="q-btn" data-tooltip="녹화"><img src="img/quick_019.svg" alt="녹화"></button>
+                <button class="q-btn" data-tooltip="항공영상"><img src="img/quick_020.svg" alt="항공영상"></button>
             </div>
         </div>
 
         <div class="quick-menu-end">
-            <button class="q-btn"><img src="img/quick_021.svg" alt=""></button>
-            <button class="q-btn"><img src="img/quick_022.svg" alt=""></button>
-            <button class="q-btn"><img src="img/quick_023.svg" alt=""></button>
+            <button class="q-btn"><img src="img/quick_021.svg" alt="확대"></button>
+            <button class="q-btn"><img src="img/quick_022.svg" alt="지도 줌 레벨"></button>
+            <button class="q-btn"><img src="img/quick_023.svg" alt="축소"></button>
         </div>
         <div class="gap-space"></div>
         <div class="quick-menu-end-02">
             <button class="q-btn" id="btnLegend" type="button" aria-label="범례" aria-expanded="false">
-            <img src="img/quick_024.svg" alt=""></button>
+            <img src="img/quick_024.svg" alt="범례"></button>
         </div>
       </div>
      <div id="tooltip-layer"></div>
 
     <div class="legend-panel" id="legendPanel" aria-hidden="true">
     <ul class="legend-list">
-        <li class="legend-item"><img src="img/legend_01.svg" alt=""><span>어선</span><b>23255</b></li>
-        <li class="legend-item"><img src="img/legend_02.svg" alt=""><span>여객선</span><b>914</b></li>
-        <li class="legend-item"><img src="img/legend_03.svg" alt=""><span>화물선</span><b>12025</b></li>
-        <li class="legend-item"><img src="img/legend_04.svg" alt=""><span>유조선</span><b>3364</b></li>
-        <li class="legend-item"><img src="img/legend_05.svg" alt=""><span>관공선</span><b>497</b></li>
-        <li class="legend-item"><img src="img/legend_06.svg" alt=""><span>경비 함정</span><b>483</b></li>
-        <li class="legend-item"><img src="img/legend_07.svg" alt=""><span>어망/부이</span><b>1351</b></li>
-        <li class="legend-item"><img src="img/legend_08.svg" alt=""><span>기타</span><b>8087</b></li>
+        <li class="legend-item"><img src="img/legend_01.svg" alt="어선"><span>어선</span><b>23255</b></li>
+        <li class="legend-item"><img src="img/legend_02.svg" alt="여객선"><span>여객선</span><b>914</b></li>
+        <li class="legend-item"><img src="img/legend_03.svg" alt="화물선"><span>화물선</span><b>12025</b></li>
+        <li class="legend-item"><img src="img/legend_04.svg" alt="유조선"><span>유조선</span><b>3364</b></li>
+        <li class="legend-item"><img src="img/legend_05.svg" alt="관공선"><span>관공선</span><b>497</b></li>
+        <li class="legend-item"><img src="img/legend_06.svg" alt="경비 함정"><span>경비 함정</span><b>483</b></li>
+        <li class="legend-item"><img src="img/legend_07.svg" alt="어망/부이"><span>어망/부이</span><b>1351</b></li>
+        <li class="legend-item"><img src="img/legend_08.svg" alt="기타"><span>기타</span><b>8087</b></li>
     </ul>
     </div>
 
@@ -1213,8 +1213,9 @@
             <table class="caTable caTable--filterList">
             <thead>
                 <tr>
-                <th style="width:60px;">
-                    <label class="alarm-check">
+                <th style="width:60px; text-indent: -9999px;">
+                    선택
+                    <label class="alarm-check" aria-label="선박선택">
                     <input type="checkbox" id="filterListAllChk">
                     <span class="check-ui"></span>
                     </label>
@@ -1226,7 +1227,7 @@
                 <tbody>
                     <tr>
                     <td>
-                        <label class="alarm-check">
+                        <label class="alarm-check" aria-label="선박선택">
                         <input type="checkbox" class="filterRowChk" checked>
                         <span class="check-ui"></span>
                         </label>

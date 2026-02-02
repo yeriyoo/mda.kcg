@@ -74,7 +74,7 @@
         <table class="caTable">
             <thead>
             <tr>
-                <th style="width:44px;"></th>
+                <th style="width:44px;text-indent:-9999px;">선택</th>
                 <th style="width:60px;">번호</th>
                 <th style="width:180px;">분석 이름</th>
                 <th>분석 조건</th>
@@ -93,7 +93,7 @@
             <tbody>
             <tr>
                 <td>
-                    <label class="alarm-check caCheck">
+                    <label class="alarm-check caCheck" aria-label="선박선택">
                         <input type="checkbox">
                         <span class="check-ui"></span>
                     </label>
@@ -115,7 +115,7 @@
 
             <tr>
                 <td>
-                    <label class="alarm-check caCheck">
+                    <label class="alarm-check caCheck" aria-label="선박선택">
                         <input type="checkbox">
                         <span class="check-ui"></span>
                     </label>
@@ -137,7 +137,7 @@
 
             <tr>
                 <td>
-                    <label class="alarm-check caCheck">
+                    <label class="alarm-check caCheck" aria-label="선박선택">
                         <input type="checkbox">
                         <span class="check-ui"></span>
                     </label>
@@ -385,8 +385,8 @@
             <span class="caField__label">실행 주기</span>
             <div class="caInline">
                 <span class="caInline__txt">주기</span>
-                <input class="caMiniInput" type="text" >
-                <input class="caMiniInput" type="text" >
+                <input class="caMiniInput" type="text" aria-label="주기입력">
+                <input class="caMiniInput" type="text" aria-label="주기입력">
             </div>
             </div>
 
@@ -400,7 +400,7 @@
 
             <div class="caField">
             <span class="caField__label">알림 설정</span>
-            <label class="caSwitch">
+            <label class="caSwitch" aria-label="알림 설정">
                 <input type="checkbox">
                 <span class="caSwitch__ui"></span>
             </label>
@@ -571,7 +571,7 @@
             <!-- 공유 받는 이 -->
             <div class="caShareLabel">공유 받는 이</div>
             <div class="caShareField caShareField--inline">
-            <input class="caShareInput" type="text" id="shareReceiver" placeholder="" >
+            <input class="caShareInput" type="text" id="shareReceiver" placeholder="" aria-label="공유 받는 이">
             <button class="caShareFindBtn" type="button">
                 찾기
                 <img src="img/search-icon-02.svg" alt="" class="caShareFindIcon">
@@ -582,13 +582,13 @@
             <div class="caShareLabel">공유 이름</div>
             <div class="caShareField">
             <input class="caShareInput" type="text" id="shareName"
-                    value="{보낸사람 이름}_{분석이름}_{yyyy-mm-dd}" >
+                    value="{보낸사람 이름}_{분석이름}_{yyyy-mm-dd}" aria-label="공유 이름">
             </div>
 
             <!-- 공유 내용 -->
             <div class="caShareLabel">공유 내용</div>
             <div class="caShareField">
-            <textarea class="caShareTextarea" id="shareContent" rows="6"></textarea>
+            <textarea class="caShareTextarea" id="shareContent" rows="6" aria-label="공유 내용"></textarea>
             </div>
 
             <!-- 공유 내역 -->
@@ -600,7 +600,7 @@
             <!-- 알람 설정 -->
             <div class="caShareLabel">알람 설정</div>
             <div class="caShareField">
-            <label class="caSwitch">
+            <label class="caSwitch" aria-label="알람 설정">
                 <input type="checkbox" id="shareAlarm">
                 <span class="caSwitch__ui"></span>
             </label>

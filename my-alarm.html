@@ -22,7 +22,7 @@
 
     <!-- 상단 중앙 검색 -->
     <div class="map-search" role="search" aria-label="선박 위치 검색">
-    <input class="map-search__input" type="search" placeholder="선박 위치 검색" >
+    <input class="map-search__input" type="search" placeholder="선박 위치 검색" aria-label="선박 위치 검색">
     <button class="map-search__btn" type="button" aria-label="검색">
         <span class="material-symbols-outlined">search</span>
     </button>
@@ -176,7 +176,7 @@
 
             <div class="mypage-section-body">
                 <div class="radius-row">
-                <input class="radius-input" type="number" value="5" min="0" >
+                <input aria-label="숫자입력" class="radius-input" type="number"value="5" min="0" >
                 <span class="radius-unit">miles</span>
                 </div>
             </div>
@@ -211,9 +211,9 @@
         <!-- 오른쪽 퀵메뉴 -->
         <div class="quick-menu">
             <div class="quick-menu-top">
-                <button class="q-btn" data-tooltip="알람"><img src="img/quick_001.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="관심선박"><img src="img/quick_002.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="미니맵"><img src="img/quick_003.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="알람"><img src="img/quick_001.svg" alt="알람"></button>
+                <button class="q-btn" data-tooltip="관심선박"><img src="img/quick_002.svg" alt="관심선박"></button>
+                <button class="q-btn" data-tooltip="미니맵"><img src="img/quick_003.svg" alt="미니맵"></button>
             </div>
 
             <div class="gap-space"></div>
@@ -222,39 +222,39 @@
             </button>
 
             <div class="quick-menu-middle">
-                <button class="q-btn active" data-tooltip="기상"><img src="img/quick_004.svg" alt=""></button>
-                <button class="q-btn active" data-tooltip="다운로드"><img src="img/quick_005.svg" alt=""></button>
+                <button class="q-btn active" data-tooltip="기상"><img src="img/quick_004.svg" alt="기상"></button>
+                <button class="q-btn active" data-tooltip="다운로드"><img src="img/quick_005.svg" alt="다운로드"></button>
             </div>
             
             <div class="gap-space"></div>
             <div class="quick-menu-bottom">
-                <button class="q-btn" data-tooltip="선박통합"><img src="img/quick_006.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="선박표시"><img src="img/quick_007.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="해경자산"><img src="img/quick_008.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="구역설정"><img src="img/quick_009.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="거리"><img src="img/quick_010.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="면적"><img src="img/quick_011.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="거리환"><img src="img/quick_012.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="캡처"><img src="img/quick_013.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="초기화"><img src="img/quick_014.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="AI"><img src="img/quick_015.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="업로드"><img src="img/quick_016.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="선박추적"><img src="img/quick_017.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="필터결과"><img src="img/quick_018.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="녹화"><img src="img/quick_019.svg" alt=""></button>
-                <button class="q-btn" data-tooltip="항공영상"><img src="img/quick_020.svg" alt=""></button>
+                <button class="q-btn" data-tooltip="선박통합"><img src="img/quick_006.svg" alt="선박통합"></button>
+                <button class="q-btn" data-tooltip="선박표시"><img src="img/quick_007.svg" alt="선박표시"></button>
+                <button class="q-btn" data-tooltip="해경자산"><img src="img/quick_008.svg" alt="해경자산"></button>
+                <button class="q-btn" data-tooltip="구역설정"><img src="img/quick_009.svg" alt="구역설정"></button>
+                <button class="q-btn" data-tooltip="거리"><img src="img/quick_010.svg" alt="거리"></button>
+                <button class="q-btn" data-tooltip="면적"><img src="img/quick_011.svg" alt="면적"></button>
+                <button class="q-btn" data-tooltip="거리환"><img src="img/quick_012.svg" alt="거리환"></button>
+                <button class="q-btn" data-tooltip="캡처"><img src="img/quick_013.svg" alt="캡처"></button>
+                <button class="q-btn" data-tooltip="초기화"><img src="img/quick_014.svg" alt="초기화"></button>
+                <button class="q-btn" data-tooltip="AI"><img src="img/quick_015.svg" alt="AI"></button>
+                <button class="q-btn" data-tooltip="업로드"><img src="img/quick_016.svg" alt="업로드"></button>
+                <button class="q-btn" data-tooltip="선박추적"><img src="img/quick_017.svg" alt="선박추적"></button>
+                <button class="q-btn" data-tooltip="필터결과"><img src="img/quick_018.svg" alt="필터결과"></button>
+                <button class="q-btn" data-tooltip="녹화"><img src="img/quick_019.svg" alt="녹화"></button>
+                <button class="q-btn" data-tooltip="항공영상"><img src="img/quick_020.svg" alt="항공영상"></button>
             </div>
         </div>
 
         <div class="quick-menu-end">
-            <button class="q-btn"><img src="img/quick_021.svg" alt=""></button>
-            <button class="q-btn"><img src="img/quick_022.svg" alt=""></button>
-            <button class="q-btn"><img src="img/quick_023.svg" alt=""></button>
+            <button class="q-btn"><img src="img/quick_021.svg" alt="확대"></button>
+            <button class="q-btn"><img src="img/quick_022.svg" alt="지도 줌 레벨"></button>
+            <button class="q-btn"><img src="img/quick_023.svg" alt="축소"></button>
         </div>
         <div class="gap-space"></div>
         <div class="quick-menu-end-02">
             <button class="q-btn" id="btnLegend" type="button" aria-label="범례" aria-expanded="false">
-                <img src="img/quick_024.svg" alt="">
+                <img src="img/quick_024.svg" alt="범례">
             </button>
         </div>
 
@@ -282,7 +282,7 @@
             <div class="modal-body">
             <div class="modal-search-row">
                 <label class="modal-search-label">검색어</label>
-                <input class="modal-search-input" type="text" placeholder="알람구분/알람내용/등록자" >
+                <input class="modal-search-input" type="text" placeholder="알람구분/알람내용/등록자" aria-label="알람구분/알람내용/등록자">
                 <button class="modal-search-btn" type="button">
                     검색
                     <img src="img/search-icon-02.svg" alt="검색버튼">
@@ -295,7 +295,7 @@
 
             <div class="modal-table modal-table--alarm">
                 <div class="modal-thead alarm-thead">
-                    <label class="alarm-check">
+                    <label class="alarm-check" aria-label="알림선택">
                     <input type="checkbox">
                     <span class="check-ui"></span>
                     </label>
@@ -310,7 +310,7 @@
                 </div>
 
                 <div class="modal-trow alarm-trow">
-                    <label class="alarm-check">
+                    <label class="alarm-check" aria-label="알림선택">
                     <input type="checkbox">
                     <span class="check-ui"></span>
                     </label>
@@ -325,7 +325,7 @@
                 </div>
 
                 <div class="modal-trow alarm-trow" id="alarmShareRow">
-                    <label class="alarm-check">
+                    <label class="alarm-check" aria-label="선박선택">
                     <input type="checkbox" checked>
                     <span class="check-ui"></span>
                     </label>
@@ -340,7 +340,7 @@
                 </div>
 
                 <div class="modal-trow alarm-trow">
-                    <label class="alarm-check">
+                    <label class="alarm-check" aria-label="알림선택">
                     <input type="checkbox">
                     <span class="check-ui"></span>
                     </label>
@@ -355,7 +355,7 @@
                 </div>
 
                 <div class="modal-trow alarm-trow">
-                    <label class="alarm-check">
+                    <label class="alarm-check" aria-label="알림선택">
                     <input type="checkbox">
                     <span class="check-ui"></span>
                     </label>
@@ -458,28 +458,28 @@
     <div class="legend-panel" id="legendPanel" aria-hidden="true">
     <ul class="legend-list">
         <li class="legend-item">
-            <img src="img/legend_01.svg" alt=""><span>어선</span><b>23255</b>
+            <img src="img/legend_01.svg" alt="어선"><span>어선</span><b>23255</b>
         </li>
         <li class="legend-item">
-            <img src="img/legend_02.svg" alt=""><span>여객선</span><b>914</b>
+            <img src="img/legend_02.svg" alt="여객선"><span>여객선</span><b>914</b>
         </li>
         <li class="legend-item">
-            <img src="img/legend_03.svg" alt=""><span>화물선</span><b>12025</b>
+            <img src="img/legend_03.svg" alt="화물선"><span>화물선</span><b>12025</b>
         </li>
         <li class="legend-item">
-            <img src="img/legend_04.svg" alt=""><span>유조선</span><b>3364</b>
+            <img src="img/legend_04.svg" alt="유조선"><span>유조선</span><b>3364</b>
         </li>
         <li class="legend-item">
-            <img src="img/legend_05.svg" alt=""><span>관공선</span><b>497</b>
+            <img src="img/legend_05.svg" alt="관공선"><span>관공선</span><b>497</b>
         </li>
         <li class="legend-item">
-            <img src="img/legend_06.svg" alt=""><span>경비 함정</span><b>483</b>
+            <img src="img/legend_06.svg" alt="경비 함정"><span>경비 함정</span><b>483</b>
         </li>
         <li class="legend-item">
-            <img src="img/legend_07.svg" alt=""><span>어망/부이</span><b>1351</b>
+            <img src="img/legend_07.svg" alt="어망/부이"><span>어망/부이</span><b>1351</b>
         </li>
         <li class="legend-item">
-            <img src="img/legend_08.svg" alt=""><span>기타</span><b>8087</b>
+            <img src="img/legend_08.svg" alt="기타"><span>기타</span><b>8087</b>
         </li>
     </ul>
     </div>
