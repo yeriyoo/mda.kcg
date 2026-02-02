@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const toggleBtn = document.querySelector(".mid-toggle");
     const middleMenu = document.querySelector(".quick-menu-middle");
     const bottomMenu = document.querySelector(".quick-menu-bottom");
-
+    
+    if (!toggleBtn || !middleMenu || !bottomMenu) return;
     let isOpen = true;
 
     toggleBtn.addEventListener("click", () => {
