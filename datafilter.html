@@ -23,7 +23,7 @@
     <!-- 상단 중앙 검색 -->
     <div class="map-search" role="search" aria-label="선박 위치 검색">
     <input class="map-search__input" type="search" placeholder="선박 위치 검색" aria-label="선박 위치 검색">
-    <button class="map-search__btn" type="button" aria-label="검색">
+    <button class="map-search__btn" type="button" aria-label="선박 위치 검색">
         <span class="material-symbols-outlined">search</span>
     </button>
     </div>
@@ -33,7 +33,7 @@
         <div class="map-topTime__clock">
             <span class="material-symbols-outlined map-topTime__ico" aria-hidden="true">schedule</span>
             <span class="map-topTime__time" id="topClock">03:22:00</span>
-            <button class="map-topTime__extend" type="button">연장</button>
+            <button class="map-topTime__extend" type="button" aria-label="시간연장버튼">연장</button>
         </div>
     </div>
 
@@ -63,7 +63,7 @@
         <span class="map-hud__value" id="hudTime">2024-07-01(월) 12:00:00</span>
         </span>
 
-        <button class="map-hud__gear" type="button" aria-label="설정">
+        <button class="map-hud__gear" type="button" aria-label="설정버튼" aria-hidden="true">>
         <span class="material-symbols-outlined">settings</span>
         </button>
     </div>
@@ -73,22 +73,22 @@
     <!-- ▣ 사이드바 -->
     <div class="side-bar">
         <ul class="menu-top">
-            <li><a><span><img src="img/menu_01.svg" alt="라이브맵"></span></a></li>
-            <li><a><span><img src="img/menu_02.svg" alt="선박DB"></span></a></li>
-            <li><a><span><img src="img/menu_03.svg" alt="해경자산"></span></a></li>
-            <li><a><span><img src="img/menu_04.svg" alt="분석검색"></span></a></li>
-            <li><a><span><img src="img/menu_05.svg" alt="분석맵"></span></a></li>
-            <li><a class="menu-analysis" href="javascript:void(0)">
+            <li><a href="#"><span><img src="img/menu_01.svg" alt="라이브맵"></span></a></li>
+            <li><a href="#"><span><img src="img/menu_02.svg" alt="선박DB"></span></a></li>
+            <li><a href="#"><span><img src="img/menu_03.svg" alt="해경자산"></span></a></li>
+            <li><a href="#"><span><img src="img/menu_04.svg" alt="분석검색"></span></a></li>
+            <li><a href="#"><span><img src="img/menu_05.svg" alt="분석맵"></span></a></li>
+            <li><a class="menu-analysis" href="#">
                 <span><img src="img/menu_07.svg" alt="세계선박 데이터 필터"></span></a>
             </li>
-            <li><a><span><img src="img/menu_08.svg" alt="세계선박 DB"></span></a></li>
-            <li><a><span><img src="img/menu_06.svg" alt="조건분석"></span></a></li>
+            <li><a href="#"><span><img src="img/menu_08.svg" alt="세계선박 DB"></span></a></li>
+            <li><a href="#"><span><img src="img/menu_06.svg" alt="조건분석"></span></a></li>
         </ul>
 
         <ul class="menu-bottom">
-            <li><a><span><img src="img/slideicon_01.svg" alt="뷰파인더"></span></a></li>
-            <li><a><span><img src="img/slideicon_02.svg" alt="설정"></span></a></li>
-            <li><a><span><img src="img/slideicon_03.svg" alt="마이페이지"></span></a></li>
+            <li><a href="#"><span><img src="img/slideicon_01.svg" alt="뷰파인더"></span></a></li>
+            <li><a href="#"><span><img src="img/slideicon_02.svg" alt="설정"></span></a></li>
+            <li><a href="#"><span><img src="img/slideicon_03.svg" alt="마이페이지"></span></a></li>
         </ul>
     </div>
 
@@ -211,7 +211,7 @@
                             </div>
 
                             <div class="f-control f-indent-1">
-                                <select class="f-select">
+                                <select class="f-select" aria-label="구역선택">
                                 <option>선택</option>
                                 <option>나의 구역 1</option>
                                 <option>나의 구역 2</option>
@@ -224,7 +224,7 @@
                             </div>
 
                             <div class="f-control f-indent-1">
-                                <select class="f-select">
+                                <select class="f-select" aria-label="구역선택">
                                 <option>선택</option>
                                 <option>EEZ 1</option>
                                 <option>EEZ 2</option>
@@ -339,7 +339,7 @@
                         </div>
 
                         <div class="f-control">
-                            <select class="f-select">
+                            <select class="f-select" aria-label="규제선택">
                             <option>경고</option>
                             <option>주의</option>
                             <option>정상</option>
@@ -357,7 +357,7 @@
                         </div>
 
                         <div class="f-control">
-                            <select class="f-select">
+                            <select class="f-select"  aria-label="제선택">
                             <option>경고</option>
                             <option>주의</option>
                             <option>정상</option>
@@ -437,7 +437,7 @@
                             <div class="f-subtitle">최근 기항 국가/지역</div>
                             </div>
                             <div class="f-control">
-                            <select class="f-select">
+                            <select class="f-select" aria-label="국가선택">
                                 <option>선택</option>
                                 <option>대한민국</option>
                                 <option>일본</option>
@@ -451,7 +451,7 @@
                             <div class="f-subtitle">목적지 국가/지역</div>
                             </div>
                             <div class="f-control">
-                            <select class="f-select">
+                            <select class="f-select" aria-label="국가선택">
                                 <option>선택</option>
                                 <option>대한민국</option>
                                 <option>일본</option>
@@ -539,7 +539,7 @@
 
                             <div class="f-groupBody f-indent-1" data-group="cargoState">
                                 <div class="f-qtyRow">
-                                    <select class="f-select f-select--load">
+                                    <select class="f-select f-select--load" aria-label="적재선택">
                                         <option>적재</option>
                                         <option>공선</option>
                                     </select>
@@ -582,7 +582,7 @@
                         <div class="f-subtitle f-subtitle--blue">STS 작업 또는 표류 중</div>
                         </div>
                         <div class="f-control">
-                        <select class="f-select">
+                        <select aria-label="상태선택">
                             <option>연료 공급 중</option>
                             <option>STS 작업 중</option>
                             <option>표류 중</option>
@@ -596,7 +596,7 @@
                         <div class="f-subtitle f-subtitle--blue">항구 정박 중</div>
                         </div>
                         <div class="f-control">
-                        <select class="f-select">
+                        <select class="f-select" aria-label="상태선택">
                             <option>예</option>
                             <option>아니오</option>
                         </select>
@@ -621,7 +621,7 @@
                         <div class="f-subtitle">최근 적재한 벌크 화물</div>
                         </div>
                         <div class="f-control">
-                        <select class="f-select">
+                        <select class="f-select" aria-label="상태선택">
                             <option value="">선택</option>
                             <option>석탄</option>
                             <option>철광석</option>
@@ -654,7 +654,7 @@
                         <div class="f-subtitle">기국</div>
                         </div>
                         <div class="f-control">
-                        <select class="f-select">
+                        <select class="f-select" aria-label="국적선택">
                             <option value="">선택</option>
                             <option>대한민국</option>
                             <option>일본</option>
@@ -669,7 +669,7 @@
                         <div class="f-subtitle">기국 (AIS)</div>
                         </div>
                         <div class="f-control">
-                        <select class="f-select">
+                        <select class="f-select" aria-label="국적선택">
                             <option value="">선택</option>
                             <option>KOR</option>
                             <option>JPN</option>
@@ -684,7 +684,7 @@
                         <div class="f-subtitle">선박 이름</div>
                         </div>
                         <div class="f-control">
-                        <select class="f-select">
+                        <select class="f-select"  aria-label="선박선택">
                             <option value="">선택</option>
                             <option>HD HYUNDAI MIPO</option>
                             <option>SHIP 002</option>
@@ -938,7 +938,7 @@
                         <div class="f-subtitle">메시지 종류</div>
                         </div>
                         <div class="f-control f-indent-1">
-                        <select class="f-select">
+                        <select class="f-select" aria-label="메시지 종류 선택">
                             <option selected>선택</option>
                             <option>Position Report</option>
                             <option>Static &amp; Voyage</option>
@@ -952,7 +952,7 @@
                         <div class="f-subtitle">선박 외 MMSI</div>
                         </div>
                         <div class="f-control f-indent-1">
-                        <select class="f-select">
+                        <select class="f-select" aria-label="선박 선택">
                             <option selected>선택</option>
                             <option>123456789</option>
                             <option>987654321</option>
@@ -965,7 +965,7 @@
                         <div class="f-subtitle">비정상 데이터 수신</div>
                         </div>
                         <div class="f-control f-indent-1">
-                        <select class="f-select">
+                        <select class="f-select"aria-label="데이터 선택">
                             <option selected>선택</option>
                             <option>예</option>
                             <option>아니오</option>

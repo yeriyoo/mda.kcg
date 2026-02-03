@@ -23,7 +23,7 @@
     <!-- 상단 중앙 검색 -->
     <div class="map-search" role="search" aria-label="선박 위치 검색">
     <input class="map-search__input" type="search" placeholder="선박 위치 검색" aria-label="선박 위치 검색">
-    <button class="map-search__btn" type="button" aria-label="검색">
+    <button class="map-search__btn" type="button" aria-label="선박 위치 검색">
         <span class="material-symbols-outlined">search</span>
     </button>
     </div>
@@ -33,7 +33,7 @@
         <div class="map-topTime__clock">
             <span class="material-symbols-outlined map-topTime__ico" aria-hidden="true">schedule</span>
             <span class="map-topTime__time" id="topClock">03:22:00</span>
-            <button class="map-topTime__extend" type="button">연장</button>
+            <button class="map-topTime__extend" type="button" aria-label="시간연장버튼">연장</button>
         </div>
     </div>
 
@@ -63,7 +63,7 @@
         <span class="map-hud__value" id="hudTime">2024-07-01(월) 12:00:00</span>
         </span>
 
-        <button class="map-hud__gear" type="button" aria-label="설정">
+        <button class="map-hud__gear" type="button" aria-label="설정버튼" aria-hidden="true">>
         <span class="material-symbols-outlined">settings</span>
         </button>
     </div>
@@ -74,51 +74,51 @@
     <div class="side-bar">
         <ul class="menu-top">
             <li>
-                <a>
+                <a href="#">
                     <span><img src="img/menu_01.svg" alt="라이브맵"></span>
                 </a>
             </li>
             <li>
-                <a>
+                <a href="#">
                     <span><img src="img/menu_02.svg" alt="선박DB"></span>
                 </a>
             </li>
             <li>
-                <a>
+                <a href="#">
                     <span><img src="img/menu_03.svg" alt="해경자산"></span>
                 </a>
             </li>
             <li>
-                <a>
+                <a href="#">
                     <span><img src="img/menu_04.svg" alt="분석검색"></span>
                 </a>
             </li>
             <li>
-                <a><span><img src="img/menu_05.svg" alt="분석맵"></span>
+                <a href="#"><span><img src="img/menu_05.svg" alt="분석맵"></span>
                 </a>
             </li>
             <li>
-                <a>
+                <a href="#">
                     <span><img src="img/menu_07.svg" alt="데이터 필터"></span>
                 </a>
             </li>
             <li>
-                <a>
+                <a href="#">
                     <span><img src="img/menu_08.svg" alt="세계선박 DB"></span>
                 </a>
             </li>
             <li>
-                <a>
+                <a href="#">
                     <span><img src="img/menu_06.svg" alt="조건분석"></span>
                 </a>
             </li>
         </ul>
 
         <ul class="menu-bottom">
-            <li><a><span><img src="img/slideicon_01.svg" alt="뷰파인더"></span></a></li>
-            <li><a><span><img src="img/slideicon_02.svg" alt="설정"></span></a></li>
+            <li><a href="#"><span><img src="img/slideicon_01.svg" alt="뷰파인더"></span></a></li>
+            <li><a href="#"><span><img src="img/slideicon_02.svg" alt="설정"></span></a></li>
             <li>
-                <a class="menu-mypage" href="javascript:void(0)">
+                <a class="menu-mypage" href="#">
                     <span><img src="img/slideicon_03.svg" alt="마이페이지"></span>
                 </a>
             </li>
