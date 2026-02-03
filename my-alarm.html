@@ -23,7 +23,7 @@
     <!-- 상단 중앙 검색 -->
     <div class="map-search" role="search" aria-label="선박 위치 검색">
     <input class="map-search__input" type="search" placeholder="선박 위치 검색" aria-label="선박 위치 검색">
-    <button class="map-search__btn" type="button" aria-label="선박 위치 검색">
+    <button onclick="extendTime(this)" class="map-search__btn" type="button" aria-label="선박 위치 검색">
         <span class="material-symbols-outlined">search</span>
     </button>
     </div>
@@ -33,7 +33,7 @@
         <div class="map-topTime__clock">
             <span class="material-symbols-outlined map-topTime__ico" aria-hidden="true">schedule</span>
             <span class="map-topTime__time" id="topClock">03:22:00</span>
-            <button class="map-topTime__extend" type="button" aria-label="시간연장버튼">연장</button>
+            <button onclick="extendTime(this)"  class="map-topTime__extend" type="button" aria-label="시간연장버튼">연장</button>
         </div>
     </div>
 
@@ -134,17 +134,17 @@
                 <strong>GC</strong>
             </div>
 
-            <button class="mypage-logout" type="button" aria-label="로그아웃"><img src="img/logout.svg" alt="로그아웃"></button>
+            <button onclick="extendTime(this)" class="mypage-logout" type="button" aria-label="로그아웃"><img src="img/logout.svg" alt="로그아웃"></button>
             </div>
 
             <div class="mypage-section is-open">
-            <button class="mypage-section-head" type="button">
+            <button onclick="extendTime(this)" class="mypage-section-head" type="button">
                 <span>테마 설정</span>
                 <span class="chev"></span>
             </button>
 
             <div class="mypage-section-body">
-                <button class="mypage-save" type="button">저장</button>
+                <button onclick="extendTime(this)" class="mypage-save" type="button">저장</button>
 
                 <div class="mypage-radio-list">
                 <label class="mypage-radio">
@@ -169,7 +169,7 @@
             </div>
 
             <div class="mypage-section radius-section is-open">
-            <button class="mypage-section-head" type="button">
+            <button onclick="extendTime(this)" class="mypage-section-head" type="button">
                 <span>주변 반경 설정</span>
                 <span class="chev"></span>
             </button>
@@ -182,25 +182,25 @@
             </div>
             </div>
 
-            <button class="mypage-row" type="button">
+            <button onclick="extendTime(this)" class="mypage-row" type="button">
             <span>메뉴 설정</span><span class="row-arrow"></span>
             </button>
 
-            <button class="mypage-row" type="button">
+            <button onclick="extendTime(this)" class="mypage-row" type="button">
             <span>나의 대시보드</span><span class="row-arrow"></span>
             </button>
 
-            <button class="mypage-row" id="btnShareAlarm" type="button">
+            <button onclick="extendTime(this)" class="mypage-row" id="btnShareAlarm" type="button">
             <span>분석/공유/알람</span><span class="row-arrow"></span>
             </button>
 
-            <button class="mypage-row" type="button">
+            <button onclick="extendTime(this)" class="mypage-row" type="button">
             <span>나의 사용자 그룹</span><span class="row-arrow"></span>
             </button>
 
         </div>
 
-        <button class="panel-collapseBtn" id="mypageCollapseBtn" type="button" aria-label="패널 접기/펼치기">
+        <button onclick="extendTime(this)" class="panel-collapseBtn" id="mypageCollapseBtn" type="button" aria-label="패널 접기/펼치기">
             <img src="img/panel-collapseBtn.svg" alt="접힘펼침버튼">
         </button>
 
@@ -211,49 +211,49 @@
         <!-- 오른쪽 퀵메뉴 -->
         <div class="quick-menu">
             <div class="quick-menu-top">
-                <button class="q-btn" data-tooltip="알람"><img src="img/quick_001.svg" alt="알람"></button>
-                <button class="q-btn" data-tooltip="관심선박"><img src="img/quick_002.svg" alt="관심선박"></button>
-                <button class="q-btn" data-tooltip="미니맵"><img src="img/quick_003.svg" alt="미니맵"></button>
+                <buttono nclick="extendTime(this)" class="q-btn" data-tooltip="알람"><img src="img/quick_001.svg" alt="알람"></button>
+                <button onclick="extendTime(this)" class="q-btn" data-tooltip="관심선박"><img src="img/quick_002.svg" alt="관심선박"></button>
+                <button onclick="extendTime(this)" class="q-btn" data-tooltip="미니맵"><img src="img/quick_003.svg" alt="미니맵"></button>
             </div>
 
             <div class="gap-space"></div>
-            <button class="q-btn mid-toggle">
+            <button onclick="extendTime(this)" class="q-btn mid-toggle">
                 <span class="material-symbols-outlined">keyboard_arrow_up</span>
             </button>
 
             <div class="quick-menu-middle">
-                <button class="q-btn active" data-tooltip="기상"><img src="img/quick_004.svg" alt="기상"></button>
-                <button class="q-btn active" data-tooltip="다운로드"><img src="img/quick_005.svg" alt="다운로드"></button>
+                <button onclick="extendTime(this)" class="q-btn active" data-tooltip="기상"><img src="img/quick_004.svg" alt="기상"></button>
+                <button onclick="extendTime(this)" class="q-btn active" data-tooltip="다운로드"><img src="img/quick_005.svg" alt="다운로드"></button>
             </div>
             
             <div class="gap-space"></div>
             <div class="quick-menu-bottom">
-                <button class="q-btn" data-tooltip="선박통합"><img src="img/quick_006.svg" alt="선박통합"></button>
-                <button class="q-btn" data-tooltip="선박표시"><img src="img/quick_007.svg" alt="선박표시"></button>
-                <button class="q-btn" data-tooltip="해경자산"><img src="img/quick_008.svg" alt="해경자산"></button>
-                <button class="q-btn" data-tooltip="구역설정"><img src="img/quick_009.svg" alt="구역설정"></button>
-                <button class="q-btn" data-tooltip="거리"><img src="img/quick_010.svg" alt="거리"></button>
-                <button class="q-btn" data-tooltip="면적"><img src="img/quick_011.svg" alt="면적"></button>
-                <button class="q-btn" data-tooltip="거리환"><img src="img/quick_012.svg" alt="거리환"></button>
-                <button class="q-btn" data-tooltip="캡처"><img src="img/quick_013.svg" alt="캡처"></button>
-                <button class="q-btn" data-tooltip="초기화"><img src="img/quick_014.svg" alt="초기화"></button>
-                <button class="q-btn" data-tooltip="AI"><img src="img/quick_015.svg" alt="AI"></button>
-                <button class="q-btn" data-tooltip="업로드"><img src="img/quick_016.svg" alt="업로드"></button>
-                <button class="q-btn" data-tooltip="선박추적"><img src="img/quick_017.svg" alt="선박추적"></button>
-                <button class="q-btn" data-tooltip="필터결과"><img src="img/quick_018.svg" alt="필터결과"></button>
-                <button class="q-btn" data-tooltip="녹화"><img src="img/quick_019.svg" alt="녹화"></button>
-                <button class="q-btn" data-tooltip="항공영상"><img src="img/quick_020.svg" alt="항공영상"></button>
+                <button onclick="extendTime(this)" class="q-btn" data-tooltip="선박통합"><img src="img/quick_006.svg" alt="선박통합"></button>
+                <button onclick="extendTime(this)" class="q-btn" data-tooltip="선박표시"><img src="img/quick_007.svg" alt="선박표시"></button>
+                <button onclick="extendTime(this)" class="q-btn" data-tooltip="해경자산"><img src="img/quick_008.svg" alt="해경자산"></button>
+                <button onclick="extendTime(this)" class="q-btn" data-tooltip="구역설정"><img src="img/quick_009.svg" alt="구역설정"></button>
+                <button onclick="extendTime(this)" class="q-btn" data-tooltip="거리"><img src="img/quick_010.svg" alt="거리"></button>
+                <button onclick="extendTime(this)" class="q-btn" data-tooltip="면적"><img src="img/quick_011.svg" alt="면적"></button>
+                <button onclick="extendTime(this)" class="q-btn" data-tooltip="거리환"><img src="img/quick_012.svg" alt="거리환"></button>
+                <button onclick="extendTime(this)" class="q-btn" data-tooltip="캡처"><img src="img/quick_013.svg" alt="캡처"></button>
+                <button onclick="extendTime(this)" class="q-btn" data-tooltip="초기화"><img src="img/quick_014.svg" alt="초기화"></button>
+                <button onclick="extendTime(this)" class="q-btn" data-tooltip="AI"><img src="img/quick_015.svg" alt="AI"></button>
+                <button onclick="extendTime(this)" class="q-btn" data-tooltip="업로드"><img src="img/quick_016.svg" alt="업로드"></button>
+                <button onclick="extendTime(this)" class="q-btn" data-tooltip="선박추적"><img src="img/quick_017.svg" alt="선박추적"></button>
+                <button onclick="extendTime(this)" class="q-btn" data-tooltip="필터결과"><img src="img/quick_018.svg" alt="필터결과"></button>
+                <button onclick="extendTime(this)" class="q-btn" data-tooltip="녹화"><img src="img/quick_019.svg" alt="녹화"></button>
+                <button onclick="extendTime(this)" class="q-btn" data-tooltip="항공영상"><img src="img/quick_020.svg" alt="항공영상"></button>
             </div>
         </div>
 
         <div class="quick-menu-end">
-            <button class="q-btn"><img src="img/quick_021.svg" alt="확대"></button>
-            <button class="q-btn"><img src="img/quick_022.svg" alt="지도 줌 레벨"></button>
-            <button class="q-btn"><img src="img/quick_023.svg" alt="축소"></button>
+            <button onclick="extendTime(this)" class="q-btn"><img src="img/quick_021.svg" alt="확대"></button>
+            <button onclick="extendTime(this)" class="q-btn"><img src="img/quick_022.svg" alt="지도 줌 레벨"></button>
+            <button onclick="extendTime(this)" class="q-btn"><img src="img/quick_023.svg" alt="축소"></button>
         </div>
         <div class="gap-space"></div>
         <div class="quick-menu-end-02">
-            <button class="q-btn" id="btnLegend" type="button" aria-label="범례" aria-expanded="false">
+            <button onclick="extendTime(this)" class="q-btn" id="btnLegend" type="button" aria-label="범례" aria-expanded="false">
                 <img src="img/quick_024.svg" alt="범례">
             </button>
         </div>
@@ -267,30 +267,30 @@
         <div class="modal_1140" role="dialog" aria-modal="true" aria-label="분석/공유/알람 정보">
             <div class="modal-head">
             <div class="modal-title">분석/공유/알람 정보</div>
-                <button class="modal-close" id="shareAlarmClose" type="button" aria-label="닫기">
+                <button onclick="extendTime(this)" class="modal-close" id="shareAlarmClose" type="button" aria-label="닫기">
                     <img src="img/modal-close.svg" alt="모달닫기버튼">
                 </button>
             </div>
 
             <div class="modal-tabs">
-            <button class="modal-tab" type="button">분석 리스트</button>
-            <button class="modal-tab" type="button">공유 리스트</button>
-            <button class="modal-tab" type="button">공유받은 리스트</button>
-            <button class="modal-tab is-active" type="button">알람 리스트</button>
+            <button onclick="extendTime(this)" class="modal-tab" type="button">분석 리스트</button>
+            <button onclick="extendTime(this)" class="modal-tab" type="button">공유 리스트</button>
+            <button onclick="extendTime(this)" class="modal-tab" type="button">공유받은 리스트</button>
+            <button onclick="extendTime(this)" class="modal-tab is-active" type="button">알람 리스트</button>
             </div>
 
             <div class="modal-body">
             <div class="modal-search-row">
                 <label class="modal-search-label" for="share">검색어</label>
                 <input class="modal-search-input" type="text" id="share" placeholder="알람구분/알람내용/등록자" aria-label="알람구분/알람내용/등록자">
-                <button class="modal-search-btn" type="button">
+                <button onclick="extendTime(this)" class="modal-search-btn" type="button">
                     검색
                     <img src="img/search-icon-02.svg" alt="검색버튼">
                 </button>
             </div>
 
             <div class="modal-actions">
-            <button class="modal-read-btn" type="button">읽음</button>
+            <button onclick="extendTime(this)" class="modal-read-btn" type="button">읽음</button>
             </div>
 
             <div class="modal-table modal-table--alarm">
@@ -374,22 +374,22 @@
 
 
             <div class="modal-pagination" role="navigation" aria-label="페이지네이션">
-                <button class="page-btn" type="button" aria-label="첫 페이지">&laquo;</button>
-                <button class="page-btn" type="button" aria-label="이전 페이지">&lsaquo;</button>
+                <button onclick="extendTime(this)" class="page-btn" type="button" aria-label="첫 페이지">&laquo;</button>
+                <button onclick="extendTime(this)" class="page-btn" type="button" aria-label="이전 페이지">&lsaquo;</button>
 
-                <button class="page-num is-active" type="button" aria-current="page">1</button>
-                <button class="page-num" type="button">2</button>
-                <button class="page-num" type="button">3</button>
-                <button class="page-num" type="button">4</button>
-                <button class="page-num" type="button">5</button>
+                <button onclick="extendTime(this)" class="page-num is-active" type="button" aria-current="page">1</button>
+                <button onclick="extendTime(this)" class="page-num" type="button">2</button>
+                <button onclick="extendTime(this)" class="page-num" type="button">3</button>
+                <button onclick="extendTime(this)" class="page-num" type="button">4</button>
+                <button onclick="extendTime(this)" class="page-num" type="button">5</button>
 
-                <button class="page-btn" type="button" aria-label="다음 페이지">&rsaquo;</button>
-                <button class="page-btn" type="button" aria-label="마지막 페이지">&raquo;</button>
+                <button onclick="extendTime(this)" class="page-btn" type="button" aria-label="다음 페이지">&rsaquo;</button>
+                <button onclick="extendTime(this)" class="page-btn" type="button" aria-label="마지막 페이지">&raquo;</button>
             </div>
 
 
             <div class="modal-footer">
-                <button class="modal-ok" type="button" id="shareAlarmOk">확인</button>
+                <button onclick="extendTime(this)" class="modal-ok" type="button" id="shareAlarmOk">확인</button>
             </div>
             </div>
         </div>
@@ -401,7 +401,7 @@
 
             <div class="modal-detail-head">
             <div class="modal-detail-title">상세 내용</div>
-            <button class="modal-close" id="alarmDetailClose" type="button" aria-label="닫기">
+            <button onclick="extendTime(this)" class="modal-close" id="alarmDetailClose" type="button" aria-label="닫기">
                 <img src="img/modal-close.svg" alt="모달닫기버튼">
             </button>
             </div>
@@ -439,7 +439,7 @@
                 <div class="alarm-content-box">
                     <div class="alarm-content-text">알람 내용</div>
 
-                    <button class="alarm-go-btn" type="button">
+                    <button onclick="extendTime(this)" class="alarm-go-btn" type="button">
                     바로 가기
                     </button>
                 </div>
@@ -448,8 +448,8 @@
             </div>
 
             <div class="modal-footer alarm-detail-footer">
-            <button class="modal-ok" id="alarmDetailOk" type="button">확인</button>
-            <button class="modal-cancel" id="alarmDetailCancel" type="button">취소</button>
+            <button onclick="extendTime(this)" class="modal-ok" id="alarmDetailOk" type="button">확인</button>
+            <button onclick="extendTime(this)" class="modal-cancel" id="alarmDetailCancel" type="button">취소</button>
             </div>
         </div>
     </div>

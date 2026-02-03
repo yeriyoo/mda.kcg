@@ -1,3 +1,7 @@
+function extendTime(btn) {
+  btn.setAttribute('aria-pressed', 'true');
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const toggleBtn = document.querySelector(".mid-toggle");
     const middleMenu = document.querySelector(".quick-menu-middle");

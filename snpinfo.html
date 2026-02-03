@@ -30,13 +30,13 @@
     </div>
 
     <div class="topbar__right">
-      <button class="topBtn">세계 선박 항적 조회<img src="img/search-icon.svg" alt="세계 선박 항적 조회"></button>
-      <button class="topBtn">항적조회<img src="img/search-icon.svg" alt="항적조회"></button>
-      <button class="topBtn">항적예측<img src="img/search-icon.svg" alt="항적예측"></button>
-      <button class="topBtn">신호정보<img src="img/search-icon.svg" alt="신호정보"></button>
-      <button class="topBtn-01">메모등록<img src="img/memo-icon.svg" alt="메모등록"></button>
-      <button class="topBtn-01">선박공유<img src="img/share-chip-icon.svg" alt="선박공유"></button>
-      <button class="topBtn-01">다운로드<img src="img/download-icon.svg" alt="다운로드"></button>
+      <button onclick="extendTime(this)" class="topBtn">세계 선박 항적 조회<img src="img/search-icon.svg" alt="세계 선박 항적 조회"></button>
+      <button onclick="extendTime(this)" class="topBtn">항적조회<img src="img/search-icon.svg" alt="항적조회"></button>
+      <button onclick="extendTime(this)" class="topBtn">항적예측<img src="img/search-icon.svg" alt="항적예측"></button>
+      <button onclick="extendTime(this)" class="topBtn">신호정보<img src="img/search-icon.svg" alt="신호정보"></button>
+      <button onclick="extendTime(this)" class="topBtn-01">메모등록<img src="img/memo-icon.svg" alt="메모등록"></button>
+      <button onclick="extendTime(this)" class="topBtn-01">선박공유<img src="img/share-chip-icon.svg" alt="선박공유"></button>
+      <button onclick="extendTime(this)" class="topBtn-01">다운로드<img src="img/download-icon.svg" alt="다운로드"></button>
     </div>
   </header>
 
@@ -105,7 +105,7 @@
       <!-- 선박 사진 (토글1) -->
       <div class="sectionBar sectionBar--photo">
         <div class="sectionTitle">선박 사진</div>
-        <button class="sectionToggle" type="button" aria-label="접기/펼치기" data-toggle="shipPhoto">
+        <button onclick="extendTime(this)" class="sectionToggle" type="button" aria-label="접기/펼치기" data-toggle="shipPhoto">
           <span class="material-symbols-outlined">chevron_right</span>
         </button>
       </div>
@@ -113,7 +113,7 @@
       <!-- 선박 규제 준수 및 이력 (토글2) -->
       <div class="sectionBar">
         <div class="sectionTitle">선박 규제 준수 및 이력</div>
-        <button class="sectionToggle" type="button" aria-label="접기/펼치기" data-toggle="compliance">
+        <button onclick="extendTime(this)" class="sectionToggle" type="button" aria-label="접기/펼치기" data-toggle="compliance">
           <span class="material-symbols-outlined">remove</span>
         </button>
       </div>
@@ -122,12 +122,12 @@
         <div class="sectionContent" data-content="compliance">
 
           <div class="subTabs">
-            <button class="subTab is-active" data-subtab="sanction">제재</button>
-            <button class="subTab" data-subtab="port">기항 내역</button>
-            <button class="subTab" data-subtab="cargo">선박 간 화물 이동</button>
-            <button class="subTab" data-subtab="suspicion">의심 내역</button>
-            <button class="subTab" data-subtab="owner">소유주</button>
-            <button class="subTab" data-subtab="compliance">준수 내역</button>
+            <button onclick="extendTime(this)" class="subTab is-active" data-subtab="sanction">제재</button>
+            <button onclick="extendTime(this)" class="subTab" data-subtab="port">기항 내역</button>
+            <button onclick="extendTime(this)" class="subTab" data-subtab="cargo">선박 간 화물 이동</button>
+            <button onclick="extendTime(this)" class="subTab" data-subtab="suspicion">의심 내역</button>
+            <button onclick="extendTime(this)" class="subTab" data-subtab="owner">소유주</button>
+            <button onclick="extendTime(this)" class="subTab" data-subtab="compliance">준수 내역</button>
           </div>
 
           <div class="subTabPanel" data-panel="sanction">
@@ -278,15 +278,15 @@
                 </div>
 
                 <div class="pagination">
-                  <button class="pageBtn pageNav">«</button>
-                  <button class="pageBtn pageNav">‹</button>
-                  <button class="pageBtn is-active">1</button>
-                  <button class="pageBtn">2</button>
-                  <button class="pageBtn">3</button>
-                  <button class="pageBtn">4</button>
-                  <button class="pageBtn">5</button>
-                  <button class="pageBtn pageNav">›</button>
-                  <button class="pageBtn pageNav">»</button>
+                  <button onclick="extendTime(this)" class="pageBtn pageNav">«</button>
+                  <button onclick="extendTime(this)" class="pageBtn pageNav">‹</button>
+                  <button onclick="extendTime(this)" class="pageBtn is-active">1</button>
+                  <button onclick="extendTime(this)" class="pageBtn">2</button>
+                  <button onclick="extendTime(this)" class="pageBtn">3</button>
+                  <button onclick="extendTime(this)" class="pageBtn">4</button>
+                  <button onclick="extendTime(this)" class="pageBtn">5</button>
+                  <button onclick="extendTime(this)" class="pageBtn pageNav">›</button>
+                  <button onclick="extendTime(this)" class="pageBtn pageNav">»</button>
                 </div>
           </div>
 
@@ -379,17 +379,17 @@
             </div>
 
             <div class="pagination">
-              <button class="pageBtn pageNav">«</button>
-              <button class="pageBtn pageNav">‹</button>
+              <button onclick="extendTime(this)" class="pageBtn pageNav">«</button>
+              <button onclick="extendTime(this)" class="pageBtn pageNav">‹</button>
 
-              <button class="pageBtn is-active">1</button>
-              <button class="pageBtn">2</button>
-              <button class="pageBtn">3</button>
-              <button class="pageBtn">4</button>
-              <button class="pageBtn">5</button>
+              <button onclick="extendTime(this)" class="pageBtn is-active">1</button>
+              <button onclick="extendTime(this)" class="pageBtn">2</button>
+              <button onclick="extendTime(this)" class="pageBtn">3</button>
+              <button onclick="extendTime(this)" class="pageBtn">4</button>
+              <button onclick="extendTime(this)" class="pageBtn">5</button>
 
-              <button class="pageBtn pageNav">›</button>
-              <button class="pageBtn pageNav">»</button>
+              <button onclick="extendTime(this)" class="pageBtn pageNav">›</button>
+              <button onclick="extendTime(this)" class="pageBtn pageNav">»</button>
             </div>
 
           </div>
@@ -472,17 +472,17 @@
             </div>
 
             <div class="pagination">
-              <button class="pageBtn pageNav">«</button>
-              <button class="pageBtn pageNav">‹</button>
+              <button onclick="extendTime(this)" class="pageBtn pageNav">«</button>
+              <button onclick="extendTime(this)" class="pageBtn pageNav">‹</button>
 
-              <button class="pageBtn is-active">1</button>
-              <button class="pageBtn">2</button>
-              <button class="pageBtn">3</button>
-              <button class="pageBtn">4</button>
-              <button class="pageBtn">5</button>
+              <button onclick="extendTime(this)" class="pageBtn is-active">1</button>
+              <button onclick="extendTime(this)" class="pageBtn">2</button>
+              <button onclick="extendTime(this)" class="pageBtn">3</button>
+              <button onclick="extendTime(this)" class="pageBtn">4</button>
+              <button onclick="extendTime(this)" class="pageBtn">5</button>
 
-              <button class="pageBtn pageNav">›</button>
-              <button class="pageBtn pageNav">»</button>
+              <button onclick="extendTime(this)" class="pageBtn pageNav">›</button>
+              <button onclick="extendTime(this)" class="pageBtn pageNav">»</button>
             </div>
 
           </div>
@@ -717,7 +717,7 @@
 
                   <tr class="histRow is-open" data-hist="h1">
                     <td>
-                      <button class="rowToggle" type="button" aria-label="toggle">
+                      <button onclick="extendTime(this)" class="rowToggle" type="button" aria-label="toggle">
                         <span class="material-symbols-outlined">expand_more</span>
                       </button>
                       08 Oct 2024 21:43
@@ -758,7 +758,7 @@
 
                   <tr class="histRow" data-hist="h2">
                     <td>
-                      <button class="rowToggle" type="button" aria-label="toggle">
+                      <button onclick="extendTime(this)" class="rowToggle" type="button" aria-label="toggle">
                         <span class="material-symbols-outlined">chevron_right</span>
                       </button>
                       11 Jul 2023 21:37
@@ -801,63 +801,63 @@
         <!-- 나머지 아코디언 리스트 -->
         <div class="sectionBar">
           <div class="sectionTitle">위험 지표</div>
-          <button class="sectionToggle" type="button" aria-label="접기/펼치기">
+          <button onclick="extendTime(this)" class="sectionToggle" type="button" aria-label="접기/펼치기">
             <span class="material-symbols-outlined">chevron_right</span>
           </button>
         </div>
 
         <div class="sectionBar">
           <div class="sectionTitle">소유주 및 등록 정보</div>
-          <button class="sectionToggle" type="button" aria-label="접기/펼치기">
+          <button onclick="extendTime(this)" class="sectionToggle" type="button" aria-label="접기/펼치기">
             <span class="material-symbols-outlined">chevron_right</span>
           </button>
         </div>
 
         <div class="sectionBar">
           <div class="sectionTitle">안전 및 인증</div>
-          <button class="sectionToggle" type="button" aria-label="접기/펼치기">
+          <button onclick="extendTime(this)" class="sectionToggle" type="button" aria-label="접기/펼치기">
             <span class="material-symbols-outlined">chevron_right</span>
           </button>
         </div>
 
         <div class="sectionBar">
           <div class="sectionTitle">선박 건조</div>
-          <button class="sectionToggle" type="button" aria-label="접기/펼치기">
+          <button onclick="extendTime(this)" class="sectionToggle" type="button" aria-label="접기/펼치기">
             <span class="material-symbols-outlined">chevron_right</span>
           </button>
         </div>
 
         <div class="sectionBar">
           <div class="sectionTitle">차수 및 톤수</div>
-          <button class="sectionToggle" type="button" aria-label="접기/펼치기">
+          <button onclick="extendTime(this)" class="sectionToggle" type="button" aria-label="접기/펼치기">
             <span class="material-symbols-outlined">chevron_right</span>
           </button>
         </div>
 
         <div class="sectionBar">
           <div class="sectionTitle">화물 및 적재량</div>
-          <button class="sectionToggle" type="button" aria-label="접기/펼치기">
+          <button onclick="extendTime(this)" class="sectionToggle" type="button" aria-label="접기/펼치기">
             <span class="material-symbols-outlined">chevron_right</span>
           </button>
         </div>
 
         <div class="sectionBar">
           <div class="sectionTitle">선박 기관</div>
-          <button class="sectionToggle" type="button" aria-label="접기/펼치기">
+          <button onclick="extendTime(this)" class="sectionToggle" type="button" aria-label="접기/펼치기">
             <span class="material-symbols-outlined">chevron_right</span>
           </button>
         </div>
 
         <div class="sectionBar">
           <div class="sectionTitle">이동 및 항적</div>
-          <button class="sectionToggle" type="button" aria-label="접기/펼치기">
+          <button onclick="extendTime(this)" class="sectionToggle" type="button" aria-label="접기/펼치기">
             <span class="material-symbols-outlined">chevron_right</span>
           </button>
         </div>
 
         <div class="sectionBar">
           <div class="sectionTitle">타임라인</div>
-          <button class="sectionToggle" type="button" aria-label="접기/펼치기">
+          <button onclick="extendTime(this)" class="sectionToggle" type="button" aria-label="접기/펼치기">
             <span class="material-symbols-outlined">chevron_right</span>
           </button>
         </div>
