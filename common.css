@@ -1978,7 +1978,7 @@ margin: 0;
   border: none;
   background: transparent;
   cursor: pointer;
-  color: #666666;
+  color: #555;
   font-weight: 400;
   background-color: #DDDDDD;
 }
@@ -2162,7 +2162,7 @@ body.is-modal-open{
   cursor: pointer;
   font-size: 14px;
   line-height: 1;
-  color: #757575;
+  color: #666;
   padding: 6px 8px;
   border-radius: 3px;
 }
@@ -2490,7 +2490,7 @@ body.is-modal-open{
   padding: 4px 0;
   font-size: 16px;
   font-weight: 600;
-  color: #6B7FE3;
+  color: #3a4ba2;
   gap: 6px;    
 }
 
@@ -2523,7 +2523,7 @@ body.is-modal-open{
   gap: 6px;  
   font-size: 20px;
   font-weight: 600;
-  color: #4289D1;
+  color: #27639f;
 }
 .dash-card-n{ font-size: 36px; font-weight: 700; text-align:right; margin-top: 8px; }
 
@@ -2603,7 +2603,7 @@ body.is-modal-open{
 }
 
 .dash-ship-sub{ 
-  color:#77889a;
+  color:#666;
   margin-top: 0; 
 }
 
@@ -2626,7 +2626,7 @@ body.is-modal-open{
   height: 30px;
   padding: 0 16px;
   border-radius: 999px;
-  background:#2494D3;
+  background:#146da1;
   color:#fff;
   font-weight:500;
   font-size:16px;
@@ -2673,7 +2673,7 @@ body.is-modal-open{
 
 .voy-arrow{
   font-size:40px;
-  color:#9AA0A6;
+  color:#666;
   line-height:1;
   transform: translateY(-2px);
 }
@@ -2734,7 +2734,7 @@ body.is-modal-open{
   padding: 0 8px;
   border-radius: 4px;
   border: 1px solid #4F8FD6;
-  color:#4F8FD6;
+  color:#386fad;
   font-weight:700;
   font-size:16px;
   background:#fff;
@@ -3416,7 +3416,7 @@ body.is-modal-open{
   background:#DDDDDD;
   font-size: 16px;
   font-weight: 500;
-  color:#666666;
+  color:#555;
   cursor:pointer;
 }
 
@@ -3474,7 +3474,7 @@ body.is-modal-open{
   align-items:center;
   justify-content:center;
   font-size: 22px;
-  color:#AAAAAA;
+  color:#666;
 }
 
 .acc-title{
@@ -3999,7 +3999,7 @@ body.is-modal-open{
   border: none;
   border-bottom: none;  
   background:#DDDDDD;
-  color:#666666;
+  color:#555;
   padding: 10px 18px;
   font-size: 13px;
   border-radius: 0;
@@ -4060,7 +4060,7 @@ body.is-modal-open{
   font-weight: 600;
   border-radius: 3px; 
   border: none;
-  background:#2494D3;
+  background:#1a7cb5;
   color:#fff;
   flex: 0 0 auto;
 }
@@ -4208,7 +4208,7 @@ body.is-modal-open{
 }
 
 .badge--no{
-  background:#1f8bd6;
+  background:#1470b1;
   color:#fff;
   padding:4px 10px;
   border-radius:4px;
@@ -4562,7 +4562,7 @@ body.is-modal-open{
   border: none;
   border-bottom: none;
   background: #DDDDDD;
-  color: #666666;
+  color: #555;
   font-weight: 500;
   font-size: 14px;
   cursor: pointer;
@@ -5105,7 +5105,7 @@ body.is-modal-open{
   border:1px solid #AAAAAA;
   background:#fff;
   font-size:13px;
-  color: #AAAAAA;
+  color: #666;
 }
 
 .field input::placeholder{
@@ -5217,6 +5217,7 @@ body.is-modal-open{
   font-size:13px;
   cursor:pointer;
   border: none;
+  color: #111;
 }
 
 .tab.is-active{
@@ -5298,7 +5299,7 @@ body.is-modal-open{
 
 .pager button.caNav{
   background: #F4F4F4;
-  color:#868686;
+  color:#666;
   border-color: none;
   border-radius: 4px;
 }
@@ -5513,7 +5514,7 @@ body.is-modal-open{
       border:0;
       background:#DDDDDD;
       cursor:pointer;
-      color: #666666;
+      color: #333;
     }
 
     .tab.is-active{
@@ -5683,7 +5684,7 @@ body.is-modal-open{
 }
 
 .tab-gis.is-active{
-  background: #02908B;
+  background:#00827D;
   color: #ffffff;
 }
 
@@ -5748,7 +5749,7 @@ body.is-modal-open{
   height: 35px;
   min-width: 80px;
   border: 0;
-  background: #02908B;
+  background: #00827D;
   color: #fff;
   font-size: 14px;
   font-weight: 500;
