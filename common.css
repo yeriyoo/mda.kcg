@@ -28,7 +28,7 @@ body {
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
-  -webkit-font-smoothing: antialiased;
+  /* -webkit-font-smoothing: antialiased; */
 }
 
 /* 메인페이지 */
@@ -124,7 +124,6 @@ body {
 }
 
 .map-hud__pill{
-  pointer-events: auto; 
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -216,7 +215,6 @@ body {
   border: 0;
   padding: 0;
   cursor: pointer;
-  pointer-events: auto;
   background: transparent;
 }
 
@@ -1219,7 +1217,7 @@ margin: 0;
 }
 
 .legend-item span{
-  font-size: 18x;
+  font-size: 18px;
   font-weight: 700;
   color: #111;
   line-height: 1;
@@ -2553,7 +2551,7 @@ body.is-modal-open{
 .dash-tab.is-active{
   background:#1E2D72;
   color:#fff;
-  border-color:#1E2D72;
+  border-color:transparent;
 }
 
 .dash-update{ 
@@ -4011,7 +4009,7 @@ body.is-modal-open{
 
 .subTab.is-active{
   background:#213079;
-  border-color: none;
+  border-color: transparent;
   color:#fff;
 }
 
@@ -4243,7 +4241,7 @@ body.is-modal-open{
 .pageBtn.is-active{
   background:#1e2f7a;
   color:#fff;
-  border-color:#1e2f7a;
+  border-color:transparent;
 }
 
 .linkCell{
@@ -4289,7 +4287,7 @@ body.is-modal-open{
 
 .dataTable td{
   vertical-align: middle;
-  word-break: break-word;
+  word-break: keep-all;
 }
 
 .tableWrap--wide{
@@ -4470,7 +4468,7 @@ body.is-modal-open{
   width: 80px;
   text-align: center;
   background: #E5F1FF;
-  border-color: 1px solid #9EB7D2;
+  border: 1px solid #9EB7D2;
   color: #426891;
   font-weight: 600;
 }
@@ -4574,7 +4572,7 @@ body.is-modal-open{
 .caSubTab.is-active {
   background: #213079;
   color: #fff;
-  border-color: none;
+  border-color: transparent;
 }
 
 .caSubRight{
@@ -4608,7 +4606,7 @@ body.is-modal-open{
 .caPageBtn.is-active {
   background: #1d2f6f;
   color: #fff;
-  border-color: #1d2f6f;
+  border-color: transparent;
 }
 
 .caPageBtn.caNav {
@@ -5016,7 +5014,7 @@ body.is-modal-open{
 
 .caShareAction--primary{
   background: #213079;
-  border-color: #213079;
+  border-color: transparent;
   color: #fff;
 }
 
@@ -5162,7 +5160,7 @@ body.is-modal-open{
 .btn--primary{
   width: 80px;
   background:#213079;
-  border-color: none;
+  border-color: transparent;
   color:#fff;
 }
 
@@ -5303,7 +5301,7 @@ body.is-modal-open{
 .pager button.caNav{
   background: #F4F4F4;
   color:#666;
-  border-color: none;
+  border-color: transparent;
   border-radius: 4px;
 }
 
@@ -5641,7 +5639,7 @@ body.is-modal-open{
   bottom: 0;
   display: flex;
   z-index: 10;
-  font-family: "NanumSquare", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-family: "NanumSquare", sans-serif;
 }
 
 .icon-rail{
