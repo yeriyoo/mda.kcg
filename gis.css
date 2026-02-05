@@ -1536,12 +1536,19 @@ background:transparent url(img/ico_control_select.svg)no-repeat right .5rem cent
 .formGroup > ul li{display:flex;gap:1rem;}
 .formGroup > ul li+li{margin:.7rem 0;}
 .formGroup > ul li .col{flex:1 1;}
+.formGroup > ul li .label,
 .formGroup > ul li label {display: flex; align-items: center; flex: 1 1 50%;}
+.formGroup > ul li .label span,
 .formGroup > ul li label span {flex-shrink: 0;width: 7.5rem; color: var(--white);}
+.formGroup > ul li .label select, .formGroup > ul li .label input, 
 .formGroup > ul li label select, .formGroup > ul li label input, 
+.formGroup > ul li .label .numInput,
 .formGroup > ul li label .numInput {flex: 1 1;}
+.formGroup > ul li .label .labelRow,
 .formGroup > ul li label .labelRow {flex: 1 1; display: flex; align-items: center; gap: .5rem; color: var(--white);}
+.formGroup > ul li .label .labelRow > span,
 .formGroup > ul li label .labelRow > span{flex-shrink: 0; width: 2rem; text-align: center; }
+.formGroup > ul li .label .labelRow > input, .formGroup > ul li .label .labelRow > .numInput,
 .formGroup > ul li label .labelRow > input, .formGroup > ul li label .labelRow > .numInput {flex: 1 1;}
 .formGroup > ul li.fgBtn { justify-content: flex-end; padding: 1rem 0 1.5rem;}
 .formGroup > ul li.fgBtn.rowSB  { justify-content: space-between;}
@@ -1885,6 +1892,11 @@ background:transparent url(img/ico_control_select.svg)no-repeat right .5rem cent
 .replayControlBar .control .playProgress {display: flex;flex-direction: column; gap: .6rem; width: 50rem; padding-top: .3rem;}
 .replayControlBar .control .playProgress .timeLabel {font-size: var(--fs-s);}
 .replayControlBar .option {display: flex; align-items: center; width: 100%; padding: .9rem 2.3rem;}
+.replayControlBar .option .label {display: flex; align-items: center; gap: .5rem;}
+.replayControlBar .option .label span {display: flex; width: 6rem; }
+.replayControlBar .option .label:first-child {padding-right: 3rem;}
+.replayControlBar .option .label:last-child {padding-right: 1rem;}
+
 .replayControlBar .option label {display: flex; align-items: center; gap: .5rem;}
 .replayControlBar .option label span {display: flex; width: 6rem; }
 .replayControlBar .option label:first-child {padding-right: 3rem;}
