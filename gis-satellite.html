@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-police.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-police.png">
+    <link rel="shortcut icon" href="img/favicon-police.ico">
+
+    <link rel="stylesheet" href="gis.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" >
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>해양환경 위기대응 통합지원시스템 플랫폼</title>
+    <!-- <script src="common.js" defer></script> -->
+</head>
+<body>
+    <div id="root" class="background-image-gis">
+        <div id="wrap" class="wrap">
+            <header id="header">
+                <div class="logoArea"><a class="logo" href="/main"><span class="blind">GIS 함정용</span></a> <span
+                        class="logoTxt">GIS 함정용</span></div>
+                <aside>
+                    <ul>
+                        <li><a class="alram" title="알람" href="/main"><i class="badge"></i><span
+                                    class="blind">알람</span></a></li>
+                        <li class="setWrap"><a class="set" title="설정" href="/signal"><span class="blind">설정</span></a>
+                            <div class="setMenu"><a href="/signal">신호설정</a><a href="/signal/custom">맞춤설정</a></div>
+                        </li>
+                        <li><a class="user" title="마이페이지" href="/mypage"><span class="blind">마이페이지</span></a></li>
+                    </ul>
+                </aside>
+            </header>
+            <section id="sidePanel">
+                <nav id="nav">
+                    <ul class="gnb">
+                        <li><button type="button" class="gnb1 " aria-label="선박" title="선박"><span
+                                    class="blind">선박</span></button></li>
+                        <li><button type="button" class="gnb2 active" aria-label="위성" title="위성"><span
+                                    class="blind">위성</span></button></li>
+                        <li><button type="button" class="gnb3 " aria-label="기상" title="기상"><span
+                                    class="blind">기상</span></button></li>
+                        <li><button type="button" class="gnb4 " aria-label="분석" title="분석"><span
+                                    class="blind">분석</span></button></li>
+                        <li><button type="button" class="gnb5 " aria-label="타임라인" title="타임라인"><span
+                                    class="blind">타임라인</span></button></li>
+                        <li><button type="button" class="gnb6 " aria-label="AI모드" title="AI모드"><span
+                                    class="blind">AI모드</span></button></li>
+                        <li><button type="button" class="gnb7 " aria-label="리플레이" title="리플레이"><span
+                                    class="blind">리플레이</span></button></li>
+                        <li><button type="button" class="gnb8 " aria-label="항적조회" title="항적조회"><span
+                                    class="blind">항적조회</span></button></li>
+                    </ul>
+                    <ul class="side">
+                        <li><button type="button" class="filter " aria-label="필터" title="필터"><span
+                                    class="blind">필터</span></button></li>
+                        <li><button type="button" class="layer " aria-label="레이어" title="레이어"><span
+                                    class="blind">레이어</span></button></li>
+                    </ul>
+                </nav>
+                <div class="sidePanelContent">
+                    <aside class="slidePanel ">
+                        <div class="tabBox">
+                            <div class="tabDefault"><button type="button" class="on">위성영상 관리</button><button
+                                    type="button" class="">위성사업자 관리</button><button type="button" class="">위성
+                                    관리</button></div>
+                        </div>
+                        <div class="tabWrap is-active">
+                            <div class="tabTop">
+                                <div class="title">위성영상 관리</div>
+                                <div class="formGroup">
+                                    <ul>
+                                        <li><label><span>영상 촬영일</span>
+                                                <div class="labelRow"><input class="dateInput" placeholder="연도-월-일"
+                                                        type="text"><span>-</span><input class="dateInput"
+                                                        placeholder="연도-월-일" type="text"></div>
+                                            </label></li>
+                                        <div class="accordion pt8 ">
+                                            <li><label><span>영상 종류</span><select>
+                                                        <option value="">전체</option>
+                                                        <option value="">VIRS</option>
+                                                        <option value="">ICEYE_SAR</option>
+                                                        <option value="">광학</option>
+                                                        <option value="">예약</option>
+                                                        <option value="">RF</option>
+                                                    </select></label><label><span>영상 출처</span><select>
+                                                        <option value="">전체</option>
+                                                        <option value="">국내/자동</option>
+                                                        <option value="">국내/수동</option>
+                                                        <option value="">국외/수동</option>
+                                                        <option value="">기타</option>
+                                                    </select></label></li>
+                                            <li><label><span>위성 궤도</span><select>
+                                                        <option value="">전체</option>
+                                                        <option value="">저궤도</option>
+                                                        <option value="">중궤도</option>
+                                                        <option value="">정지궤도</option>
+                                                        <option value="">기타</option>
+                                                    </select></label><label><span>주기</span><select>
+                                                        <option value="">전체</option>
+                                                        <option value="">0</option>
+                                                        <option value="">10</option>
+                                                        <option value="">30</option>
+                                                        <option value="">60</option>
+                                                    </select></label></li>
+                                        </div>
+                                        <li><label><span>위성영상명</span><input placeholder="위성영상명" type="text"></label>
+                                        </li>
+                                        <li><button type="button" class="btn btnS semi btnToggle "
+                                                aria-expanded="false">상세검색 열기</button></li>
+                                        <li class="fgBtn rowSB">
+                                            <div class="row gap10"><span>투명도</span>
+                                                <div><label class="rangeWrap"><span class="rangeLabel">투명도
+                                                            조절</span><input min="0" max="100" aria-label="투명도 조절"
+                                                            type="range" value="50" style="--percent: 50%;"></label>
+                                                </div>
+                                            </div>
+                                            <div class="row gap10"><span>밝기</span>
+                                                <div><label class="rangeWrap"><span class="rangeLabel">밝기
+                                                            조절</span><input min="0" max="100" aria-label="밝기 조절"
+                                                            type="range" value="50" style="--percent: 50%;"></label>
+                                                </div>
+                                            </div><button type="button" class="schBtn">검색</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tabBtm noSc">
+                                <div class="tabBtmInner">
+                                    <div class="tabBtmCnt">
+                                        <div class="detailWrap">
+                                            <ul class="detailBox stretch">
+                                                <li class="dbHeader">
+                                                    <div class="headerL item2"><span class="name">업로드 테스트</span><span
+                                                            class="type">2025-09-25 16:09:00</span></div>
+                                                </li>
+                                                <li>
+                                                    <ul class="dbList">
+                                                        <li><span class="label">위성명</span><span
+                                                                class="value">VIRS</span></li>
+                                                        <li><span class="label">위성영상파일</span><span
+                                                                class="value">mda:fae19b9b-e99e-4794-
+                                                                a305-bce6d537ac36_remark_
+                                                                resized_2022_0102_1709_npp_DNB_750</span></li>
+                                                        <li><span class="label">위성명</span><span
+                                                                class="value">VIRS</span></li>
+                                                        <li><span class="label">영상 출처</span><span
+                                                                class="value">VIRS</span></li>
+                                                    </ul>
+                                                    <div class="btnArea"><button type="button"
+                                                            class="btnEdit"></button><button type="button"
+                                                            class="btnDel"></button><button type="button"
+                                                            class="btnMap"></button></div>
+                                                </li>
+                                            </ul>
+                                            <ul class="detailBox stretch">
+                                                <li class="dbHeader">
+                                                    <div class="headerL item2"><span class="name">업로드 테스트</span><span
+                                                            class="type">2025-09-25 16:09:00</span></div>
+                                                </li>
+                                                <li>
+                                                    <ul class="dbList">
+                                                        <li><span class="label">위성명</span><span
+                                                                class="value">VIRS</span></li>
+                                                        <li><span class="label">위성영상파일</span><span
+                                                                class="value">mda:fae19b9b-e99e-4794-
+                                                                a305-bce6d537ac36_remark_
+                                                                resized_2022_0102_1709_npp_DNB_750</span></li>
+                                                        <li><span class="label">위성명</span><span
+                                                                class="value">VIRS</span></li>
+                                                        <li><span class="label">영상 출처</span><span
+                                                                class="value">VIRS</span></li>
+                                                    </ul>
+                                                    <div class="btnArea"><button type="button"
+                                                            class="btnEdit"></button><button type="button"
+                                                            class="btnDel"></button><button type="button"
+                                                            class="btnMap"></button></div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="btnBox rowSB"><button type="button" class="btn btnLine">위성영상 폴더
+                                            업로드</button><button type="button" class="btn btnLine">위성영상 등록</button></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tabWrap ">
+                            <div class="tabTop">
+                                <div class="title">위성사업자 관리</div>
+                                <div class="formGroup">
+                                    <ul>
+                                        <li><label><span>사업자 분류</span><select>
+                                                    <option value="">전체</option>
+                                                    <option value="">국가</option>
+                                                    <option value="">연구기관</option>
+                                                    <option value="">민간사업자</option>
+                                                    <option value="">기타</option>
+                                                </select></label><label><span>사업자명</span><input placeholder="사업자명"
+                                                    type="text"></label></li>
+                                        <li class="fgBtn"><button type="button" class="schBtn">검색</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tabBtm noSc">
+                                <div class="tabBtmInner">
+                                    <div class="tabBtmCnt">
+                                        <div class="detailWrap">
+                                            <ul class="detailBox">
+                                                <li class="dbHeader">
+                                                    <div class="headerL item1"><span class="name">Test 01</span></div>
+                                                </li>
+                                                <li><span class="label">사업자 분류</span><span class="value">국가</span></li>
+                                                <li><span class="label">국가</span><span class="value">대한민국</span></li>
+                                                <li><span class="label">소재지</span><span class="value">test</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="btnBox"><button type="button" class="btn btnLine">등록</button></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tabWrap ">
+                            <div class="tabTop">
+                                <div class="title">위성 관리</div>
+                                <div class="formGroup">
+                                    <ul>
+                                        <li><label><span>사업자 분류</span><select>
+                                                    <option value="">전체</option>
+                                                    <option value="">국가</option>
+                                                    <option value="">연구기관</option>
+                                                    <option value="">민간사업자</option>
+                                                    <option value="">기타</option>
+                                                </select></label><label><span>센서 타입</span><select>
+                                                    <option value="">전체</option>
+                                                    <option value="">광학</option>
+                                                    <option value="">SAR</option>
+                                                    <option value="">RF</option>
+                                                    <option value="">기타</option>
+                                                </select></label></li>
+                                        <li><label><span>위성명</span><input placeholder="위성명" type="text"></label></li>
+                                        <li class="fgBtn"><button type="button" class="schBtn">검색</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tabBtm noSc">
+                                <div class="tabBtmInner">
+                                    <div class="tabBtmCnt">
+                                        <div class="detailWrap">
+                                            <ul class="detailBox">
+                                                <li><span class="label">사업자명</span><span class="value">국토지리정보원</span>
+                                                </li>
+                                                <li><span class="label">위성명</span><span class="value">국가</span></li>
+                                                <li><span class="label">센서 타입</span><span class="value">test</span></li>
+                                                <li><span class="label">촬영 해상도</span><span class="value"></span></li>
+                                            </ul>
+                                            <ul class="detailBox">
+                                                <li><span class="label">사업자명</span><span class="value">국토지리정보원</span>
+                                                </li>
+                                                <li><span class="label">위성명</span><span class="value">국가</span></li>
+                                                <li><span class="label">센서 타입</span><span class="value">test</span></li>
+                                                <li><span class="label">촬영 해상도</span><span class="value"></span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="btnBox"><button type="button" class="btn btnLine">등록</button></div>
+                                </div>
+                            </div>
+                        </div><button type="button" class="toogle" aria-expanded="true"><span class="blind">패널
+                                접기</span></button>
+                    </aside>
+                </div>
+            </section>
+            <main id="main">
+                <section class="topBar">
+                    <div class="locationInfo">
+                        <ul>
+                            <li><button type="button" class="map active"><span class="blind">지도</span></button></li>
+                            <li class="divider"><span class="wgs">경도</span><span>129°</span>
+                                <span>38’</span><span>31.071”</span><span>E</span></li>
+                            <li class="divider"><span class="wgs">위도</span><span>35° </span>
+                                <span>21’</span><span>24.580”</span><span>N</span></li>
+                            <li><span class="kst">KST</span><span>2024-07-01(화)</span> <span>12:00:00</span></li>
+                            <li><button type="button" class="set"><span class="blind">설정</span></button></li>
+                            <li><button type="button" class="ship"><span class="blind">선박</span></button></li>
+                        </ul>
+                    </div>
+                    <div class="topSchBox"><input class="tschInput" placeholder="선박 위치 검색" type="text"><button
+                            type="button" class="mainSchBtn">검색</button></div>
+                </section>
+            </main>
+            <section id="tool">
+                <div class="toolBar">
+                    <ul class="toolItem space">
+                        <li><button type="button" class="tool01">초기화</button></li>
+                        <li><button type="button" class="tool02">선박통합</button></li>
+                        <li><button type="button" class="tool03">구역설정</button></li>
+                    </ul>
+                    <ul class="toolItem mt30">
+                        <li><button type="button" class="tool04">거리</button></li>
+                        <li><button type="button" class="tool05">면적</button></li>
+                        <li><button type="button" class="tool06">거리환</button></li>
+                    </ul>
+                    <ul class="toolItem space mt30">
+                        <li><button type="button" class="tool07">인쇄</button></li>
+                        <li><button type="button" class="tool08">다운로드</button></li>
+                    </ul>
+                </div>
+                <div class="control">
+                    <ul class="toolItem zoom">
+                        <li><button type="button" class="zoomin" title="확대"><span class="blind">확대</span></button></li>
+                        <li class="num">7</li>
+                        <li><button type="button" class="zoomout" title="축소"><span class="blind">축소</span></button></li>
+                    </ul>
+                    <ul class="toolItem space mt30">
+                        <li><button type="button" class="legend ">범례</button></li>
+                        <li><button type="button" class="minimap">미니맵</button></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+</body>
+  
+
+</body>
+</html>

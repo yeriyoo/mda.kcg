@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-police.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-police.png">
+    <link rel="shortcut icon" href="img/favicon-police.ico">
+
+    <link rel="stylesheet" href="gis.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" >
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>해양환경 위기대응 통합지원시스템 플랫폼</title>
+    <!-- <script src="common.js" defer></script> -->
+</head>
+<body>
+    <div id="root" class="background-image-gis">
+        <div id="wrap" class="wrap">
+            <header id="header">
+                <div class="logoArea"><a class="logo" href="/main"><span class="blind">GIS 함정용</span></a> <span
+                        class="logoTxt">GIS 함정용</span></div>
+                <aside>
+                    <ul>
+                        <li><a class="alram" title="알람" href="/main"><i class="badge"></i><span
+                                    class="blind">알람</span></a></li>
+                        <li class="setWrap"><a class="set" title="설정" href="/signal"><span class="blind">설정</span></a>
+                            <div class="setMenu"><a href="/signal">신호설정</a><a href="/signal/custom">맞춤설정</a></div>
+                        </li>
+                        <li><a class="user" title="마이페이지" href="/mypage"><span class="blind">마이페이지</span></a></li>
+                    </ul>
+                </aside>
+            </header>
+            <section id="sidePanel">
+                <nav id="nav">
+                    <ul class="gnb">
+                        <li><button type="button" class="gnb1 " aria-label="선박" title="선박"><span
+                                    class="blind">선박</span></button></li>
+                        <li><button type="button" class="gnb2 " aria-label="위성" title="위성"><span
+                                    class="blind">위성</span></button></li>
+                        <li><button type="button" class="gnb3 " aria-label="기상" title="기상"><span
+                                    class="blind">기상</span></button></li>
+                        <li><button type="button" class="gnb4 " aria-label="분석" title="분석"><span
+                                    class="blind">분석</span></button></li>
+                        <li><button type="button" class="gnb5 " aria-label="타임라인" title="타임라인"><span
+                                    class="blind">타임라인</span></button></li>
+                        <li><button type="button" class="gnb6 " aria-label="AI모드" title="AI모드"><span
+                                    class="blind">AI모드</span></button></li>
+                        <li><button type="button" class="gnb7 active" aria-label="리플레이" title="리플레이"><span
+                                    class="blind">리플레이</span></button></li>
+                        <li><button type="button" class="gnb8 " aria-label="항적조회" title="항적조회"><span
+                                    class="blind">항적조회</span></button></li>
+                    </ul>
+                    <ul class="side">
+                        <li><button type="button" class="filter " aria-label="필터" title="필터"><span
+                                    class="blind">필터</span></button></li>
+                        <li><button type="button" class="layer " aria-label="레이어" title="레이어"><span
+                                    class="blind">레이어</span></button></li>
+                    </ul>
+                </nav>
+                <div class="sidePanelContent">
+                    <section></section>
+                </div>
+            </section>
+            <main id="main">
+                <section class="topBar">
+                    <div class="locationInfo">
+                        <ul>
+                            <li><button type="button" class="map active"><span class="blind">지도</span></button></li>
+                            <li class="divider"><span class="wgs">경도</span><span>129°</span>
+                                <span>38’</span><span>31.071”</span><span>E</span></li>
+                            <li class="divider"><span class="wgs">위도</span><span>35° </span>
+                                <span>21’</span><span>24.580”</span><span>N</span></li>
+                            <li><span class="kst">KST</span><span>2024-07-01(화)</span> <span>12:00:00</span></li>
+                            <li><button type="button" class="set"><span class="blind">설정</span></button></li>
+                            <li><button type="button" class="ship"><span class="blind">선박</span></button></li>
+                        </ul>
+                    </div>
+                    <div class="topSchBox"><input class="tschInput" placeholder="선박 위치 검색" type="text"><button
+                            type="button" class="mainSchBtn">검색</button></div>
+                </section>
+                <section class="ReplayComponent">
+                    <div class="replayWrap"><button type="button" class="barCloseBtn" aria-label="닫기"></button>
+                        <div class="replayControlBar">
+                            <div class="control">
+                                <div class="ctrL"><button type="button" class="playBtn"
+                                        aria-label="플레이"></button><select class="controlSelect w8r"
+                                        aria-label="재생속도 선택">
+                                        <option value="">2.0X</option>
+                                    </select></div>
+                                <div class="playProgress"><input class="playRange" min="0" max="100" aria-label="재생 위치"
+                                        type="range" value="30"
+                                        style="background: linear-gradient(to right, rgb(255, 0, 0) 0%, rgb(255, 0, 0) 30%, rgb(215, 219, 236) 30%, rgb(215, 219, 236) 100%);">
+                                    <div class="timeLabel">2023-08-20&nbsp;&nbsp;10:15:30</div>
+                                </div>
+                                <div class="ctrR"><button type="button" class="captureBtn"
+                                        aria-label="캡쳐"></button><button type="button" class="stopBtn"
+                                        aria-label="정지"></button></div>
+                            </div>
+                            <div class="option"><label><span>재생기간</span><select class="controlSelect w8r">
+                                        <option value="">어제</option>
+                                    </select><input placeholder="" class="controlInput w14r" type="text"> ~<input
+                                        placeholder="" class="controlInput w14r"
+                                        type="text"></label><label><span>표출정보</span><button type="button"
+                                        class="trackRndBtn">항적</button></label></div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <section id="tool">
+                <div class="toolBar">
+                    <ul class="toolItem space">
+                        <li><button type="button" class="tool01">초기화</button></li>
+                        <li><button type="button" class="tool02">선박통합</button></li>
+                        <li><button type="button" class="tool03">구역설정</button></li>
+                    </ul>
+                    <ul class="toolItem mt30">
+                        <li><button type="button" class="tool04">거리</button></li>
+                        <li><button type="button" class="tool05">면적</button></li>
+                        <li><button type="button" class="tool06">거리환</button></li>
+                    </ul>
+                    <ul class="toolItem space mt30">
+                        <li><button type="button" class="tool07">인쇄</button></li>
+                        <li><button type="button" class="tool08">다운로드</button></li>
+                    </ul>
+                </div>
+                <div class="control">
+                    <ul class="toolItem zoom">
+                        <li><button type="button" class="zoomin" title="확대"><span class="blind">확대</span></button></li>
+                        <li class="num">7</li>
+                        <li><button type="button" class="zoomout" title="축소"><span class="blind">축소</span></button></li>
+                    </ul>
+                    <ul class="toolItem space mt30">
+                        <li><button type="button" class="legend ">범례</button></li>
+                        <li><button type="button" class="minimap">미니맵</button></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+</body>
+</html>
