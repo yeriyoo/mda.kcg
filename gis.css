@@ -823,10 +823,10 @@
 }
  /* 변수설정 */
   :root {
-	--primary1:#02908B;
+	--primary1:#007e7a;
     --primary1-rgb: 2, 144, 139;
 	--primary2:#04C2C3;
-	--primary3:#01B3B4;
+	--primary3:#007e7a;
 	--secondary1:#011C2F;
 	--secondary2 :#122D41;
 	--secondary3 :#0A3F4E;
@@ -1638,7 +1638,7 @@ background:transparent url(img/ico_control_select.svg)no-repeat right .5rem cent
 .detailBox > .dbHeader > .headerL,
 .detailBox > .dbHeader > .headerR {display:flex;align-items:center;gap:.7rem;color:var(--white);}
 .detailBox > .dbHeader .name {font-size: var(--fs-ml); font-weight:var(--fw-bold);}
-.detailBox > .dbHeader .type {font-size: var(--fs-ml); font-weight:var(--fw-bold);color:var(--primary1);}
+.detailBox > .dbHeader .type {font-size: var(--fs-ml); font-weight:var(--fw-bold);color:var(--primary2);}
 .detailBox > .dbHeader .num {font-size: var(--fs-m); font-weight:var(--fw-bold);}
 .detailBox > .dbHeader .icoArrow {width:2rem;height:2rem;background:url(img/ico_arrow_right_rnd_off.svg) no-repeat center/contain; margin-left: .5rem;}
 .detailBox:has(.icoArrow:hover) {border: solid 2px var(--primary1);}

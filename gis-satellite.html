@@ -74,9 +74,9 @@
                                 <div class="formGroup">
                                     <ul>
                                         <li><div class="label"><span>영상 촬영일</span>
-                                                <div class="labelRow"><input class="dateInput" placeholder="연도-월-일"
+                                                <div class="labelRow"><input class="dateInput" placeholder="연도-월-일" aria-label="시작일"
                                                         type="text"><span>-</span><input class="dateInput"
-                                                        placeholder="연도-월-일" type="text"></div>
+                                                        placeholder="연도-월-일" aria-label="종료일" type="text"></div>
                                             </div></li>
                                         
                                         <li><label><span>위성영상명</span><input placeholder="위성영상명" type="text"></label>
@@ -123,9 +123,9 @@
                                                                 class="value">VIRS</span></li>
                                                     </ul>
                                                     <div class="btnArea"><button type="button"
-                                                            class="btnEdit"></button><button type="button"
-                                                            class="btnDel"></button><button type="button"
-                                                            class="btnMap"></button></div>
+                                                            class="btnEdit" aria-label="수정"></button><button type="button"
+                                                            class="btnDel" aria-label="삭제"></button><button type="button"
+                                                            class="btnMap" aria-label="지도보기"></button></div>
                                                 </li>
                                             </ul>
                                             <ul class="detailBox stretch">
@@ -147,9 +147,9 @@
                                                                 class="value">VIRS</span></li>
                                                     </ul>
                                                     <div class="btnArea"><button type="button"
-                                                            class="btnEdit"></button><button type="button"
-                                                            class="btnDel"></button><button type="button"
-                                                            class="btnMap"></button></div>
+                                                            class="btnEdit" aria-label="수정"></button><button type="button"
+                                                            class="btnDel" aria-label="삭제"></button><button type="button"
+                                                            class="btnMap" aria-label="지도보기"></button></div>
                                                 </li>
                                             </ul>
                                         </div>
@@ -179,7 +179,7 @@
                             <li><button type="button" class="ship"><span class="blind">선박</span></button></li>
                         </ul>
                     </div>
-                    <div class="topSchBox"><input class="tschInput" placeholder="선박 위치 검색" type="text"><button
+                    <div class="topSchBox"><input class="tschInput" id="search" placeholder="선박 위치 검색" type="text" aria-label="선박 위치 검색"><button
                             type="button" class="mainSchBtn">검색</button></div>
                 </div>
             </main>
